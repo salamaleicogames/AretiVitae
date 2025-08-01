@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+body{
+    background-color: rgb(58, 80, 107);
+    height: 100vh;
+}
+
+
+
+.cdsb{
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 37, 65);
+    outline:none;
+    border: none;
+    width: 700px;
+    height: 100px;
+    border-radius: 10px;
+    margin-left: 73vh;
+    margin-top: 110px;
+    font-family: "Josefin Sans", sans-serif;
+  font-size: 50px;
+  color: white;
+  transition: transform 0.2s ease;
+  box-shadow: 5px 5px white;
+}
+
+.cdsb:hover{
+     transform: scale(1.1);
+
+}
+
+p{
+    color:white;
+    font-size: 45px;
+    font-family: "Josefin Sans", sans-serif;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.im{
+    width: 70vh;
+    height: 50vh;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px black;
+}
+
+.i2{
+    width: 70vh;
+    height: 50vh;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px black;
+    margin-right: 60px;
+    margin-top: 80px;
+}
+
+.titulo{
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color:white;
+    font-size: 90px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 790px;
+}
+.titulo1{
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color:white;
+    font-size: 90px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 650px;
+}
+
+.tassinatura{
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color:white;
+    font-size: 70px;
+    padding-left: 120px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.kingedition{
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color:white;
+    font-size: 160px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 730px;
+    text-shadow: 5px 5px 0px black;
+    transition: transform 0.2s ease;
+}
+
+.kingedition:hover{
+    transform: scale(1.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container{
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.frase{
+    color:white;
+    font-size: 100px;
+    font-family: "Josefin Sans", sans-serif;
+    transition: transform 0.2s ease;
+}
+
+.frase1{
+    color:white;
+    font-size: 100px;
+    font-family: "Josefin Sans", sans-serif;
+    padding-top: 180px;
+    transition: transform 0.2s ease;
+}
+
+.frase:hover{
+    transform: scale(1.05);
+}
+
+.frase1:hover{
+    transform: scale(1.05);
+}
+
+hr{
+    width: 180vh;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.agaeri{
+    width: 550px;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.caixa{
+    display: flex;
+}
+
+.box{
+    background-color: rgb(28, 37, 65);;
+    width: 700px;
+    height: 1000px;   
+    margin-top: 120px;
+    margin-left: 500px;
+    border-radius: 10px;
+}
+
