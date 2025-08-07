@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 body{
-    background-color: rgb(58, 80, 107);
+    background-color: rgb(1,23,47);
     height: 100vh;
 }
 
@@ -13,7 +13,7 @@ body{
 .cdsb{
     display: flex;
     align-items: center;
-    background-color: rgb(28, 37, 65);
+    background-color: rgb(75, 94, 153);
     outline:none;
     border: none;
     width: 700px;
@@ -47,14 +47,14 @@ p{
     margin-left: 60px;
     margin-right: 60px;
     border-radius: 5px;
-    box-shadow: 4px 4px 0px black;
+    box-shadow: 4px 4px 0px rgb(75, 94, 153);
 }
 
 .i2{
     width: 70vh;
     height: 50vh;
     border-radius: 5px;
-    box-shadow: 4px 4px 0px black;
+    box-shadow: 4px 4px 0px rgb(75, 94, 153);
     margin-right: 60px;
     margin-top: 80px;
 }
@@ -96,7 +96,7 @@ p{
     display: inline-block;
     transition: transform 0.2s ease;
     margin-left: 730px;
-    text-shadow: 5px 5px 0px black;
+    text-shadow: 5px 5px 0px rgb(75, 94, 153);
     transition: transform 0.2s ease;
 }
 
@@ -160,7 +160,7 @@ hr{
     width: 700px;
     height: 1000px;   
     margin-top: 120px;
-    margin-left: 500px;
+    margin-left: 1000px;
     border-radius: 10px;
 }
 
