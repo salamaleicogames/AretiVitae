@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+body {
+    background-color: rgb(28, 37, 65);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.titulop {
+    font-family: "Rock Salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease;
+}
+
+.container {
+    background-color: rgb(58, 80, 107);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 5px 5px 0px white;
+    box-sizing: border-box;
+}
+
+.titulo {
+    font-family: "Covered By Your Grace", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.titulo:hover {
+    transform: scale(1.1);
+}
+
+hr {
+    height: 4px;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    margin: 10px auto 30px;
+    width: 80%;
+}
+
+.cdst,
+.cdse,
+.cdsi,
+.cdsp,
+.cdsp1 {
+    background-color: rgba(247, 245, 245, 0.993);
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.cdsb {
+    background-color: rgb(75, 94, 153);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Rock Salt", cursive;
+    font-size: 18px;
+    color: white;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.cdsb {
+    transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+.cdsb:hover {
+    background-color: rgb(81, 103, 167);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Rock Salt", cursive;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+
+.cdsb:active {
+     background-color: rgb(88, 110, 179);
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Rock Salt", cursive;
+    font-size: 18px;
+    color: white;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+
+@media screen and (max-width: 480px) {
+    .titulop {
+        font-size: 40px;
+    }
+
+    .titulo {
+        font-size: 36px;
+    }
+
+    .cdsb {
+        font-size: 16px;
+        height: 45px;
+    }
+
+    .cdst,
+    .cdse,
+    .cdsi,
+    .cdsp,
+    .cdsp1 {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+}

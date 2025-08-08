@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+body{
+    background-color: rgb(28, 37, 65);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    background-color: rgb(58, 80, 107);
+    height: 62vh;
+    width: 52vh;
+    border-radius: 20px;
+    margin-right: 31vh;
+    box-shadow: 5px 5px 0px white;
+}
+
+h1{
+     font-family: "Covered By Your Grace", cursive;
+    font-weight: 400;
+    color:white;
+    font-size: 100px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-bottom: 0;
+    margin-left: 240px;
+}
+
+h1:hover{
+    display: inline-block;
+    transform: scale(1.1);
+}
+
+hr{
+    height: 5px;
+    background-color: white;
+    width: 400px;
+    border-radius: 3px;
+}
+
+.cdse{
+    background-color: rgba(247, 245, 245, 0.993);
+    outline: none;
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 85px;
+    margin-left: 85px;
+    border: none;
+  outline: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.cdsp{
+     background-color: rgba(247, 245, 245, 0.993);
+    outline: none;
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-left: 85px;
+    border: none;
+  outline: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.cdsb{
+    display: flex;
+    align-items: center;
+    background-color: rgb(28, 37, 65);
+    outline:none;
+    border: none;
+    width: 400px;
+    height: 60px;
+    border-radius: 10px;
+    margin-left: 140px;
+    margin-top: 110px;
+    font-family: "Rock salt", cursive;
+  font-size: 20px;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.cdsb:hover{
+     transform: scale(1.1);
+
+}
+
+.cdsb:active{
+    font-family: "Covered By Your Grace", cursive;
+    font-size:30px;
+    background-color: white;
+    color:black
+}
+
+a{
+    font-family: "Josefin Sans", sans-serif;
+    color:white;
+    font-weight: 400;
+    font-size:20px;
+    margin-left: 180px;
+    text-decoration: none;
+    padding-top: 40px;
+      display: inline-block;
+}
+
+.a1{
+    font-family: "Josefin Sans", sans-serif;
+    color:white;
+    font-weight: 400;
+    font-size:20px;
+    margin-left: 230px;
+    text-decoration: none;
+    padding-top: 30px;
+      display: inline-block;
+}
+
+
+
