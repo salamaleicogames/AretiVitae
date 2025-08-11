@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 body {
-    background-color: rgb(28, 37, 65);
+    background-color: rgb(1,23,47);
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
@@ -18,19 +18,20 @@ body {
     font-family: "Rock Salt", cursive;
     font-weight: 400;
     color: white;
-    font-size: 60px;
+    font-size: 90px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     transition: transform 0.2s ease;
+    margin-top: 10px;
 }
 
 .container {
-    background-color: rgb(58, 80, 107);
+    background-color: rgb(28, 37, 65);;
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 5px 5px 0px white;
+    box-shadow: 5px 5px 0px rgb(75, 94, 153);
     box-sizing: border-box;
 }
 
