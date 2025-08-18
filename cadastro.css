@@ -4,14 +4,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 body {
     background-color: rgb(1,23,47);
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
+}
+
+.legal{
+        width: 1100px;
+        height: auto;
+}
+
+.d1{
+    display: grid;
+    justify-content: left;
+    align-items: center;
+    padding-left: 100px;
+     background-color: rgb(75, 94, 153);
+}
+
+.d2{
+    display: grid;
+    justify-content: right;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    margin-left: 130px;
 }
 
 .titulop {
@@ -20,19 +36,21 @@ body {
     color: white;
     font-size: 90px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom:0px;
     transition: transform 0.2s ease;
-    margin-top: 10px;
+    margin-top: 0px;
+    padding-left: 137px;
 }
 
 .container {
     background-color: rgb(28, 37, 65);;
-    width: 100%;
-    max-width: 500px;
+    width: 500px;
+    height:600px;
     border-radius: 20px;
-    padding: 30px;
     box-shadow: 5px 5px 0px rgb(75, 94, 153);
     box-sizing: border-box;
+    padding: 20px;
+    margin-left: 300px;
 }
 
 .titulo {
@@ -67,6 +85,7 @@ hr {
     width: 100%;
     height: 40px;
     border-radius: 10px;
+    padding-top: 50px;
     border: none;
     outline: none;
     font-family: "Josefin Sans", sans-serif;
