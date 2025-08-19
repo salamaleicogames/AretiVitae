@@ -8,9 +8,19 @@ body {
     min-height: 100vh;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .legal{
         width: 1100px;
         height: auto;
+}
+
+html, body {
+  overflow: hidden; /* remove rolagem */
 }
 
 .d1{
@@ -19,13 +29,14 @@ body {
     align-items: center;
     padding-left: 100px;
      background-color: rgb(75, 94, 153);
+     height: 100vh;
 }
 
 .d2{
     display: grid;
     justify-content: right;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 110px;
     margin-bottom: 200px;
     margin-left: 130px;
 }
