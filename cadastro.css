@@ -2,37 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 body {
-    background-color: rgb(1,23,47);
+    background-color: rgb(1, 23, 47);
     display: flex;
     min-height: 100vh;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-.legal{
-        width: 1100px;
-        height: auto;
+.legal {
+    width: 90vh;
+    height: auto;
+    margin: 3.6vh;
 }
 
-html, body {
-  overflow: hidden; /* remove rolagem */
+html,
+body {
+    overflow: hidden;
+    /* remove rolagem */
 }
 
-.d1{
-    display: grid;
-    justify-content: left;
+.d1 {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 100px;
-     background-color: rgb(75, 94, 153);
-     height: 100vh;
+    background-color: rgb(75, 94, 153);
+    height: 100vh;
 }
 
-.d2{
+.d2 {
     display: grid;
     justify-content: right;
     align-items: center;
@@ -43,25 +47,26 @@ html, body {
 
 .titulop {
     font-family: "Rock Salt", cursive;
-    font-weight: 400;
+    font-weight: 100;
     color: white;
-    font-size: 90px;
+    font-size: 7vh;
     text-align: center;
-    margin-bottom:0px;
+    margin-bottom: 0px;
     transition: transform 0.2s ease;
     margin-top: 0px;
-    padding-left: 137px;
+    padding-left: 7.5vh;
 }
 
 .container {
-    background-color: rgb(28, 37, 65);;
-    width: 500px;
-    height:600px;
+    background-color: rgb(28, 37, 65);
+    ;
+    width: 55vh;
+    height: 60vh;
     border-radius: 20px;
     box-shadow: 5px 5px 0px rgb(75, 94, 153);
     box-sizing: border-box;
-    padding: 20px;
-    margin-left: 300px;
+    padding: 2vh;
+    margin-left: 11.5vh
 }
 
 .titulo {
@@ -146,7 +151,7 @@ hr {
 
 
 .cdsb:active {
-     background-color: rgb(88, 110, 179);
+    background-color: rgb(88, 110, 179);
     width: 100%;
     height: 50px;
     border-radius: 10px;
@@ -185,4 +190,6 @@ hr {
         font-size: 16px;
         padding: 0 10px;
     }
+
+    @media screen and (max-width: 1000) {}
 }
