@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="cadastroscript.js"></script>
     <link rel="stylesheet" href="cadastro.css">
-    
     <title></title>
 </head>
  
@@ -18,15 +16,40 @@
     <div class="container">
         <h1 class="titulo">Cadastro</h1>
         <hr>
-        <form action="cadastro.php" method="get">
-        <input type="text" class="cdst" placeholder="Nome ou apelido" maxlength="40" name="name" id="idname">
-        <input type="email" class="cdse" placeholder="Correio eletronico (email)" maxlength="60" name="email" id="idemail">
-        <input type="date" class="cdsi" placeholder="Idade" min="0" max= "125" name="age" id="idage">
-        <input type="password" class="cdsp" placeholder="Senha" min="6" max="35" name="password" id="idpassword">
-        <input type="password" class="cdsp1" placeholder="Confirmar senha" min="6" max="35"name="confirm" id="idconfirm">
-        <input type="submit" class="cdsb" value="Cadastrar" name="submit" onclick="cadEfetuado()">
+        <form action="cadastro.php" method="get" id="cadastro">
+        <input type="text" class="cdst" oninput="nameValidate()" placeholder="Nome ou apelido" maxlength="40" name="name" id="idname" required">
+        <span id="msg1"></span>
+        <input type="email" class="cdse" oninput="emailValidate()" placeholder="Correio eletronico (email)" maxlength="60" name="email" id="idemail" required >
+        <span id="msg2"></span>
+        <select id="iddia" class="dia">
+     <option value="" selected disabled hidden>Dia</option>
+</select><select id="mes" name="mes" class="mes" required>
+            <option value="" selected disabled hidden>Mês</option>
+  <option value="01">Janeiro</option>
+  <option value="02">Fevereiro</option>
+  <option value="03">Março</option>
+  <option value="04">Abril</option>
+  <option value="05">Maio</option>
+  <option value="06">Junho</option>
+  <option value="07">Julho</option>
+  <option value="08">Agosto</option>
+  <option value="09">Setembro</option>
+  <option value="10">Outubro</option>
+  <option value="11">Novembro</option>
+  <option value="12">Dezembro</option>
+</select><select id="idano" class="ano">
+     <option value="" selected disabled hidden>Ano</option>
+</select>
+        <input type="password" class="cdsp" placeholder="Senha" min="8" max="35" name="password" id="idpassword" oninput="passwordValidate()" required>
+        <span  id="msg3"></span>
+        <input type="password" class="cdsp1" placeholder="Confirmar senha" min="8" max="35"name="confirm" id="idconfirm" oninput="comparacao()" required>
+        <span id="msg4" ></span>
+        <input type="submit" class="cdsb" value="Cadastrar" name="submit" id="idsubmit">
         </form>
     </div>
     </div>
+
+
 </body>
+<script src="cadastro.js"></script>
 </html>
