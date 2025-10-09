@@ -3,9 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-body{
-    background-color: rgb(1,23,47);
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap');
+
+
+
+body,html{
+    background-color: rgb(75, 94, 153);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px; 
+  }
+
+
+.duo{
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(1, 23, 47);
 }
 
 
@@ -16,11 +39,11 @@ body{
     background-color: rgb(75, 94, 153);
     outline:none;
     border: none;
-    width: 700px;
-    height: 100px;
+    width: 75vh;
+    height: 10vh;
     border-radius: 10px;
     margin-left: 73vh;
-    margin-top: 110px;
+    margin-top: 10vh;
     font-family: "Josefin Sans", sans-serif;
   font-size: 50px;
   color: white;
@@ -63,10 +86,10 @@ p{
     font-family: "Rock salt", cursive;
     font-weight: 400;
     color:white;
-    font-size: 90px;
+    font-size: 16vh;
     display: inline-block;
-    transition: transform 0.2s ease;
-    margin-left: 880px;
+    margin-left: 36vh;
+    margin-bottom: 0.5vh;
 }
 .titulo1{
     font-family: "Rock salt", cursive;
@@ -88,15 +111,16 @@ p{
     transition: transform 0.2s ease;
 }
 
-.kingedition{
-    font-family: "Rock salt", cursive;
+.Network{
+    font-family: "Bona Nova SC", serif;
     font-weight: 400;
     color:white;
-    font-size: 160px;
+    font-size: 20vh;
+    margin-top: 5vh;
     display: inline-block;
     transition: transform 0.2s ease;
-    margin-left: 730px;
-    text-shadow: 5px 5px 0px rgb(75, 94, 153);
+    margin-left: 65vh;
+    padding-top:2vh;
     transition: transform 0.2s ease;
 }
 
@@ -137,10 +161,21 @@ html {
 }
 
 hr{
-    width: 180vh;
+    width: 100%;
     height: 5px;
     background-color: white;
     border-radius: 10px;
+    margin-bottom: 0vh;
+
+}
+
+.hr1{
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0vh;
+    margin-top: 0vh;
 
 }
 
