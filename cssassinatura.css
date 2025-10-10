@@ -8,7 +8,8 @@
 
 
 
-body,html{
+body,
+html {
     background-color: rgb(75, 94, 153);
     width: 100%;
     height: 100%;
@@ -21,23 +22,30 @@ body,html{
 
 ::-webkit-scrollbar {
     width: 0px;
-    height: 0px; 
-  }
+    height: 0px;
+}
 
 
-.duo{
+.duo {
     width: 100%;
-    height: 80vh;
+    height: 50vh;
+    background-color: rgb(1, 23, 47);
+}
+
+.duo1 {
+    width: 100%;
+    height: 50vh;
     background-color: rgb(1, 23, 47);
 }
 
 
 
-.cdsb{
+
+.cdsb {
     display: flex;
     align-items: center;
     background-color: rgb(75, 94, 153);
-    outline:none;
+    outline: none;
     border: none;
     width: 75vh;
     height: 10vh;
@@ -45,26 +53,27 @@ body,html{
     margin-left: 73vh;
     margin-top: 10vh;
     font-family: "Josefin Sans", sans-serif;
-  font-size: 50px;
-  color: white;
-  transition: transform 0.2s ease;
-  box-shadow: 5px 5px white;
+    font-size: 50px;
+    color: white;
+    transition: transform 0.2s ease;
+    box-shadow: 5px 5px white;
 }
 
-.cdsb:hover{
-     transform: scale(1.1);
+.cdsb:hover {
+    transform: scale(1.1);
 
 }
 
-p{
-    color:white;
+
+p {
+    color: white;
     font-size: 45px;
     font-family: "Josefin Sans", sans-serif;
     margin-left: 70px;
     margin-right: 70px;
 }
 
-.im{
+.im {
     width: 70vh;
     height: 50vh;
     margin-left: 60px;
@@ -73,7 +82,18 @@ p{
     box-shadow: 4px 4px 0px rgb(75, 94, 153);
 }
 
-.i2{
+.im2 {
+    width: 182vh;
+    height: 100vh;
+    margin-left: 10vh;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px rgb(1, 23, 47);
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+
+
+.i2 {
     width: 70vh;
     height: 50vh;
     border-radius: 5px;
@@ -82,85 +102,128 @@ p{
     margin-top: 80px;
 }
 
-.titulo{
+.titulo {
     font-family: "Rock salt", cursive;
     font-weight: 400;
-    color:white;
+    color: white;
     font-size: 16vh;
     display: inline-block;
     margin-left: 36vh;
     margin-bottom: 0.5vh;
 }
-.titulo1{
+
+.titulo1 {
     font-family: "Rock salt", cursive;
     font-weight: 400;
-    color:white;
+    color: white;
     font-size: 90px;
     display: inline-block;
     transition: transform 0.2s ease;
     margin-left: 650px;
 }
 
-.tassinatura{
+.tassinatura {
     font-family: "Rock salt", cursive;
     font-weight: 400;
-    color:white;
+    color: white;
     font-size: 70px;
     padding-left: 120px;
     display: inline-block;
     transition: transform 0.2s ease;
 }
 
-.Network{
+.Network {
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
-    color:white;
+    color: white;
     font-size: 20vh;
     margin-top: 5vh;
     display: inline-block;
     transition: transform 0.2s ease;
     margin-left: 65vh;
-    padding-top:2vh;
+    padding-top: 2vh;
     transition: transform 0.2s ease;
 }
 
-.kingedition:hover{
+.Assinaturas {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 50vh;
+    padding-top: 2vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 1vh;
+}
+
+.Network2 {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 15vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 5vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 0.7vh;
+}
+
+.funcionamento {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 12vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 55vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 0.5vh;
+}
+
+
+
+.kingedition:hover {
     transform: scale(1.1);
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-.container{
+.container {
     display: flex;
     margin-bottom: 60px;
 }
 
-.frase{
-    color:white;
+.frase {
+    color: white;
     font-size: 100px;
     font-family: "Josefin Sans", sans-serif;
     transition: transform 0.2s ease;
 }
 
-.frase1{
-    color:white;
+.frase1 {
+    color: white;
     font-size: 100px;
     font-family: "Josefin Sans", sans-serif;
     padding-top: 180px;
     transition: transform 0.2s ease;
 }
 
-.frase:hover{
+.frase:hover {
     transform: scale(1.05);
 }
 
-.frase1:hover{
+.frase1:hover {
     transform: scale(1.05);
 }
 
-hr{
+hr {
     width: 100%;
     height: 5px;
     background-color: white;
@@ -169,7 +232,7 @@ hr{
 
 }
 
-.hr1{
+.hr1 {
     width: 100%;
     height: 5px;
     background-color: white;
@@ -179,23 +242,33 @@ hr{
 
 }
 
-.agaeri{
+.hr2 {
+    margin-top: 10vh;
+}
+
+.hr3 {
+    width: 65%;
+
+}
+
+
+.agaeri {
     width: 550px;
     height: 5px;
     background-color: white;
     border-radius: 10px;
 }
 
-.caixa{
+.caixa {
     display: flex;
 }
 
-.box{
-    background-color: rgb(28, 37, 65);;
+.box {
+    background-color: rgb(28, 37, 65);
+    ;
     width: 700px;
-    height: 1000px;   
+    height: 1000px;
     margin-top: 120px;
     margin-left: 1000px;
     border-radius: 10px;
 }
-
