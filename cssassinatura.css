@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap');
+
+
+
+body,
+html {
+    background-color: rgb(75, 94, 153);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.path{
+    width: 100vh;
+    height: auto;
+    margin-bottom: -20vh;
+    margin-right: 0vh;
+    margin-left: 102vh;
+    margin-top: -18vh;
+}
+
+.flowers{
+    width: 45vh;
+    height: auto;
+    margin-top: -24.9vh;
+
+}
+
+
+
+.section {
+  height: 300vh; 
+  display: flex;
+ 
+}
+
+.Areti2{
+    position: relative;
+    display: flex;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.sword{
+    width: auto;
+    height: 35vh;
+    margin-left: -1vh;
+    margin-bottom: -18vh;
+}
+
+.du{
+    display: flex;
+}
+
+
+.duo {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-color: rgb(1, 23, 47);
+}
+
+.duo1 {
+    width: 100%;
+    height: 130vh;
+    background-color: rgb(1, 23, 47);
+    
+}
+
+.d{
+    display: flex;
+    margin-top: 15vh;
+}
+
+.d1{
+    border: solid 0.4vh white;
+    width: 30%;
+    height: 70vh;
+    margin-left: 24vh;
+    border-radius: 1vh;
+}
+
+.d2{
+     border: solid 0.4vh white;
+     width: 30%;
+    height: 70vh;
+    margin-left: 32vh;
+    border-radius: 1.5vh;
+}
+
+.texto{
+    display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+    height: 265vh;
+    margin-top: 4vh;
+    margin-left: 6vh;
+    margin-bottom: 5vh;
+     background-color:  rgb(1, 23, 47);
+    border-radius: 1vh;
+}
+
+
+
+
+.cdsb {
+    display: flex;
+    align-items: center;
+    background-color: rgb(75, 94, 153);
+    outline: none;
+    border: none;
+    width: 75vh;
+    height: 10vh;
+    border-radius: 10px;
+    margin-left: 73vh;
+    margin-top: 10vh;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 50px;
+    color: white;
+    transition: transform 0.2s ease;
+    box-shadow: 5px 5px white;
+}
+
+.cdsb:hover {
+    transform: scale(1.1);
+
+}
+
+
+p {
+    color: white;
+    font-size: 5.1vh;
+    font-family: "Josefin Sans", sans-serif;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+
+.im {
+    width: 70vh;
+    height: 50vh;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px rgb(75, 94, 153);
+}
+
+.im2sticky {
+    width: 110vh;
+    height: 70vh;
+    margin-left: 10vh;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px rgb(1, 23, 47);
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    margin-right: 10vh;
+    position: sticky;
+    top:15vh;
+}
+
+.im2sticky1 {
+    width: 110vh;
+    height: 70vh;
+    margin-left: 10vh;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px rgb(1, 23, 47);
+    margin-bottom: 6vh;
+    margin-right: 10vh;
+    position: sticky;
+    margin-top: 30vh;
+    top:15vh;
+}
+
+.im2sticky img {
+  object-fit: cover;
+}
+
+.imagesSection{
+    position: sticky;
+    top:0;
+
+}
+
+
+
+
+.i2 {
+    width: 70vh;
+    height: 50vh;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px rgb(75, 94, 153);
+    margin-right: 60px;
+    margin-top: 80px;
+}
+
+.titulo {
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 16vh;
+    display: inline-block;
+    margin-left: 52vh;
+    margin-bottom: -18vh;
+}
+
+.titulo1 {
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 90px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 30vh;
+}
+
+.tassinatura {
+    font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 70px;
+    padding-left: 120px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.Network {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 20vh;
+    margin-bottom: 10vh;
+    margin-top: 10vh;
+}
+
+.Assinaturas {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 50vh;
+    padding-top: 2vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 1vh;
+}
+
+.Network2 {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 15vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 5vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 0.7vh;
+}
+
+.funcionamento {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 12vh;
+    margin-top: 5vh;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 55vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 0.5vh;
+}
+
+
+
+.kingedition:hover {
+    transform: scale(1.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    margin-bottom: 60px;
+}
+
+.frase {
+    color: white;
+    font-size: 100px;
+    font-family: "Josefin Sans", sans-serif;
+    transition: transform 0.2s ease;
+}
+
+.frase1 {
+    color: white;
+    font-size: 100px;
+    font-family: "Josefin Sans", sans-serif;
+    padding-top: 180px;
+    transition: transform 0.2s ease;
+}
+
+.frase:hover {
+    transform: scale(1.05);
+}
+
+.frase1:hover {
+    transform: scale(1.05);
+}
+
+hr {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0vh;
+
+}
+
+.hr1 {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0vh;
+    margin-top: 0vh;
+
+}
+
+.hr2 {
+    margin-top: 10vh;
+}
+
+.hr3 {
+    width: 65%;
+
+}
+
+.hr4{
+    margin-top: 0vh;
+}
+
+
+.agaeri {
+    width: 550px;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.caixa {
+    display: flex;
+}
+
+.box {
+    background-color: rgb(28, 37, 65);
+    ;
+    width: 700px;
+    height: 1000px;
+    margin-top: 120px;
+    margin-left: 1000px;
+    border-radius: 10px;
+}
