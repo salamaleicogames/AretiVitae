@@ -16,7 +16,6 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 .path{
@@ -33,6 +32,14 @@ html {
     height: auto;
     margin-top: -24.9vh;
 
+}
+
+.down{
+    width: 50vh;
+    height: auto;
+    margin-top: -0.3vh;
+    margin-left:151vh;
+    margin-bottom: -29vh;
 }
 
 
@@ -90,6 +97,7 @@ html {
     height: 70vh;
     margin-left: 24vh;
     border-radius: 1vh;
+    background-color: rgb(75, 94, 153);
 }
 
 .d2{
@@ -97,7 +105,16 @@ html {
      width: 30%;
     height: 70vh;
     margin-left: 32vh;
-    border-radius: 1.5vh;
+    border-radius: 1vh;
+     background-color: rgb(75, 94, 153);
+}
+
+.listimg{
+    width: 4.5vh;
+    margin-right: 1vh;
+    height: auto;
+    margin-left: -6vh;
+    margin-bottom: -0.5vh;
 }
 
 .texto{
@@ -112,6 +129,29 @@ html {
     border-radius: 1vh;
 }
 
+.btn{
+    background-color: white;
+    width: 25vh;
+    height: 7vh;
+    border-radius: 2vh;
+    border: none;
+    font-family: "Rock Salt", cursive;
+    color: rgb(75, 94, 153);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5vh;
+    margin-top: -2vh;
+    margin-left: 16vh;
+}
+
+.btn:hover{
+background-color: rgb(75, 94, 153);
+color: white;
+transition: transform 0.5s ease;
+}
 
 
 
@@ -241,7 +281,7 @@ p {
     font-size: 20vh;
     display: inline-block;
     transition: transform 0.2s ease;
-    margin-left: 20vh;
+    margin-left: 58vh;
     margin-bottom: 10vh;
     margin-top: 10vh;
 }
@@ -273,6 +313,30 @@ p {
     margin-bottom: 0.7vh;
 }
 
+.Network3{
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 7vh;
+    margin-top: 5vh;
+    margin-left: 3vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 1vh;
+}
+
+.Network4{
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    color: white;
+    font-size: 7vh;
+    margin-top: 5vh;
+    transition: transform 0.2s ease;
+    margin-bottom: 1vh;
+    margin-left: 14vh;
+}
+
+
+
 .funcionamento {
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
@@ -292,9 +356,7 @@ p {
     transform: scale(1.1);
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
 
 .container {
     display: flex;
@@ -354,7 +416,16 @@ hr {
 
 .hr4{
     margin-top: 0vh;
+    width: 80%;
+    margin-bottom: 5vh;
 }
+
+.hr5{
+    margin-top: 0vh;
+    width: 100%;
+}
+
+
 
 
 .agaeri {
