@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap');
+
+/* Reset total */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.icon{
+  width: 18vh;
+  height: auto;
+  margin-top: 1vh;
+
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+
+p{
+  color: white;
+    font-size: 2.5vh;
+    font-family: "Josefin Sans", sans-serif;
+    margin-top: 4.5vh;
+}
+
+hr{
+  width: 90%;
+  height: 0.5vh;
+  background-color: white;
+  border-radius: 1vh;
+  margin-top: 4vh;
+}
+
+.inicio{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.5vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+}
+
+.Alter{
+  width: 2.5vh;
+  height: auto;
+  margin-bottom: -0.4vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+}
+
+.netnet{
+   width: 3.5vh;
+  height: auto;
+  margin-bottom: -0.4vh;
+  margin-left: 0.7vh;
+  margin-right: 1vh;
+}
+
+.networkImg{
+  width: 15vh;
+  height: auto;
+margin-left: 2vh;
+margin-top: 2vh;
+border: 0.5vh solid white;
+border-radius: 1vh;
+}
+
+/* layout principal */
+.geral {
+  display: grid;
+  grid-template-columns: 10% 1fr; /* navbar ~25% menor que antes */
+  height: 100vh;
+  width: 100vw;
+}
+
+/* navbar lateral */
+.navbar {
+    background-color: rgb(75, 94, 153);
+  height: 100vh;
+  width: 100%;
+}
+
+/* área de conteúdo principal */
+.function {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* área de interação (parte de cima) */
+.interacao {
+  flex: 1; /* ocupa todo o espaço disponível */
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+/* toolbox (parte de baixo) */
+.toolbox {
+  height: 20vh; /* altura fixa */
+  width: 100%;
+  background-color: #d9d9d9;
+}
