@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Judson:ital,wght@0,400;0,700;1,400&family=Kaushan+Script&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+/* Reset total */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-y:hidden;
+  scrollbar-width: none; 
+}
+
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.blackconfig{
+  width: 50%;
+  height: 53%;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 13vh;
+  margin-top: -2vh;
+}
+
+.teclado{
+  width: 80vh;
+  height: auto;
+  margin-bottom: -78vh;
+  margin-left: -73vh;
+  pointer-events: none;
+}
+
+.pc{
+  width: 57%;
+  height: auto;
+  margin-right: -74vh;
+  margin-top: -8vh;
+  margin-bottom: 3vh;
+  pointer-events: none;
+}
+
+.coisa{
+    color:white;
+     margin-top: 5vh;
+     margin-left: 2.5vh;
+      font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:3.5vh;
+}
+
+
+
+.thing{
+  color:white;
+   
+      font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:3.5vh;
+  margin-left: 3vh;
+  margin-top: 2.5vh;
+}
+
+.configreal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.icon{
+  width: 16vh;
+  height: auto;
+  margin-top: -7.5vh;
+  margin-bottom: -3.5vh;
+  margin-left: 1.5vh;
+
+}
+
+.t1{
+  font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 4vh;
+    display: inline-block;
+    margin-left: 1.5vh;
+}
+
+.t2{
+   font-family: "Rock salt", cursive;
+    font-weight: 400;
+    color: white;
+    font-size: 4vh;
+    display: inline-block;
+    margin-left: 3vh;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: rgb(75, 94, 153);
+}
+
+.tree{
+  width: 106vh;
+  height: auto;
+  margin-left: 34vh;
+}
+
+
+p{
+  color: white;
+    font-size: 2.3vh;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+hr{
+  width: 85%;
+  height: 0.5vh;
+  background-color: white;
+  border-radius: 1vh;
+  margin-top: 0.5vh;
+  margin-left: 1vh;
+  outline: none;
+  border:none;
+}
+
+.blocos{
+  width: 100%;
+  height: auto;
+}
+
+.hr2{
+  width: 80%;
+  margin-left: 2vh;
+  margin-bottom: 8vh;
+  height: 0.3vh;
+}
+
+.toolpart{
+  background-color: rgb(143 197 255);
+  width: 20%;
+}
+.sword{
+  width: auto;
+  height: 112vh;
+  margin-left: -4.5vh;
+  margin-top: -2vh;
+   pointer-events: none;
+}
+
+.casa{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.3vh;
+  margin-left: 2vh;
+  margin-right: 1vh;
+}
+
+.inicio{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.5vh;
+  margin-left: 2vh;
+  margin-right: 1vh;
+}
+
+.Alter{
+  width: 2.5vh;
+  height: auto;
+  margin-bottom: -0.4vh;
+  margin-left: 2vh;
+  margin-right: 1vh;
+}
+
+.netnet{
+   width: 3.5vh;
+  height: auto;
+  margin-bottom: -0.4vh;
+  margin-left: 0.7vh;
+  margin-right: 1vh;
+    margin-left: 1.5vh;
+}
+
+.criar{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.7vh;
+  margin-left: 0.7vh;
+  margin-right: 1vh;
+    margin-left: 1.6vh;
+}
+
+.gal{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.7vh;
+  margin-left: 0.7vh;
+  margin-right: 1vh;
+    margin-left: 1.5vh;
+}
+
+.eng{
+  width: 3vh;
+  height: auto;
+  margin-bottom: -0.7vh;
+  margin-left: 0.7vh;
+  margin-right: 1vh;
+    margin-left: 1.5vh;
+}
+
+.int{
+  width: 2vh;
+  height: auto;
+  margin-bottom: -0.7vh;
+  margin-left: 1.3vh;
+  margin-right: 1.7vh;
+    margin-left: 1.5vh;
+}
+
+.networkImg{
+  width: 18vh;
+  height: auto;
+margin-left: 0.5vh;
+margin-top: 2vh;
+}
+
+
+.n1{
+  margin-top: 1vh;
+}
+
+.n6{
+  margin-bottom: 32vh;
+}
+
+
+.geral {
+  display: grid;
+  grid-template-columns: 10% 1fr; /* navbar ~25% menor que antes */
+  height: 100vh;
+  width: 100vw;
+}
+
+.interacao{
+     border:0.5vh solid white;
+     display: flex;
+}
+
+
+.navbar {
+    background-color: rgb(1, 23, 47);
+    
+  height: 100vh;
+  width: 100%;
+}
+.r1,.r2,.r3,.r4,.r5,.r6,.r7,.r8,.r9,.r{
+  height: 9vh;
+  display: flex;
+}
+.r:hover,
+.r1:hover,
+.r2:hover,
+.r3:hover,
+.r4:hover,
+.r5:hover,
+.r6:hover,
+.r7:hover,
+.r8:hover,
+.r9:hover{
+  background-color: rgb(170, 211, 255);
+}
+
+
+.n1,.n2,.n3,.n4,.n5,.n6,.n7,.n8,.n9{
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+/*Hovers da navbar*/
+
+.n1:hover,
+.n2:hover,
+.n3:hover,
+.n4:hover,
+.n5:hover,
+.n6:hover,
+.n7:hover,
+.n8:hover,
+.n9:hover{
+  background-color: rgb(75, 94, 154);
+  width: 100%;
+}
