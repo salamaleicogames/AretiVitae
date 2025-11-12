@@ -305,3 +305,23 @@ margin-top: 2vh;
   background-color: rgb(75, 94, 154);
   width: 100%;
 }
+
+@media (max-height: 800px), (max-width: 1280px) {
+    .pc{
+      margin-right: -74.5vh;
+      width: 65%;
+    }
+    .blackconfig{
+      width: 58%;
+    }
+}
+
+@media (min-height:801px) and (max-height:1200px) {
+  .pc{
+      margin-right: -76vh;
+      width: 65%;
+    }
+    .blackconfig{
+      width: 58%;
+    }
+}
