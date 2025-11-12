@@ -43,26 +43,39 @@
 
     Use print_r → quando quiser inspecionar arrays ou objetos de forma legível.
     */
-    if(isset($_GET['submit'])){
-        print_r($_GET['name']);
-        print_r($_GET['email']);
-        print_r($_GET['age']);
-        print_r($_GET['password']);
-        print_r($_GET['confirm']);
 
-    }
+    
     
     $name = $_GET['name'];
     $email = $_GET['email'];
-    $age = $_GET['age'];
+    $day = $_GET['day'];
+    $month = $_GET['mon'];
+    $year = $_GET['year'];
     $password = $_GET['password'];
-    $confirm = $_GET["confirm"];
+    $plus18 = 0;
+   if ($day && $month && $year) {
+    $birthday = DateTime::createFromFormat('d/m/Y', "$day/$month/$year");
+    if ($birthday) { 
+        $date = new DateTime();
+        $age = $date->diff($birthday)->y;
+        if ($age >= 18) {
+            $plus18 = 1;
+        }
+        else{
+            $plus18 = 0;
+        }
+    }
+}
+    
 
     //Criação de querry para conexão
 
-    $result = mysqli_query($connection, "INSERT INTO cadastro(nomeUsuario,emailUsuario,dataUsuario,senhaUsuario,confirmarUsuario) VALUES ('$name','$email','$age','$password','$confirm')" );
+    $result = mysqli_query($connection, "INSERT INTO projetointegradorcadastro(nomeUsuario,emailUsuario,diaUsuario,mesUsuario,anoUsuario,maior18,senhaUsuario) VALUES ('$name','$email','$day','$month','$year','$plus18','$password')" );
+    if (!$result) {
+    echo("Erro no INSERT: " . $connection->error);
+}
 
-    header("Location: l1.html");
-    exit;
+    //header("Location: l1.html");
+    //exit;
 
 ?>

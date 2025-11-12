@@ -2,148 +2,193 @@
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-body{
-    background-color: rgb(1,23,47);
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    height: 100vh;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(1,23,47);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.areti{
-    font-family: "Rock salt", cursive;
-    font-weight: 400;
-    color:white;
-    font-size: 80px;
-    display: inline-block;
-    margin-bottom: 0;
-    margin-left: 200px;
+.containerR, .containerL {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(75, 94, 153);
+  height: 100vh;
+  width: 60vh;
 }
 
-.caixa{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.mao{
-    width: 800px;
-    height: auto;
-}
-.container{
-    background-color: rgb(28, 37, 65);;
-    height: 52vh;
-    width: 52vh;
-    border-radius: 20px;
-    margin-right: 25vh;
-    box-shadow: 5px 5px 0px rgb(75, 94, 153);
-}
-
-h1{
-     font-family: "Covered By Your Grace", cursive;
-    font-weight: 400;
-    color:white;
-    font-size: 100px;
-    display: inline-block;
-    transition: transform 0.2s ease;
-    margin-bottom: 0;
-    margin-left: 240px;
-}
-
-h1:hover{
-    display: inline-block;
-    transform: scale(1.1);
-}
-
-hr{
-    height: 5px;
-    background-color: white;
-    width: 400px;
-    border-radius: 3px;
-}
-
-.cdse{
-    background-color: rgba(247, 245, 245, 0.993);
-    outline: none;
-    width: 500px;
-    height: 40px;
-    border-radius: 10px;
-    margin-top: 45px;
-    margin-left: 85px;
-    border: none;
-  outline: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
-  text-align: justify;
-}
-
-.cdsp{
-     background-color: rgba(247, 245, 245, 0.993);
-    outline: none;
-    width: 500px;
-    height: 40px;
-    border-radius: 10px;
-    margin-top: 45px;
-    margin-left: 85px;
-    border: none;
-  outline: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 20px;
-  text-align: justify;
-}
-
-.cdsb{
-    display: flex;
-    align-items: center;
-    background-color: rgb(75, 94, 153);
-    outline:none;
-    border: none;
-    width: 400px;
-    height: 60px;
-    border-radius: 10px;
-    margin-left: 140px;
-    margin-top: 70px;
-    font-family: "Rock salt", cursive;
-  font-size: 20px;
+.areti {
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
   color: white;
+  font-size: 8vh;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 20vh;
+}
+
+.mao {
+  width: 60vh;
+  height: auto;
+}
+
+.heart {
+  width: 50vh;
+  height: auto;
+  margin-left: 5vh;
+}
+
+.container {
+  background-color: rgb(28, 37, 65);
+  height: 52vh;
+  width: 48vh;
+  border-radius: 2vh;
+  box-shadow: 0.5vh 0.5vh 0 rgb(75, 94, 153);
+  margin-left: 15vh;
+  margin-right: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Covered By Your Grace", cursive;
+  font-weight: 400;
+  color: white;
+  font-size: 7vh;
+  display: inline-block;
   transition: transform 0.2s ease;
+  margin-bottom: 0;
+  margin-left: -1vh;
+}
+
+h1:hover {
+  transform: scale(1.1);
+}
+
+hr {
+  height: 0.5vh;
+  background-color: white;
+  width: 40vh;
+  border-radius: 0.3vh;
+}
+
+.cdse, .cdsp {
+  background-color: rgba(247, 245, 245, 0.993);
+  outline: none;
+  width: 40vh;
+  height: 2vh;
+  border-radius: 1vh;
+  margin-top: 4.5vh;
+  margin-left: 5vh;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2vh;
+  text-align: justify;
+  padding: 1vh;
 }
 
 .cdsb {
-    transition: background-color 0.4s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(75, 94, 153);
+  border: none;
+  width: 45vh;
+  height: 6vh;
+  border-radius: 1vh;
+  margin-left: 8vh;
+  margin-top: 3vh;
+  font-family: "Rock Salt", cursive;
+  font-size: 2vh;
+  color: white;
+  transition: background-color 0.4s ease, transform 0.2s ease;
 }
 
-.cdsb:hover{
-     transform: scale(1.1);
+.cdsb:hover {
+  transform: scale(1.1);
+}
+
+.cdsb:active {
+  background-color: rgb(88, 110, 179);
+}
+
+a, .a1 {
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 2vh;
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 3vh;
 
 }
 
-.cdsb:active{
-    background-color: rgb(88, 110, 179);
+a {
+  margin-left: 11vh;
 }
 
-a{
-    font-family: "Josefin Sans", sans-serif;
-    color:white;
-    font-weight: 400;
-    font-size:20px;
-    margin-left: 180px;
-    text-decoration: none;
-    padding-top: 40px;
-      display: inline-block;
+.a1 {
+  margin-left: 16vh;
+  margin-bottom: 1.5vh;
 }
 
-.a1{
-    font-family: "Josefin Sans", sans-serif;
-    color:white;
-    font-weight: 400;
-    font-size:20px;
-    margin-left: 230px;
-    text-decoration: none;
-    padding-top: 30px;
-      display: inline-block;
+@media (max-height: 800px), (max-width: 1280px) {
+    .cdsb{
+        width: 30vh;
+        margin-left: 9vh;
+    }
+
+    .cdse, .cdsp{
+        margin-left: 3vh;
+         margin-right: 3vh;
+    }
+
+    a{
+        margin-left: 9.5vh;
+    }
+
+    .a1{
+        margin-left: 14vh;
+    }
+
+    .heart{
+        width: 45vh;
+        margin-right: 4vh;
+    }
+
 }
 
+@media (min-height:801px) and (max-height:1200px) {
+    .cdsb{
+        width: 30vh;
+        margin-left: 9vh;
+    }
 
+    .cdse, .cdsp{
+        margin-left: 3vh;
+         margin-right: 3vh;
+    }
 
+    a{
+        margin-left: 9.5vh;
+    }
+
+    .a1{
+        margin-left: 14vh;
+    }
+
+    .heart{
+        width: 45vh;
+        margin-right: 4vh;
+    }
+
+}

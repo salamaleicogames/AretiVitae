@@ -2,7 +2,7 @@
 
     //print_r($_REQUEST);
 
-
+    session_start();
 
     if(isset($_GET['submit']) && !empty($_GET['email']) && !empty($_GET['password'])){
        $dbHost = 'Localhost';
@@ -19,20 +19,23 @@
         print_r($password);
         */
 
-        $sql = "SELECT * FROM cadastro WHERE emailUsuario = '$email' and senhaUsuario = '$password'";
+        $sql = "SELECT * FROM projetointegradorcadastro WHERE emailUsuario = '$email' and senhaUsuario = '$password'";
         $result = $connection->query($sql);
 
         //print_r($result);
 
         if(mysqli_num_rows($result) < 1){
-            header('Location: l1.html');
+            header('Location: l1.html?erro=1');
+            exit;
         }
         else{
             header('Location: ../index/index.html');
+            exit;
         }
     }
     else{
-        header('Location: l1.html');
+    header('Location: 11.html?erro1=2');
+    exit;
     }
 
 ?>
