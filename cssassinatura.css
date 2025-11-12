@@ -5,8 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Varela+Round&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400..700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Covered+By+Your+Grace&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 body,
 html {
@@ -18,6 +20,58 @@ html {
     overflow-x: hidden;
 }
 
+.intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      overflow: hidden;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeOut 1s ease forwards;
+      animation-delay: 6s; 
+    }
+
+    .intro video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+ 
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+   
+    .main {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(to bottom, #003366, #0a0a0a);
+    }
+
 .path{
     width: 100vh;
     height: auto;
@@ -27,10 +81,15 @@ html {
     margin-top: -18vh;
 }
 
-.flowers{
-    width: 45vh;
-    height: auto;
-    margin-top: -24.9vh;
+.parte2{
+    background-color: rgb(1, 23, 47);
+    height: 100%;
+    width: 100%;
+    margin-top: -12vh;
+}
+
+.flower{
+   margin-top: 100vh;
 
 }
 
@@ -39,7 +98,7 @@ html {
     height: auto;
     margin-top: -0.3vh;
     margin-left:151vh;
-    margin-bottom: -29vh;
+    margin-bottom: -34.7vh;
 }
 
 
@@ -82,7 +141,7 @@ html {
 .duo1 {
     width: 100%;
     height: 130vh;
-    background-color: rgb(1, 23, 47);
+    background-color: rgb(75, 94, 153);
     
 }
 
@@ -97,7 +156,7 @@ html {
     height: 70vh;
     margin-left: 24vh;
     border-radius: 1vh;
-    background-color: rgb(75, 94, 153);
+    background-color: rgb(80, 105, 182);
 }
 
 .d2{
@@ -106,7 +165,7 @@ html {
     height: 70vh;
     margin-left: 32vh;
     border-radius: 1vh;
-     background-color: rgb(75, 94, 153);
+     background-color: rgb(80, 105, 182);
 }
 
 .listimg{
@@ -125,112 +184,72 @@ html {
     margin-top: 4vh;
     margin-left: 6vh;
     margin-bottom: 5vh;
-     background-color:  rgb(1, 23, 47);
+     background-color:  rgb(21, 60, 104);
     border-radius: 1vh;
 }
 
-.btn{
-    background-color: white;
-    width: 25vh;
-    height: 7vh;
-    border-radius: 2vh;
-    border: none;
-    font-family: "Rock Salt", cursive;
-    color: rgb(75, 94, 153);
-    transition: transform 0.5s ease;
-    cursor: pointer;
+
+
+
+.imgpessoal{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5vh;
-    margin-top: -2vh;
-    margin-left: 16vh;
 }
 
-.btn:hover{
-background-color: rgb(75, 94, 153);
-color: white;
-transition: transform 0.5s ease;
-}
-
-
-
-.cdsb {
-    display: flex;
-    align-items: center;
-    background-color: rgb(75, 94, 153);
-    outline: none;
-    border: none;
-    width: 75vh;
-    height: 10vh;
-    border-radius: 10px;
-    margin-left: 73vh;
-    margin-top: 10vh;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 50px;
-    color: white;
-    transition: transform 0.2s ease;
-    box-shadow: 5px 5px white;
-}
-
-.cdsb:hover {
-    transform: scale(1.1);
-
-}
 
 
 p {
     color: white;
-    font-size: 5.1vh;
-    font-family: "Josefin Sans", sans-serif;
-    margin-left: 5vh;
+    font-size: 7em;
+font-family: "Bona Nova", serif;
+  font-weight: 400;
+  font-style: normal;
+    margin-left: 12vh;
     margin-right: 5vh;
-}
-
-.im {
-    width: 70vh;
-    height: 50vh;
-    margin-left: 60px;
-    margin-right: 60px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 0px rgb(75, 94, 153);
-}
-
-.im2sticky {
-    width: 110vh;
-    height: 70vh;
-    margin-left: 10vh;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0px rgb(1, 23, 47);
-    margin-top: 6vh;
-    margin-bottom: 6vh;
-    margin-right: 10vh;
-    position: sticky;
-    top:15vh;
-}
-
-.im2sticky1 {
-    width: 110vh;
-    height: 70vh;
-    margin-left: 10vh;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0px rgb(1, 23, 47);
-    margin-bottom: 6vh;
-    margin-right: 10vh;
-    position: sticky;
     margin-top: 30vh;
-    top:15vh;
+         opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+    
 }
 
-.im2sticky img {
-  object-fit: cover;
+p.visivel{
+      opacity: 1;
+  transform: translateY(0);
 }
 
-.imagesSection{
-    position: sticky;
-    top:0;
+
+.imgIndex{
+    width: 90vh;
+    border-radius: 1vh;
+    box-shadow: 0.5vh 0.5vh 0 white;
+    height: auto;
+    margin-left: 10vh;
+    margin-top: 10vh;
+}
+
+.imgIndex1{
+    width: 90vh;
+    border-radius: 1vh;
+    box-shadow: 0.5vh 0.5vh 0 white;
+    height: auto;
+    margin-left: 5vh;
+    margin-top: 20vh;
+    margin-right: 10vh;
+    
+}
+
+.imgIndex2{
+    width: 90vh;
+    border-radius: 1vh;
+    box-shadow: 0.5vh 0.5vh 0 white;
+    height: auto;
+    margin-left: 5vh;
+    margin-top: 20vh;
+    margin-right: 10vh;
+
 
 }
+
 
 
 
@@ -317,43 +336,32 @@ p {
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
     color: white;
-    font-size: 7vh;
-    margin-top: 5vh;
-    margin-left: 3vh;
+    font-size: 12vh;
+    margin-top: 10vh;
+    margin-left:55vh;
     transition: transform 0.2s ease;
-    margin-bottom: 1vh;
+    margin-bottom: -5vh;
+     opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+
+
+.Network3.visivel {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .Network4{
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
     color: white;
-    font-size: 7vh;
-    margin-top: 5vh;
+    font-size: 12vh;
+    margin-left:40vh;
+    padding-top: 20vh;
     transition: transform 0.2s ease;
     margin-bottom: 1vh;
-    margin-left: 14vh;
-}
-
-
-
-.funcionamento {
-    font-family: "Bona Nova SC", serif;
-    font-weight: 400;
-    color: white;
-    font-size: 12vh;
-    margin-top: 5vh;
-    display: inline-block;
-    transition: transform 0.2s ease;
-    margin-left: 55vh;
-    transition: transform 0.2s ease;
-    margin-bottom: 0.5vh;
-}
-
-
-
-.kingedition:hover {
-    transform: scale(1.1);
 }
 
 
@@ -421,8 +429,51 @@ hr {
 }
 
 .hr5{
-    margin-top: 0vh;
+    margin-top: -3vh;
     width: 100%;
+}
+
+.hr6{
+    width: 35%;
+    margin-top: 30vh;
+    margin-left: -1vh;
+}
+
+.hr7{
+    width: 35%;
+    margin-right: -1vh;
+    margin-top: -1.6vh;
+}
+
+.aboutgeneral{
+    display: flex;
+}
+
+.aboutPP{
+    width: 20%;
+    height: 5vh;
+    background-color: white;
+    margin-left: 80vh;
+    outline: none;
+    font-family: "Bona Nova SC", serif;
+    font-size:3vh;
+    border: none;
+    border-radius: 0.5vh;
+    color:rgb(75, 94, 153);
+}
+
+.aboutPP2{
+    width: 20%;
+    height: 5vh;
+    background-color: white;
+    margin-left: 80vh;
+    outline: none;
+    font-family: "Bona Nova SC", serif;
+    font-size:3vh;
+    border: none;
+    border-radius: 0.5vh;
+    color:rgb(75, 94, 153);
+    margin-bottom: 5vh;
 }
 
 
@@ -447,4 +498,109 @@ hr {
     margin-top: 120px;
     margin-left: 1000px;
     border-radius: 10px;
+}
+
+.rodape{
+    margin-bottom: -1vh;
+}
+
+@media (max-height: 800px), (max-width: 1280px) {
+    .animated{
+        font-size:10vh;
+    }
+    .animated1{
+        font-size:10vh;
+    }
+
+    .imgpessoal{
+        font-size: 1.2vh;
+    }
+
+    .animated3{
+        font-size: 8vh;
+    }
+
+    .titulo{
+        margin-left: 44vh;
+    }
+    .Network{
+margin-left: 52vh;
+    }
+
+    .Assinaturas{
+        margin-left: 44vh;
+        font-size: 18vh;
+    }
+
+    .Network3{
+        margin-left: 45vh;
+    }
+
+    .down{
+        margin-left: 132vh;
+    }
+
+    .aboutPP{
+        margin-left: 75vh;
+    }
+    .hr7{
+        margin-left: 120vh;
+    }
+
+    .flower{
+        width: 105%;
+        height: auto;
+    }
+
+
+}
+
+@media (min-height:801px) and (max-height:1200px) {
+.animated{
+        font-size:10vh;
+    }
+    .animated1{
+        font-size:10vh;
+    }
+
+    .imgpessoal{
+        font-size: 1.2vh;
+    }
+
+    .animated3{
+        font-size: 8vh;
+    }
+
+    .titulo{
+        margin-left: 44vh;
+    }
+    .Network{
+margin-left: 52vh;
+    }
+
+    .Assinaturas{
+        margin-left: 44vh;
+        font-size: 18vh;
+    }
+
+    .Network3{
+        margin-left: 45vh;
+    }
+
+    .down{
+        margin-left: 132vh;
+    }
+
+    .aboutPP{
+        margin-left: 75vh;
+    }
+    .hr7{
+        margin-left: 120vh;
+    }
+
+    .flower{
+        width: 105%;
+        height: auto;
+    }
+
 }
