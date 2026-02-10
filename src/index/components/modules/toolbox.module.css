@@ -1,0 +1,21 @@
+.toolbox{
+  background-color: rgb(33, 43, 73);
+  width: 100%;
+  height: 15%;
+  bottom:0;
+  position: fixed;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:1;
+}
+
+.button{
+    width: 5vh;
+    height: 5vh;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+}
