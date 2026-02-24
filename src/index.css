@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Covered+By+Your+Grace&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=Pixelify+Sans:wght@400..700&family=Rock+Salt&family=Shadows+Into+Light&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+    min-height: 100vh;
+     overflow: hidden;
+
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/*-----------------------------------------------*/
+
+.login{
+  background-color: rgb(7, 36, 66);
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+    background-color:rgb(75, 94, 153);
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+}
+
+.AVh1{
+    font-family: "Rock Salt", cursive;
+    color:white;
+    font-size: 150%;
+}
+.input{
+  background-color: white;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  width: 90%;
+  height: 12%;
+ font-family: "Josefin Sans", sans-serif;
+ font-size:50%;
+}
