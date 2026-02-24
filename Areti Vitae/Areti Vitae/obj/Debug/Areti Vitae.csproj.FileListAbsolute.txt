@@ -1,0 +1,165 @@
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\MySql.Data.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\bin\Debug\MySql.Data.xml
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.Ajuda.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.cadUsuario.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.fRedefinirSenha.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Library\obj\Debug\Tela_Admin.consUsuario.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Ajuda.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.cadUsuario.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.consUsuario.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fRedefinirSenha.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\aluno\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Ajuda.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.cadUsuario.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.consUsuario.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fRedefinirSenha.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\Downloads\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Ajuda.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.cadUsuario.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.listaUsuariosADM.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAreaADM.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAlterarSenha.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fGerenciarAssinatura.resources
+C:\Users\maufe\OneDrive\Desktop\COTIL 2025\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.flistaUsuarios.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Ajuda.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.cadUsuario.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAlterarSenha.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAreaADM.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fGerenciarAssinatura.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.flistaUsuarios.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.listaUsuariosADM.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\OneDrive\Documentos\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fSobreNos.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fCadUsuario.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAlterarSenha.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fConsultaADM.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fGerenciarAssinatura.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.flistaUsuarios.resources
+C:\Users\maufe\OneDrive\Desktop\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.listaUsuariosADM.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe.config
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.exe
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\Tela Admin.pdb
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.dll
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\Google.Protobuf.dll
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\Renci.SshNet.dll
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\bin\Debug\MySql.Data.xml
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.AssemblyReference.cache
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fSobreNos.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fCadUsuario.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.excUsuario.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fAlterarSenha.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fConsultaADM.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fGerenciarAssinatura.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fIndex.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.fLogin.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.flistaUsuarios.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.listaUsuariosADM.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.GenerateResource.cache
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Areti Vitae.csproj.CoreCompileInputs.cache
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Areti Vi.769E75D4.Up2Date
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.exe
+C:\Users\maufe\Downloads\AretiVitae\Areti Vitae\Areti Vitae\obj\Debug\Tela Admin.pdb

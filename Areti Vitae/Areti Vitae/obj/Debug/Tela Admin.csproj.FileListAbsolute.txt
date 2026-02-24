@@ -1,0 +1,11 @@
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela Admin.csproj.AssemblyReference.cache
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela_Admin.fLogincs.resources
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela_Admin.Properties.Resources.resources
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela Admin.csproj.GenerateResource.cache
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela Admin.csproj.CoreCompileInputs.cache
+C:\Users\aluno\source\repos\Tela Admin\bin\Debug\Tela Admin.exe.config
+C:\Users\aluno\source\repos\Tela Admin\bin\Debug\Tela Admin.exe
+C:\Users\aluno\source\repos\Tela Admin\bin\Debug\Tela Admin.pdb
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela Admin.exe
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela Admin.pdb
+C:\Users\aluno\source\repos\Tela Admin\obj\Debug\Tela_Admin.fRedefinirSenha.resources

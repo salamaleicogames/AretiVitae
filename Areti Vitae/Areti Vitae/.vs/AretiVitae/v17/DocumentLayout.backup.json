@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maufe\\Downloads\\AretiVitae\\Areti Vitae\\Areti Vitae\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\maufe\\downloads\\aretivitae\\areti vitae\\areti vitae\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\maufe\\downloads\\aretivitae\\areti vitae\\areti vitae\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fCadUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\Downloads\\AretiVitae\\Areti Vitae\\Areti Vitae\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\Downloads\\AretiVitae\\Areti Vitae\\Areti Vitae\\fCadUsuario.cs",
+              "RelativeToolTip": "fCadUsuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T12:47:17.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fCadUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maufe\\Downloads\\AretiVitae\\Areti Vitae\\Areti Vitae\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\Downloads\\AretiVitae\\Areti Vitae\\Areti Vitae\\fCadUsuario.cs [Design]",
+              "RelativeToolTip": "fCadUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T12:47:15.519Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
