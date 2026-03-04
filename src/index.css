@@ -36,25 +36,41 @@ body {
 
 .card{
     background-color:rgb(75, 94, 153);
-    width: 60%;
-    height: 70%;
+    width: 50%;
+    height: 68%;
     border-radius: 10px;
-    display: grid;
-    justify-content: center;
+    padding: 30px;
 }
 
 .AVh1{
     font-family: "Rock Salt", cursive;
     color:white;
-    font-size: 150%;
+    font-size: 250%;
+    margin-left: 12dvh;
+    margin-bottom: -1dvh;
 }
+
+.hrUnder{
+  background-color: white;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  width: 80%;
+  height: 3px;
+  margin-bottom: 5vh;
+}
+
+
+
 .input{
   background-color: white;
   outline: none;
   border: none;
   border-radius: 8px;
-  width: 90%;
-  height: 12%;
+  width: 100%;
+  height: 6%;
  font-family: "Josefin Sans", sans-serif;
- font-size:50%;
+ font-size:14px;
+ left: 0;
+ margin-top: 3dvh;
 }
