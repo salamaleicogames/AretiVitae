@@ -84,7 +84,6 @@ namespace Tela_Admin
                 dgwUsuarios.Columns["idade"].HeaderText = "Idade";
                 dgwUsuarios.Columns["email"].HeaderText = "E-mail";
                 dgwUsuarios.Columns["senha"].HeaderText = "Senha";
-                dgwUsuarios.Columns["cod_tree"].HeaderText = "Cod.Tree (Árvore)";
                 dgwUsuarios.Columns["assinatura"].HeaderText = "Assinatura";
 
 

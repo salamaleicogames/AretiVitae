@@ -105,12 +105,11 @@ namespace Tela_Admin
         /// <param name="idade">Idade</param>
         /// <param name="email">Email</param>
         /// <param name="senha">Senha</param>
-        /// <param name="Cod_tree">Código da Árvore (Tree)</param>
         /// <param name="assinatura">Tipo de Assinatura</param>
         /// <param name="tipoRegistro">Tipo de Registro</param>
         /// <param name="registro">Registro</param>
         /// <returns>True se cadastrar com sucesso</returns>
-        public bool cadastrarUsuario(string username, int idade, string email, string senha, string Cod_tree, int assinatura, string tipoRegistro, string registro)
+        public bool cadastrarUsuario(string username, int idade, string email, string senha, int assinatura, string tipoRegistro, string registro)
         {
             bool cad = false;
             try
@@ -118,7 +117,7 @@ namespace Tela_Admin
                 DAO_Conexao.con.Open();
 
                 MySqlCommand inserir = new MySqlCommand(
-                    "INSERT INTO AretiVitae_Usuario (username, idade, email, senha, cod_tree, assinatura, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senha + "', '" + Cod_tree + "', " + assinatura + ",'" + tipoRegistro + "','" + registro + "', 0);", DAO_Conexao.con);
+                    "INSERT INTO AretiVitae_Usuario (username, idade, email, senha, assinatura, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senha + "', " + assinatura + ",'" + tipoRegistro + "','" + registro + "', 0);", DAO_Conexao.con);
 
                 int linhasAfetadas = inserir.ExecuteNonQuery();
                 if (linhasAfetadas > 0)
@@ -171,20 +170,19 @@ namespace Tela_Admin
         /// <param name="idade">Idade</param>
         /// <param name="email">Email</param>
         /// <param name="senha">Senha</param>
-        /// <param name="Cod_tree">Código da Árvore (Tree)</param>
         /// <param name="assinatura">Tipo da assinatura</param>
         /// <param name="tipoRegistro">Tipo de Registro</param>
         /// <param name="registro">Registro</param>
         /// <param name="ativo">Código de Ativação do usuário</param>
         /// <returns>True se a atualização for bem sucedida</returns>
-        public bool atualizarUsuario(string username, int idade, string email, string senha, string Cod_tree, int assinatura, string tipoRegistro, string registro, int ativo)
+        public bool atualizarUsuario(string username, int idade, string email, string senha, int assinatura, string tipoRegistro, string registro, int ativo)
         {
             bool resultado = false;
             try
             {
                 DAO_Conexao.con.Open();
 
-                MySqlCommand atualizar = new MySqlCommand("UPDATE AretiVitae_Usuario SET idade = " + idade + ", email = '" + email + "', senha = '" + senha + "', cod_tree = '" + Cod_tree + "', assinatura = " + assinatura + ", tipoRegistro = '" + tipoRegistro + "', registro = '" + registro + "', ativo = " + ativo + " WHERE username = '" + username + "';", DAO_Conexao.con);
+                MySqlCommand atualizar = new MySqlCommand("UPDATE AretiVitae_Usuario SET idade = " + idade + ", email = '" + email + "', senha = '" + senha + "', assinatura = " + assinatura + ", tipoRegistro = '" + tipoRegistro + "', registro = '" + registro + "', ativo = " + ativo + " WHERE username = '" + username + "';", DAO_Conexao.con);
                 int linhasAfetadas = atualizar.ExecuteNonQuery();
 
                 if (linhasAfetadas > 0)
@@ -231,9 +229,6 @@ namespace Tela_Admin
                 MySqlCommand cmdId = new MySqlCommand("SELECT id FROM AretiVitae_Usuario WHERE username = '" + username + "';", DAO_Conexao.con);
                 int idUsuario = int.Parse(cmdId.ExecuteScalar().ToString());
 
-                string queryAssinatura = "UPDATE AretiVitae_Assinatura SET ativo = 1 WHERE id_usuario = " + idUsuario + ";";
-                MySqlCommand atualizarAssinatura = new MySqlCommand(queryAssinatura, DAO_Conexao.con);
-                atualizarAssinatura.ExecuteNonQuery();
 
             }
             catch (Exception ex)

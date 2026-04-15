@@ -1,10 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Areti Vitae\\Areti Vitae\\",
+  "WorkspaceRootPath": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\areti vitae\\areti vitae\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\aluno\\downloads\\aretivitae\\desktop\\areti vitae\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\aluno\\downloads\\aretivitae\\desktop\\areti vitae\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\aluno\\downloads\\aretivitae\\desktop\\areti vitae\\excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|c:\\users\\aluno\\downloads\\aretivitae\\desktop\\areti vitae\\excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8737769-8F0D-40FD-BF6C-363915314006}|Areti Vitae.csproj|solutionrelative:excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,15 +55,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Areti Vitae\\Areti Vitae\\Usuario.cs",
-              "RelativeDocumentMoniker": "Usuario.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Areti Vitae\\Areti Vitae\\Usuario.cs",
-              "RelativeToolTip": "Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
+              "Title": "fCadUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\fCadUsuario.cs",
+              "RelativeToolTip": "fCadUsuario.cs",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAiwEABAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T18:33:26.581Z",
+              "WhenOpened": "2026-04-15T17:36:14.873Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\Usuario.cs",
+              "RelativeDocumentMoniker": "Usuario.cs",
+              "ToolTip": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\Usuario.cs",
+              "RelativeToolTip": "Usuario.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAwwOYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T17:32:48.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "excUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\excUsuario.cs",
+              "RelativeDocumentMoniker": "excUsuario.cs",
+              "ToolTip": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\excUsuario.cs",
+              "RelativeToolTip": "excUsuario.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAAJsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T17:31:30.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "excUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\excUsuario.cs",
+              "RelativeDocumentMoniker": "excUsuario.cs",
+              "ToolTip": "C:\\Users\\aluno\\Downloads\\AretiVitae\\Desktop\\Areti Vitae\\excUsuario.cs [Design]",
+              "RelativeToolTip": "excUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T17:29:12.937Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

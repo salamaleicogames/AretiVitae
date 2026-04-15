@@ -55,7 +55,6 @@ namespace Tela_Admin
             lblSenha.ForeColor = Color.White;
             lblEmail.ForeColor = Color.White;
             lblIdade.ForeColor = Color.White;
-            lblTree.ForeColor = Color.White;
             lblAtivo.ForeColor = Color.White;
             chkAtivo.ForeColor = Color.White;
             lblPlano.ForeColor = Color.White;
@@ -76,7 +75,6 @@ namespace Tela_Admin
             EstilizarText(txtIdade);
             EstilizarText(txtEmail);
             EstilizarText(txtSenha);
-            EstilizarText(txtTree);
             EstilizarText(txtRegistro);
 
             EstilizarCombo(cmbTipoRegistro);
@@ -195,8 +193,6 @@ namespace Tela_Admin
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
             string tipoPlano = cmbTipoRegistro.Text;
-            string cod_tree = txtTree.Text;
-            string tree = txtTree.Text;
             int assinatura = 0;
             string tipoRegistro = " ";
             string registro = " ";
@@ -229,7 +225,7 @@ namespace Tela_Admin
             //Verificação de campos vazios
             if (cmbTipoRegistro.SelectedIndex == 1) // Validação de campos vazios específica caso o Usuário escolha o Plano Network, que exige mais campos
             {
-                if (username == "" || email == "" || senha == "" || cod_tree == "" || tree == "" || cmbTipoRegistro.SelectedIndex == -1 || cmbTipoRegistro.SelectedIndex == -1 || registro == "")
+                if (username == "" || email == "" || senha == "" || cmbTipoRegistro.SelectedIndex == -1 || cmbTipoRegistro.SelectedIndex == -1 || registro == "")
                 {
                     MessageBox.Show("Preencha todos os campos corretamente!");
                     return;
@@ -241,7 +237,7 @@ namespace Tela_Admin
             }
             else if (cmbTipoRegistro.SelectedIndex == 0) // Plano Free
             {
-                if (username == "" || idade < 13 || email == "" || senha == "" || cod_tree == "" || tree == "")
+                if (username == "" || idade < 13 || email == "" || senha == "")
                 {
                     MessageBox.Show("Preencha todos os campos corretamente!");
                     return;
@@ -252,23 +248,32 @@ namespace Tela_Admin
                 }
             }
 
-            //Envio de Dados para o B.D
-            try
+            //Validação de idade do usuário
+            if (idade < 13)
             {
-                Usuario usuario = new Usuario();
-                if (usuario.cadastrarUsuario(username, idade, email, senha, cod_tree, assinatura, tipoRegistro, registro) == true)
+                MessageBox.Show("O usuário deve ter no mínimo 13 anos!");
+            }
+            else
+            {
+                //Envio de Dados para o B.D
+                try
                 {
-                    MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Usuario usuario = new Usuario();
+                    if (usuario.cadastrarUsuario(username, idade, email, senha, assinatura, tipoRegistro, registro) == true)
+                    {
+                        MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao cadastrar: " + ex.Message);
+                }
+                finally
+                {
+                    DAO_Conexao.con.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao cadastrar: " + ex.Message);
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
+                
         }
 
         /// <summary>
@@ -278,59 +283,58 @@ namespace Tela_Admin
         /// <param name="e"></param>
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            // Atribuição dos dados do formulário às variáveis
-            string username = txtUsername.Text;
-            int idade = int.Parse(txtIdade.Text);
-            string email = txtEmail.Text;
-            string senha = txtSenha.Text;
-            string tipoPlano = cmbTipoRegistro.Text;
-            string tipoRegistro = cmbTipoRegistro.Text;
-            string registro = txtRegistro.Text;
-            string cod_tree = txtTree.Text;
-            int assinatura = 0;
-            int ativo = 0;
-
-            // Verifica o tipo de plano
-            if (cmbAssinatura.SelectedIndex == 0)
+            try
             {
-                assinatura = 0;
-            }
-            else if (cmbAssinatura.SelectedIndex == 1)
-            {
-                assinatura = 1;
-                tipoRegistro = cmbTipoRegistro.Text;
-                registro = txtRegistro.Text;
-            }
-
-            // Marca se o usuário está ativo ou não 
-            // 0 = ativo
-            // 1 = desativado/inativo
-             if(chkAtivo.Checked == true) ativo = 0; else ativo = 1;
-
-
-                try
+                // Validação geral de campos obrigatórios
+                if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                    string.IsNullOrWhiteSpace(txtIdade.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtSenha.Text) ||
+                    (cmbTipoRegistro.Visible && string.IsNullOrWhiteSpace(cmbTipoRegistro.Text)) ||
+                    (txtRegistro.Visible && string.IsNullOrWhiteSpace(txtRegistro.Text)))
                 {
-                    Usuario usuario = new Usuario();
-                    if (usuario.atualizarUsuario(username, idade, email, senha, cod_tree, assinatura, tipoRegistro, registro, ativo) == true)
-                    {
-                        MessageBox.Show("Usuário atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    throw new Exception("Por favor, preencha todos os campos obrigatórios.");
                 }
+
+                // Conversão da idade
+                if (!int.TryParse(txtIdade.Text.Trim(), out int idade))
+                {
+                    throw new Exception("O campo 'Idade' deve conter um número válido.");
+                }
+
+                // Atribuição dos dados do formulário às variáveis
+                string username = txtUsername.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string senha = txtSenha.Text.Trim();
+                string tipoRegistro = cmbTipoRegistro.Text.Trim();
+                string registro = txtRegistro.Text.Trim();
+                int assinatura = cmbAssinatura.SelectedIndex >= 0 ? cmbAssinatura.SelectedIndex : 0;
+                int ativo = chkAtivo.Checked ? 0 : 1;
+
+                // Atualização do usuário
+                Usuario usuario = new Usuario();
+                if (usuario.atualizarUsuario(username, idade, email, senha, assinatura, tipoRegistro, registro, ativo))
+                {
+                    MessageBox.Show("Usuário atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao atualizar: " + ex.Message);
+                    // Mensagem geral para o usuário
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    DAO_Conexao.con.Close();
+                    if (DAO_Conexao.con.State == System.Data.ConnectionState.Open)
+                        DAO_Conexao.con.Close();
                 }
-        }
+            }
 
-       /// <summary>
-       /// Limpeza dos campos do formulário, para nova ação no sistema
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+        /// <summary>
+        /// Limpeza dos campos do formulário, para nova ação no sistema
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpar_Click_1(object sender, EventArgs e)
         {
             txtUsername.Enabled = true;
@@ -338,8 +342,6 @@ namespace Tela_Admin
             txtIdade.Clear();
             txtEmail.Clear();
             txtSenha.Clear();
-            txtTree.Clear();
-            txtTree.Clear();
             cmbAssinatura.SelectedIndex = -1;
             cmbTipoRegistro.SelectedIndex = -1;
             chkAtivo.Checked = true;
@@ -374,8 +376,27 @@ namespace Tela_Admin
                             txtIdade.Text = resultado["idade"].ToString();
                             txtEmail.Text = resultado["email"].ToString();
                             txtSenha.Text = resultado["senha"].ToString();
-                            txtTree.Text = resultado["cod_tree"].ToString();
                             cmbAssinatura.SelectedIndex = int.Parse(resultado["assinatura"].ToString());
+
+                            string tipoRegistro = resultado["tipoRegistro"].ToString();
+                            cmbTipoRegistro.SelectedItem = tipoRegistro;
+
+                            if (tipoRegistro == "Pessoa Física")
+                            {
+                                lblTipoConta.Visible = false;
+                                lblRegistro.Visible = false;
+                                cmbTipoRegistro.Visible = false;
+                                txtRegistro.Visible = false;
+                            }
+                            else
+                            {
+                                lblTipoConta.Visible = true;
+                                lblRegistro.Visible = true;
+                                cmbTipoRegistro.Visible = true;
+                                txtRegistro.Visible = true;
+
+                                txtRegistro.Text = resultado["registro"].ToString();
+                            }
 
                             // Define se o usuário está ativo
                             int ativo = int.Parse(resultado["ativo"].ToString());
@@ -394,7 +415,7 @@ namespace Tela_Admin
                             }
                             else // Se for Premium, mostra e preenche
                             {
-                                string tipoRegistro = resultado["tipoRegistro"].ToString();
+                                tipoRegistro = resultado["tipoRegistro"].ToString();
 
                                 if (tipoRegistro == "Pessoa Física")
                                 {
