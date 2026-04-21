@@ -177,5 +177,10 @@ namespace Tela_Admin
             txtConfirmarNSenha.Clear();
             lblSenhaAtual.Text = string.Empty;
         }
+
+        private void fAlterarSenha_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

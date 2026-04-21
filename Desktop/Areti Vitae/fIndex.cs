@@ -70,7 +70,6 @@ namespace Tela_Admin
             estilizarBotao(btnExcUsuario);
             estilizarBotao(btnListUsuario);
             estilizarBotao(btnGerenciar);
-            estilizarBotao(btnCadNetwork);
             estilizarBotao(btnListAssinatura);
             estilizarBotao(btnAjuda);
             estilizarBotao(btnBuilders);
@@ -94,36 +93,6 @@ namespace Tela_Admin
         }
         #endregion
 
-        /// <summary>
-        /// Abertura de formulário de cadastro e consulta de usuários.
-        /// </summary>
-        private void consultarUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fCadUsuario cadUsuario = new fCadUsuario();
-            cadUsuario.Show();
-        }
-
-        /// <summary>
-        /// Encerra completamente a aplicação.
-        /// </summary>
-        /// <param name="sender">Objeto que disparou o evento</param>
-        /// <param name="e">Argumentos do evento</param>
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
-        /// <summary>
-        /// Abertura de formulário listagem e gerenciamento de Assinaturas 
-        /// </summary>
-        /// <param name="sender">Objeto que disparou o evento</param>
-        /// <param name="e">Argumentos do evento</param>
-        private void gerenciarAssinaturas_Click(object sender, EventArgs e)
-        {
-            fGerenciarAssinatura fGerenciarAssinatura = new fGerenciarAssinatura();
-            fGerenciarAssinatura.Show();
-        }
 
 
         /// <summary>
@@ -180,7 +149,7 @@ namespace Tela_Admin
         /// <param name="e">Argumentos do evento</param>
         private void btnAjuda_Click(object sender, EventArgs e)
         {
-            fSobreNos fSobreNos = new fSobreNos();
+            fExtras fSobreNos = new fExtras();
             fSobreNos.MdiParent = this;
             fSobreNos.Show();
         }

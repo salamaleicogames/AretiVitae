@@ -29,32 +29,64 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flistaUsuarios));
-            this.dgwUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgwAtivos = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLegenda = new System.Windows.Forms.Label();
-            this.lblLegAssinatura = new System.Windows.Forms.Label();
-            this.lblLegAtivo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabUsuarios = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupFiltrosAtivo = new System.Windows.Forms.GroupBox();
+            this.cmbAssinatura = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtRegistro = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupFiltrosInativos = new System.Windows.Forms.GroupBox();
+            this.cmbAssinaturaInativo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnLimparInativo = new System.Windows.Forms.Button();
+            this.btnPesquisarInativo = new System.Windows.Forms.Button();
+            this.txtRegistroInativo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNomeInativo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgwInativos = new System.Windows.Forms.DataGridView();
             this.lblTitulo2 = new System.Windows.Forms.Label();
-            this.lblDescricao2 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsuarios)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsersTotal = new System.Windows.Forms.Label();
+            this.lblUsersAtivos = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblUsersInativos = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAtivos)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tabUsuarios.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupFiltrosAtivo.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupFiltrosInativos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwInativos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgwUsuarios
+            // dgwAtivos
             // 
-            this.dgwUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwUsuarios.Location = new System.Drawing.Point(18, 87);
-            this.dgwUsuarios.Name = "dgwUsuarios";
-            this.dgwUsuarios.Size = new System.Drawing.Size(596, 214);
-            this.dgwUsuarios.TabIndex = 1;
+            this.dgwAtivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwAtivos.Location = new System.Drawing.Point(6, 156);
+            this.dgwAtivos.Name = "dgwAtivos";
+            this.dgwAtivos.Size = new System.Drawing.Size(674, 157);
+            this.dgwAtivos.TabIndex = 1;
+            this.dgwAtivos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwAtivos_CellFormatting);
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(269, 48);
+            this.lblTitulo.Location = new System.Drawing.Point(299, 35);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(97, 25);
             this.lblTitulo.TabIndex = 2;
@@ -70,78 +102,375 @@
             this.lblLegenda.TabIndex = 3;
             this.lblLegenda.Text = "Legenda:";
             // 
-            // lblLegAssinatura
-            // 
-            this.lblLegAssinatura.AutoSize = true;
-            this.lblLegAssinatura.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegAssinatura.Location = new System.Drawing.Point(15, 369);
-            this.lblLegAssinatura.Name = "lblLegAssinatura";
-            this.lblLegAssinatura.Size = new System.Drawing.Size(240, 18);
-            this.lblLegAssinatura.TabIndex = 4;
-            this.lblLegAssinatura.Text = "Assinatura:     0 - Plano Free;   1 - Plano Network";
-            // 
-            // lblLegAtivo
-            // 
-            this.lblLegAtivo.AutoSize = true;
-            this.lblLegAtivo.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegAtivo.Location = new System.Drawing.Point(15, 389);
-            this.lblLegAtivo.Name = "lblLegAtivo";
-            this.lblLegAtivo.Size = new System.Drawing.Size(250, 18);
-            this.lblLegAtivo.TabIndex = 5;
-            this.lblLegAtivo.Text = "Ativo:     0 - Usuário ativo,   1 - Usuário Desativado";
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tabUsuarios);
             this.panel1.Controls.Add(this.lblTitulo2);
             this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Controls.Add(this.dgwUsuarios);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(18, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(642, 314);
+            this.panel1.Size = new System.Drawing.Size(718, 413);
             this.panel1.TabIndex = 6;
+            // 
+            // tabUsuarios
+            // 
+            this.tabUsuarios.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabUsuarios.Controls.Add(this.tabPage1);
+            this.tabUsuarios.Controls.Add(this.tabPage2);
+            this.tabUsuarios.Location = new System.Drawing.Point(21, 62);
+            this.tabUsuarios.Name = "tabUsuarios";
+            this.tabUsuarios.SelectedIndex = 0;
+            this.tabUsuarios.Size = new System.Drawing.Size(694, 348);
+            this.tabUsuarios.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabUsuarios.TabIndex = 31;
+            this.tabUsuarios.SelectedIndexChanged += new System.EventHandler(this.tabUsuarios_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupFiltrosAtivo);
+            this.tabPage1.Controls.Add(this.dgwAtivos);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(686, 319);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Usuários Ativos";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupFiltrosAtivo
+            // 
+            this.groupFiltrosAtivo.Controls.Add(this.cmbAssinatura);
+            this.groupFiltrosAtivo.Controls.Add(this.label6);
+            this.groupFiltrosAtivo.Controls.Add(this.btnFiltrar);
+            this.groupFiltrosAtivo.Controls.Add(this.btnPesquisar);
+            this.groupFiltrosAtivo.Controls.Add(this.txtRegistro);
+            this.groupFiltrosAtivo.Controls.Add(this.label5);
+            this.groupFiltrosAtivo.Controls.Add(this.txtNome);
+            this.groupFiltrosAtivo.Controls.Add(this.label2);
+            this.groupFiltrosAtivo.Font = new System.Drawing.Font("Josefin Sans Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupFiltrosAtivo.Location = new System.Drawing.Point(6, 6);
+            this.groupFiltrosAtivo.Name = "groupFiltrosAtivo";
+            this.groupFiltrosAtivo.Size = new System.Drawing.Size(674, 127);
+            this.groupFiltrosAtivo.TabIndex = 2;
+            this.groupFiltrosAtivo.TabStop = false;
+            this.groupFiltrosAtivo.Text = "Filtros de Busca";
+            this.groupFiltrosAtivo.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cmbAssinatura
+            // 
+            this.cmbAssinatura.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAssinatura.FormattingEnabled = true;
+            this.cmbAssinatura.Items.AddRange(new object[] {
+            "Free",
+            "Network"});
+            this.cmbAssinatura.Location = new System.Drawing.Point(137, 89);
+            this.cmbAssinatura.Name = "cmbAssinatura";
+            this.cmbAssinatura.Size = new System.Drawing.Size(121, 28);
+            this.cmbAssinatura.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Assinatura: ";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.Location = new System.Drawing.Point(508, 81);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(150, 31);
+            this.btnFiltrar.TabIndex = 5;
+            this.btnFiltrar.Text = "Limpar Filtros";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Location = new System.Drawing.Point(508, 38);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(150, 31);
+            this.btnPesquisar.TabIndex = 4;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtRegistro
+            // 
+            this.txtRegistro.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegistro.Location = new System.Drawing.Point(337, 43);
+            this.txtRegistro.Multiline = true;
+            this.txtRegistro.Name = "txtRegistro";
+            this.txtRegistro.Size = new System.Drawing.Size(122, 26);
+            this.txtRegistro.TabIndex = 3;
+            this.txtRegistro.TextChanged += new System.EventHandler(this.txtRegistro_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(253, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "CPF/CNPJ: ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(106, 43);
+            this.txtNome.Multiline = true;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(122, 26);
+            this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(49, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nome: ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.groupFiltrosInativos);
+            this.tabPage2.Controls.Add(this.dgwInativos);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(686, 319);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Usuários Inativos";
+            // 
+            // groupFiltrosInativos
+            // 
+            this.groupFiltrosInativos.Controls.Add(this.cmbAssinaturaInativo);
+            this.groupFiltrosInativos.Controls.Add(this.label7);
+            this.groupFiltrosInativos.Controls.Add(this.btnLimparInativo);
+            this.groupFiltrosInativos.Controls.Add(this.btnPesquisarInativo);
+            this.groupFiltrosInativos.Controls.Add(this.txtRegistroInativo);
+            this.groupFiltrosInativos.Controls.Add(this.label8);
+            this.groupFiltrosInativos.Controls.Add(this.txtNomeInativo);
+            this.groupFiltrosInativos.Controls.Add(this.label9);
+            this.groupFiltrosInativos.Font = new System.Drawing.Font("Josefin Sans Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupFiltrosInativos.Location = new System.Drawing.Point(6, 6);
+            this.groupFiltrosInativos.Name = "groupFiltrosInativos";
+            this.groupFiltrosInativos.Size = new System.Drawing.Size(674, 127);
+            this.groupFiltrosInativos.TabIndex = 3;
+            this.groupFiltrosInativos.TabStop = false;
+            this.groupFiltrosInativos.Text = "Filtros de Busca";
+            // 
+            // cmbAssinaturaInativo
+            // 
+            this.cmbAssinaturaInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAssinaturaInativo.FormattingEnabled = true;
+            this.cmbAssinaturaInativo.Items.AddRange(new object[] {
+            "Free",
+            "Network"});
+            this.cmbAssinaturaInativo.Location = new System.Drawing.Point(137, 89);
+            this.cmbAssinaturaInativo.Name = "cmbAssinaturaInativo";
+            this.cmbAssinaturaInativo.Size = new System.Drawing.Size(121, 28);
+            this.cmbAssinaturaInativo.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(49, 92);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Assinatura: ";
+            // 
+            // btnLimparInativo
+            // 
+            this.btnLimparInativo.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparInativo.Location = new System.Drawing.Point(508, 75);
+            this.btnLimparInativo.Name = "btnLimparInativo";
+            this.btnLimparInativo.Size = new System.Drawing.Size(150, 31);
+            this.btnLimparInativo.TabIndex = 5;
+            this.btnLimparInativo.Text = "Limpar Filtros";
+            this.btnLimparInativo.UseVisualStyleBackColor = true;
+            this.btnLimparInativo.Click += new System.EventHandler(this.btnLimparInativo_Click);
+            // 
+            // btnPesquisarInativo
+            // 
+            this.btnPesquisarInativo.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarInativo.Location = new System.Drawing.Point(508, 38);
+            this.btnPesquisarInativo.Name = "btnPesquisarInativo";
+            this.btnPesquisarInativo.Size = new System.Drawing.Size(150, 31);
+            this.btnPesquisarInativo.TabIndex = 4;
+            this.btnPesquisarInativo.Text = "Pesquisar";
+            this.btnPesquisarInativo.UseVisualStyleBackColor = true;
+            this.btnPesquisarInativo.Click += new System.EventHandler(this.btnPesquisarInativo_Click);
+            // 
+            // txtRegistroInativo
+            // 
+            this.txtRegistroInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegistroInativo.Location = new System.Drawing.Point(337, 43);
+            this.txtRegistroInativo.Multiline = true;
+            this.txtRegistroInativo.Name = "txtRegistroInativo";
+            this.txtRegistroInativo.Size = new System.Drawing.Size(122, 26);
+            this.txtRegistroInativo.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(253, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "CPF/CNPJ: ";
+            // 
+            // txtNomeInativo
+            // 
+            this.txtNomeInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeInativo.Location = new System.Drawing.Point(106, 43);
+            this.txtNomeInativo.Multiline = true;
+            this.txtNomeInativo.Name = "txtNomeInativo";
+            this.txtNomeInativo.Size = new System.Drawing.Size(122, 26);
+            this.txtNomeInativo.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(49, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Nome: ";
+            // 
+            // dgwInativos
+            // 
+            this.dgwInativos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwInativos.Location = new System.Drawing.Point(6, 156);
+            this.dgwInativos.Name = "dgwInativos";
+            this.dgwInativos.Size = new System.Drawing.Size(674, 157);
+            this.dgwInativos.TabIndex = 2;
+            this.dgwInativos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwInativos_CellContentClick);
+            this.dgwInativos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwInativos_CellFormatting);
             // 
             // lblTitulo2
             // 
             this.lblTitulo2.AutoSize = true;
             this.lblTitulo2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo2.Location = new System.Drawing.Point(253, 23);
+            this.lblTitulo2.Location = new System.Drawing.Point(283, 10);
             this.lblTitulo2.Name = "lblTitulo2";
             this.lblTitulo2.Size = new System.Drawing.Size(145, 25);
             this.lblTitulo2.TabIndex = 3;
             this.lblTitulo2.Text = "Lista de Usuários";
-            // 
-            // lblDescricao2
-            // 
-            this.lblDescricao2.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao2.ForeColor = System.Drawing.Color.White;
-            this.lblDescricao2.Location = new System.Drawing.Point(290, 354);
-            this.lblDescricao2.Name = "lblDescricao2";
-            this.lblDescricao2.Size = new System.Drawing.Size(185, 55);
-            this.lblDescricao2.TabIndex = 28;
-            this.lblDescricao2.Text = "O username e o email são únicos,\nnão é possível ter mais de uma\nconta com ambos o" +
-    "s dados iguais";
+            this.lblTitulo2.Click += new System.EventHandler(this.lblTitulo2_Click);
             // 
             // btnHome
             // 
-            this.btnHome.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(510, 369);
+            this.btnHome.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Location = new System.Drawing.Point(557, 471);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(150, 26);
+            this.btnHome.Size = new System.Drawing.Size(150, 34);
             this.btnHome.TabIndex = 29;
             this.btnHome.Text = "Início";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Josefin Sans Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(14, 451);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 24);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Usuários Cadastrados:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblUsersTotal
+            // 
+            this.lblUsersTotal.AutoSize = true;
+            this.lblUsersTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsersTotal.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsersTotal.Location = new System.Drawing.Point(182, 457);
+            this.lblUsersTotal.Name = "lblUsersTotal";
+            this.lblUsersTotal.Size = new System.Drawing.Size(16, 18);
+            this.lblUsersTotal.TabIndex = 31;
+            this.lblUsersTotal.Text = "0";
+            // 
+            // lblUsersAtivos
+            // 
+            this.lblUsersAtivos.AutoSize = true;
+            this.lblUsersAtivos.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsersAtivos.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsersAtivos.Location = new System.Drawing.Point(182, 485);
+            this.lblUsersAtivos.Name = "lblUsersAtivos";
+            this.lblUsersAtivos.Size = new System.Drawing.Size(17, 20);
+            this.lblUsersAtivos.TabIndex = 33;
+            this.lblUsersAtivos.Text = "0";
+            this.lblUsersAtivos.Click += new System.EventHandler(this.lblUsersAtivos_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(125, 485);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Ativos: ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lblUsersInativos
+            // 
+            this.lblUsersInativos.AutoSize = true;
+            this.lblUsersInativos.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsersInativos.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsersInativos.Location = new System.Drawing.Point(182, 507);
+            this.lblUsersInativos.Name = "lblUsersInativos";
+            this.lblUsersInativos.Size = new System.Drawing.Size(17, 20);
+            this.lblUsersInativos.TabIndex = 35;
+            this.lblUsersInativos.Text = "0";
+            this.lblUsersInativos.Click += new System.EventHandler(this.lblUsersInativos_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(115, 507);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 20);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Inativos: ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // flistaUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 461);
+            this.ClientSize = new System.Drawing.Size(748, 551);
+            this.Controls.Add(this.lblUsersInativos);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblUsersAtivos);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblUsersTotal);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnHome);
-            this.Controls.Add(this.lblDescricao2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblLegAtivo);
-            this.Controls.Add(this.lblLegAssinatura);
             this.Controls.Add(this.lblLegenda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -150,23 +479,56 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Usuários";
             this.Load += new System.EventHandler(this.listaUsuarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAtivos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabUsuarios.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.groupFiltrosAtivo.ResumeLayout(false);
+            this.groupFiltrosAtivo.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupFiltrosInativos.ResumeLayout(false);
+            this.groupFiltrosInativos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwInativos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgwUsuarios;
+        private System.Windows.Forms.DataGridView dgwAtivos;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblLegenda;
-        private System.Windows.Forms.Label lblLegAssinatura;
-        private System.Windows.Forms.Label lblLegAtivo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblDescricao2;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblTitulo2;
+        private System.Windows.Forms.TabControl tabUsuarios;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgwInativos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUsersTotal;
+        private System.Windows.Forms.Label lblUsersAtivos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblUsersInativos;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupFiltrosAtivo;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRegistro;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cmbAssinatura;
+        private System.Windows.Forms.GroupBox groupFiltrosInativos;
+        private System.Windows.Forms.ComboBox cmbAssinaturaInativo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLimparInativo;
+        private System.Windows.Forms.Button btnPesquisarInativo;
+        private System.Windows.Forms.TextBox txtRegistroInativo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNomeInativo;
+        private System.Windows.Forms.Label label9;
     }
 }

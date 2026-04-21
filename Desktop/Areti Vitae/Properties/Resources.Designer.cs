@@ -63,6 +63,16 @@ namespace Tela_Admin.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap João_Mantz {
+            get {
+                object obj = ResourceManager.GetObject("João-Mantz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_fundoazul {
             get {
                 object obj = ResourceManager.GetObject("logo_fundoazul", resourceCulture);
@@ -86,6 +96,26 @@ namespace Tela_Admin.Properties {
         internal static System.Drawing.Bitmap logo_texto {
             get {
                 object obj = ResourceManager.GetObject("logo_texto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Maurício {
+            get {
+                object obj = ResourceManager.GetObject("Maurício", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Maurício1 {
+            get {
+                object obj = ResourceManager.GetObject("Maurício1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

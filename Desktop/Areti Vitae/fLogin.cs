@@ -48,7 +48,7 @@ namespace Tela_Admin
 
 
         /// <summary>
-        /// Evento do botão Entrar.
+        /// Evento do clique no botão Entrar.
         /// Realiza a validação dos campos, autenticação do usuário e redirecionamento conforme o tipo de administrador.
         /// </summary>
         /// <param name="sender">Objeto que disparou o evento</param>
@@ -156,6 +156,11 @@ namespace Tela_Admin
         }
 
         private void fLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

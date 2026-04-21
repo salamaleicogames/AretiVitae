@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient.Authentication;
 using System;
 using System.Data;
 using System.Drawing;
@@ -37,9 +38,6 @@ namespace Tela_Admin
             lblTitulo.ForeColor = System.Drawing.Color.White;
             lblTitulo2.ForeColor = System.Drawing.Color.White;
             lblLegenda.ForeColor = System.Drawing.Color.White;
-            lblLegAssinatura.ForeColor = System.Drawing.Color.White;
-            lblLegAtivo.ForeColor = System.Drawing.Color.White;
-            lblDescricao2.ForeColor = System.Drawing.Color.White;
 
             //Estilização dos Botões
             btnHome.BackColor = Color.FromArgb(130, 151, 217);
@@ -47,57 +45,113 @@ namespace Tela_Admin
             btnHome.Region = Region.FromHrgn(
                 CreateRoundRectRgn(0, 0, btnHome.Width, btnHome.Height, 20, 20)
             );
+
         }
         #endregion
 
 
-        //Chamada de Método de abertura da listagem dos Usuários cadastrados
+
         private void listaUsuarios_Load(object sender, EventArgs e)
         {
-            CarregarUsuarios();
+            int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
+            if (status == 0)
+            {
+                carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            }
+            else
+            {
+                carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+            }
         }
 
+
+        #region Método de Carregamento da Tabela (filtros e estatísticas)
         /// <summary>
-        /// Método de abertura da listagem dos Usuários cadastrados (DatagGridView)
+        /// Método de abertura da listagem dos Usuários cadastrados (DatagGridView) e exibição de estatísticas de cadastro de usuários
         /// </summary>
-        private void CarregarUsuarios()
+        private void carregarUsuarios(int ativo, string filtroNome, string filtroCPF, int filtroAssinatura)
         {
             try
             {
-                // Abertura de Conexão com o BD
                 if (DAO_Conexao.con.State != System.Data.ConnectionState.Open)
                 {
                     DAO_Conexao.con.Open();
                 }
 
-                string query = "SELECT * FROM AretiVitae_Usuario"; // Query de consulta no Banco de Dados
+                
+                string query = "SELECT * FROM AretiVitae_Usuario WHERE ativo = " + ativo;
+
+                //Filtros de Nome, Registro (CPF/CNPJ) e Assinatura (Usuários Ativos)
+                if (!string.IsNullOrEmpty(filtroNome))
+                {
+                    query += " AND username LIKE '%" + filtroNome + "%'";
+                }
+
+                if (!string.IsNullOrEmpty(filtroCPF))
+                {
+                    query += " AND registro LIKE '%" + filtroCPF + "%'";
+                }
+
+                if(filtroAssinatura >= 0)
+                {
+                   query += " AND assinatura = " + filtroAssinatura;   
+                }
+               
+
+
+                // Queries de contagem
+                string usersTotal = "SELECT COUNT(*) FROM AretiVitae_Usuario";
+                string usersAtivos = "SELECT COUNT(*) FROM AretiVitae_Usuario WHERE ativo = 0";
+                string usersDesativados = "SELECT COUNT(*) FROM AretiVitae_Usuario WHERE ativo = 1";
+
+                
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, DAO_Conexao.con);
+
+                MySqlCommand cmd1 = new MySqlCommand(usersTotal, DAO_Conexao.con);
+                int totalUsers = Convert.ToInt32(cmd1.ExecuteScalar());
+
+                MySqlCommand cmd2 = new MySqlCommand(usersAtivos, DAO_Conexao.con);
+                int ativosUsers = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                MySqlCommand cmd3 = new MySqlCommand(usersDesativados, DAO_Conexao.con);
+                int desativadosUsers = Convert.ToInt32(cmd3.ExecuteScalar());
+
+                // Estatísticas de Usuários
+                lblUsersTotal.Text = totalUsers.ToString();
+                lblUsersAtivos.Text = ativosUsers.ToString();
+                lblUsersInativos.Text = desativadosUsers.ToString();
+
+                // Grid
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
-                dgwUsuarios.DataSource = dt; // Preenchimento do DataGridView
+                DataGridView dgwAtual = (ativo == 0) ? dgwAtivos : dgwInativos;
+                dgwAtual.DataSource = dt;
 
+              
+                if (ativo == 1)
+                {
+                    if (!dgwAtual.Columns.Contains("btnReativar"))
+                    {
+                        DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                        btn.Name = "btnReativar";
+                        btn.HeaderText = "Ações";
+                        btn.Text = "Reativar";
+                        btn.UseColumnTextForButtonValue = true;
+                        dgwAtual.Columns.Add(btn);
+                    }
+                }
 
-                //Renomeando títulos das colunas
-                dgwUsuarios.Columns["id"].HeaderText = "ID";
-                dgwUsuarios.Columns["username"].HeaderText = "Username";
-                dgwUsuarios.Columns["idade"].HeaderText = "Idade";
-                dgwUsuarios.Columns["email"].HeaderText = "E-mail";
-                dgwUsuarios.Columns["senha"].HeaderText = "Senha";
-                dgwUsuarios.Columns["assinatura"].HeaderText = "Assinatura";
-
-
-                #region Estilização do Data Grid View
-                //Estilização das colunas do DataGridView
-                dgwUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgwUsuarios.ColumnHeadersDefaultCellStyle.Font = new Font("Josefin Sans", 10, FontStyle.Bold);
-                dgwUsuarios.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(130, 151, 217);
-                dgwUsuarios.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                dgwUsuarios.EnableHeadersVisualStyles = false;
-                dgwUsuarios.DefaultCellStyle.BackColor = Color.White;
-                dgwUsuarios.DefaultCellStyle.ForeColor = Color.Black;
-                dgwUsuarios.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(230, 235, 250);
-                #endregion
+                // Cabeçalhos da tabela
+                dgwAtual.Columns["id"].HeaderText = "ID";
+                dgwAtual.Columns["username"].HeaderText = "Username";
+                dgwAtual.Columns["idade"].HeaderText = "Idade";
+                dgwAtual.Columns["email"].HeaderText = "E-mail";
+                dgwAtual.Columns["senha"].HeaderText = "Senha";
+                dgwAtual.Columns["assinatura"].HeaderText = "Assinatura";
+                dgwAtual.Columns["tipoRegistro"].HeaderText = "Tipo de Registro";
+                dgwAtual.Columns["registro"].HeaderText = "Registro";
+                dgwAtual.Columns["ativo"].HeaderText = "Status";
             }
             catch (Exception ex)
             {
@@ -108,10 +162,257 @@ namespace Tela_Admin
                 DAO_Conexao.con.Close();
             }
         }
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void dgwInativos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+            if (dgwInativos.Columns[e.ColumnIndex].Name == "btnReativar" && e.RowIndex >= 0)
+            {
+                // Verifica se clicou no botão Reativar
+                if (dgwInativos.Columns[e.ColumnIndex].Name == "btnReativar" && e.RowIndex >= 0)
+                {
+                    DataGridViewRow linha = dgwInativos.Rows[e.RowIndex];
+
+                    //Captação dos dados da tabela
+                    string username = linha.Cells["username"].Value.ToString();
+                    int idade = Convert.ToInt32(linha.Cells["idade"].Value);
+                    string email = linha.Cells["email"].Value.ToString();
+                    string senha = linha.Cells["senha"].Value.ToString();
+                    int assinatura = Convert.ToInt32(linha.Cells["assinatura"].Value);
+
+                    // Busca os dados extras no banco (registro e tipoRegistro)
+                    Usuario user = new Usuario();
+                    string tRegistro, registro;
+                    user.buscarDadosExtras(username, out tRegistro, out registro);
+
+                    //Tratamento das variáveis caso o usuário ter o plano free
+                    if (string.IsNullOrEmpty(tRegistro)) tRegistro = "";
+                    if (string.IsNullOrEmpty(registro)) registro = "";
+
+                    
+                    bool sucesso = user.atualizarUsuario(username, idade, email, senha, assinatura, tRegistro, registro, 0);
+
+                    if (sucesso)
+                    {
+                        MessageBox.Show("Usuário reativado!");
+
+
+                        int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
+                        if (status == 0)
+                        {
+                            carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                        }
+                        else
+                        {
+                            carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void tabUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
+            if (status == 0) 
+            {
+                carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            }
+            else
+            {
+                carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+            }
+           
+        }
+
+        private void dgwAtivos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridView dgw = (DataGridView)sender;
+
+            //Verifica se a coluna "ativo" existe no grid antes do acesso
+            if (dgw.Columns.Contains("ativo") && e.ColumnIndex == dgw.Columns["ativo"].Index)
+            {
+                if (e.Value != null)
+                {
+                    string status = e.Value.ToString();
+
+                    if (status == "0")
+                    {
+                        e.CellStyle.BackColor = Color.LightGreen;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Ativo";
+                    }
+                    else if (status == "1")
+                    {
+                        e.CellStyle.BackColor = Color.Salmon;
+                        e.CellStyle.ForeColor = Color.White;
+                        e.Value = "Desativado";
+                    }
+                }
+            }
+
+            //Verifica se a coluna "assinatura" existe no grid antes do acesso
+            if (dgw.Columns.Contains("assinatura") && e.ColumnIndex == dgw.Columns["assinatura"].Index)
+            {
+                if (e.Value != null)
+                {
+                    string assinatura = e.Value.ToString();
+
+                    if (assinatura == "0")
+                    {
+                        e.CellStyle.BackColor = Color.LightGreen;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Plano Free";
+                    }
+                    else if (assinatura == "1")
+                    {
+                        e.CellStyle.BackColor = Color.LightCyan;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Network";
+                    }
+                }
+            }
+        }
+
+        private void dgwInativos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridView dgw = (DataGridView)sender;
+
+            // Verifica se a coluna "ativo" existe no grid antes do acesso
+            if (dgw.Columns.Contains("ativo") && e.ColumnIndex == dgw.Columns["ativo"].Index)
+            {
+                if (e.Value != null)
+                {
+                    string status = e.Value.ToString();
+
+                    if (status == "0")
+                    {
+                        e.CellStyle.BackColor = Color.LightGreen;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Ativo";
+                    }
+                    else if (status == "1")
+                    {
+                        e.CellStyle.BackColor = Color.Salmon;
+                        e.CellStyle.ForeColor = Color.White;
+                        e.Value = "Desativado";
+                    }
+                }
+            }
+
+            //Verifica se a coluna "assinatura" existe no grid antes do acesso
+            if (dgw.Columns.Contains("assinatura") && e.ColumnIndex == dgw.Columns["assinatura"].Index)
+            {
+                if (e.Value != null)
+                {
+                    string assinatura = e.Value.ToString();
+
+                    if (assinatura == "0")
+                    {
+                        e.CellStyle.BackColor = Color.LightGreen;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Plano Free";
+                    }
+                    else if (assinatura == "1")
+                    {
+                        e.CellStyle.BackColor = Color.LightCyan;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Network";
+                    }
+                }
+            }
+
+
+        }
+
+        private void lblTitulo2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRegistro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsersInativos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            carregarUsuarios(0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsersAtivos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarInativo_Click(object sender, EventArgs e)
+        {
+            carregarUsuarios(1, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            txtNome.Clear();
+            txtRegistro.Clear();
+            cmbAssinatura.SelectedIndex = -1;
+
+            carregarUsuarios(0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+        }
+
+        private void btnLimparInativo_Click(object sender, EventArgs e)
+        {
+            txtNomeInativo.Clear();
+            txtRegistroInativo.Clear();
+            cmbAssinaturaInativo.SelectedIndex = -1;
+
+            carregarUsuarios(1, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
         }
     }
 }

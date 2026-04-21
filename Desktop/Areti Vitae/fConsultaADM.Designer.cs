@@ -90,7 +90,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Builder`s Area";
             // 
-            // Tela_Admin
+            // fAjuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,7 +98,7 @@
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Name = "Tela_Admin";
+            this.Name = "fAjuda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Builder`s Area";
             this.Load += new System.EventHandler(this.fAreaADM_Load_1);

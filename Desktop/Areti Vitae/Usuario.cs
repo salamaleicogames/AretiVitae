@@ -206,6 +206,34 @@ namespace Tela_Admin
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="tipo"></param>
+        /// <param name="registro"></param>
+        public void buscarDadosExtras(string username, out string tipo, out string registro)
+        {
+            tipo = "";
+            registro = "";
+            try
+            {
+                DAO_Conexao.con.Open();
+                string sql = "SELECT tipoRegistro, registro FROM AretiVitae_Usuario WHERE username = '" + username + "';";
+                MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    tipo = dr["tipoRegistro"].ToString();
+                    registro = dr["registro"].ToString();
+                }
+                dr.Close();
+            }
+            catch { }
+            finally { DAO_Conexao.con.Close(); }
+        }
+
+        /// <summary>
         /// Método reponsável pela desativação de um usuário
         /// </summary>
         /// <param name="username">Nome de Usuário</param>

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fIndex));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
-            this.btnCadNetwork = new System.Windows.Forms.Button();
             this.btnBuilders = new System.Windows.Forms.Button();
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnGerenciar = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelMenu.Controls.Add(this.btnSair);
-            this.panelMenu.Controls.Add(this.btnCadNetwork);
             this.panelMenu.Controls.Add(this.btnBuilders);
             this.panelMenu.Controls.Add(this.btnAjuda);
             this.panelMenu.Controls.Add(this.btnGerenciar);
@@ -68,7 +66,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(23, 445);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(115, 28);
@@ -77,20 +75,9 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // btnCadNetwork
-            // 
-            this.btnCadNetwork.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadNetwork.Location = new System.Drawing.Point(23, 280);
-            this.btnCadNetwork.Name = "btnCadNetwork";
-            this.btnCadNetwork.Size = new System.Drawing.Size(115, 28);
-            this.btnCadNetwork.TabIndex = 10;
-            this.btnCadNetwork.Text = "Cadastrar";
-            this.btnCadNetwork.UseVisualStyleBackColor = true;
-            this.btnCadNetwork.Visible = false;
-            // 
             // btnBuilders
             // 
-            this.btnBuilders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuilders.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuilders.Location = new System.Drawing.Point(23, 402);
             this.btnBuilders.Name = "btnBuilders";
             this.btnBuilders.Size = new System.Drawing.Size(115, 28);
@@ -101,7 +88,7 @@
             // 
             // btnAjuda
             // 
-            this.btnAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjuda.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.Location = new System.Drawing.Point(23, 362);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(115, 28);
@@ -112,7 +99,7 @@
             // 
             // btnGerenciar
             // 
-            this.btnGerenciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerenciar.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerenciar.Location = new System.Drawing.Point(23, 246);
             this.btnGerenciar.Name = "btnGerenciar";
             this.btnGerenciar.Size = new System.Drawing.Size(115, 28);
@@ -134,7 +121,7 @@
             // 
             // btnListUsuario
             // 
-            this.btnListUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListUsuario.Location = new System.Drawing.Point(23, 146);
             this.btnListUsuario.Name = "btnListUsuario";
             this.btnListUsuario.Size = new System.Drawing.Size(115, 28);
@@ -145,18 +132,18 @@
             // 
             // btnExcUsuario
             // 
-            this.btnExcUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcUsuario.Location = new System.Drawing.Point(23, 103);
             this.btnExcUsuario.Name = "btnExcUsuario";
             this.btnExcUsuario.Size = new System.Drawing.Size(115, 28);
             this.btnExcUsuario.TabIndex = 4;
-            this.btnExcUsuario.Text = "Excluir";
+            this.btnExcUsuario.Text = "Desativar";
             this.btnExcUsuario.UseVisualStyleBackColor = true;
             this.btnExcUsuario.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCadUsuario
             // 
-            this.btnCadUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadUsuario.Location = new System.Drawing.Point(23, 59);
             this.btnCadUsuario.Name = "btnCadUsuario";
             this.btnCadUsuario.Size = new System.Drawing.Size(115, 28);
@@ -168,33 +155,33 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(21, 325);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 20);
+            this.label3.Size = new System.Drawing.Size(132, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Config. e Outros";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(21, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.Size = new System.Drawing.Size(89, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Assinatura";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(21, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 20);
+            this.label1.Size = new System.Drawing.Size(75, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuários";
             // 
@@ -229,7 +216,6 @@
         private System.Windows.Forms.Button btnListAssinatura;
         private System.Windows.Forms.Button btnBuilders;
         private System.Windows.Forms.Button btnAjuda;
-        private System.Windows.Forms.Button btnCadNetwork;
         private System.Windows.Forms.Button btnGerenciar;
         private System.Windows.Forms.Button btnSair;
     }

@@ -46,8 +46,8 @@
             // 
             // btnListarUsuarios
             // 
-            this.btnListarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListarUsuarios.Location = new System.Drawing.Point(503, 345);
+            this.btnListarUsuarios.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarUsuarios.Location = new System.Drawing.Point(503, 322);
             this.btnListarUsuarios.Name = "btnListarUsuarios";
             this.btnListarUsuarios.Size = new System.Drawing.Size(150, 40);
             this.btnListarUsuarios.TabIndex = 18;
@@ -100,36 +100,36 @@
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.Location = new System.Drawing.Point(46, 133);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(52, 16);
+            this.lblSenha.Size = new System.Drawing.Size(52, 20);
             this.lblSenha.TabIndex = 27;
             this.lblSenha.Text = "Senha: ";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(49, 80);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(47, 16);
+            this.lblEmail.Size = new System.Drawing.Size(48, 20);
             this.lblEmail.TabIndex = 28;
             this.lblEmail.Text = "Email: ";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(28, 25);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(76, 16);
+            this.lblUsername.Size = new System.Drawing.Size(75, 20);
             this.lblUsername.TabIndex = 29;
             this.lblUsername.Text = "Username: ";
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Location = new System.Drawing.Point(406, 96);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(150, 40);
@@ -140,29 +140,29 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Location = new System.Drawing.Point(406, 47);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(150, 40);
             this.btnExcluir.TabIndex = 25;
-            this.btnExcluir.Text = "Excluir Usuário";
+            this.btnExcluir.Text = "Desativar Usuário";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // lblDescricao
             // 
-            this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(23, 345);
+            this.lblDescricao.Font = new System.Drawing.Font("Josefin Sans Medium", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao.Location = new System.Drawing.Point(23, 307);
             this.lblDescricao.Name = "lblDescricao";
-            this.lblDescricao.Size = new System.Drawing.Size(233, 61);
+            this.lblDescricao.Size = new System.Drawing.Size(233, 78);
             this.lblDescricao.TabIndex = 26;
             this.lblDescricao.Text = "Usuários desativados podem ser recuperados \na partir da mudança do estado de ativ" +
     "ação\nda conta";
             // 
             // lblDescricao2
             // 
-            this.lblDescricao2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao2.Location = new System.Drawing.Point(278, 345);
+            this.lblDescricao2.Font = new System.Drawing.Font("Josefin Sans Medium", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescricao2.Location = new System.Drawing.Point(275, 307);
             this.lblDescricao2.Name = "lblDescricao2";
             this.lblDescricao2.Size = new System.Drawing.Size(185, 55);
             this.lblDescricao2.TabIndex = 27;
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 461);
+            this.ClientSize = new System.Drawing.Size(673, 407);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblDescricao2);
             this.Controls.Add(this.panel1);
@@ -181,7 +181,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "excUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Excluir Usuário";
+            this.Text = "Desativar Usuário";
             this.Load += new System.EventHandler(this.excUsuario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Tela_Admin
 {
     /// <summary>
-    /// Formulário responsável pela consulta e exclusão de usuários do sistema.
+    /// Formulário responsável pela desativação de usuários do sistema.
     /// Permite buscar um usuário pelo nome e realizar sua remoção do banco de dados.
     /// </summary>
     public partial class excUsuario : Form
@@ -147,7 +147,7 @@ namespace Tela_Admin
         }
 
         /// <summary>
-        /// Realiza a exclusão do usuário selecionado.
+        /// Realiza a desativação do usuário selecionado.
         /// </summary>
         private void btnExcluir_Click(object sender, EventArgs e)
         {
@@ -161,11 +161,11 @@ namespace Tela_Admin
 
                 if (usuario.excluirUsuario(username, email, senha))
                 {
-                    MessageBox.Show("Usuário excluído com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuário desativado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao excluir usuário!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao desativar usuário!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

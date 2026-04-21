@@ -62,15 +62,6 @@ namespace Tela_Admin
         }
 
 
-        /// <summary>
-        /// Desfecho da Área de Administração 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         /// <summary>
         /// Abre o formulário utilizado para consulta e alteração da senha dos usuários administradores.
