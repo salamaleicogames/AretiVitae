@@ -1,4 +1,4 @@
-import 'package:areti_vitae_mobile/login.dart';
+import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
