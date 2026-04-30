@@ -1,3 +1,5 @@
+import 'package:areti_vitae_mobile/views/ajuda.dart';
+import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -34,9 +36,10 @@ class _HomeState extends State<Home> {
                           Image.asset("assets/images/alter2.png", width: 75),
                           SizedBox(width: 55),
                           Text(
-                            "Maumau",
+                            "Maurício",
                             style: TextStyle(
                               fontFamily: "Montserrat",
+                              fontWeight: FontWeight.bold,
                               fontSize: 35,
                               color: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
@@ -60,13 +63,23 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               //Campo Salvar
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/saveIcon.png",
-                                    width: 75,
+                              GestureDetector(
+                                onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => (),
+                                  //   ),
+                                  // );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/saveIcon.png",
+                                      width: 75,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -74,13 +87,23 @@ class _HomeState extends State<Home> {
                               SizedBox(width: 100),
 
                               //Campo Configurações
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/configIcon.png",
-                                    width: 75,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Configuracoes(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/configIcon.png",
+                                      width: 75,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -93,27 +116,48 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               //Campo Help
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/moldetvIcon.png",
-                                    width: 75,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Ajuda(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/help.png",
+                                      width: 75,
+                                      height: 70,
+                                    ),
                                   ),
                                 ),
                               ),
 
                               SizedBox(width: 100),
 
-                              //Campo Configurações
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/galeriaIcon.png",
-                                    width: 75,
+                              //Campo Galeria
+                              GestureDetector(
+                                onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => Galeria(),
+                                  //   ),
+                                  // );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/galeriaIcon.png",
+                                      width: 75,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -159,14 +203,24 @@ class _HomeState extends State<Home> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              //Campo Salvar
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/networkIcon.png",
-                                    width: 80,
+                              //Campo Network
+                              GestureDetector(
+                                onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => Network(),
+                                  //   ),
+                                  // );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/networkIcon.png",
+                                      width: 80,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -174,13 +228,23 @@ class _HomeState extends State<Home> {
                               SizedBox(width: 100),
 
                               //Campo Configurações
-                              Container(
-                                color: Color.fromRGBO(208, 227, 255, 1),
-                                child: Padding(
-                                  padding: EdgeInsetsGeometry.all(20),
-                                  child: Image.asset(
-                                    "assets/images/configIcon.png",
-                                    width: 75,
+                              GestureDetector(
+                                onTap: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => ConfigNetwork(),
+                                  //   ),
+                                  // );
+                                },
+                                child: Container(
+                                  color: Color.fromRGBO(208, 227, 255, 1),
+                                  child: Padding(
+                                    padding: EdgeInsetsGeometry.all(20),
+                                    child: Image.asset(
+                                      "assets/images/configIcon.png",
+                                      width: 75,
+                                    ),
                                   ),
                                 ),
                               ),

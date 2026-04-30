@@ -152,25 +152,6 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Configuracoes(),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                "Configurações",
-                                style: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),

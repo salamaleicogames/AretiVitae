@@ -67,6 +67,8 @@ flutter:
    - assets/images/networkIcon.png
    - assets/images/saveIcon.png
    - assets/images/networkTitle.png
+   - assets/images/help.png
+   - assets/images/seta.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
