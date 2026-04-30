@@ -1,4 +1,5 @@
 import 'package:areti_vitae_mobile/views/cadastro.dart';
+import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
 import 'package:flutter/material.dart';
@@ -144,6 +145,25 @@ class _LoginState extends State<Login> {
                               },
                               child: Text(
                                 "Criar conta",
+                                style: TextStyle(
+                                  fontFamily: "Josefin",
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Configuracoes(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                "Configurações",
                                 style: TextStyle(
                                   fontFamily: "Josefin",
                                   fontSize: 15,
