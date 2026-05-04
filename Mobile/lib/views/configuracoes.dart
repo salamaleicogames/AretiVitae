@@ -17,6 +17,10 @@ class _ConfiguracoesState extends State<Configuracoes> {
     txtArmazenamento.text = "51.4mb";
   }
 
+  void limparCache() {
+    txtArmazenamento.text = "0.0mb";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +113,10 @@ class _ConfiguracoesState extends State<Configuracoes> {
                         SizedBox(
                           height: 30,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              limparCache();
+                              setState(() {});
+                            },
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(horizontal: 12),
                               backgroundColor: Colors.white,

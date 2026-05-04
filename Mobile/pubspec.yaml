@@ -69,6 +69,8 @@ flutter:
    - assets/images/networkTitle.png
    - assets/images/help.png
    - assets/images/seta.png
+   - assets/images/heart.png
+   - assets/images/tree1.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
