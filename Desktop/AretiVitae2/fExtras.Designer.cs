@@ -72,6 +72,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::AretiVitae2.Properties.Resources.Maurício2;
             this.pictureBox3.Location = new System.Drawing.Point(529, 244);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(67, 98);
@@ -81,6 +82,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::AretiVitae2.Properties.Resources.João_Mantz_serio_jpg;
             this.pictureBox1.Location = new System.Drawing.Point(341, 244);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(95, 98);

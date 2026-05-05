@@ -1,4 +1,6 @@
-import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
+import 'dart:developer';
+
+import 'package:areti_vitae_mobile/model/usuario.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,92 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
+  TextEditingController txtNome = TextEditingController();
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtData = TextEditingController();
+  TextEditingController txtSenha = TextEditingController();
+  TextEditingController txtConfirmarSenha = TextEditingController();
+
+  List<Usuario> user = [];
+
+  @override
+  void dispose() {
+    txtNome.dispose();
+    txtEmail.dispose();
+    txtData.dispose();
+    txtSenha.dispose();
+    txtConfirmarSenha.dispose();
+    super.dispose();
+  }
+
+  // Apenas exibe os usuários no console
+  void exibir() {
+    for (Usuario u in user) {
+      log("USUÁRIO CADASTRADO!");
+      log("${u.usuario} - ${u.email} - ${u.data}");
+    }
+  }
+
+  void cadastrar() {
+    String nome = txtNome.text;
+    String email = txtEmail.text;
+    String data = txtData.text;
+    String senha = txtSenha.text;
+    String confirmar = txtConfirmarSenha.text;
+
+    if (nome.isEmpty ||
+        email.isEmpty ||
+        data.isEmpty ||
+        senha.isEmpty ||
+        confirmar.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Preencha os campos vazios!",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.yellow,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    if (senha != confirmar) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("As senhas não coincidem!"),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    Usuario us = Usuario(nome, email, data);
+    user.add(us);
+
+    log("Cadastro realizado com sucesso!");
+    exibir();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Cadastro realizado com sucesso!"),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+      ),
+    );
+
+    // Limpar campos
+    txtNome.clear();
+    txtEmail.clear();
+    txtData.clear();
+    txtSenha.clear();
+    txtConfirmarSenha.clear();
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,12 +121,17 @@ class _CadastroState extends State<Cadastro> {
                     children: [
                       SizedBox(height: 100),
 
-                      //Input Nome ou Apelido
+                      // Input Nome
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: SizedBox(
                           height: 40,
                           child: TextField(
+                            controller: txtNome,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -60,13 +153,17 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 15),
 
-                      //Input Email
+                      // Input Email
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: SizedBox(
                           height: 40,
                           child: TextField(
-                            obscureText: true,
+                            controller: txtEmail,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -88,13 +185,17 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 15),
 
-                      //Input Data de Nascimento
+                      // Input Data
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: SizedBox(
                           height: 40,
                           child: TextField(
-                            obscureText: true,
+                            controller: txtData,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -116,12 +217,17 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 15),
 
-                      //Input Senha
+                      // Input Senha
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: SizedBox(
                           height: 40,
                           child: TextField(
+                            controller: txtSenha,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -144,12 +250,17 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 15),
 
-                      //Input Confirmar Senha
+                      // Input Confirmar senha
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: SizedBox(
                           height: 40,
                           child: TextField(
+                            controller: txtConfirmarSenha,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -172,7 +283,7 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 15),
 
-                      //Já tem conta
+                      // Já tem conta
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         child: Row(
@@ -202,11 +313,9 @@ class _CadastroState extends State<Cadastro> {
 
                       SizedBox(height: 60),
 
-                      //Botão Cadastrar
+                      // Botão cadastrar
                       ElevatedButton(
-                        onPressed: () {
-                          setState(() {});
-                        },
+                        onPressed: cadastrar,
                         child: Text(
                           "Cadastrar",
                           style: TextStyle(
@@ -233,7 +342,7 @@ class _CadastroState extends State<Cadastro> {
             ),
           ),
 
-          // IMAGEM
+          // LOGO
           Positioned(
             top: MediaQuery.of(context).size.height * 0.02,
             left: 0,

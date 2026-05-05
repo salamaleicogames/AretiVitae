@@ -155,7 +155,9 @@
             this.cmbAssinaturaInativo.FormattingEnabled = true;
             this.cmbAssinaturaInativo.Items.AddRange(new object[] {
             "Free",
-            "Network"});
+            "Plano Hécate",
+            "Plano Artemis",
+            "Plano Selene"});
             this.cmbAssinaturaInativo.Location = new System.Drawing.Point(137, 89);
             this.cmbAssinaturaInativo.Name = "cmbAssinaturaInativo";
             this.cmbAssinaturaInativo.Size = new System.Drawing.Size(121, 28);
@@ -320,7 +322,9 @@
             this.cmbAssinatura.FormattingEnabled = true;
             this.cmbAssinatura.Items.AddRange(new object[] {
             "Free",
-            "Network"});
+            "Plano Hécate",
+            "Plano Artemis",
+            "Plano Selene"});
             this.cmbAssinatura.Location = new System.Drawing.Point(137, 89);
             this.cmbAssinatura.Name = "cmbAssinatura";
             this.cmbAssinatura.Size = new System.Drawing.Size(121, 28);

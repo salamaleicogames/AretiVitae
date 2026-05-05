@@ -19,6 +19,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
   void limparCache() {
     txtArmazenamento.text = "0.0mb";
+    print("CACHÊ LIMPO COM SUCESSO!");
   }
 
   @override
@@ -151,6 +152,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
               height: 45,
               child: ElevatedButton(
                 onPressed: () {
+                  print("CONFIGURAÇÕES SALVAS!");
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Home()),

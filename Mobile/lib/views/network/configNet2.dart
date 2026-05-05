@@ -1,18 +1,25 @@
-import 'package:areti_vitae_mobile/views/home.dart';
-import 'package:areti_vitae_mobile/views/network.dart';
+import 'dart:developer';
+
+import 'package:areti_vitae_mobile/views/network/network2.dart';
 import 'package:flutter/material.dart';
 
-class ConfigNet extends StatefulWidget {
-  const ConfigNet({super.key});
+class ConfigNet2 extends StatefulWidget {
+  const ConfigNet2({super.key});
 
   @override
-  State<ConfigNet> createState() => _ConfigNetState();
+  State<ConfigNet2> createState() => _ConfigNet2State();
 }
 
-class _ConfigNetState extends State<ConfigNet> {
+class _ConfigNet2State extends State<ConfigNet2> {
   bool fechar = false;
   bool notificar = false;
   bool convites = false;
+
+  void salvarAlteracoes() {
+    log("Fechar: ${fechar ? "Sim" : "Não"}");
+    log("Notificar: ${notificar ? "Sim" : "Não"}");
+    log("Convites: ${convites ? "Sim" : "Não"}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,10 +166,8 @@ class _ConfigNetState extends State<ConfigNet> {
 
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Net()),
-                );
+                print("PERMISSÕES ALTERADAS!");
+                salvarAlteracoes();
               },
               child: Text(
                 "Salvar",
@@ -188,7 +193,7 @@ class _ConfigNetState extends State<ConfigNet> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Net()),
+                  MaterialPageRoute(builder: (context) => Net2()),
                 );
               },
               child: Image.asset("assets/images/seta.png"),

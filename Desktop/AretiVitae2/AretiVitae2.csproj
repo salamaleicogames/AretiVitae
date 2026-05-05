@@ -227,6 +227,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoIco.ico" />
+    <None Include="Resources\Maurício.ico" />
+    <None Include="Resources\Maurício1.jpeg" />
+    <None Include="Resources\Maurício.jpeg" />
+    <None Include="Resources\João-Mantz-serio.jpg.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

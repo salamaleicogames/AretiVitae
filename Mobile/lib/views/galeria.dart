@@ -1,5 +1,6 @@
 import 'package:areti_vitae_mobile/views/home.dart';
-import 'package:areti_vitae_mobile/views/network.dart';
+import 'package:areti_vitae_mobile/views/network/network.dart';
+import 'package:areti_vitae_mobile/views/network/network2.dart';
 import 'package:flutter/material.dart';
 
 class Galeria extends StatefulWidget {
@@ -94,50 +95,76 @@ class _GaleriaState extends State<Galeria> {
             //BOX NETWORK 2
 
             //IMAGEM
-            Container(
-              margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
-              width: 300,
-              height: 170,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.8),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 8,
-                    offset: Offset(2, 4), // X Y
-                  ),
-                ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Net2()),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                width: 300,
+                height: 170,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(255, 255, 255, 0.8),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 8,
+                      offset: Offset(2, 4), // X Y
+                    ),
+                  ],
+                ),
+                child: Image.asset("assets/images/tree1.png"),
               ),
-              child: Image.asset("assets/images/tree1.png"),
             ),
 
             SizedBox(height: 15),
 
             //BLOCO 2
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                width: 300,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(182, 214, 255, 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  "Intelectus Network",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.w600,
-                    fontSize: 25,
-                    color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Net2()),
+                );
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  width: 300,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(182, 214, 255, 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    "Intelectus Network",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
             ),
 
             SizedBox(height: 40),
+
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                );
+              },
+              child: Image.asset("assets/images/seta.png"),
+            ),
           ],
         ),
       ),

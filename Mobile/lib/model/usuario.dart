@@ -1,14 +1,24 @@
 class Usuario {
   late String _usuario;
-  late String _senha;
+  late String _email;
+  late String _data;
+  // late String _senha;
 
   get usuario => this._usuario;
 
   set usuario(value) => this._usuario = value;
 
-  get senha => this._senha;
+  get email => this._email;
 
-  set senha(value) => this._senha = value;
+  set email(value) => this._email = value;
 
-  Usuario(this._usuario, this._senha);
+  get data => this._data;
+
+  set data(value) => this._data = value;
+
+  // get senha => this._senha;
+
+  // set senha(value) => this._senha = value;
+
+  Usuario(this._usuario, this._email, this._data);
 }

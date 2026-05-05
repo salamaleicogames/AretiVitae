@@ -13,6 +13,86 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   TextEditingController txtNovaSenha = TextEditingController();
   TextEditingController txtConNovaSenha = TextEditingController();
 
+  bool mostrarCodigo = false;
+  bool mostrarSenha = false;
+
+  void enviarEmail() {
+    if (txtEmail.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Informe o email!"),
+          backgroundColor: Colors.yellow,
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      mostrarCodigo = true;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Código enviado ao email!"),
+        backgroundColor: Colors.blue,
+      ),
+    );
+  }
+
+  void validarCodigo() {
+    if (txtCodSeguranca.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Informe o código!"),
+          backgroundColor: Colors.yellow,
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      mostrarSenha = true;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Código validado!"), backgroundColor: Colors.blue),
+    );
+  }
+
+  void redefinirSenha() {
+    String senha = txtNovaSenha.text;
+    String confirmar = txtConNovaSenha.text;
+
+    if (senha.isEmpty || confirmar.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Preencha os campos!"),
+          backgroundColor: Colors.yellow,
+        ),
+      );
+      return;
+    }
+
+    if (senha != confirmar) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("As senhas não coincidem!"),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Senha redefinida com sucesso!"),
+        backgroundColor: Colors.green,
+      ),
+    );
+
+    print("Senha redefinida com sucesso!");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +101,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
         child: Center(
           child: Column(
             children: [
-              // Box Título
+              // HEADER
               Container(
                 width: double.infinity,
                 color: Color.fromRGBO(182, 214, 255, 1),
@@ -34,12 +114,11 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                       SizedBox(width: 15),
                       Text(
                         "Esqueci a senha",
-                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: "Montserrat",
-                          fontWeight: FontWeight.w600, // Corrected weight
+                          fontWeight: FontWeight.w600,
                           fontSize: 34,
-                          color: Color.fromRGBO(255, 255, 255, 1),
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -49,6 +128,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
               SizedBox(height: 40),
 
+              // EMAIL
               Padding(
                 padding: EdgeInsets.all(15),
                 child: Text(
@@ -56,12 +136,11 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                   style: TextStyle(
                     fontFamily: "Montserrat",
                     fontSize: 18,
-                    color: Color.fromRGBO(255, 255, 255, 0.9),
+                    color: Colors.white,
                   ),
                 ),
               ),
 
-              // Email TextField
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25),
                 child: TextField(
@@ -83,7 +162,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
               SizedBox(height: 40),
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: enviarEmail,
                 child: Text(
                   "Enviar Email de Confirmação",
                   style: TextStyle(
@@ -102,161 +181,170 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                 ),
               ),
 
-              SizedBox(height: 25),
+              // ======================
+              // CÓDIGO
+              // ======================
+              if (mostrarCodigo) ...[
+                SizedBox(height: 25),
 
-              Divider(
-                color: Colors.white, // Cor da linha
-                thickness: 2, // Espessura da linha
-                indent: 20, // Espaçamento à esquerda
-                endIndent: 20, // Espaçamento à direita
-              ),
-
-              SizedBox(height: 40),
-
-              //Confirmação de Código de Segurança para confirmar a senha
-              Text(
-                "Informe o código de segurança",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 18,
-                  color: Color.fromRGBO(255, 255, 255, 0.9),
+                Divider(
+                  color: Colors.white,
+                  thickness: 2,
+                  indent: 20,
+                  endIndent: 20,
                 ),
-              ),
-              Text(
-                "enviado no seu email",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 18,
-                  color: Color.fromRGBO(255, 255, 255, 0.9),
-                ),
-              ),
 
-              SizedBox(height: 40),
+                SizedBox(height: 40),
 
-              //CÓDIGO DE CONFIRMAÇÃO
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: TextField(
-                  controller: txtCodSeguranca,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
-                    ),
-                    hintText: "Código de Segurança",
-                    hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
-                    filled: true,
-                    fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                    prefixIcon: Icon(Icons.key_sharp),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 40),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Enviar",
+                Text(
+                  "Informe o código de segurança",
                   style: TextStyle(
                     fontFamily: "Montserrat",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 18,
                     color: Colors.white,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                  minimumSize: Size(280, 48),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                Text(
+                  "enviado no seu email",
+                  style: TextStyle(
+                    fontFamily: "Montserrat",
+                    fontSize: 18,
+                    color: Colors.white,
                   ),
                 ),
-              ),
 
-              SizedBox(height: 25),
+                SizedBox(height: 40),
 
-              Divider(
-                color: Colors.white, // Cor da linha
-                thickness: 2, // Espessura da linha
-                indent: 20, // Espaçamento à esquerda
-                endIndent: 20, // Espaçamento à direita
-              ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    controller: txtCodSeguranca,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: "Código de Segurança",
+                      hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
+                      filled: true,
+                      fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                      prefixIcon: Icon(Icons.key_sharp),
+                    ),
+                  ),
+                ),
 
-              SizedBox(height: 40),
+                SizedBox(height: 40),
 
-              //REDEFINIR SENHA
-              Text(
-                "Redefinir Senha",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                ElevatedButton(
+                  onPressed: validarCodigo,
+                  child: Text(
+                    "Enviar",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                    minimumSize: Size(280, 48),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ],
+
+              // ======================
+              // NOVA SENHA
+              // ======================
+              if (mostrarSenha) ...[
+                SizedBox(height: 25),
+
+                Divider(
                   color: Colors.white,
+                  thickness: 2,
+                  indent: 20,
+                  endIndent: 20,
                 ),
-              ),
 
-              SizedBox(height: 30),
+                SizedBox(height: 40),
 
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: TextField(
-                  controller: txtNovaSenha,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
-                    ),
-                    hintText: "Nova Senha",
-                    hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
-                    filled: true,
-                    fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                    prefixIcon: Icon(Icons.check),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 40),
-
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: TextField(
-                  controller: txtConNovaSenha,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
-                    ),
-                    hintText: "Confirmar Nova Senha",
-                    hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
-                    filled: true,
-                    fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                    prefixIcon: Icon(Icons.check),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 40),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
+                Text(
                   "Redefinir Senha",
                   style: TextStyle(
                     fontFamily: "Montserrat",
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 20,
                     color: Colors.white,
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                  minimumSize: Size(280, 48),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+
+                SizedBox(height: 30),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    controller: txtNovaSenha,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: "Nova Senha",
+                      hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
+                      filled: true,
+                      fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                      prefixIcon: Icon(Icons.check),
+                    ),
                   ),
                 ),
-              ),
+
+                SizedBox(height: 40),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    controller: txtConNovaSenha,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: "Confirmar Nova Senha",
+                      hintStyle: TextStyle(fontFamily: "Josefin", fontSize: 15),
+                      filled: true,
+                      fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                      prefixIcon: Icon(Icons.check),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 40),
+
+                ElevatedButton(
+                  onPressed: redefinirSenha,
+                  child: Text(
+                    "Redefinir Senha",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                    minimumSize: Size(280, 48),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ],
 
               SizedBox(height: 40),
             ],

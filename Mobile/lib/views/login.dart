@@ -2,7 +2,7 @@ import 'package:areti_vitae_mobile/views/cadastro.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
-import 'package:areti_vitae_mobile/views/network.dart';
+import 'package:areti_vitae_mobile/views/network/network.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -19,15 +19,41 @@ class _LoginState extends State<Login> {
   void autenticacaoUser() {
     if (txtUser.text == "" || txtSenha.text == "") {
       print("Preencha os campos vazios!");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Preencha os campos vazios!",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.yellow,
+          duration: Duration(seconds: 2),
+        ),
+      );
     } else {
-      if (txtUser.text == "user" && txtSenha.text == "senha") {
-        print("Usuário '" + txtUser.text + "' conectado");
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Home()),
+      if (txtUser.text == "Mauricio" && txtSenha.text == "senha") {
+        print("Usuário '${txtUser.text}' conectado");
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Login realizado com sucesso!"),
+            backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          ),
         );
+
+        Future.delayed(Duration(seconds: 2), () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Home()),
+          );
+        });
       } else {
-        print("Usuário ou Senha incorretos!");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Usuário ou senha incorretos!"),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     }
   }
@@ -59,6 +85,10 @@ class _LoginState extends State<Login> {
                           height: 40,
                           child: TextField(
                             controller: txtUser,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -88,6 +118,10 @@ class _LoginState extends State<Login> {
                           height: 40,
                           child: TextField(
                             controller: txtSenha,
+                            style: TextStyle(
+                              fontFamily: "Josefin",
+                              fontSize: 15,
+                            ),
                             obscureText: true,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -146,25 +180,6 @@ class _LoginState extends State<Login> {
                               },
                               child: Text(
                                 "Criar conta",
-                                style: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Net(),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                "Netowork",
                                 style: TextStyle(
                                   fontFamily: "Josefin",
                                   fontSize: 15,

@@ -1,15 +1,18 @@
-import 'package:areti_vitae_mobile/views/configNet.dart';
+import 'package:areti_vitae_mobile/views/network/configNet.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
+import 'package:areti_vitae_mobile/views/network/configNet2.dart';
+import 'package:areti_vitae_mobile/views/network/membrosNet.dart'; // IMPORT NECESSÁRIO
+import 'package:areti_vitae_mobile/views/network/membrosNet2.dart';
 import 'package:flutter/material.dart';
 
-class Net extends StatefulWidget {
-  const Net({super.key});
+class Net2 extends StatefulWidget {
+  const Net2({super.key});
 
   @override
-  State<Net> createState() => _NetState();
+  State<Net2> createState() => _Net2State();
 }
 
-class _NetState extends State<Net> {
+class _Net2State extends State<Net2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +51,7 @@ class _NetState extends State<Net> {
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 8,
-                    offset: Offset(2, 4), // X Y
+                    offset: Offset(2, 4),
                   ),
                 ],
               ),
@@ -61,7 +64,7 @@ class _NetState extends State<Net> {
               width: 300,
               child: Center(
                 child: Text(
-                  "Areti Network",
+                  "Intelectus Network",
                   style: TextStyle(
                     color: Color.fromRGBO(255, 255, 255, 0.9),
                     fontFamily: "Montserrat",
@@ -86,12 +89,13 @@ class _NetState extends State<Net> {
 
             SizedBox(height: 30),
 
+            // BOTÃO MEMBROS (corrigido)
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => MembrosNet()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MembrosNet2()),
+                );
               },
               child: Text(
                 "Membros",
@@ -113,11 +117,12 @@ class _NetState extends State<Net> {
 
             SizedBox(height: 30),
 
+            // BOTÃO CONFIG
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ConfigNet()),
+                  MaterialPageRoute(builder: (context) => ConfigNet2()),
                 );
               },
               child: Text(
@@ -140,9 +145,10 @@ class _NetState extends State<Net> {
 
             SizedBox(height: 30),
 
+            //Voltar
             GestureDetector(
               onTap: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => Home()),
                 );

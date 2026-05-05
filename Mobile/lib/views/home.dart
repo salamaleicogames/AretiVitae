@@ -1,7 +1,8 @@
 import 'package:areti_vitae_mobile/views/ajuda.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/galeria.dart';
-import 'package:areti_vitae_mobile/views/network.dart';
+import 'package:areti_vitae_mobile/views/login.dart';
+import 'package:areti_vitae_mobile/views/network/network.dart';
 import 'package:areti_vitae_mobile/views/perfil.dart';
 import 'package:flutter/material.dart';
 
@@ -32,29 +33,21 @@ class _HomeState extends State<Home> {
                         color: Color.fromRGBO(148, 191, 255, 1),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Perfil()),
-                          );
-                        },
-                        child: Row(
-                          children: [
-                            SizedBox(width: 10),
-                            Image.asset("assets/images/alter2.png", width: 75),
-                            SizedBox(width: 55),
-                            Text(
-                              "Maurício",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                fontWeight: FontWeight.bold,
-                                fontSize: 35,
-                                color: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
+                      child: Row(
+                        children: [
+                          SizedBox(width: 10),
+                          Image.asset("assets/images/alter2.png", width: 75),
+                          SizedBox(width: 55),
+                          Text(
+                            "Maurício",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 35,
+                              color: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
 
@@ -72,22 +65,51 @@ class _HomeState extends State<Home> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              // PERFIL
                               GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/saveIcon.png",
-                                      width: 75,
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Perfil(),
                                     ),
-                                  ),
+                                  );
+                                },
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20),
+                                        child: Image.asset(
+                                          "assets/images/saveIcon.png",
+                                          width: 75,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Perfil",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.5,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
 
                               SizedBox(width: 100),
 
+                              // CONFIGURAÇÕES
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -97,15 +119,35 @@ class _HomeState extends State<Home> {
                                     ),
                                   );
                                 },
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/configIcon.png",
-                                      width: 75,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20),
+                                        child: Image.asset(
+                                          "assets/images/configIcon.png",
+                                          width: 75,
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Configurações",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.5,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -116,6 +158,7 @@ class _HomeState extends State<Home> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              // AJUDA
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -125,21 +168,42 @@ class _HomeState extends State<Home> {
                                     ),
                                   );
                                 },
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/help.png",
-                                      width: 75,
-                                      height: 70,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20),
+                                        child: Image.asset(
+                                          "assets/images/help.png",
+                                          width: 75,
+                                          height: 70,
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Ajuda",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.5,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
 
                               SizedBox(width: 100),
 
+                              // GALERIA
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -149,15 +213,35 @@ class _HomeState extends State<Home> {
                                     ),
                                   );
                                 },
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/galeriaIcon.png",
-                                      width: 75,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(20),
+                                        child: Image.asset(
+                                          "assets/images/galeriaIcon.png",
+                                          width: 75,
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Galeria",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.5,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -173,7 +257,7 @@ class _HomeState extends State<Home> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Net()),
+                          MaterialPageRoute(builder: (context) => Galeria()),
                         );
                       },
                       child: Container(
@@ -198,54 +282,18 @@ class _HomeState extends State<Home> {
 
                     SizedBox(height: 40),
 
-                    /*
-                    // Box Membros Network
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(148, 191, 255, 1),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/networkIcon.png",
-                                      width: 80,
-                                    ),
-                                  ),
-                                ),
-                              ),
-
-                              SizedBox(width: 100),
-
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  color: Color.fromRGBO(208, 227, 255, 1),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20),
-                                    child: Image.asset(
-                                      "assets/images/configIcon.png",
-                                      width: 75,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                    // VOLTAR LOGIN
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Login()),
+                        );
+                      },
+                      child: Image.asset("assets/images/seta.png"),
                     ),
-                    */
+
+                    SizedBox(height: 40),
                   ],
                 ),
               ),
