@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400;600&family=Rock+Salt&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.outerWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  height: 100%;
+  max-height: calc(100vh - clamp(2rem, 5vw, 4rem));
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Window shell ── */
+.winWindow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 8px 8px;
+  overflow: hidden;
+  flex: 1;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* ── Sub-header bar ── */
+.winHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px clamp(16px, 3vw, 40px);
+  background: rgba(70, 95, 180, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.winHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.notesCount {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.notesDivider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+.notesHint {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(9px, 0.9vw, 11px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 16px;
+  background: rgba(101, 130, 210, 0.8);
+  border: 1px solid rgba(160, 180, 255, 0.35);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.newBtn span {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 300;
+}
+.newBtn:hover {
+  background: rgba(120, 150, 235, 0.95);
+  border-color: rgba(180, 200, 255, 0.55);
+}
+.newBtn:active { transform: scale(0.97); }
+
+@media (max-width: 600px) {
+  .notesHint { display: none; }
+  .notesDivider { display: none; }
+}

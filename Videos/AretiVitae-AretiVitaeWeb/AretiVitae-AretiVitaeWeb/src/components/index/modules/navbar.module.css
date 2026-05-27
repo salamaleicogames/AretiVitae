@@ -1,0 +1,17 @@
+.navbar{
+    z-index:2;
+    position:fixed;
+    top:0;
+    left:0;
+    width: 5%;
+    height: 100%;
+}
+
+.AvLogo {
+    width: 90%;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.AvLogo:hover {
+    transform: scale(1.08) translateY(-2px);
+}

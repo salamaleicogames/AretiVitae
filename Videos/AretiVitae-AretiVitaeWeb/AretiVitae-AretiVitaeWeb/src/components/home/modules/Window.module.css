@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;600&family=Rock+Salt&display=swap');
+
+/* ─── Win window ─────────────────────────────────────── */
+.winWindow {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 10px 8px 8px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.55),
+    0 2px 8px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+.winTitleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: 36px;
+  background: linear-gradient(
+    to bottom,
+    rgba(160,180,245,0.95) 0%,
+    rgba(110,135,215,0.95) 100%
+  );
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+
+.winTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  user-select: none;
+}
+
+.winControls { display: flex; gap: 7px; align-items: center; }
+
+.winBtn {
+  display: block;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.15s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.winBtn:hover  { background: rgba(255,255,255,0.6); }
+.winClose      { background: rgba(255,90,90,0.7); }
+.winClose:hover{ background: rgba(255,60,60,0.95); }
+
+.winBody {
+  padding: clamp(16px, 3vw, 36px) clamp(16px, 4vw, 48px);
+  background: rgba(80,105,190,0.55);
+  backdrop-filter: blur(14px);
+}
+
+/* ─── Philo window ───────────────────────────────────── */
+.philoWindow {
+  pointer-events: auto;
+  width: clamp(240px, 26vw, 400px);
+  max-height: 70vh;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.philoBody {
+  padding: clamp(16px, 2.5vw, 32px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  max-height: calc(70vh - 36px); /* 36px = altura da titleBar */
+}
+
+.philoBody::-webkit-scrollbar { width: 4px; }
+.philoBody::-webkit-scrollbar-track { background: transparent; }
+.philoBody::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+/* ─── Quote ──────────────────────────────────────────── */
+.quoteDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 12px;
+}
+
+.quoteDivider {
+  width: 48px; height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+
+.quoteText {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(12px, 1.3vw, 16px);
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+  margin: 0;
+}
+
+.quoteAuthor {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .philoWindow {
+    width: 100%;
+    align-self: stretch;
+  }
+  .philoBody { padding: 20px 14px; }
+}
