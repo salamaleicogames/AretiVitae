@@ -68,12 +68,7 @@ class _HomeState extends State<Home> {
                               // PERFIL
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Perfil(),
-                                    ),
-                                  );
+                                 Navigator.pushNamed(context, "/perfil");
                                 },
                                 child: Column(
                                   children: [
@@ -112,12 +107,7 @@ class _HomeState extends State<Home> {
                               // CONFIGURAÇÕES
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Configuracoes(),
-                                    ),
-                                  );
+                                 Navigator.pushNamed(context, "/configuracoes");
                                 },
                                 child: Column(
                                   children: [
@@ -161,12 +151,7 @@ class _HomeState extends State<Home> {
                               // AJUDA
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Ajuda(),
-                                    ),
-                                  );
+                                  Navigator.pushNamed(context, "/ajuda");
                                 },
                                 child: Column(
                                   children: [
@@ -206,12 +191,12 @@ class _HomeState extends State<Home> {
                               // GALERIA
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Galeria(),
-                                    ),
-                                  );
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => Galeria(),
+                                  //   ),
+                                  // );
                                 },
                                 child: Column(
                                   children: [
@@ -227,7 +212,7 @@ class _HomeState extends State<Home> {
                                     ),
                                     SizedBox(height: 5),
                                     Text(
-                                      "Galeria",
+                                      "Notes",
                                       style: TextStyle(
                                         fontFamily: "Montserrat",
                                         fontSize: 16,
@@ -285,10 +270,7 @@ class _HomeState extends State<Home> {
                     // VOLTAR LOGIN
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Login()),
-                        );
+                        Navigator.pushNamed(context, "/login");
                       },
                       child: Image.asset("assets/images/seta.png"),
                     ),

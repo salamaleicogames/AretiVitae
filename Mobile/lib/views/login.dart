@@ -16,6 +16,7 @@ class _LoginState extends State<Login> {
   TextEditingController txtUser = TextEditingController();
   TextEditingController txtSenha = TextEditingController();
 
+  //Autenticação do Usuário
   void autenticacaoUser() {
     if (txtUser.text == "" || txtSenha.text == "") {
       print("Preencha os campos vazios!");
@@ -41,11 +42,9 @@ class _LoginState extends State<Login> {
           ),
         );
 
+        //Navegação com pequeno delay (2 seg)
         Future.delayed(Duration(seconds: 2), () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Home()),
-          );
+          Navigator.pushNamed(context, "/home");
         });
       } else {
         ScaffoldMessenger.of(context).showSnackBar(

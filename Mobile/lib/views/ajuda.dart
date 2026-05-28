@@ -137,10 +137,7 @@ class _AjudaState extends State<Ajuda> {
 
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Home()),
-                      );
+                      Navigator.pushNamed(context, "/home");
                     },
                     child: Image.asset("assets/images/seta.png"),
                   ),
