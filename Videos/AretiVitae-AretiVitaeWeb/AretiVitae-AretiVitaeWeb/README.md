@@ -1,8 +1,6 @@
-# ARETI VITAE - 0.5 - FRONT-END COMPLETO
+# ARETI VITAE - 0.5.2 - SPRING BOOT
 
- O "Areti Vitae: Ilustrador coletivo de ideias" é uma plataforma digital e inovadora que visa auxiliar colaboradores, grupos e equipes na conceitualização e no desenvolvimento de projetos e ideias por meio de um mapeamento visual intuitivo, com foco no desenvolvimento coletivo. Ele se destaca pela cooperação coletiva, buscando evoluir ideias promissoras em grupos, especialmente aquelas de menor escala, e incentivando a colaboração entre indivíduos e equipes.
-O projeto tem como premissa fundamental promover a criação e o desenvolvimento de ideias de maneira colaborativa, empregando métodos intuitivos e ferramentas de suporte, além de possibilitar a contribuição dos usuários com suas respectivas ideias.
-O ‘Areti Vitae’ será acessível a indivíduos, grupos e empresas com ideias criativas e inovadoras, sendo restrita ao uso de pessoas acima de 13 anos, e terá funcionalidades aos assinantes da versão "Network", com mais recursos para desenvolvimento e planejamento em maior escala.
+BACKEND EM SPRING BOOT COM MODEL USER.
 
 # Contato:
 aretivitae@gmail.com
