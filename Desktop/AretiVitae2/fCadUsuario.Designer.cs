@@ -333,9 +333,9 @@
             this.lblTitulo.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(16, 11);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(78, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(148, 25);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Cadastro";
+            this.lblTitulo.Text = "Cadastro/Consulta";
             // 
             // fCadUsuario
             // 
@@ -348,7 +348,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fCadUsuario";
-            this.Text = "Cadastrar Usuário";
+            this.Text = "Cadastrar/Consultar Usuário";
             this.Load += new System.EventHandler(this.fCadUsuario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

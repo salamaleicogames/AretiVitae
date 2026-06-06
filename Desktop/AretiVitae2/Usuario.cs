@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 using System.Windows.Forms;
 
 namespace AretiVitae2
@@ -102,6 +104,83 @@ namespace AretiVitae2
 
 
         /// <summary>
+        /// Método de validação do CPF digitado pelo Usuário, em casos de Cadastro e/ou Atualização do mesmo.
+        /// </summary>
+        /// <param name="cpf">CPF informado pelo Usuário, proveniente do formulário de Cadastro ou Consulta</param>
+        /// <returns> true --> CPF válido</returns>
+        /// <returns> false --> CPF inválido</returns>
+        private bool validarCPF(string cpf)
+        {
+            //Retira os espaços e caracteres adicionais
+            cpf = cpf.Replace(".", "")
+                     .Replace("-", "")
+                     .Trim();
+
+            //Verifica o número de digitos (CPF possui 11 digitos)
+            if (cpf.Length != 11)
+            {  
+                return false; 
+            }
+               
+            if (new string(cpf[0], 11) == cpf)
+            {
+                return false;
+            }
+     
+
+            //Vetores com multiplicadores de validação para cada cada digito do documento
+            int[] mult1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] mult2 = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+            //Acopla os primeiros 9 digitos
+            string tempCpf = cpf.Substring(0, 9);
+            int soma = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                soma += int.Parse(tempCpf[i].ToString()) * mult1[i];
+            }
+                
+            int resto = soma % 11;
+            resto = resto < 2 ? 0 : 11 - resto;
+
+            string digito = resto.ToString();
+            tempCpf += digito;
+
+            soma = 0;
+
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * mult2[i];
+
+            resto = soma % 11;
+            resto = resto < 2 ? 0 : 11 - resto;
+
+            digito += resto.ToString();
+
+            return cpf.EndsWith(digito);
+        }
+
+        /// <summary>
+        /// Método de validação do Email digitado pelo Usuário, em casos de Cadastro e/ou Atualização do mesmo.
+        /// </summary>
+        /// <param name="cpf">CPF informado pelo Usuário, proveniente do formulário de Cadastro ou Consulta</param>
+        /// <returns> true --> CPF válido</returns>
+        /// <returns> false --> CPF inválido</returns>
+        private bool validarEmail(string email)
+        {
+            try
+            {
+                MailAddress endereco = new MailAddress(email);
+                return endereco.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        /// <summary>
         /// Método responsável por cadastrar um Usuário no Banco de Dados
         /// </summary>
         /// <param name="username">Nome do Usuário</param>
@@ -115,12 +194,29 @@ namespace AretiVitae2
         public bool cadastrarUsuario(string username, int idade, string email, string senha, int assinatura, string tipoRegistro, string registro)
         {
             bool cad = false;
+            string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
+
+            //Validação do CPF
+            if (tipoRegistro == "Pessoa Física" && !validarCPF(registro))
+            {
+                MessageBox.Show("CPF Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            //Validação de Email
+            if (!validarEmail(email))
+            {
+                MessageBox.Show("Email Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            
+
             try
             {
                 DAO_Conexao.con.Open();
 
                 MySqlCommand inserir = new MySqlCommand(
-                    "INSERT INTO AretiVitae_Usuario (username, idade, email, senha, assinatura, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senha + "', " + assinatura + ",'" + tipoRegistro + "','" + registro + "', 0);", DAO_Conexao.con);
+                    "INSERT INTO AretiVitae_Usuario (username, idade, email, senha, assinatura, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senhaHash + "', " + assinatura + ",'" + tipoRegistro + "','" + registro + "', 0);", DAO_Conexao.con);
 
                 int linhasAfetadas = inserir.ExecuteNonQuery();
                 if (linhasAfetadas > 0)
@@ -142,6 +238,7 @@ namespace AretiVitae2
         }
 
 
+       
         /// <summary>
         /// Método responsável por Consultar um Usuário no Banco de Dados
         /// </summary>
@@ -166,6 +263,7 @@ namespace AretiVitae2
             return resultado;
         }
 
+        
         /// <summary>
         /// Método responsável por atualizar os dados de um usuário
         /// </summary>
@@ -181,6 +279,21 @@ namespace AretiVitae2
         public bool atualizarUsuario(string username, int idade, string email, string senha, int assinatura, string tipoRegistro, string registro, int ativo)
         {
             bool resultado = false;
+
+            //Validação do CPF
+            if (tipoRegistro == "Pessoa Física" && !validarCPF(registro))
+            {
+                MessageBox.Show("CPF Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            //Validação de Email
+            if (!validarEmail(email))
+            {
+                MessageBox.Show("Email Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             try
             {
                 DAO_Conexao.con.Open();
@@ -246,35 +359,86 @@ namespace AretiVitae2
         public bool excluirUsuario(string username, string email, string senha)
         {
             bool resultado = false;
+
             try
             {
                 DAO_Conexao.con.Open();
 
-                string query = "UPDATE AretiVitae_Usuario SET ativo = 1 WHERE username = '" + username + "' AND email = '" + email + "' AND senha = '" + senha + "';";
+                // Desativa o usuário
+                string query = @"UPDATE AretiVitae_Usuario
+                         SET ativo = 1
+                         WHERE username = @username
+                         AND email = @email
+                         AND senha = @senha";
+
                 MySqlCommand atualizar = new MySqlCommand(query, DAO_Conexao.con);
-                atualizar.ExecuteNonQuery();
+
+                atualizar.Parameters.AddWithValue("@username", username);
+                atualizar.Parameters.AddWithValue("@email", email);
+                atualizar.Parameters.AddWithValue("@senha", senha);
+
+                int linhasAfetadas = atualizar.ExecuteNonQuery();
+
+                if (linhasAfetadas == 0)
+                {
+                    MessageBox.Show(
+                        "Usuário não encontrado ou dados inválidos.",
+                        "Atenção",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
                 resultado = true;
 
+                // Obtém o ID do usuário
+                string queryId = @"SELECT id
+                           FROM AretiVitae_Usuario
+                           WHERE username = @username";
 
-                // Caso o usuário tiver assinatura Network, desativa a assinatura também
-                MySqlCommand cmdId = new MySqlCommand("SELECT id FROM AretiVitae_Usuario WHERE username = '" + username + "';", DAO_Conexao.con);
-                int idUsuario = int.Parse(cmdId.ExecuteScalar().ToString());
+                MySqlCommand cmdId = new MySqlCommand(queryId, DAO_Conexao.con);
+                cmdId.Parameters.AddWithValue("@username", username);
 
+                object result = cmdId.ExecuteScalar();
 
+                if (result != null)
+                {
+                    int idUsuario = Convert.ToInt32(result);
+
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Não foi possível localizar o ID do usuário.",
+                        "Atenção",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    resultado = false;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao excluir usuário: " + ex.Message);
+                MessageBox.Show(
+                    "Erro ao excluir usuário: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
                 resultado = false;
             }
             finally
             {
                 if (DAO_Conexao.con.State == System.Data.ConnectionState.Open)
+                {
                     DAO_Conexao.con.Close();
+                }
             }
 
             return resultado;
         }
+
 
         /// <summary>
         /// Retorna todos os administradores cadastrados
@@ -282,6 +446,7 @@ namespace AretiVitae2
         public MySqlDataReader consultarUsuarioADM()
         {
             MySqlDataReader resultado = null;
+
             try
             {
                 DAO_Conexao.con.Open();
@@ -304,6 +469,8 @@ namespace AretiVitae2
         /// <returns>True se a atualização for bem sucedida</returns>
         public bool atualizarUsuarioADM(string usuario, string senha)
         {
+           // string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
+
             bool resultado = false;
             try
             {

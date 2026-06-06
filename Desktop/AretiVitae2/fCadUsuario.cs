@@ -191,7 +191,7 @@ namespace AretiVitae2
             // Atribuição dos dados dos componentes às variáveis locais
             string username = txtUsername.Text;
 
-            // Validação do campo idade para evitar FormatException
+            // Validação do campo idade
             int idade;
             if (!int.TryParse(txtIdade.Text, out idade))
             {
@@ -202,24 +202,39 @@ namespace AretiVitae2
 
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
-            string tipoPlano = cmbTipoRegistro.Text;
+            //string tipoPlano = cmbAssinatura.Text;
             int assinatura = 0;
-            string tipoRegistro = " ";
-            string registro = " ";
+            string tipoRegistro = cmbTipoRegistro.Text.Trim();
+            string registro = txtRegistro.Text.Trim();
             int ativo = 0;
 
-            // Verifica qual plano foi selecionado (Free ou Premium)
-            if (cmbTipoRegistro.SelectedIndex == 0) // Plano Free
+
+            //Verifica a assinatura do Usuário
+            if(cmbAssinatura.SelectedIndex == 0)
             {
-                assinatura = 0;
-                tipoRegistro = cmbTipoRegistro.Text;
-                registro = txtRegistro.Text;
+                assinatura = 0; //Plano Free
+            }
+            else if(cmbAssinatura.SelectedIndex == 1)
+            {
+                assinatura = 1; //Plano Hécate
+            }
+            else if(cmbAssinatura.SelectedIndex == 2)
+            {
+                assinatura = 2; //Plano Ártemis
+            }
+            else if(cmbAssinatura.SelectedIndex == 3)
+            {
+                assinatura = 3; //Plano Selene
+            }
+
+            // Verifica o tipo de cadastro efetuado na assinatura (Pessoa Física ou Jurídica)
+            if (cmbTipoRegistro.SelectedIndex == 0)
+            {
+                tipoRegistro = "Pessoa Física";
             }
             else if (cmbTipoRegistro.SelectedIndex == 1) // Plano Premium
             {
-                assinatura = 1;
-                tipoRegistro = cmbTipoRegistro.Text;
-                registro = txtRegistro.Text;
+                tipoRegistro = "Pessoa Jurídica";
             }
 
             // Define o valor do campo "ativo"
@@ -251,10 +266,6 @@ namespace AretiVitae2
                 {
                     MessageBox.Show("Preencha todos os campos corretamente!");
                     return;
-                }
-                else if (idade < 13)
-                {
-                    MessageBox.Show("Idade Mínima: 13 anos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -317,8 +328,36 @@ namespace AretiVitae2
                 string senha = txtSenha.Text.Trim();
                 string tipoRegistro = cmbTipoRegistro.Text.Trim();
                 string registro = txtRegistro.Text.Trim();
-                int assinatura = cmbAssinatura.SelectedIndex >= 0 ? cmbAssinatura.SelectedIndex : 0;
+                int assinatura = cmbAssinatura.SelectedIndex;
                 int ativo = chkAtivo.Checked ? 0 : 1;
+
+                //Verifica a assinatura do Usuário
+                if (cmbAssinatura.SelectedIndex == 0)
+                {
+                    assinatura = 0; //Plano Free
+                }
+                else if (cmbAssinatura.SelectedIndex == 1)
+                {
+                    assinatura = 1; //Plano Hécate
+                }
+                else if (cmbAssinatura.SelectedIndex == 2)
+                {
+                    assinatura = 2; //Plano Ártemis
+                }
+                else if (cmbAssinatura.SelectedIndex == 3)
+                {
+                    assinatura = 3; //Plano Selene
+                }
+
+                // Verifica o tipo de cadastro efetuado na assinatura (Pessoa Física ou Jurídica)
+                if (cmbTipoRegistro.SelectedIndex == 0)
+                {
+                    tipoRegistro = "Pessoa Física";
+                }
+                else if (cmbTipoRegistro.SelectedIndex == 1) // Plano Premium
+                {
+                    tipoRegistro = "Pessoa Jurídica";
+                }
 
                 // Atualização do usuário
                 Usuario usuario = new Usuario();

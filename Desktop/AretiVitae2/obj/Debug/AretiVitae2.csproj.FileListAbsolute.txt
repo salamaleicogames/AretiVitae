@@ -98,3 +98,4 @@ C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVi
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVit.4D2552F9.Up2Date
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVitae2.exe
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVitae2.pdb
+C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\bin\Debug\BCrypt-Net-Next.dll

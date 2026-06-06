@@ -100,7 +100,7 @@
             this.mtxtSenha.PasswordChar = '*';
             this.mtxtSenha.Size = new System.Drawing.Size(232, 33);
             this.mtxtSenha.TabIndex = 11;
-            this.mtxtSenha.Text = "Yuit@12345";
+            this.mtxtSenha.Text = "1234";
             this.mtxtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtSenha_KeyPress);
             // 
             // txtUsuario

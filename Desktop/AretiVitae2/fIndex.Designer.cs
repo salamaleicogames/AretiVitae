@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fIndex));
             this.btnCadUsuario = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnBuilders = new System.Windows.Forms.Button();
             this.btnAjuda = new System.Windows.Forms.Button();
@@ -38,8 +40,6 @@
             this.btnExcUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblUser = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -47,11 +47,11 @@
             // btnCadUsuario
             // 
             this.btnCadUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadUsuario.Location = new System.Drawing.Point(39, 76);
+            this.btnCadUsuario.Location = new System.Drawing.Point(27, 75);
             this.btnCadUsuario.Name = "btnCadUsuario";
-            this.btnCadUsuario.Size = new System.Drawing.Size(130, 28);
+            this.btnCadUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnCadUsuario.TabIndex = 3;
-            this.btnCadUsuario.Text = "Cadastrar";
+            this.btnCadUsuario.Text = "Cadastrar/Consultar";
             this.btnCadUsuario.UseVisualStyleBackColor = true;
             this.btnCadUsuario.Click += new System.EventHandler(this.btnCadUsuario_Click);
             // 
@@ -74,6 +74,27 @@
             this.panelMenu.Size = new System.Drawing.Size(211, 637);
             this.panelMenu.TabIndex = 3;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUser.Location = new System.Drawing.Point(36, 531);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(52, 24);
+            this.lblUser.TabIndex = 14;
+            this.lblUser.Text = "label2";
+            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AretiVitae2.Properties.Resources.user1;
+            this.pictureBox2.Location = new System.Drawing.Point(72, 466);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(58, 62);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
             // 
             // btnSair
             // 
@@ -111,9 +132,9 @@
             // btnListUsuario
             // 
             this.btnListUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListUsuario.Location = new System.Drawing.Point(39, 163);
+            this.btnListUsuario.Location = new System.Drawing.Point(27, 163);
             this.btnListUsuario.Name = "btnListUsuario";
-            this.btnListUsuario.Size = new System.Drawing.Size(130, 28);
+            this.btnListUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnListUsuario.TabIndex = 5;
             this.btnListUsuario.Text = "Listar";
             this.btnListUsuario.UseVisualStyleBackColor = true;
@@ -122,9 +143,9 @@
             // btnExcUsuario
             // 
             this.btnExcUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcUsuario.Location = new System.Drawing.Point(39, 120);
+            this.btnExcUsuario.Location = new System.Drawing.Point(27, 119);
             this.btnExcUsuario.Name = "btnExcUsuario";
-            this.btnExcUsuario.Size = new System.Drawing.Size(130, 28);
+            this.btnExcUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnExcUsuario.TabIndex = 4;
             this.btnExcUsuario.Text = "Desativar";
             this.btnExcUsuario.UseVisualStyleBackColor = true;
@@ -153,27 +174,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuários";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::AretiVitae2.Properties.Resources.user1;
-            this.pictureBox2.Location = new System.Drawing.Point(72, 466);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 62);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUser.Location = new System.Drawing.Point(36, 531);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(52, 24);
-            this.lblUser.TabIndex = 14;
-            this.lblUser.Text = "label2";
-            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
             // fIndex
             // 
