@@ -65,6 +65,7 @@ namespace AretiVitae2
             lblRegistro.ForeColor = Color.White;
             lblDescricao.ForeColor = Color.White;
             lblDescricao2.ForeColor = Color.White;
+            chkAtivo.ForeColor = Color.White;
 
             // Estilização dos botões
             EstilizarBotao(btnCadastrar);
@@ -132,7 +133,8 @@ namespace AretiVitae2
 
         private void fCadUsuario_Load(object sender, EventArgs e)
         {
-
+            chkAtivo.AutoCheck = false;
+            chkAtivo.ForeColor = Color.White;
         }
 
         /// <summary>
@@ -237,15 +239,15 @@ namespace AretiVitae2
                 tipoRegistro = "Pessoa Jurídica";
             }
 
-            // Define o valor do campo "ativo"
-            if (chkAtivo.Checked == true)
-            {
-                ativo = 0; //Usuário Ativo
-            }
-            else if (chkAtivo.Checked == false)
-            {
-                ativo = 1; //Usuário Inativo
-            }
+            //// Define o valor do campo "ativo"
+            //if (chkAtivo.Checked == true)
+            //{
+            //    ativo = 0; //Usuário Ativo
+            //}
+            //else if (chkAtivo.Checked == false)
+            //{
+            //    ativo = 1; //Usuário Inativo
+            //}
 
             //Verificação de campos vazios
             if (cmbTipoRegistro.SelectedIndex == 1) // Validação de campos vazios específica caso o Usuário escolha o Plano Network, que exige mais campos
@@ -309,7 +311,6 @@ namespace AretiVitae2
                 if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
                     string.IsNullOrWhiteSpace(txtIdade.Text) ||
                     string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                    string.IsNullOrWhiteSpace(txtSenha.Text) ||
                     (cmbTipoRegistro.Visible && string.IsNullOrWhiteSpace(cmbTipoRegistro.Text)) ||
                     (txtRegistro.Visible && string.IsNullOrWhiteSpace(txtRegistro.Text)))
                 {
@@ -395,6 +396,8 @@ namespace AretiVitae2
             chkAtivo.Checked = true;
             txtRegistro.Clear();
             txtUsername.Focus();
+
+            chkAtivo.Text = "Ativo";
         }
 
         /// <summary>
@@ -422,18 +425,33 @@ namespace AretiVitae2
                             txtUsername.Text = resultado["username"].ToString();
                             txtIdade.Text = resultado["idade"].ToString();
                             txtEmail.Text = resultado["email"].ToString();
-                            txtSenha.Text = resultado["senha"].ToString();
-                            cmbAssinatura.SelectedIndex = int.Parse(resultado["assinatura"].ToString());
+
+                            txtSenha.Clear();
+
+                            int assinatura = int.Parse(resultado["assinatura"].ToString());
+                            cmbAssinatura.SelectedIndex = assinatura;
 
                             string tipoRegistro = resultado["tipoRegistro"].ToString();
-                            cmbTipoRegistro.SelectedItem = tipoRegistro;
 
                             if (tipoRegistro == "Pessoa Física")
+                            {
+                                cmbTipoRegistro.SelectedIndex = 0;
+                            }
+                            else if (tipoRegistro == "Pessoa Jurídica")
+                            {
+                                cmbTipoRegistro.SelectedIndex = 1;
+                            }
+
+
+
+                            if (assinatura == 0)
                             {
                                 lblTipoConta.Visible = false;
                                 lblRegistro.Visible = false;
                                 cmbTipoRegistro.Visible = false;
                                 txtRegistro.Visible = false;
+
+                                txtRegistro.Clear();
                             }
                             else
                             {
@@ -445,37 +463,49 @@ namespace AretiVitae2
                                 txtRegistro.Text = resultado["registro"].ToString();
                             }
 
-                            // Define se o usuário está ativo
+                           
+                            // Define se o usuário está ativo ou inativo
                             int ativo = int.Parse(resultado["ativo"].ToString());
-                            chkAtivo.Checked = (ativo == 0);
+                            if (ativo == 0)
+                            {
+                                chkAtivo.AutoCheck = false;
+                                chkAtivo.ForeColor = Color.White;
+                                chkAtivo.Text = "Ativo";
+                            }
+                            else
+                            {
+                                chkAtivo.AutoCheck = false;
+                                chkAtivo.ForeColor = Color.White;
+                                chkAtivo.Text = "Inativo";
+                            }
 
                             txtUsername.Enabled = false;
                             btnAtualizar.Focus();
 
-                            // Se o plano for Free, esconde os campos extras
-                            if (cmbTipoRegistro.SelectedIndex == 0)
-                            {
-                                lblTipoConta.Visible = false;
-                                lblRegistro.Visible = false;
-                                cmbTipoRegistro.Visible = false;
-                                txtRegistro.Visible = false;
-                            }
-                            else // Se for Premium, mostra e preenche
-                            {
-                                tipoRegistro = resultado["tipoRegistro"].ToString();
+                            //// Se o plano for Free, esconde os campos extras
+                            //if (cmbTipoRegistro.SelectedIndex == 0)
+                            //{
+                            //    lblTipoConta.Visible = false;
+                            //    lblRegistro.Visible = false;
+                            //    cmbTipoRegistro.Visible = false;
+                            //    txtRegistro.Visible = false;
+                            //}
+                            //else // Se for Premium, mostra e preenche
+                            //{
+                            //    tipoRegistro = resultado["tipoRegistro"].ToString();
 
-                                if (tipoRegistro == "Pessoa Física")
-                                {
-                                    cmbTipoRegistro.SelectedIndex = 0;
-                                }
-                                else if (tipoRegistro == "Pessoa Jurídica")
-                                {
-                                    cmbTipoRegistro.SelectedIndex = 1;
-                                }
+                            //    if (tipoRegistro == "Pessoa Física")
+                            //    {
+                            //        cmbTipoRegistro.SelectedIndex = 0;
+                            //    }
+                            //    else if (tipoRegistro == "Pessoa Jurídica")
+                            //    {
+                            //        cmbTipoRegistro.SelectedIndex = 1;
+                            //    }
 
-                                string registro = resultado["registro"].ToString();
-                                txtRegistro.Text = registro;
-                            }
+                            //    string registro = resultado["registro"].ToString();
+                            //    txtRegistro.Text = registro;
+                            //}
                         }
                         else
                         {
@@ -506,6 +536,9 @@ namespace AretiVitae2
           fListaUsuarios.ShowDialog();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

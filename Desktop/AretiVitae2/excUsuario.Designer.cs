@@ -67,6 +67,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(240, 31);
             this.txtSenha.TabIndex = 32;
+            this.txtSenha.Visible = false;
             // 
             // txtEmail
             // 
@@ -96,6 +97,7 @@
             this.lblSenha.Size = new System.Drawing.Size(52, 20);
             this.lblSenha.TabIndex = 27;
             this.lblSenha.Text = "Senha: ";
+            this.lblSenha.Visible = false;
             // 
             // lblEmail
             // 

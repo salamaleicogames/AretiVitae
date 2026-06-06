@@ -356,7 +356,7 @@ namespace AretiVitae2
         /// <param name="email">Email</param>
         /// <param name="senha">Senha</param>
         /// <returns>True se a exclusão for bem sucedida</returns>
-        public bool excluirUsuario(string username, string email, string senha)
+        public bool excluirUsuario(string username, string email)
         {
             bool resultado = false;
 
@@ -368,14 +368,13 @@ namespace AretiVitae2
                 string query = @"UPDATE AretiVitae_Usuario
                          SET ativo = 1
                          WHERE username = @username
-                         AND email = @email
-                         AND senha = @senha";
+                         AND email = @email";
 
                 MySqlCommand atualizar = new MySqlCommand(query, DAO_Conexao.con);
 
                 atualizar.Parameters.AddWithValue("@username", username);
                 atualizar.Parameters.AddWithValue("@email", email);
-                atualizar.Parameters.AddWithValue("@senha", senha);
+
 
                 int linhasAfetadas = atualizar.ExecuteNonQuery();
 

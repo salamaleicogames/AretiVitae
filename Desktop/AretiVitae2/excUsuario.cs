@@ -160,19 +160,37 @@ namespace AretiVitae2
         {
             string username = txtUsername.Text;
             string email = txtEmail.Text;
-            string senha = txtSenha.Text;
+
+            DialogResult resposta = MessageBox.Show(
+                "Tem certeza que deseja desativar este usuário?",
+                "Confirmar desativação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resposta != DialogResult.Yes)
+            {
+                return;
+            }
 
             try
             {
                 Usuario usuario = new Usuario();
 
-                if (usuario.excluirUsuario(username, email, senha))
+                if (usuario.excluirUsuario(username, email))
                 {
-                    MessageBox.Show("Usuário desativado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Usuário desativado com sucesso!",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao desativar usuário!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "Erro ao desativar usuário!",
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
