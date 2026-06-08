@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:excusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,20 +66,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "excUsuario.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\excUsuario.cs",
               "RelativeDocumentMoniker": "excUsuario.cs",
               "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\excUsuario.cs",
               "RelativeToolTip": "excUsuario.cs",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAuwKgAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAJsAAAAAAAAAAADwv6QAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-06T19:08:13.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "excUsuario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\excUsuario.cs",
               "RelativeDocumentMoniker": "excUsuario.cs",
@@ -91,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "fCadUsuario.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
               "RelativeDocumentMoniker": "fCadUsuario.cs",
@@ -104,20 +104,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
               "RelativeDocumentMoniker": "Usuario.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs*",
-              "RelativeToolTip": "Usuario.cs*",
-              "ViewState": "AgIAAGIBAAAAAAAAAAAswGcBAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
+              "RelativeToolTip": "Usuario.cs",
+              "ViewState": "AgIAAGUBAAAAAAAAAAAswGcBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T18:32:04.383Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T18:32:04.383Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "fCadUsuario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
               "RelativeDocumentMoniker": "fCadUsuario.cs",
@@ -129,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DAO_Conexao.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
               "RelativeDocumentMoniker": "DAO_Conexao.cs",
@@ -137,8 +136,7 @@
               "RelativeToolTip": "DAO_Conexao.cs",
               "ViewState": "AgIAAEgAAAAAAAAAAAAUwG8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T18:04:29.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T18:04:29.492Z"
             }
           ]
         }
