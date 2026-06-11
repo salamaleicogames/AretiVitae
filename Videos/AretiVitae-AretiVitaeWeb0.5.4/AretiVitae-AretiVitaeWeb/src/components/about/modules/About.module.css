@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;600&family=Rock+Salt&display=swap');
+
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* 
+   LADO ESQUERDO
+─*/
+.left {
+  width: 45%;
+  background: #0d1b3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 120px 120px, 60px 60px;
+  background-position: 0 0, 30px 30px;
+  pointer-events: none;
+}
+
+.leftInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px;
+  text-align: center;
+}
+
+.leftLabel {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.leftTitle {
+  margin: 0;
+  font-family: 'Rock Salt', cursive;
+  font-size: clamp(32px, 4.5vw, 60px);
+  color: #fff;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+.leftSub {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(7px, 0.75vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.leftDivider {
+  width: 56px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 8px 0;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.contactIcon {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.contactLink {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.contactLink:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+
+   /*LADO DIREITO*/
+
+.right {
+  flex: 1;
+  background: #7b8fc7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 56px;
+  position: relative;
+}
+
+.right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* coluna interna que agrupa os dois cards e botão */
+.rightInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 580px;
+}
+
+/*
+   CARD
+*/
+.card {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 20px;
+  width: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cardHeader {
+  padding: 24px 40px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+.cardBody {
+  padding: 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paragraph {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.paragraph strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.paragraph em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* creators */
+.cardFooter {
+  padding: 20px 40px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footerLabel {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.creatorsRow {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.creatorChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 8px 18px 8px 8px;
+}
+
+.creatorAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.creatorName {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* 
+   voltae
+*/
+.backBtn {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    padding: 48px 24px;
+  }
+
+  .leftInner {
+    padding: 32px 24px;
+  }
+
+  .right {
+    padding: 32px 20px;
+  }
+
+  .cardBody,
+  .cardHeader,
+  .cardFooter {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .creatorsRow {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .backBtn {
+    align-self: stretch;
+    text-align: center;
+  }
+}

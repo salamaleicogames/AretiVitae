@@ -1,0 +1,225 @@
+.flex_div {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left {
+  width: 45%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.right_general {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(75, 94, 153);
+  padding: 0 1rem;
+  overflow: hidden;
+  gap: min(1.2rem, 2vh);
+}
+
+.brandTitle {
+  font-family: "Rock Salt", cursive;
+  font-weight: 800;
+  color: white;
+  font-size: clamp(2.2rem, 5.6vh, 5.6rem);
+  margin: 0;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.container {
+  width: min(80%, 700px);
+  padding: min(4.5rem, 5vh) clamp(1.5rem, 4vw, 2.5rem);
+  background: rgb(120, 145, 220);
+  border-radius: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: min(2rem, 2.6vh);
+  flex-shrink: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 90%;
+}
+
+.titleRow::before,
+.titleRow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.8vh, 1.4rem);
+  margin: 0;
+  opacity: 0.85;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.inputWrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.inputWrapper .input {
+  width: 100%;
+}
+
+.input {
+  width: 90%;
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  outline: none;
+  border: none;
+  color: gray;
+  border-radius: 15px;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  padding: 0 1.2rem 0 3rem;
+  box-sizing: border-box;
+  background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") no-repeat 1rem center;
+}
+
+input[type="email"].input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+}
+
+input[type="password"].input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Crect width='18' height='11' x='3' y='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
+}
+
+.selectRow {
+  display: flex;
+  justify-content: space-around;
+  gap: clamp(0.4rem, 1vw, 1rem);
+  width: 90%;
+}
+
+.select {
+  flex: 1;
+  min-width: 0;
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  outline: none;
+  border: none;
+  color: gray;
+  border-radius: 15px;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 90%;
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  border: none;
+  border-radius: 15px;
+  background: rgb(45, 63, 120);
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.6vh, 1.1rem);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover {
+  filter: brightness(1.15);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: none;
+}
+
+.switchText {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.7rem, 1.4vh, 0.9rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  text-align: center;
+}
+
+.switchText span {
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.switchText span:hover {
+  opacity: 0.8;
+}
+
+.inputError {
+  outline: 2px solid rgb(232, 64, 64) !important;
+  color: red;
+}
+
+.errorMsg {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.85rem, 1.4vh, 1.02rem);
+  color: rgb(255, 30, 30);
+  padding-left: 0.8rem;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .left {
+    display: none;
+  }
+
+  .container {
+    width: min(90%, 600px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+    border-radius: 12px;
+  }
+}
+
+/* Tablet Curto*/
+@media (max-height: 500px) {
+  .brandTitle {
+    font-size: clamp(1rem, 3vh, 2rem);
+  }
+
+  .right_general {
+    gap: 0.6vh;
+  }
+
+  .container {
+    gap: 0.8vh;
+    padding: 1.2vh 1.5rem;
+  }
+}

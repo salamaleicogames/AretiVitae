@@ -3,33 +3,31 @@ import styles from "./modules/account.module.css";
 import TopDisplay from './Topdisplay';
 import { useNavigate } from "react-router-dom";
 
-const INITIAL_FORM = {
-  name: "AretiVitae",
-  email: "AretiVitae@mail.com",
-  password: "AretiVitae",
-  newPassword: "",
-  confirmPassword: "",
-};
-
 export default function Account() {
-  const [form, setForm] = useState(INITIAL_FORM);
-  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    newPassword: '',
+    confirmPassword: '',
+  });
+
   const [membership, setMembership] = useState(1);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (field) => (e) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const emptyName      = form.name.trim() === "";
-  const emptyEmail     = form.email.trim() === "";
-  const emptyPassword  = form.password.trim() === "";
-  const nameTooLong    = form.name.length > 16;
-  const emailRegex     = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const emailInvalid   = !emptyEmail && !emailRegex.test(form.email);
-  const passwordMismatch =
-    form.confirmPassword.length > 0 && form.newPassword !== form.confirmPassword;
-  const navigate = useNavigate()
+  const emptyName        = form.name.trim() === '';
+  const emptyEmail       = form.email.trim() === '';
+  const emptyPassword    = form.password.trim() === '';
+  const nameTooLong      = form.name.length > 16;
+  const emailRegex       = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailInvalid     = !emptyEmail && !emailRegex.test(form.email);
+  const passwordMismatch = form.confirmPassword.length > 0 && form.newPassword !== form.confirmPassword;
 
-  
   return (
     <div className={styles.root}>
 
@@ -40,18 +38,16 @@ export default function Account() {
       <div className={styles.bodyWrapper}>
         <div className={styles.body}>
 
-       
           <div className={styles.avatarRow}>
             <div className={styles.avatarWrap}>
               <div className={styles.avatar}>AV</div>
             </div>
             <div className={styles.avatarMeta}>
-              <h1>{form.name || "ExampleName"}</h1>
-              <p>{form.email || "example@email.com"}</p>
+              <h1>{form.name || 'ExampleName'}</h1>
+              <p>{form.email || 'example@email.com'}</p>
             </div>
           </div>
 
-       
           <div className={styles.grid}>
 
             {/* INFORMAÇÕES */}
@@ -67,8 +63,8 @@ export default function Account() {
                 <input
                   type="text"
                   value={form.name}
-                  onChange={handleChange("name")}
-                  className={nameTooLong || emptyName ? styles.inputError : ""}
+                  onChange={handleChange('name')}
+                  className={nameTooLong || emptyName ? styles.inputError : ''}
                 />
                 {emptyName && <span className={styles.errorMsg}>Nome obrigatório</span>}
                 {!emptyName && nameTooLong && (
@@ -81,8 +77,8 @@ export default function Account() {
                 <input
                   type="email"
                   value={form.email}
-                  onChange={handleChange("email")}
-                  className={emailInvalid || emptyEmail ? styles.inputError : ""}
+                  onChange={handleChange('email')}
+                  className={emailInvalid || emptyEmail ? styles.inputError : ''}
                 />
                 {emptyEmail && <span className={styles.errorMsg}>Email obrigatório</span>}
                 {!emptyEmail && emailInvalid && (
@@ -104,26 +100,28 @@ export default function Account() {
                 <input
                   type="password"
                   value={form.password}
-                  onChange={handleChange("password")}
-                  className={emptyPassword ? styles.inputError : ""}
+                  onChange={handleChange('password')}
+                  className={emptyPassword ? styles.inputError : ''}
                 />
                 {emptyPassword && <span className={styles.errorMsg}>Senha obrigatória</span>}
               </div>
+
               <div className={styles.field}>
                 <label>Nova senha</label>
                 <input
                   type="password"
                   value={form.newPassword}
-                  onChange={handleChange("newPassword")}
+                  onChange={handleChange('newPassword')}
                 />
               </div>
+
               <div className={styles.field}>
                 <label>Confirmar nova senha</label>
                 <input
                   type="password"
                   value={form.confirmPassword}
-                  onChange={handleChange("confirmPassword")}
-                  className={passwordMismatch ? styles.inputError : ""}
+                  onChange={handleChange('confirmPassword')}
+                  className={passwordMismatch ? styles.inputError : ''}
                 />
                 {passwordMismatch && (
                   <span className={styles.errorMsg}>As senhas não coincidem</span>
@@ -150,7 +148,7 @@ export default function Account() {
                 </div>
                 <div className={styles.field}>
                   <label>Status</label>
-                  <input type="text" value={membership === 1 ? "Ativo" : "Desativado"} disabled />
+                  <input type="text" value={membership === 1 ? 'Ativo' : 'Desativado'} disabled />
                 </div>
               </div>
 
@@ -159,33 +157,23 @@ export default function Account() {
               </button>
             </div>
 
-          
-            <button
-              className={styles.save}
-            >
-              Salvar alterações
-            </button>
-
-            <button
-              className={styles.discard}
-              onClick={() => navigate("/home")}
-
-            >
-              Descartar alterações
-            </button>
-
           </div>
+
+          <button className={styles.save}>
+            Salvar alterações
+          </button>
+
+          <button className={styles.discard} onClick={() => navigate('/home')}>
+            Descartar alterações
+          </button>
+
         </div>
       </div>
-
 
       {open && (
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <span
-              onClick={() => setOpen(false)}
-              className={styles.modalClose}
-            >✕</span>
+            <span onClick={() => setOpen(false)} className={styles.modalClose}>✕</span>
 
             <div className={styles.sectionTitle}>
               <span className={styles.sectionLine} />
@@ -209,6 +197,7 @@ export default function Account() {
           </div>
         </div>
       )}
+
     </div>
   );
 }

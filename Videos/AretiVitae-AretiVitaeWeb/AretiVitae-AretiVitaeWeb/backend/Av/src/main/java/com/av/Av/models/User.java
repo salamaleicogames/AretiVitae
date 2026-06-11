@@ -10,7 +10,6 @@ import java.util.Objects;
 @Table(name = User.TABLE_NAME)
 public class User {
     public static final String TABLE_NAME = "AretiVitae_Usuario";
-
     public interface CreateUser{}
     public interface UpdateUser{}
 
@@ -34,22 +33,34 @@ public class User {
     @Column(name = "assinatura")
     private int assinatura;
 
+    @Column(name = "ativo")
+    private int ativo;
+
     /*--CONSTRUTORES--*/
 
     public User(){
 
     }
 
-    public User(Integer id, String username, int idade, String email, String senha, int assinatura) {
+    public User(Integer id, String username, int idade, String email, String senha, int assinatura, int ativo) {
         this.id = id;
         this.username = username;
         this.idade = idade;
         this.email = email;
         this.senha = senha;
         this.assinatura = assinatura;
+        this.ativo = ativo;
     }
 
     /*--Get & Set--*/
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
+    }
 
     public Integer getId() {
         return id;

@@ -1,0 +1,43 @@
+/* ── Toolbox (barra lateral) ── */
+.toolbox {
+  position: fixed;
+  top: 50%;
+  right: 20px;                 /* cola na direita */
+  transform: translateY(-50%); /* centraliza verticalmente */
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 16px 12px;
+  box-shadow: 0 4px 24px rgba(80, 130, 239, 0.18);
+}
+
+.button {
+  width: 100%;
+  padding: 8px 18px;
+  background: rgb(104, 137, 255);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.03em;
+}
+
+.button:hover {
+  background: rgb(80, 110, 230);
+  transform: scale(1.04);
+}
+
+.button:active {
+  transform: scale(0.97);
+}

@@ -1,0 +1,20 @@
+.canvaWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+
+.canva {
+  display: block;
+  background: transparent !important;
+}
+
+/* O canvas lower do Fabric também recebe background inline */
+.canvaWrapper canvas {
+  background: transparent !important;
+}

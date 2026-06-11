@@ -1,0 +1,371 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(75, 94, 153);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* ── Panel — ocupa quase toda a tela ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: calc(100vh - 4rem);
+  background: rgb(120, 145, 220);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 4rem);
+  gap: min(1.4rem, 2.2vh);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* ── Section title ── */
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.titleRow::before,
+.titleRow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.8vh, 1.4rem);
+  margin: 0;
+  opacity: 0.85;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: white;
+}
+
+/* ── Top fields row ── */
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* ── Inputs ── */
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.input {
+  width: 100%;
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  outline: none;
+  border: none;
+  color: gray;
+  border-radius: 15px;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  padding: 0 1.2rem 0 3rem;
+  box-sizing: border-box;
+  background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 8v4l3 3'/%3E%3C/svg%3E") no-repeat 1rem center;
+}
+
+.inputNumber {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+}
+
+.hint {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
+  color: rgba(255, 255, 255, 0.75);
+  padding-left: 0.5rem;
+  line-height: 1.5;
+}
+
+
+.membersBox {
+  flex: 1;
+  background-color: rgb(95, 118, 195);
+  border-radius: 14px;
+  border: 1px solid rgb(80, 100, 175);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.membersHeader {
+  padding: 10px 18px;
+  font-size: clamp(0.65rem, 1.2vh, 0.8rem);
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(80, 100, 175);
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.memberRow {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  border-bottom: 1px solid rgb(85, 108, 182);
+  gap: 14px;
+  flex: 1;
+}
+
+.memberRow:last-child {
+  border-bottom: none;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.av_creator { background-color: rgb(35, 47, 120);  color: #a8b4f8; }
+.av_builder { background-color: rgb(20, 50, 90);   color: #7ec8f0; }
+.av_member  { background-color: rgb(100, 122, 200); color: #ffffff; }
+
+.memberName {
+  flex: 1;
+  font-size: clamp(0.75rem, 1.4vh, 0.95rem);
+  color: #ffffff;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.badge {
+  font-size: clamp(0.6rem, 1.1vh, 0.72rem);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.badge_creator { background-color: rgb(35, 47, 120);  color: #c5ceff; }
+.badge_builder { background-color: rgb(20, 50, 90);   color: #7ec8f0; }
+.badge_member  { background-color: rgb(100, 122, 200); color: #ffffff; }
+
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.btnRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.btnDiscard {
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+.btnDiscard:hover  { filter: brightness(1.15); }
+.btnDiscard:active { transform: scale(0.98); }
+
+.btnSave {
+  height: clamp(2rem, 5.5vh, 3.8rem);
+  border-radius: 15px;
+  border: none;
+  background: rgb(45, 63, 120);
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+.btnSave:hover  { filter: brightness(1.15); }
+.btnSave:active { transform: scale(0.98); }
+
+.btnInvite {
+  width: 100%;
+  height: clamp(2rem, 5vh, 3.4rem);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.75rem, 1.5vh, 1rem);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+.btnInvite:hover  { filter: brightness(1.15); }
+.btnInvite:active { transform: scale(0.98); }
+
+/* ── Popup ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 25, 70, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: min(90vw, 420px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.popupTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: rgb(45, 63, 120);
+  font-weight: 700;
+  margin: 0;
+}
+
+.popupSub {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.78rem;
+  color: #8a8fa8;
+  margin: 0 0 0.4rem;
+}
+
+.linkBox {
+  width: 100%;
+  background-color: #f0f2ff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  color: rgb(45, 63, 120);
+  word-break: break-all;
+  text-align: left;
+  border: 1px solid #c5ceff;
+  box-sizing: border-box;
+  font-family: monospace;
+  margin-bottom: 0.4rem;
+}
+
+.btnCopy {
+  width: 100%;
+  height: clamp(2rem, 5vh, 3rem);
+  border: none;
+  border-radius: 15px;
+  background: rgb(45, 63, 120);
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.btnCopy:hover { filter: brightness(1.15); }
+
+.btnClosePopup {
+  background: transparent;
+  border: none;
+  color: #8a8fa8;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 2px;
+}
+.btnClosePopup:hover { color: #555; }
+
+.memberRow {
+  
+  transition: background 0.18s ease;
+}
+.memberRow:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.memberActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+.memberRow:hover .memberActions {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.iconBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  flex-shrink: 0;
+  background: transparent;
+}
+.iconBtn:active { transform: scale(0.92); }
+
+.btnPromote { background: rgba(168, 180, 248, 0.18); }
+.btnPromote:hover { background: rgba(168, 180, 248, 0.32); }
+
+.btnRemove { background: rgba(255, 100, 100, 0.18); }
+.btnRemove:hover { background: rgba(255, 100, 100, 0.35); }
+
+
+@media (max-width: 640px) {
+  .fields { grid-template-columns: 1fr; }
+  .page   { padding: 1rem; }
+}
+
+@media (max-height: 500px) {
+  .container { gap: 0.8vh; padding: 1rem 2rem; }
+}
