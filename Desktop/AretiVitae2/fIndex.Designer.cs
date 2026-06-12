@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fIndex));
             this.btnCadUsuario = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -47,7 +49,7 @@
             // btnCadUsuario
             // 
             this.btnCadUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadUsuario.Location = new System.Drawing.Point(27, 75);
+            this.btnCadUsuario.Location = new System.Drawing.Point(27, 69);
             this.btnCadUsuario.Name = "btnCadUsuario";
             this.btnCadUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnCadUsuario.TabIndex = 3;
@@ -58,6 +60,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenu.Controls.Add(this.btnCompras);
+            this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.lblUser);
             this.panelMenu.Controls.Add(this.pictureBox2);
             this.panelMenu.Controls.Add(this.btnSair);
@@ -75,12 +79,34 @@
             this.panelMenu.TabIndex = 3;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
+            // btnCompras
+            // 
+            this.btnCompras.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Location = new System.Drawing.Point(27, 254);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(142, 28);
+            this.btnCompras.TabIndex = 16;
+            this.btnCompras.Text = "Gerenciar";
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(66, 226);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Compras";
+            // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUser.Location = new System.Drawing.Point(36, 531);
+            this.lblUser.Location = new System.Drawing.Point(38, 563);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(52, 24);
             this.lblUser.TabIndex = 14;
@@ -90,7 +116,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AretiVitae2.Properties.Resources.user1;
-            this.pictureBox2.Location = new System.Drawing.Point(72, 466);
+            this.pictureBox2.Location = new System.Drawing.Point(72, 498);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(58, 62);
             this.pictureBox2.TabIndex = 13;
@@ -99,7 +125,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(39, 365);
+            this.btnSair.Location = new System.Drawing.Point(39, 429);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(130, 28);
             this.btnSair.TabIndex = 11;
@@ -110,7 +136,7 @@
             // btnBuilders
             // 
             this.btnBuilders.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuilders.Location = new System.Drawing.Point(39, 322);
+            this.btnBuilders.Location = new System.Drawing.Point(39, 386);
             this.btnBuilders.Name = "btnBuilders";
             this.btnBuilders.Size = new System.Drawing.Size(130, 28);
             this.btnBuilders.TabIndex = 9;
@@ -121,7 +147,7 @@
             // btnAjuda
             // 
             this.btnAjuda.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjuda.Location = new System.Drawing.Point(39, 282);
+            this.btnAjuda.Location = new System.Drawing.Point(39, 346);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(130, 28);
             this.btnAjuda.TabIndex = 8;
@@ -132,7 +158,7 @@
             // btnListUsuario
             // 
             this.btnListUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListUsuario.Location = new System.Drawing.Point(27, 163);
+            this.btnListUsuario.Location = new System.Drawing.Point(27, 157);
             this.btnListUsuario.Name = "btnListUsuario";
             this.btnListUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnListUsuario.TabIndex = 5;
@@ -143,7 +169,7 @@
             // btnExcUsuario
             // 
             this.btnExcUsuario.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcUsuario.Location = new System.Drawing.Point(27, 119);
+            this.btnExcUsuario.Location = new System.Drawing.Point(27, 113);
             this.btnExcUsuario.Name = "btnExcUsuario";
             this.btnExcUsuario.Size = new System.Drawing.Size(142, 28);
             this.btnExcUsuario.TabIndex = 4;
@@ -156,7 +182,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(37, 245);
+            this.label3.Location = new System.Drawing.Point(37, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 25);
             this.label3.TabIndex = 2;
@@ -168,7 +194,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 36);
+            this.label1.Location = new System.Drawing.Point(67, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 25);
             this.label1.TabIndex = 0;
@@ -179,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 637);
+            this.ClientSize = new System.Drawing.Size(960, 637);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -207,5 +233,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Label label2;
     }
 }

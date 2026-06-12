@@ -76,6 +76,7 @@ namespace AretiVitae2
             estilizarBotao(btnAjuda);
             estilizarBotao(btnBuilders);
             estilizarBotao(btnSair);
+            estilizarBotao(btnCompras);
         }
 
         /// <summary>
@@ -187,6 +188,13 @@ namespace AretiVitae2
         private void lblUser_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fGerenciarCompras fGerenciarCompras = new fGerenciarCompras();
+            fGerenciarCompras.MdiParent = this;
+            fGerenciarCompras.Show();
         }
     }
 }

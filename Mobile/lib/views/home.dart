@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                               // PERFIL
                               GestureDetector(
                                 onTap: () {
-                                 Navigator.pushNamed(context, "/perfil");
+                                  Navigator.pushNamed(context, "/perfil");
                                 },
                                 child: Column(
                                   children: [
@@ -107,7 +107,10 @@ class _HomeState extends State<Home> {
                               // CONFIGURAÇÕES
                               GestureDetector(
                                 onTap: () {
-                                 Navigator.pushNamed(context, "/configuracoes");
+                                  Navigator.pushNamed(
+                                    context,
+                                    "/configuracoes",
+                                  );
                                 },
                                 child: Column(
                                   children: [
@@ -205,7 +208,7 @@ class _HomeState extends State<Home> {
                                       child: Padding(
                                         padding: EdgeInsets.all(20),
                                         child: Image.asset(
-                                          "assets/images/galeriaIcon.png",
+                                          "assets/images/noteIcon.png",
                                           width: 75,
                                         ),
                                       ),
@@ -240,10 +243,7 @@ class _HomeState extends State<Home> {
                     // BOX NETWORK
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Galeria()),
-                        );
+                        Navigator.pushNamed(context, "/creditos");
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
@@ -255,9 +255,13 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(width: 10),
-                            Image.asset(
-                              "assets/images/networkTitle.png",
-                              width: 250,
+                            Text(
+                              "Créditos",
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
                             ),
                             SizedBox(width: 55),
                           ],

@@ -60,7 +60,7 @@
             // btnListarUsuarios
             // 
             this.btnListarUsuarios.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListarUsuarios.Location = new System.Drawing.Point(491, 368);
+            this.btnListarUsuarios.Location = new System.Drawing.Point(493, 421);
             this.btnListarUsuarios.Name = "btnListarUsuarios";
             this.btnListarUsuarios.Size = new System.Drawing.Size(150, 26);
             this.btnListarUsuarios.TabIndex = 40;
@@ -71,7 +71,7 @@
             // lblDescricao
             // 
             this.lblDescricao.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(12, 358);
+            this.lblDescricao.Location = new System.Drawing.Point(12, 403);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(203, 61);
             this.lblDescricao.TabIndex = 38;
@@ -119,7 +119,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(458, 289);
+            this.btnLimpar.Location = new System.Drawing.Point(459, 340);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(150, 26);
             this.btnLimpar.TabIndex = 24;
@@ -130,7 +130,7 @@
             // btnAtualizar
             // 
             this.btnAtualizar.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizar.Location = new System.Drawing.Point(242, 289);
+            this.btnAtualizar.Location = new System.Drawing.Point(242, 340);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(150, 26);
             this.btnAtualizar.TabIndex = 23;
@@ -162,7 +162,7 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(21, 288);
+            this.btnCadastrar.Location = new System.Drawing.Point(21, 340);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(150, 26);
             this.btnCadastrar.TabIndex = 22;
@@ -292,7 +292,7 @@
             // lblDescricao2
             // 
             this.lblDescricao2.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao2.Location = new System.Drawing.Point(251, 358);
+            this.lblDescricao2.Location = new System.Drawing.Point(251, 403);
             this.lblDescricao2.Name = "lblDescricao2";
             this.lblDescricao2.Size = new System.Drawing.Size(182, 55);
             this.lblDescricao2.TabIndex = 39;
@@ -324,7 +324,7 @@
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(649, 330);
+            this.panel1.Size = new System.Drawing.Size(649, 379);
             this.panel1.TabIndex = 37;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -342,7 +342,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 461);
+            this.ClientSize = new System.Drawing.Size(673, 538);
             this.Controls.Add(this.btnListarUsuarios);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblDescricao2);

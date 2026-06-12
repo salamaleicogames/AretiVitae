@@ -1,6 +1,7 @@
 import 'package:areti_vitae_mobile/views/ajuda.dart';
 import 'package:areti_vitae_mobile/views/cadastro.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
+import 'package:areti_vitae_mobile/views/creditos.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
@@ -23,16 +24,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: Login(),
 
-
       routes: {
         "/home": (context) => Home(),
         "/login": (context) => Login(),
         "/perfil": (context) => Perfil(),
         "/cadastro": (context) => Cadastro(),
         "/ajuda": (context) => Ajuda(),
-        "/configuracoes":(context) => Configuracoes(),
-        "/esqueciSenha":(context) => EsqueciSenha(),
+        "/configuracoes": (context) => Configuracoes(),
+        "/esqueciSenha": (context) => EsqueciSenha(),
         // "/notas":(context) => Notas(),
+        "/creditos": (context) => Creditos(),
       },
     );
   }

@@ -206,8 +206,10 @@ namespace AretiVitae2
             string senha = txtSenha.Text;
             //string tipoPlano = cmbAssinatura.Text;
             int assinatura = 0;
+            double valor = 0;
             string tipoRegistro = cmbTipoRegistro.Text.Trim();
             string registro = txtRegistro.Text.Trim();
+            int periodoRenovacao = 0;
             int ativo = 0;
 
 
@@ -215,18 +217,26 @@ namespace AretiVitae2
             if(cmbAssinatura.SelectedIndex == 0)
             {
                 assinatura = 0; //Plano Free
+                valor = 0;
+                periodoRenovacao = 0;
             }
             else if(cmbAssinatura.SelectedIndex == 1)
             {
                 assinatura = 1; //Plano Hécate
+                valor = 14.00;
+                periodoRenovacao = 1;
             }
             else if(cmbAssinatura.SelectedIndex == 2)
             {
                 assinatura = 2; //Plano Ártemis
+                valor = 25.00;
+                periodoRenovacao = 3;
             }
             else if(cmbAssinatura.SelectedIndex == 3)
             {
                 assinatura = 3; //Plano Selene
+                valor = 32.00;
+                periodoRenovacao = 6;
             }
 
             // Verifica o tipo de cadastro efetuado na assinatura (Pessoa Física ou Jurídica)
@@ -238,6 +248,24 @@ namespace AretiVitae2
             {
                 tipoRegistro = "Pessoa Jurídica";
             }
+
+            ////Verifica o período escolhido, caso o usuário escolha uma assinatura
+            //int periodoRenovacao = 1;
+
+            //switch (cmbPeriodo.SelectedIndex)
+            //{
+            //    case 0:
+            //        periodoRenovacao = 1;
+            //        break;
+
+            //    case 1:
+            //        periodoRenovacao = 3;
+            //        break;
+
+            //    case 2:
+            //        periodoRenovacao = 6;
+            //        break;
+            //}
 
             //// Define o valor do campo "ativo"
             //if (chkAtivo.Checked == true)
@@ -271,6 +299,8 @@ namespace AretiVitae2
                 }
             }
 
+
+
             //Validação de idade do usuário
             if (idade < 13)
             {
@@ -282,7 +312,7 @@ namespace AretiVitae2
                 try
                 {
                     Usuario usuario = new Usuario();
-                    if (usuario.cadastrarUsuario(username, idade, email, senha, assinatura, tipoRegistro, registro) == true)
+                    if (usuario.cadastrarUsuario(username, idade, email, senha, assinatura, valor, tipoRegistro, registro) == true)
                     {
                         MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

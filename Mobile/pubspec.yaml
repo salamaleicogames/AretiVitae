@@ -73,6 +73,8 @@ flutter:
    - assets/images/tree1.png
    - assets/images/João Mantz.jpeg
    - assets/images/Maurício.jpeg
+   - assets/images/noteIcon.png
+   - assets/images/logo_text.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

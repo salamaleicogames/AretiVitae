@@ -31,6 +31,8 @@ namespace AretiVitae2
             int nHeightEllipse
         );
 
+        int filtroId = 0;
+        int filtroIdInativo = 0;
         public fListaUsuarios()
         {
             InitializeComponent();
@@ -43,6 +45,7 @@ namespace AretiVitae2
             lblTitulo2.ForeColor = System.Drawing.Color.White;
             lblLegenda.ForeColor = System.Drawing.Color.White;
 
+
             //Estilização dos Botões
             btnHome.BackColor = Color.FromArgb(130, 151, 217);
             btnHome.ForeColor = Color.FromArgb(12, 27, 60);
@@ -54,14 +57,19 @@ namespace AretiVitae2
 
         private void fListaUsuarios_Load(object sender, EventArgs e)
         {
+
+            int.TryParse(txtID.Text, out filtroId);
+
+            int.TryParse(txtIDInativo.Text, out filtroIdInativo);
+
             int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
             if (status == 0)
             {
-                carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                carregarUsuarios(status,filtroId , txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
             }
             else
             {
-                carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
             }
         }
 
@@ -70,7 +78,7 @@ namespace AretiVitae2
         /// <summary>
         /// Método de abertura da listagem dos Usuários cadastrados (DatagGridView) e exibição de estatísticas de cadastro de usuários
         /// </summary>
-        private void carregarUsuarios(int ativo, string filtroNome, string filtroCPF, int filtroAssinatura)
+        private void carregarUsuarios(int ativo, int filtroId, string filtroNome, string filtroCPF, int filtroAssinatura)
         {
             try
             {
@@ -83,6 +91,12 @@ namespace AretiVitae2
                 string query = "SELECT * FROM AretiVitae_Usuario WHERE ativo = " + ativo;
 
                 //Filtros de Nome, Registro (CPF/CNPJ) e Assinatura (Usuários Ativos)
+
+                if (filtroId > 0)
+                {
+                    query += " AND id = " + filtroId;
+                }
+
                 if (!string.IsNullOrEmpty(filtroNome))
                 {
                     query += " AND username LIKE '%" + filtroNome + "%'";
@@ -207,11 +221,11 @@ namespace AretiVitae2
                         int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
                         if (status == 0)
                         {
-                            carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                            carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
                         }
                         else
                         {
-                            carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                            carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
                         }
                     }
                 }
@@ -223,17 +237,17 @@ namespace AretiVitae2
             int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
             if (status == 0)
             {
-                carregarUsuarios(status, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
             }
             else
             {
-                carregarUsuarios(status, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
             }
         }
 
         private void dgwAtivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
 
         private void dgwAtivos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -279,7 +293,19 @@ namespace AretiVitae2
                     {
                         e.CellStyle.BackColor = Color.LightCyan;
                         e.CellStyle.ForeColor = Color.Black;
-                        e.Value = "Network";
+                        e.Value = "Plano Hécate";
+                    }
+                    else if (assinatura == "2")
+                    {
+                        e.CellStyle.BackColor = Color.LightPink;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Plano Ártemis";
+                    }
+                    else if (assinatura == "3")
+                    {
+                        e.CellStyle.BackColor = Color.LightSalmon;
+                        e.CellStyle.ForeColor = Color.Black;
+                        e.Value = "Plano Selene";
                     }
                 }
             }
@@ -336,12 +362,30 @@ namespace AretiVitae2
 
         private void btnPesquisarInativo_Click(object sender, EventArgs e)
         {
-            carregarUsuarios(1, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+            if (!string.IsNullOrWhiteSpace(txtIDInativo.Text))
+            {
+                int.TryParse(txtIDInativo.Text, out filtroIdInativo);
+            }
+            else
+            {
+                filtroIdInativo = 0;
+            }
+
+            carregarUsuarios(1, filtroIdInativo, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            carregarUsuarios(0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            if (!string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                int.TryParse(txtID.Text, out filtroId);
+            }
+            else
+            {
+                filtroId = 0;
+            }
+
+            carregarUsuarios(0, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -350,7 +394,9 @@ namespace AretiVitae2
             txtRegistro.Clear();
             cmbAssinatura.SelectedIndex = -1;
 
-            carregarUsuarios(0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            txtID.Clear();
+
+            carregarUsuarios(0, 0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
         }
 
         private void btnLimparInativo_Click(object sender, EventArgs e)
@@ -359,7 +405,19 @@ namespace AretiVitae2
             txtRegistroInativo.Clear();
             cmbAssinaturaInativo.SelectedIndex = -1;
 
-            carregarUsuarios(1, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+            txtIDInativo.Clear();
+
+            carregarUsuarios(1, 0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+        }
+
+        private void groupFiltrosAtivo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -138,6 +138,12 @@
     <Compile Include="fExtras.Designer.cs">
       <DependentUpon>fExtras.cs</DependentUpon>
     </Compile>
+    <Compile Include="fGerenciarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGerenciarCompras.Designer.cs">
+      <DependentUpon>fGerenciarCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="fIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fExtras.resx">
       <DependentUpon>fExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fGerenciarCompras.resx">
+      <DependentUpon>fGerenciarCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fIndex.resx">
       <DependentUpon>fIndex.cs</DependentUpon>
