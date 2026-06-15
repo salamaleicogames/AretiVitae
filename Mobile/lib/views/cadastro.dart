@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:areti_vitae_mobile/model/usuario.dart';
+import 'package:areti_vitae_mobile/model/cLogin.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +12,15 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
+  final GlobalKey<FormState> cadastroKey = GlobalKey<FormState>();
+
   TextEditingController txtNome = TextEditingController();
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtData = TextEditingController();
   TextEditingController txtSenha = TextEditingController();
   TextEditingController txtConfirmarSenha = TextEditingController();
 
-  List<Usuario> user = [];
+  List<Clogin> user = [];
 
   @override
   void dispose() {
@@ -32,107 +34,121 @@ class _CadastroState extends State<Cadastro> {
 
   // Apenas exibe os usuários no console
   void exibir() {
-    for (Usuario u in user) {
+    for (Clogin u in user) {
       log("USUÁRIO CADASTRADO!");
-      log("${u.usuario} - ${u.email} - ${u.data}");
+      log("${u.usuario} - ${u.email} - ${u.senha} - ${u.dataNasc}");
     }
   }
 
   void cadastrar() {
-    String nome = txtNome.text;
-    String email = txtEmail.text;
-    String data = txtData.text;
-    String senha = txtSenha.text;
-    String confirmar = txtConfirmarSenha.text;
+    if (cadastroKey.currentState!.validate()) {
+      Clogin us = Clogin.cadastro(
+        txtNome.text,
+        txtEmail.text,
+        txtData.text,
+        txtSenha.text,
+      );
 
-    if (nome.isEmpty ||
-        email.isEmpty ||
-        data.isEmpty ||
-        senha.isEmpty ||
-        confirmar.isEmpty) {
+      user.add(us);
+
+      log("Cadastro realizado com sucesso!");
+      exibir();
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            "Preencha os campos vazios!",
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.yellow,
-          duration: Duration(seconds: 2),
+          content: Text("Cadastro realizado com sucesso!"),
+          backgroundColor: Colors.green,
         ),
       );
-      return;
+
+      txtNome.clear();
+      txtEmail.clear();
+      txtData.clear();
+      txtSenha.clear();
+      txtConfirmarSenha.clear();
+
+      setState(() {});
     }
-
-    if (senha != confirmar) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("As senhas não coincidem!"),
-          backgroundColor: Colors.red,
-          duration: Duration(seconds: 2),
-        ),
-      );
-      return;
-    }
-
-    Usuario us = Usuario(nome, email, data);
-    user.add(us);
-
-    log("Cadastro realizado com sucesso!");
-    exibir();
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Cadastro realizado com sucesso!"),
-        backgroundColor: Colors.green,
-        duration: Duration(seconds: 2),
-      ),
-    );
-
-    // Limpar campos
-    txtNome.clear();
-    txtEmail.clear();
-    txtData.clear();
-    txtSenha.clear();
-    txtConfirmarSenha.clear();
-
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double lightHeight = screenHeight * 0.2;
+    final double headerHeight = screenHeight * 0.31;
+
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromRGBO(88, 112, 184, 1),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                // PARTE DE CIMA
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.2,
-                  color: Color.fromRGBO(143, 197, 255, 1),
-                ),
-
-                // PARTE DE BAIXO
-                Container(
-                  color: Color.fromRGBO(88, 112, 184, 1),
-                  child: Column(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: Column(
+          children: [
+            // CABEÇALHO
+            SizedBox(
+              height: headerHeight,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Column(
                     children: [
-                      SizedBox(height: 100),
+                      // PARTE DE CIMA
+                      Container(
+                        height: lightHeight,
+                        width: double.infinity,
+                        color: Color.fromRGBO(143, 197, 255, 1),
+                      ),
 
-                      // Input Nome
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
+                      Container(
+                        height: headerHeight - lightHeight,
+                        width: double.infinity,
+                        color: Color.fromRGBO(88, 112, 184, 1),
+                      ),
+                    ],
+                  ),
+
+                  // LOGO
+                  Positioned(
+                    top: screenHeight * 0.01,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Image.asset("assets/images/logo1.png", width: 200),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            //FORMULÁRIO
+            Container(
+              width: double.infinity,
+              color: Color.fromRGBO(88, 112, 184, 1),
+              child: Column(
+                children: [
+                  SizedBox(height: 60),
+
+                  Form(
+                    key: cadastroKey,
+                    child: Column(
+                      children: [
+                        //INPUT USERNAME
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: TextFormField(
                             controller: txtNome,
                             style: TextStyle(
                               fontFamily: "Josefin",
                               fontSize: 15,
                             ),
                             decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide: BorderSide.none,
@@ -147,24 +163,35 @@ class _CadastroState extends State<Cadastro> {
                               filled: true,
                               fillColor: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
+
+                            //VALIDAÇÃO NOME DE USUÁRIO
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Informe um nome de usuário";
+                              }
+
+                              return null;
+                            },
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 15),
+                        SizedBox(height: 15),
 
-                      // Input Email
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
+                        // Input Email
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: TextFormField(
                             controller: txtEmail,
                             style: TextStyle(
                               fontFamily: "Josefin",
                               fontSize: 15,
                             ),
                             decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide: BorderSide.none,
@@ -179,24 +206,39 @@ class _CadastroState extends State<Cadastro> {
                               filled: true,
                               fillColor: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
+
+                            //VALIDAÇÃO EMAIL
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Informe um e-mail";
+                              }
+
+                              if (!value.contains("@")) {
+                                return "E-mail inválido";
+                              }
+
+                              return null;
+                            },
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 15),
+                        SizedBox(height: 15),
 
-                      // Input Data
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
+                        // INPUT DATA
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: TextFormField(
                             controller: txtData,
                             style: TextStyle(
                               fontFamily: "Josefin",
                               fontSize: 15,
                             ),
                             decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide: BorderSide.none,
@@ -211,18 +253,24 @@ class _CadastroState extends State<Cadastro> {
                               filled: true,
                               fillColor: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
+
+                            //VALIDAÇÃO DE DATA DE NASCIMENTO
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Informe a data de nascimento";
+                              }
+
+                              return null;
+                            },
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 15),
+                        SizedBox(height: 15),
 
-                      // Input Senha
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
+                        //INPUT SENHA
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: TextFormField(
                             controller: txtSenha,
                             style: TextStyle(
                               fontFamily: "Josefin",
@@ -230,6 +278,11 @@ class _CadastroState extends State<Cadastro> {
                             ),
                             obscureText: true,
                             decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide: BorderSide.none,
@@ -244,114 +297,124 @@ class _CadastroState extends State<Cadastro> {
                               filled: true,
                               fillColor: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
+
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Digite uma senha";
+                              }
+
+                              if (value.length < 4) {
+                                return "A senha deve ter pelo menos 4 caracteres";
+                              }
+
+                              return null;
+                            },
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 15),
+                        SizedBox(height: 15),
 
-                      // Input Confirmar senha
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
+                        // INPUT CONFIRMAR SENHA
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: TextFormField(
                             controller: txtConfirmarSenha,
+                            obscureText: true,
                             style: TextStyle(
                               fontFamily: "Josefin",
                               fontSize: 15,
                             ),
-                            obscureText: true,
                             decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 12,
+                              ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide: BorderSide.none,
                               ),
-                              hint: Text(
-                                "Confirmar Senha",
-                                style: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                              ),
+                              hintText: "Confirmar Senha",
                               filled: true,
                               fillColor: Color.fromRGBO(255, 255, 255, 0.9),
                             ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "Confirme a senha";
+                              }
+
+                              if (value != txtSenha.text) {
+                                return "As senhas não coincidem";
+                              }
+
+                              return null;
+                            },
                           ),
                         ),
-                      ),
 
-                      SizedBox(height: 15),
+                        SizedBox(height: 15),
 
-                      // Já tem conta
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Login(),
+                        // Já tem conta
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Login(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "Já tem uma Conta? Faça Login",
+                                  style: TextStyle(
+                                    fontFamily: "Josefin",
+                                    fontSize: 15,
+                                    color: Colors.white,
                                   ),
-                                );
-                              },
-                              child: Text(
-                                "Já tem uma Conta? Faça Login",
-                                style: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                  color: Colors.white,
                                 ),
                               ),
+                            ],
+                          ),
+                        ),
+
+                        SizedBox(height: 60),
+
+                        // Botão cadastrar
+                        ElevatedButton(
+                          onPressed: cadastrar,
+                          child: Text(
+                            "Cadastrar",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.white,
                             ),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(height: 60),
-
-                      // Botão cadastrar
-                      ElevatedButton(
-                        onPressed: cadastrar,
-                        child: Text(
-                          "Cadastrar",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.white,
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                            minimumSize: Size(280, 48),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
                         ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                          minimumSize: Size(280, 48),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 50),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
 
-          // LOGO
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.02,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Image.asset("assets/images/logo1.png", width: 200),
+                  // Input Nome
+                  SizedBox(height: 50),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

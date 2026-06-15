@@ -1,11 +1,12 @@
 import 'package:areti_vitae_mobile/views/ajuda.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
-import 'package:areti_vitae_mobile/views/galeria.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
-import 'package:areti_vitae_mobile/views/network/network.dart';
 import 'package:areti_vitae_mobile/views/perfil.dart';
 import 'package:flutter/material.dart';
 
+// ==========================================
+// PRIMEIRA TELA (HOME)
+// ==========================================
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -16,6 +17,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final String nomeUsuario =
+        ModalRoute.of(context)!.settings.arguments as String? ?? "Usuário";
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(88, 112, 184, 1),
       body: SingleChildScrollView(
@@ -30,16 +34,26 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(148, 191, 255, 1),
+                        color: Color.fromRGBO(148, 191, 255, 0.8),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Row(
                         children: [
                           SizedBox(width: 10),
-                          Image.asset("assets/images/alter2.png", width: 75),
+
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "/perfil");
+                            },
+                            child: Image.asset(
+                              "assets/images/alter2.png",
+                              width: 75,
+                            ),
+                          ),
+
                           SizedBox(width: 55),
                           Text(
-                            "Maurício",
+                            nomeUsuario,
                             style: TextStyle(
                               fontFamily: "Montserrat",
                               fontWeight: FontWeight.bold,
@@ -57,7 +71,7 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.all(30),
                       decoration: BoxDecoration(
-                        color: Color.fromRGBO(148, 191, 255, 1),
+                        color: Color.fromRGBO(148, 191, 255, 0.8),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Column(
@@ -73,7 +87,12 @@ class _HomeState extends State<Home> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      color: Color.fromRGBO(
+                                        208,
+                                        227,
+                                        255,
+                                        0.75,
+                                      ),
                                       child: Padding(
                                         padding: EdgeInsets.all(20),
                                         child: Image.asset(
@@ -115,7 +134,12 @@ class _HomeState extends State<Home> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      color: Color.fromRGBO(
+                                        208,
+                                        227,
+                                        255,
+                                        0.75,
+                                      ),
                                       child: Padding(
                                         padding: EdgeInsets.all(20),
                                         child: Image.asset(
@@ -159,7 +183,12 @@ class _HomeState extends State<Home> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      color: Color.fromRGBO(
+                                        208,
+                                        227,
+                                        255,
+                                        0.75,
+                                      ),
                                       child: Padding(
                                         padding: EdgeInsets.all(20),
                                         child: Image.asset(
@@ -191,20 +220,20 @@ class _HomeState extends State<Home> {
 
                               SizedBox(width: 100),
 
-                              // GALERIA
+                              //NOTAS
                               GestureDetector(
                                 onTap: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => Galeria(),
-                                  //   ),
-                                  // );
+                                  Navigator.pushNamed(context, "/notas");
                                 },
                                 child: Column(
                                   children: [
                                     Container(
-                                      color: Color.fromRGBO(208, 227, 255, 1),
+                                      color: Color.fromRGBO(
+                                        208,
+                                        227,
+                                        255,
+                                        0.75,
+                                      ),
                                       child: Padding(
                                         padding: EdgeInsets.all(20),
                                         child: Image.asset(
@@ -255,14 +284,26 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(width: 10),
-                            Text(
-                              "Créditos",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                color: Colors.white,
-                                fontSize: 20,
-                              ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.groups_2_rounded,
+                                  color: Colors.white,
+                                ),
+
+                                SizedBox(width: 5),
+
+                                Text(
+                                  "Créditos",
+                                  style: TextStyle(
+                                    fontFamily: "Montserrat",
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ],
                             ),
+
                             SizedBox(width: 55),
                           ],
                         ),

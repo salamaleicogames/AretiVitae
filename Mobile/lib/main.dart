@@ -5,6 +5,7 @@ import 'package:areti_vitae_mobile/views/creditos.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
+import 'package:areti_vitae_mobile/views/notas.dart';
 import 'package:areti_vitae_mobile/views/perfil.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         "/ajuda": (context) => Ajuda(),
         "/configuracoes": (context) => Configuracoes(),
         "/esqueciSenha": (context) => EsqueciSenha(),
-        // "/notas":(context) => Notas(),
+        "/notas": (context) => Notas(),
         "/creditos": (context) => Creditos(),
       },
     );

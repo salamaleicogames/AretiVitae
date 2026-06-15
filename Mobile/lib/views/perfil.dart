@@ -1,3 +1,4 @@
+import 'package:areti_vitae_mobile/model/cLogin.dart';
 import 'package:flutter/material.dart';
 
 class Perfil extends StatefulWidget {
@@ -12,6 +13,17 @@ class _PerfilState extends State<Perfil> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtSenha = TextEditingController();
 
+  String nome = "João";
+  String email = "joão@gmail.com";
+
+  // ADICIONADO: initState para carregar as variáveis nos controllers ao abrir a tela
+  @override
+  void initState() {
+    super.initState();
+    txtUser.text = nome;
+    txtEmail.text = email;
+  }
+
   @override
   void dispose() {
     txtUser.dispose();
@@ -21,12 +33,11 @@ class _PerfilState extends State<Perfil> {
   }
 
   void salvarPerfil() {
-    String nome = txtUser.text;
-    String email = txtEmail.text;
-    String senha = txtSenha.text;
+    nome = txtUser.text;
+    email = txtEmail.text;
 
     // Validação
-    if (nome.isEmpty || email.isEmpty || senha.isEmpty) {
+    if (nome.isEmpty || email.isEmpty) {
       // Visual
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -41,10 +52,9 @@ class _PerfilState extends State<Perfil> {
       return;
     }
 
-    print("Dados atualizados:");
+    print("Dados updated:");
     print("Nome: $nome");
     print("Email: $email");
-    print("Senha: $senha");
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -55,6 +65,8 @@ class _PerfilState extends State<Perfil> {
         margin: EdgeInsets.all(20),
       ),
     );
+
+    Navigator.pushNamed(context, "/home", arguments: nome);
   }
 
   @override
@@ -179,58 +191,6 @@ class _PerfilState extends State<Perfil> {
                       ),
 
                       SizedBox(height: 25),
-
-                      // Senha
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: SizedBox(
-                          height: 40,
-                          child: TextField(
-                            controller: txtSenha,
-                            style: TextStyle(
-                              fontFamily: "Josefin",
-                              fontSize: 15,
-                            ),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide.none,
-                              ),
-                              hintText: "***************",
-                              hintStyle: const TextStyle(
-                                fontFamily: "Josefin",
-                                fontSize: 15,
-                              ),
-                              filled: true,
-                              fillColor: const Color.fromRGBO(
-                                255,
-                                255,
-                                255,
-                                0.902,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Mudar Senha",
-                            style: const TextStyle(
-                              fontFamily: "Montserrat",
-                              fontSize: 15,
-                              color: Color.fromRGBO(255, 255, 255, 0.9),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 45),
 
                       // BOTÃO
                       ElevatedButton(

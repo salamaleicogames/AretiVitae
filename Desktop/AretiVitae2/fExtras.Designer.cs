@@ -144,11 +144,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Josefin Sans Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(307, 26);
+            this.label1.Location = new System.Drawing.Point(350, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 30);
+            this.label1.Size = new System.Drawing.Size(283, 30);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Areti Vitae: Ilustrador Coletivo de Ideias";
+            this.label1.Text = "Areti Vitae: Ilustrador de Ideias";
             // 
             // imgLogo
             // 

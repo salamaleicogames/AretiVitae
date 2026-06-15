@@ -39,7 +39,7 @@ class _AjudaState extends State<Ajuda> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(182, 214, 255, 1),
+                  color: Color.fromRGBO(182, 214, 255, 0.7),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
@@ -79,7 +79,7 @@ class _AjudaState extends State<Ajuda> {
                           width: double.infinity,
                           padding: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(182, 214, 255, 1),
+                            color: Color.fromRGBO(182, 214, 255, 0.7),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
@@ -100,9 +100,178 @@ class _AjudaState extends State<Ajuda> {
               ),
             ),
 
-            Row(children: [
-              
-            ],),
+            SizedBox(height: 50),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(182, 214, 255, 0.7),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.2),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Theme(
+                  data: Theme.of(
+                    context,
+                  ).copyWith(dividerColor: Colors.transparent),
+                  child: ExpansionTile(
+                    leading: const Icon(
+                      Icons.help_outline_rounded,
+                      color: Colors.white,
+                    ),
+
+                    iconColor: Colors.white,
+                    collapsedIconColor: Colors.white,
+
+                    title: const Text(
+                      "Outras Versões",
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(182, 214, 255, 0.7),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "A versão Web do aplicativo oferece a experiência completa da plataforma, incluindo recursos exclusivos como a criação e gerenciamento de Canvas, proporcionando mais praticidade e controle para suas ideias",
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
+                                  fontFamily: "Montserrat",
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                  height: 1.5,
+                                ),
+                              ),
+
+                              SizedBox(height: 10),
+
+                              Text(
+                                "aretiVitae.com.br",
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
+                                  fontFamily: "Montserrat",
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 50),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(182, 214, 255, 0.7),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.2),
+                      blurRadius: 8,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.support_agent,
+                          color: Colors.white,
+                          size: 28,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "Orientações e Suporte",
+                          style: TextStyle(
+                            fontFamily: "Montserrat",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 15),
+
+                    Text(
+                      "Precisa de ajuda ou encontrou algum problema? Entre em contato com nossa equipe de suporte.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                        fontSize: 14,
+                        color: Colors.white,
+                        height: 1.5,
+                      ),
+                    ),
+
+                    SizedBox(height: 20),
+
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 255, 255, 0.1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.email_outlined, color: Colors.white),
+                          SizedBox(width: 10),
+                          SelectableText(
+                            "aretivitae@gmail.com",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            SizedBox(height: 30),
           ],
         ),
       ),

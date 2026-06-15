@@ -30,6 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupFiltros = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
             this.cmbAssinatura = new System.Windows.Forms.ComboBox();
             this.lblAssinatura = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -45,8 +48,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblSelene = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwCompras)).BeginInit();
@@ -61,11 +63,13 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(636, 449);
+            this.panel1.Size = new System.Drawing.Size(678, 449);
             this.panel1.TabIndex = 38;
             // 
             // groupFiltros
             // 
+            this.groupFiltros.Controls.Add(this.cmbStatus);
+            this.groupFiltros.Controls.Add(this.label1);
             this.groupFiltros.Controls.Add(this.txtID);
             this.groupFiltros.Controls.Add(this.lblID);
             this.groupFiltros.Controls.Add(this.cmbAssinatura);
@@ -75,10 +79,39 @@
             this.groupFiltros.Font = new System.Drawing.Font("Josefin Sans Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupFiltros.Location = new System.Drawing.Point(13, 75);
             this.groupFiltros.Name = "groupFiltros";
-            this.groupFiltros.Size = new System.Drawing.Size(610, 127);
+            this.groupFiltros.Size = new System.Drawing.Size(650, 127);
             this.groupFiltros.TabIndex = 5;
             this.groupFiltros.TabStop = false;
             this.groupFiltros.Text = "Filtros de Busca";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(370, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Status:";
+            // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(131, 39);
+            this.txtID.Multiline = true;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(87, 25);
+            this.txtID.TabIndex = 10;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(26, 39);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(74, 20);
+            this.lblID.TabIndex = 8;
+            this.lblID.Text = "ID Usuário:";
             // 
             // cmbAssinatura
             // 
@@ -97,7 +130,7 @@
             // 
             this.lblAssinatura.AutoSize = true;
             this.lblAssinatura.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssinatura.Location = new System.Drawing.Point(48, 80);
+            this.lblAssinatura.Location = new System.Drawing.Point(26, 80);
             this.lblAssinatura.Name = "lblAssinatura";
             this.lblAssinatura.Size = new System.Drawing.Size(77, 20);
             this.lblAssinatura.TabIndex = 6;
@@ -106,9 +139,9 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(404, 77);
+            this.btnLimpar.Location = new System.Drawing.Point(489, 74);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(156, 31);
+            this.btnLimpar.Size = new System.Drawing.Size(142, 31);
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar Filtros";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -117,9 +150,9 @@
             // btnPesquisar
             // 
             this.btnPesquisar.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(404, 40);
+            this.btnPesquisar.Location = new System.Drawing.Point(489, 39);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(156, 31);
+            this.btnPesquisar.Size = new System.Drawing.Size(142, 31);
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -235,30 +268,23 @@
             this.label13.TabIndex = 57;
             this.label13.Text = "Plano Selene: ";
             // 
-            // lblID
+            // cmbStatus
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(48, 39);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(74, 20);
-            this.lblID.TabIndex = 8;
-            this.lblID.Text = "ID Usuário:";
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(131, 39);
-            this.txtID.Multiline = true;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(87, 25);
-            this.txtID.TabIndex = 10;
+            this.cmbStatus.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Ativa",
+            "Inativa"});
+            this.cmbStatus.Location = new System.Drawing.Point(335, 76);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(120, 28);
+            this.cmbStatus.TabIndex = 12;
             // 
             // fGerenciarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 605);
+            this.ClientSize = new System.Drawing.Size(702, 605);
             this.Controls.Add(this.lblSelene);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblArtemis);
@@ -303,5 +329,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbStatus;
     }
 }

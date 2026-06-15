@@ -53,7 +53,7 @@ namespace AretiVitae2
 
         private void fGerenciarCompras_Load(object sender, EventArgs e)
         {
-            carregarUsuarios(0,0); 
+            carregarUsuarios(0,0,0); 
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace AretiVitae2
         /// <summary>
         /// Método de abertura da listagem dos Usuários cadastrados (DatagGridView) e exibição de estatísticas de cadastro de usuários
         /// </summary>
-        private void carregarUsuarios(int filtroAssinatura, int filtroID)
+        private void carregarUsuarios(int filtroAssinatura, int filtroID, int filtroStatus)
         {
             try
             {
@@ -97,11 +97,25 @@ namespace AretiVitae2
                     query += " AND id_usuario = " + filtroID;
                 }
 
+                if(filtroStatus > 0)
+                {
+                    if (filtroStatus == 1)
+                    {
+                        query += " AND ativo = 0 ";
+                    }
+                    else if (filtroStatus == 2)
+                    {
+                        query += " AND ativo = 1 ";
+                    }
+                }
+               
 
 
 
-                // Queries de contagem
-                string assinantesTotal = "SELECT COUNT(*) FROM AretiVitae_Compra";
+
+
+                    // Queries de contagem
+                    string assinantesTotal = "SELECT COUNT(*) FROM AretiVitae_Compra";
                 string assinantesHecate = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 1";
                 string assinantesArtemis = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 2";
                 string assinantesSelene = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 3";
@@ -240,6 +254,7 @@ namespace AretiVitae2
         {
             int filtroID = 0;
             int filtroAssinatura = 0;
+            int filtroStatus = 0;
 
             if (!string.IsNullOrWhiteSpace(txtID.Text))
             {
@@ -258,8 +273,16 @@ namespace AretiVitae2
             {
                 filtroAssinatura = 3;
             }
-            
-            carregarUsuarios(filtroAssinatura, filtroID);
+
+            if (cmbStatus.SelectedIndex == 0)
+            {
+                filtroStatus = 1;
+            }
+            else if(cmbStatus.SelectedIndex == 1)
+            {
+                filtroStatus = 2;
+            }
+            carregarUsuarios(filtroAssinatura, filtroID, filtroStatus);
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -267,7 +290,7 @@ namespace AretiVitae2
             txtID.Clear();
             cmbAssinatura.SelectedIndex = -1;
 
-            carregarUsuarios(0, 0);
+            carregarUsuarios(0, 0,0);
         }
 
         private void dgwCompras_CellContentClick(object sender, DataGridViewCellEventArgs e)

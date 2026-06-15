@@ -153,10 +153,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
               child: ElevatedButton(
                 onPressed: () {
                   print("CONFIGURAÇÕES SALVAS!");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Home()),
-                  );
+                  Navigator.pushNamed(context, "/home", arguments: "João");
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromRGBO(145, 205, 255, 1),
