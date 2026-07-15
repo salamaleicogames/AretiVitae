@@ -12,268 +12,261 @@ class _AjudaState extends State<Ajuda> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(94, 112, 185, 1),
+      backgroundColor: Color.fromRGBO(77, 84, 131, 1),
       body: SingleChildScrollView(
-        child: Column(
+        child: Stack(
           children: [
-            // Título
-            Container(
-              width: double.infinity,
-              color: Color.fromRGBO(182, 214, 255, 1),
-              padding: EdgeInsets.all(15),
-              child: Text(
-                "Perguntas Frequentes",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 28,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 40),
+                Padding(
+                  padding: EdgeInsetsGeometry.all(20),
 
-            SizedBox(height: 40),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(182, 214, 255, 0.7),
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.2),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
+                  //Sobre o Areti Vitae
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(101, 123, 191, 1),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                  ],
-                ),
-                child: Theme(
-                  data: Theme.of(
-                    context,
-                  ).copyWith(dividerColor: Colors.transparent),
-                  child: ExpansionTile(
-                    leading: const Icon(
-                      Icons.help_outline_rounded,
-                      color: Colors.white,
-                    ),
-
-                    iconColor: Colors.white,
-                    collapsedIconColor: Colors.white,
-
-                    title: const Text(
-                      "O que é o Areti Vitae?",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(182, 214, 255, 0.7),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            "O Areti Vitae: Ilustrador de ideias é uma plataforma digital e inovadora que visa auxiliar criadores na conceitualização e no desenvolvimento de projetos e ideias por meio de um mapeamento visual intuitivo, com foco no desenvolvimento coletivo. Ele se destaca pelo canvas interativo e estética inovadora, buscando evoluir ideias promissoras, especialmente aquelas de menor escala, e incentivando o pensamento criativo juntamente da organização adequada",
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                              fontFamily: "Montserrat",
-                              fontSize: 15,
-                              color: Colors.white,
-                              height: 1.5,
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.all(15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              "Ecossitema\nAretiVitae ",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
 
-            SizedBox(height: 50),
+                          SizedBox(height: 20),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(182, 214, 255, 0.7),
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.2),
-                      blurRadius: 8,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Theme(
-                  data: Theme.of(
-                    context,
-                  ).copyWith(dividerColor: Colors.transparent),
-                  child: ExpansionTile(
-                    leading: const Icon(
-                      Icons.help_outline_rounded,
-                      color: Colors.white,
-                    ),
-
-                    iconColor: Colors.white,
-                    collapsedIconColor: Colors.white,
-
-                    title: const Text(
-                      "Outras Versões",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(182, 214, 255, 0.7),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Column(
-                            children: [
-                              Text(
-                                "A versão Web do aplicativo oferece a experiência completa da plataforma, incluindo recursos exclusivos como a criação e gerenciamento de Canvas, proporcionando mais praticidade e controle para suas ideias",
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontFamily: "Montserrat",
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  height: 1.5,
-                                ),
-                              ),
-
-                              SizedBox(height: 10),
-
-                              Text(
-                                "aretiVitae.com.br",
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontFamily: "Montserrat",
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  height: 1.5,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 50),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(182, 214, 255, 0.7),
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.2),
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.support_agent,
-                          color: Colors.white,
-                          size: 28,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          "Orientações e Suporte",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: 15),
-
-                    Text(
-                      "Precisa de ajuda ou encontrou algum problema? Entre em contato com nossa equipe de suporte.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontSize: 14,
-                        color: Colors.white,
-                        height: 1.5,
-                      ),
-                    ),
-
-                    SizedBox(height: 20),
-
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 255, 255, 0.1),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.email_outlined, color: Colors.white),
-                          SizedBox(width: 10),
-                          SelectableText(
-                            "aretivitae@gmail.com",
+                          Text(
+                            "Aplicação WEB",
                             style: TextStyle(
                               fontFamily: "Montserrat",
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
                               color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+
+                          SizedBox(height: 15),
+
+                          Text(
+                            "As notas escritas no app Areti Vitae mobile são compartilhadas com as notas da aplicação web, assim, qualquer nota escrita neste aplicativo, também vai estar presente no site",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ],
+                  ),
+                ),
+
+                SizedBox(height: 30),
+
+                Padding(
+                  padding: EdgeInsetsGeometry.all(20),
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(101, 123, 191, 1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Equipe de\ndesenvolvimento",
+                          style: TextStyle(
+                            fontFamily: "Montserrat",
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ),
+
+                        SizedBox(height: 30),
+
+                        // Desenvolvedores
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            _buildDeveloperCard(
+                              image: "assets/images/João Mantz.jpeg",
+                              name: "João Mantz de Oliveira",
+                              role: "Líder do Projeto\nDesenvolvedor Web",
+                            ),
+
+                            _buildDeveloperCard(
+                              image: "assets/images/Maurício.jpeg",
+                              name: "Maurício F. Ferreira",
+                              role: "Desenvolvedor Mobile\n e Desktop",
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 30),
+
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 15,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.10),
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              color: Colors.white.withOpacity(0.15),
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.email_outlined,
+                                color: Colors.white70,
+                                size: 22,
+                              ),
+
+                              SizedBox(height: 10),
+
+                              Text(
+                                "CONTATO E SUPORTE",
+                                style: TextStyle(
+                                  fontFamily: "Montserrat",
+                                  color: Colors.white70,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1.2,
+                                ),
+                              ),
+
+                              SizedBox(height: 6),
+
+                              Text(
+                                "aretivitae@gmail.com",
+                                style: TextStyle(
+                                  fontFamily: "Montserrat",
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 25),
+
+                Text(
+                  "2026 - Areti Vitae: Ilustrador de Ideias",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 15,
+                    fontFamily: "Montserrat",
+                  ),
+                ),
+
+                SizedBox(height: 20),
+              ],
+            ),
+
+            //Botão Voltar
+            Positioned(
+              top: 5,
+              left: 20,
+              child: GestureDetector(
+                onTap: () => Navigator.pushNamed(context, "/home"),
+                child: Text(
+                  "<",
+                  style: TextStyle(
+                    fontFamily: "Montserrat",
+                    fontSize: 28,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-
-            SizedBox(height: 30),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildDeveloperCard({
+    required String image,
+    required String name,
+    required String role,
+  }) {
+    return Container(
+      width: 170,
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.15)),
+      ),
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 8,
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
+            child: CircleAvatar(radius: 55, backgroundImage: AssetImage(image)),
+          ),
+
+          SizedBox(height: 15),
+
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+
+          SizedBox(height: 10),
+
+          Text(
+            role,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.w500,
+              height: 1.4,
+            ),
+          ),
+        ],
       ),
     );
   }

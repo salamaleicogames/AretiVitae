@@ -1,6 +1,7 @@
 import 'dart:developer';
 
-import 'package:areti_vitae_mobile/model/cLogin.dart';
+import 'package:areti_vitae_mobile/model/user_model.dart';
+import 'package:areti_vitae_mobile/services/api_service.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _CadastroState extends State<Cadastro> {
   TextEditingController txtSenha = TextEditingController();
   TextEditingController txtConfirmarSenha = TextEditingController();
 
-  List<Clogin> user = [];
+  List<UserModel> user = [];
 
   @override
   void dispose() {
@@ -34,40 +35,49 @@ class _CadastroState extends State<Cadastro> {
 
   // Apenas exibe os usuários no console
   void exibir() {
-    for (Clogin u in user) {
+    for (UserModel u in user) {
       log("USUÁRIO CADASTRADO!");
       log("${u.usuario} - ${u.email} - ${u.senha} - ${u.dataNasc}");
     }
   }
 
-  void cadastrar() {
+  Future<void> cadastrar() async {
     if (cadastroKey.currentState!.validate()) {
-      Clogin us = Clogin.cadastro(
-        txtNome.text,
-        txtEmail.text,
-        txtData.text,
-        txtSenha.text,
-      );
+      try {
+        UserModel usuario = UserModel(
+          usuario: txtNome.text,
+          email: txtEmail.text,
+          dataNasc: txtData.text,
+          senha: txtSenha.text,
+        );
 
-      user.add(us);
+        await ApiService().cadastrarUsuario(usuario);
 
-      log("Cadastro realizado com sucesso!");
-      exibir();
+        log("Cadastro realizado com sucesso!");
+        exibir();
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text("Cadastro realizado com sucesso!"),
-          backgroundColor: Colors.green,
-        ),
-      );
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Cadastro realizado com sucesso!"),
+            backgroundColor: Colors.green,
+          ),
+        );
 
-      txtNome.clear();
-      txtEmail.clear();
-      txtData.clear();
-      txtSenha.clear();
-      txtConfirmarSenha.clear();
+        txtNome.clear();
+        txtEmail.clear();
+        txtData.clear();
+        txtSenha.clear();
+        txtConfirmarSenha.clear();
 
-      setState(() {});
+        setState(() {});
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Erro: " + e.toString()),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 

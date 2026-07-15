@@ -1,4 +1,4 @@
-import 'package:areti_vitae_mobile/model/cNotas.dart';
+import 'package:areti_vitae_mobile/model/notas_model.dart';
 import 'package:areti_vitae_mobile/views/notas_edicao.dart';
 import 'package:flutter/material.dart';
 
@@ -11,56 +11,56 @@ class Notas extends StatefulWidget {
 
 class _NotasState extends State<Notas> {
   // Lista de notas pré cadastradas
-  final List<Cnotas> notas = [
-    Cnotas(
+  final List<NotasModel> notas = [
+    NotasModel(
       "Ideia do jogo mitológico",
       "15/06/2025",
       "Um ser mitológico que nasceu nas profundezas de um planeta luta para chegar à superfície...",
     ),
 
-    Cnotas(
+    NotasModel(
       "Referências visuais",
       "11/09/2025",
       "Hollow Knight – profundidade e isolamento.\nCeleste – platformer emocional.\nOri – beleza atmosférica.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Mecânicas centrais",
       "02/03/2026",
       "Escalada vertical como progressão.\nPoderes que evoluem ao atravessar camadas.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Plataforma de Mentoria por IA",
       "08/02/2026",
       "Criar uma ferramenta que analise o perfil profissional do usuário e sugira mentores, cursos e oportunidades de carreira.",
     ),
 
-    Cnotas(
+    NotasModel(
       "App de Networking Local",
       "17/03/2026",
       "Conectar estudantes, freelancers e empresas da mesma região para facilitar parcerias e contratações.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Analisador de Currículos",
       "25/03/2026",
       "Sistema que utiliza IA para avaliar currículos e sugerir melhorias com base na vaga desejada.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Banco de Ideias para Startups",
       "09/04/2026",
       "Plataforma colaborativa onde usuários publicam problemas reais e empreendedores propõem soluções inovadoras.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Simulador de Entrevistas",
       "22/04/2026",
       "Assistente virtual que realiza entrevistas simuladas e fornece feedback sobre respostas e comunicação.",
     ),
 
-    Cnotas(
+    NotasModel(
       "Mapa de Competências",
       "06/05/2026",
       "Ferramenta para identificar lacunas de habilidades e recomendar trilhas de aprendizado personalizadas.",
@@ -101,7 +101,7 @@ class _NotasState extends State<Notas> {
         onCriar: (titulo) {
           if (titulo.trim().isEmpty) return;
 
-          final nova = Cnotas(titulo.trim(), "", _hoje);
+          final nova = NotasModel(titulo.trim(), "", _hoje);
           setState(() => notas.add(nova));
 
           Navigator.pop(context); // fecha o modal
@@ -113,7 +113,7 @@ class _NotasState extends State<Notas> {
   }
 
   // Navega para a tela de edição
-  void editarNota(Cnotas nota) {
+  void editarNota(NotasModel nota) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -131,7 +131,7 @@ class _NotasState extends State<Notas> {
   }
 
   // Remove uma nota da lista
-  void excluirNota(Cnotas nota) {
+  void excluirNota(NotasModel nota) {
     setState(() => notas.remove(nota));
   }
 
@@ -142,7 +142,7 @@ class _NotasState extends State<Notas> {
         children: [
           //CABEÇALHO (Data da Nota)
           Container(
-            color: Color.fromRGBO(143, 197, 255, 1),
+            color: Color.fromRGBO(101, 123, 191, 1),
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top + 10,
               left: 20,
@@ -161,11 +161,13 @@ class _NotasState extends State<Notas> {
                   ),
                 ),
 
+                SizedBox(width: 20),
+
                 //NOVA NOTA
                 ElevatedButton(
                   onPressed: novaNota,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                    backgroundColor: Color.fromRGBO(208, 227, 255, 1),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -189,7 +191,7 @@ class _NotasState extends State<Notas> {
           // ── Corpo azul escuro com a lista ───────────────
           Expanded(
             child: Container(
-              color: Color.fromRGBO(88, 112, 184, 1),
+              color: Color.fromRGBO(77, 84, 131, 1),
               child: Column(
                 children: [
                   // Subtítulo: quantidade de notas
@@ -247,7 +249,7 @@ class _NotasState extends State<Notas> {
 
 //TEMPLATE - CARD DA NOTA
 class _CardNota extends StatelessWidget {
-  final Cnotas nota;
+  final NotasModel nota;
   final VoidCallback onEditar;
   final VoidCallback onExcluir;
 

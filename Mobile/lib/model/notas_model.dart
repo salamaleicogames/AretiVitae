@@ -1,4 +1,4 @@
-class Cnotas {
+class NotasModel {
   late String _titulo;
   late String _data;
   late String _texto;
@@ -15,6 +15,6 @@ class Cnotas {
 
   set texto(value) => this._texto = value;
 
-  Cnotas(this._titulo, this._data, this._texto);
-  Cnotas.edicao(this._titulo, this._texto);
+  NotasModel(this._titulo, this._data, this._texto);
+  NotasModel.edicao(this._titulo, this._texto);
 }

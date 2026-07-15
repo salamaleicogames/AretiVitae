@@ -1,9 +1,9 @@
-import 'package:areti_vitae_mobile/model/cNotas.dart';
+import 'package:areti_vitae_mobile/model/notas_model.dart';
 import 'package:flutter/material.dart';
 
 // Tela de criação e edição de uma nota
 class NotaEdicao extends StatefulWidget {
-  final Cnotas nota;
+  final NotasModel nota;
   final void Function(String titulo, String texto) onSalvar;
 
   const NotaEdicao({super.key, required this.nota, required this.onSalvar});

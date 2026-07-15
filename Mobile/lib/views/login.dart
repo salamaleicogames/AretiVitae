@@ -3,7 +3,7 @@ import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
 import 'package:flutter/material.dart';
-import 'package:areti_vitae_mobile/model/cLogin.dart';
+import 'package:areti_vitae_mobile/model/user_model.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,10 +18,10 @@ class _LoginState extends State<Login> {
   TextEditingController txtUser = TextEditingController();
   TextEditingController txtSenha = TextEditingController();
 
-  List<Clogin> login = [
-    Clogin("Mauricio", "senha"),
-    Clogin("João", "senha"),
-    Clogin("Priscila", "senha"),
+  List<UserModel> login = [
+    UserModel.login("Mauricio", "senha"),
+    UserModel.login("João", "senha"),
+    UserModel.login("Priscila", "senha"),
   ];
 
   //Autenticação do Usuário
@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
     if (loginKey.currentState!.validate()) {
       bool loginCorreto = false;
 
-      for (Clogin u in login) {
+      for (UserModel u in login) {
         if (u.usuario == txtUser.text && u.senha == txtSenha.text) {
           loginCorreto = true;
         }
@@ -67,7 +67,28 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 // PARTE DE CIMA
-                Container(height: 150, color: Color.fromRGBO(143, 197, 255, 1)),
+                Container(
+                  height: 180,
+                  width: double.infinity,
+                  color: Color.fromRGBO(74, 84, 131, 1),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: const Text(
+                          "<",
+                          style: TextStyle(
+                            fontFamily: "Montserrat",
+                            fontSize: 30,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
 
                 // PARTE DE BAIXO
                 Container(
@@ -114,7 +135,7 @@ class _LoginState extends State<Login> {
 
                                   bool existe = false;
 
-                                  for (Clogin u in login) {
+                                  for (UserModel u in login) {
                                     if (u.usuario == value) {
                                       existe = true;
                                     }
@@ -188,35 +209,34 @@ class _LoginState extends State<Login> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => EsqueciSenha(),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          "/esqueciSenha",
+                                        );
+                                      },
+                                      child: Text(
+                                        "Esqueceu sua senha?",
+                                        style: TextStyle(
+                                          fontFamily: "Josefin",
+                                          fontSize: 15,
+                                          color: Colors.white,
                                         ),
-                                      );
-                                    },
-                                    child: Text(
-                                      "Esqueci minha senha",
-                                      style: TextStyle(
-                                        fontFamily: "Josefin",
-                                        fontSize: 15,
-                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
+
+                                  SizedBox(width: 30),
+
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Cadastro(),
-                                        ),
-                                      );
+                                      Navigator.pushNamed(context, "/cadastro");
                                     },
                                     child: Text(
-                                      "Criar conta",
+                                      "Ainda não tem uma conta?",
                                       style: TextStyle(
                                         fontFamily: "Josefin",
                                         fontSize: 15,
@@ -228,7 +248,7 @@ class _LoginState extends State<Login> {
                               ),
                             ),
 
-                            SizedBox(height: 60),
+                            SizedBox(height: 20),
 
                             // BOTÃO
                             ElevatedButton(
@@ -271,11 +291,19 @@ class _LoginState extends State<Login> {
 
           // IMAGEM SOBREPOSTA
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.1,
+            top: MediaQuery.of(context).size.height * 0.15,
             left: 0,
             right: 0,
             child: Center(
-              child: Image.asset("assets/images/alter2.png", width: 200),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(208, 227, 255, 0.8),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                padding: const EdgeInsets.all(10),
+
+                child: Image.asset("assets/images/alter2.png", width: 200),
+              ),
             ),
           ),
         ],

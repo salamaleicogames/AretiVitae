@@ -1,4 +1,4 @@
-import 'package:areti_vitae_mobile/model/cLogin.dart';
+import 'package:areti_vitae_mobile/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 class Perfil extends StatefulWidget {

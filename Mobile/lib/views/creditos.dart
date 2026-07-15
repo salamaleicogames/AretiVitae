@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Creditos extends StatefulWidget {
-  const Creditos({super.key});
+  Creditos({super.key});
 
   @override
   State<Creditos> createState() => _CreditosState();
@@ -11,7 +11,7 @@ class _CreditosState extends State<Creditos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(94, 112, 185, 1),
+      backgroundColor: Color.fromRGBO(94, 112, 185, 1),
 
       body: SingleChildScrollView(
         child: Column(
@@ -19,15 +19,15 @@ class _CreditosState extends State<Creditos> {
             // // Cabeçalho
             // Container(
             //   width: double.infinity,
-            //   padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-            //   decoration: const BoxDecoration(
+            //   padding:   EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+            //   decoration:   BoxDecoration(
             //     color: Color.fromRGBO(182, 214, 255, 1),
             //     borderRadius: BorderRadius.only(
             //       bottomLeft: Radius.circular(20),
             //       bottomRight: Radius.circular(20),
             //     ),
             //   ),
-            //   child: const Text(
+            //   child:   Text(
             //     "Areti Vitae - Créditos",
             //     textAlign: TextAlign.center,
             //     style: TextStyle(
@@ -38,14 +38,14 @@ class _CreditosState extends State<Creditos> {
             //     ),
             //   ),
             // ),
-            const SizedBox(height: 15),
+            SizedBox(height: 15),
 
             // Ícone
-            const Icon(Icons.groups_rounded, size: 70, color: Colors.white70),
+            Icon(Icons.groups_rounded, size: 70, color: Colors.white70),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
-            const Text(
+            Text(
               "Equipe de Desenvolvimento",
               style: TextStyle(
                 color: Colors.white,
@@ -55,10 +55,10 @@ class _CreditosState extends State<Creditos> {
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // Texto
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 25),
               child: Text(
                 "O Areti Vitae foi desenvolvido com dedicação e compromisso para oferecer a melhor experiência possível aos seus usuários.\n\nEste projeto é resultado da colaboração de estudantes apaixonados por tecnologia, responsáveis pelo planejamento, design e desenvolvimento da plataforma.",
@@ -72,7 +72,7 @@ class _CreditosState extends State<Creditos> {
               ),
             ),
 
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
 
             // Desenvolvedores
             Row(
@@ -92,19 +92,19 @@ class _CreditosState extends State<Creditos> {
               ],
             ),
 
-            const SizedBox(height: 35),
+            SizedBox(height: 35),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(horizontal: 40),
               child: Divider(
                 color: Colors.white.withOpacity(0.25),
                 thickness: 1,
               ),
             ),
 
-            const SizedBox(height: 25),
+            SizedBox(height: 25),
 
-            const Text(
+            Text(
               "2026 - Areti Vitae: Ilustrador de Ideias",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -114,7 +114,7 @@ class _CreditosState extends State<Creditos> {
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
           ],
         ),
       ),
@@ -128,7 +128,7 @@ class _CreditosState extends State<Creditos> {
   }) {
     return Container(
       width: 170,
-      padding: const EdgeInsets.all(15),
+      padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.12),
         borderRadius: BorderRadius.circular(20),
@@ -137,7 +137,7 @@ class _CreditosState extends State<Creditos> {
       child: Column(
         children: [
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
@@ -150,12 +150,12 @@ class _CreditosState extends State<Creditos> {
             child: CircleAvatar(radius: 55, backgroundImage: AssetImage(image)),
           ),
 
-          const SizedBox(height: 15),
+          SizedBox(height: 15),
 
           Text(
             name,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white,
               fontSize: 16,
               fontFamily: "Montserrat",
@@ -163,12 +163,12 @@ class _CreditosState extends State<Creditos> {
             ),
           ),
 
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
 
           Text(
             role,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.white70,
               fontSize: 14,
               fontFamily: "Montserrat",

@@ -178,6 +178,7 @@
             this.txtRegistro.Name = "txtRegistro";
             this.txtRegistro.Size = new System.Drawing.Size(134, 30);
             this.txtRegistro.TabIndex = 31;
+            this.txtRegistro.Text = "04402828457";
             // 
             // lblRegistro
             // 
@@ -219,6 +220,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(134, 30);
             this.txtUsername.TabIndex = 9;
+            this.txtUsername.Text = "tania";
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtSenha
@@ -230,6 +232,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(134, 30);
             this.txtSenha.TabIndex = 12;
+            this.txtSenha.Text = "1234";
             // 
             // txtEmail
             // 
@@ -239,6 +242,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(134, 30);
             this.txtEmail.TabIndex = 11;
+            this.txtEmail.Text = "tania@gmail.com";
             // 
             // lblIdade
             // 
@@ -278,6 +282,7 @@
             this.txtIdade.Name = "txtIdade";
             this.txtIdade.Size = new System.Drawing.Size(134, 30);
             this.txtIdade.TabIndex = 10;
+            this.txtIdade.Text = "25";
             // 
             // lblEmail
             // 

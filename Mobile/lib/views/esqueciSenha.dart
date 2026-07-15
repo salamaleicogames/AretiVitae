@@ -1,4 +1,4 @@
-import 'package:areti_vitae_mobile/model/cLogin.dart';
+import 'package:areti_vitae_mobile/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 class EsqueciSenha extends StatefulWidget {
@@ -21,9 +21,9 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
   int codigo = 101010;
 
-  List<Clogin> usuario = [
-    Clogin.email("mauricio@mail.com"),
-    Clogin.email("joao@mail.com"),
+  List<UserModel> usuario = [
+    UserModel.email("mauricio@gmail.com"),
+    UserModel.email("joao@gmail.com"),
   ];
 
   void enviarEmail() {
@@ -152,7 +152,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
                       bool existe = false;
 
-                      for (Clogin u in usuario) {
+                      for (UserModel u in usuario) {
                         if (u.email == value) {
                           existe = true;
                         }

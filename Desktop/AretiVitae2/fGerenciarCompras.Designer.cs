@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupFiltros = new System.Windows.Forms.GroupBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblSelene = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwCompras)).BeginInit();
@@ -83,6 +83,18 @@
             this.groupFiltros.TabIndex = 5;
             this.groupFiltros.TabStop = false;
             this.groupFiltros.Text = "Filtros de Busca";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Ativa",
+            "Inativa"});
+            this.cmbStatus.Location = new System.Drawing.Point(335, 76);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(120, 28);
+            this.cmbStatus.TabIndex = 12;
             // 
             // label1
             // 
@@ -192,7 +204,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(96, 517);
+            this.label7.Location = new System.Drawing.Point(151, 512);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(159, 25);
             this.label7.TabIndex = 51;
@@ -202,7 +214,7 @@
             // 
             this.lblTotalAssinantes.AutoSize = true;
             this.lblTotalAssinantes.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAssinantes.Location = new System.Drawing.Point(250, 517);
+            this.lblTotalAssinantes.Location = new System.Drawing.Point(305, 512);
             this.lblTotalAssinantes.Name = "lblTotalAssinantes";
             this.lblTotalAssinantes.Size = new System.Drawing.Size(22, 25);
             this.lblTotalAssinantes.TabIndex = 52;
@@ -212,7 +224,7 @@
             // 
             this.lblHecate.AutoSize = true;
             this.lblHecate.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHecate.Location = new System.Drawing.Point(491, 479);
+            this.lblHecate.Location = new System.Drawing.Point(517, 476);
             this.lblHecate.Name = "lblHecate";
             this.lblHecate.Size = new System.Drawing.Size(19, 24);
             this.lblHecate.TabIndex = 54;
@@ -222,7 +234,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(369, 479);
+            this.label10.Location = new System.Drawing.Point(395, 476);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 24);
             this.label10.TabIndex = 53;
@@ -232,7 +244,7 @@
             // 
             this.lblArtemis.AutoSize = true;
             this.lblArtemis.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtemis.Location = new System.Drawing.Point(491, 516);
+            this.lblArtemis.Location = new System.Drawing.Point(517, 513);
             this.lblArtemis.Name = "lblArtemis";
             this.lblArtemis.Size = new System.Drawing.Size(19, 24);
             this.lblArtemis.TabIndex = 56;
@@ -242,7 +254,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(367, 516);
+            this.label11.Location = new System.Drawing.Point(393, 513);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 24);
             this.label11.TabIndex = 55;
@@ -252,7 +264,7 @@
             // 
             this.lblSelene.AutoSize = true;
             this.lblSelene.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelene.Location = new System.Drawing.Point(491, 553);
+            this.lblSelene.Location = new System.Drawing.Point(517, 550);
             this.lblSelene.Name = "lblSelene";
             this.lblSelene.Size = new System.Drawing.Size(19, 24);
             this.lblSelene.TabIndex = 58;
@@ -262,23 +274,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(369, 552);
+            this.label13.Location = new System.Drawing.Point(395, 549);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(106, 24);
             this.label13.TabIndex = 57;
             this.label13.Text = "Plano Selene: ";
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Ativa",
-            "Inativa"});
-            this.cmbStatus.Location = new System.Drawing.Point(335, 76);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(120, 28);
-            this.cmbStatus.TabIndex = 12;
             // 
             // fGerenciarCompras
             // 
