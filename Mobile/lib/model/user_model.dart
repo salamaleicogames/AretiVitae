@@ -1,29 +1,51 @@
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class UserModel {
-  final String? usuario;
-  final String email;
-  final String? dataNasc;
-  final String? senha;
+  int _id = 0;
+  String _usuario = "";
+  String _email = "";
+  String _idade = "";
+  String _senha = "";
 
-  UserModel({this.usuario, required this.email, this.dataNasc, this.senha});
+  int get id => _id;
+  set id(int value) => _id = value;
 
-  UserModel.email(this.email) : usuario = null, dataNasc = null, senha = null;
-  UserModel.login(this.usuario, this.senha) : email = "", dataNasc = null;
+  String get usuario => _usuario;
+  set usuario(String value) => _usuario = value;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      usuario: json['usuario'],
-      email: json['email'],
-      dataNasc: json['dataNasc'],
-      senha: json['senha'],
-    );
+  String get email => _email;
+  set email(String value) => _email = value;
+
+  String get idade => _idade;
+  set idade(String value) => _idade = value;
+
+  String get senha => _senha;
+  set senha(String value) => _senha = value;
+
+  UserModel();
+
+  UserModel.fromJson(Map<String, dynamic> json) {
+    _id = json["id"] ?? 0;
+    _usuario = json["username"] ?? "";
+    _email = json["email"] ?? "";
+    _idade = json["idade"] ?? "";
+    _senha = json["senha"] ?? "";
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'usuario': usuario,
-      'email': email,
-      'dataNasc': dataNasc,
-      'senha': senha,
-    };
+  static Future<UserModel?> login(String email, String senha) async {
+    final url = Uri.parse("http://localhost:8081/apiAv/Login");
+
+    final response = await http.post(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"email": email, "senha": senha}),
+    );
+
+    if (response.statusCode == 200) {
+      return UserModel.fromJson(jsonDecode(response.body));
+    }
+
+    return null;
   }
 }

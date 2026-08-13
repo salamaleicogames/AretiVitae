@@ -77,6 +77,7 @@ namespace AretiVitae2
             estilizarBotao(btnBuilders);
             estilizarBotao(btnSair);
             estilizarBotao(btnCompras);
+            estilizarBotao(btnPagamentos);
         }
 
         /// <summary>
@@ -195,6 +196,12 @@ namespace AretiVitae2
             fGerenciarCompras fGerenciarCompras = new fGerenciarCompras();
             fGerenciarCompras.MdiParent = this;
             fGerenciarCompras.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            fConfirmarPagamentos fConfirmarPagamentos = new fConfirmarPagamentos();
+            fConfirmarPagamentos.Show();
         }
     }
 }

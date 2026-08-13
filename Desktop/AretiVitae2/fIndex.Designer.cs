@@ -42,6 +42,7 @@
             this.btnExcUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPagamentos = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenu.Controls.Add(this.btnPagamentos);
             this.panelMenu.Controls.Add(this.btnCompras);
             this.panelMenu.Controls.Add(this.label2);
             this.panelMenu.Controls.Add(this.lblUser);
@@ -82,7 +84,7 @@
             // btnCompras
             // 
             this.btnCompras.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompras.Location = new System.Drawing.Point(27, 254);
+            this.btnCompras.Location = new System.Drawing.Point(27, 245);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(142, 28);
             this.btnCompras.TabIndex = 16;
@@ -95,7 +97,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(66, 226);
+            this.label2.Location = new System.Drawing.Point(66, 217);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 15;
@@ -106,7 +108,7 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Josefin Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUser.Location = new System.Drawing.Point(38, 563);
+            this.lblUser.Location = new System.Drawing.Point(38, 576);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(52, 24);
             this.lblUser.TabIndex = 14;
@@ -116,7 +118,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AretiVitae2.Properties.Resources.user1;
-            this.pictureBox2.Location = new System.Drawing.Point(72, 498);
+            this.pictureBox2.Location = new System.Drawing.Point(72, 511);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(58, 62);
             this.pictureBox2.TabIndex = 13;
@@ -125,7 +127,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(39, 429);
+            this.btnSair.Location = new System.Drawing.Point(39, 450);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(130, 28);
             this.btnSair.TabIndex = 11;
@@ -136,7 +138,7 @@
             // btnBuilders
             // 
             this.btnBuilders.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuilders.Location = new System.Drawing.Point(39, 386);
+            this.btnBuilders.Location = new System.Drawing.Point(39, 407);
             this.btnBuilders.Name = "btnBuilders";
             this.btnBuilders.Size = new System.Drawing.Size(130, 28);
             this.btnBuilders.TabIndex = 9;
@@ -147,7 +149,7 @@
             // btnAjuda
             // 
             this.btnAjuda.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjuda.Location = new System.Drawing.Point(39, 346);
+            this.btnAjuda.Location = new System.Drawing.Point(39, 367);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(130, 28);
             this.btnAjuda.TabIndex = 8;
@@ -182,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(37, 309);
+            this.label3.Location = new System.Drawing.Point(37, 330);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 25);
             this.label3.TabIndex = 2;
@@ -200,6 +202,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuários";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnPagamentos
+            // 
+            this.btnPagamentos.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagamentos.Location = new System.Drawing.Point(27, 279);
+            this.btnPagamentos.Name = "btnPagamentos";
+            this.btnPagamentos.Size = new System.Drawing.Size(142, 28);
+            this.btnPagamentos.TabIndex = 17;
+            this.btnPagamentos.Text = "Pagamentos";
+            this.btnPagamentos.UseVisualStyleBackColor = true;
+            this.btnPagamentos.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // fIndex
             // 
@@ -235,5 +248,6 @@
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnPagamentos;
     }
 }

@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Configuracoes extends StatefulWidget {
   const Configuracoes({super.key});
@@ -16,8 +19,61 @@ class _ConfiguracoesState extends State<Configuracoes> {
   bool _excNotas = false;
   bool _criNotas = false;
 
+  bool _carregando = true;
+
+  @override
+  void initState() {
+    super.initState();
+    buscarConfiguracoes();
+  }
+
+  // Busca as configurações do usuário na API
+  Future<void> buscarConfiguracoes() async {
+    setState(() {
+      _carregando = true;
+    });
+
+    try {
+      // Busca o id do usuário logado, que foi salvo na tela de Login
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      int idUsuario = prefs.getInt("idUsuario") ?? 0;
+
+      final url = Uri.parse("http://localhost:8081/configuracoes/$idUsuario");
+
+      final resposta = await http.get(url);
+
+      if (resposta.statusCode == 200) {
+        final dados = jsonDecode(resposta.body);
+
+        setState(() {
+          _aceitarNotificacoes = dados["notificacoes"] == 1;
+          _loginAutomatico = dados["loginAuto"] == 1;
+          _edicaoNotas = dados["editNotes"] == 1;
+          _excNotas = dados["excNotes"] == 1;
+          _criNotas = dados["creNotes"] == 1;
+          _carregando = false;
+        });
+      } else {
+        setState(() {
+          _carregando = false;
+        });
+      }
+    } catch (erro) {
+      setState(() {
+        _carregando = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (_carregando) {
+      return Scaffold(
+        backgroundColor: Color.fromRGBO(77, 84, 131, 1),
+        body: Center(child: CircularProgressIndicator(color: Colors.white)),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(77, 84, 131, 1),
       body: SingleChildScrollView(
@@ -288,7 +344,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text(
-                      "Cancelar",
+                      "Cancelare",
                       style: TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.bold,

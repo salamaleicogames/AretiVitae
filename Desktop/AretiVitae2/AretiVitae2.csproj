@@ -126,6 +126,12 @@
     <Compile Include="fCadUsuario.Designer.cs">
       <DependentUpon>fCadUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="fConfirmarPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fConfirmarPagamentos.Designer.cs">
+      <DependentUpon>fConfirmarPagamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="fConsultaADM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fCadUsuario.resx">
       <DependentUpon>fCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fConfirmarPagamentos.resx">
+      <DependentUpon>fConfirmarPagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fConsultaADM.resx">
       <DependentUpon>fConsultaADM.cs</DependentUpon>

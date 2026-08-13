@@ -21,10 +21,10 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
   int codigo = 101010;
 
-  List<UserModel> usuario = [
-    UserModel.email("mauricio@gmail.com"),
-    UserModel.email("joao@gmail.com"),
-  ];
+  // List<UserModel> usuario = [
+  //   UserModel.email("mauricio@gmail.com"),
+  //   UserModel.email("joao@gmail.com"),
+  // ];
 
   void enviarEmail() {
     if (esqueciSenhaKey.currentState!.validate()) {
@@ -141,29 +141,6 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                     ),
 
                     //VALIDAÇÃO DE EMAIL
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Informe o email";
-                      }
-
-                      if (!value.contains("@")) {
-                        return "E-mail inválido";
-                      }
-
-                      bool existe = false;
-
-                      for (UserModel u in usuario) {
-                        if (u.email == value) {
-                          existe = true;
-                        }
-                      }
-
-                      if (!existe) {
-                        return "Email não cadastrado";
-                      }
-
-                      return null;
-                    },
                   ),
                 ),
 

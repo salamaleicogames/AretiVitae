@@ -56,13 +56,16 @@ class _HomeState extends State<Home> {
                               ),
 
                               SizedBox(width: 55),
-                              Text(
-                                "Olá, " + nomeUsuario,
-                                style: TextStyle(
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 32,
-                                  color: Color.fromRGBO(255, 255, 255, 0.9),
+
+                              Expanded(
+                                child: Text(
+                                  "Olá, " + nomeUsuario,
+                                  style: TextStyle(
+                                    fontFamily: "Montserrat",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 32,
+                                    color: Color.fromRGBO(255, 255, 255, 0.9),
+                                  ),
                                 ),
                               ),
                             ],

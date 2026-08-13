@@ -66,7 +66,8 @@ namespace AretiVitae2
             }
 
 
-            // Validação de Usuário e Senha - (retorna tipo de acesso)
+
+            //// Validação de Usuário e Senha - (retorna tipo de acesso)
             int tipo = DAO_Conexao.validaLogin(txtUsuario.Text, mtxtSenha.Text);
 
             if (tipo == 0)
@@ -99,6 +100,7 @@ namespace AretiVitae2
                 DAO_Conexao.con.Close();
             }
         }
+
 
         /// <summary>
         /// Evento KeyPress no campo de Senha

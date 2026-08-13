@@ -100,3 +100,4 @@ C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVi
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVitae2.pdb
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\bin\Debug\BCrypt-Net-Next.dll
 C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVitae2.fGerenciarCompras.resources
+C:\Users\maufe\OneDrive\Desktop\AretiVitae\Desktop\AretiVitae2\obj\Debug\AretiVitae2.fConfirmarPagamentos.resources

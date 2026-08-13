@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:areti_vitae_mobile/model/user_model.dart';
-import 'package:areti_vitae_mobile/services/api_service.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:flutter/material.dart';
 
@@ -37,47 +36,7 @@ class _CadastroState extends State<Cadastro> {
   void exibir() {
     for (UserModel u in user) {
       log("USUÁRIO CADASTRADO!");
-      log("${u.usuario} - ${u.email} - ${u.senha} - ${u.dataNasc}");
-    }
-  }
-
-  Future<void> cadastrar() async {
-    if (cadastroKey.currentState!.validate()) {
-      try {
-        UserModel usuario = UserModel(
-          usuario: txtNome.text,
-          email: txtEmail.text,
-          dataNasc: txtData.text,
-          senha: txtSenha.text,
-        );
-
-        await ApiService().cadastrarUsuario(usuario);
-
-        log("Cadastro realizado com sucesso!");
-        exibir();
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Cadastro realizado com sucesso!"),
-            backgroundColor: Colors.green,
-          ),
-        );
-
-        txtNome.clear();
-        txtEmail.clear();
-        txtData.clear();
-        txtSenha.clear();
-        txtConfirmarSenha.clear();
-
-        setState(() {});
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Erro: " + e.toString()),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+      log("${u.usuario} - ${u.email} - ${u.senha} - ${u.idade}");
     }
   }
 
@@ -396,7 +355,7 @@ class _CadastroState extends State<Cadastro> {
 
                         // Botão cadastrar
                         ElevatedButton(
-                          onPressed: cadastrar,
+                          onPressed: () {},
                           child: Text(
                             "Cadastrar",
                             style: TextStyle(

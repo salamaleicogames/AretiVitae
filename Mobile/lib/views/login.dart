@@ -4,6 +4,10 @@ import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
 import 'package:areti_vitae_mobile/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:areti_vitae_mobile/model/user_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,45 +19,42 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
 
-  TextEditingController txtUser = TextEditingController();
+  TextEditingController txtEmail = TextEditingController();
   TextEditingController txtSenha = TextEditingController();
 
-  List<UserModel> login = [
-    UserModel.login("Mauricio", "senha"),
-    UserModel.login("João", "senha"),
-    UserModel.login("Priscila", "senha"),
-  ];
+  UserModel usuario = UserModel();
 
-  //Autenticação do Usuário
-  void autenticacaoUser() {
-    if (loginKey.currentState!.validate()) {
-      bool loginCorreto = false;
+  Future<void> realizarLogin() async {
+    UserModel? usuario = await UserModel.login(txtEmail.text, txtSenha.text);
 
-      for (UserModel u in login) {
-        if (u.usuario == txtUser.text && u.senha == txtSenha.text) {
-          loginCorreto = true;
-        }
-      }
+    if (usuario != null) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt("id", usuario.id);
+      await prefs.setString("username", usuario.usuario);
+      await prefs.setString("email", usuario.email);
+      await prefs.setString("idade", usuario.idade);
 
-      if (loginCorreto) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Login realizado com sucesso!"),
-            backgroundColor: Colors.green,
-          ),
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Login realizado com sucesso!"),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      Future.delayed(Duration(seconds: 2), () {
+        Navigator.pushNamed(
+          context,
+          "/home",
+          arguments: usuario.usuario.toString(),
         );
-
-        Future.delayed(Duration(seconds: 2), () {
-          Navigator.pushNamed(context, "/home", arguments: txtUser.text);
-        });
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Senha incorreta!"),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Usuário ou Senha incorretos"),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -74,10 +75,10 @@ class _LoginState extends State<Login> {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 20),
                       child: GestureDetector(
                         onTap: () => Navigator.pop(context),
-                        child: const Text(
+                        child: Text(
                           "<",
                           style: TextStyle(
                             fontFamily: "Montserrat",
@@ -106,7 +107,7 @@ class _LoginState extends State<Login> {
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 30),
                               child: TextFormField(
-                                controller: txtUser,
+                                controller: txtEmail,
                                 style: TextStyle(
                                   fontFamily: "Josefin",
                                   fontSize: 15,
@@ -121,32 +122,11 @@ class _LoginState extends State<Login> {
                                     borderRadius: BorderRadius.circular(15),
                                     borderSide: BorderSide.none,
                                   ),
-                                  hintText: "Username",
+                                  hintText: "Email",
                                   filled: true,
                                   fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                                  prefixIcon: Icon(Icons.person),
+                                  prefixIcon: Icon(Icons.mail),
                                 ),
-
-                                //VALIDAÇÃO DE USUÁRIO
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Informe o usuário";
-                                  }
-
-                                  bool existe = false;
-
-                                  for (UserModel u in login) {
-                                    if (u.usuario == value) {
-                                      existe = true;
-                                    }
-                                  }
-
-                                  if (!existe) {
-                                    return "Usuário não cadastrado";
-                                  }
-
-                                  return null;
-                                },
                               ),
                             ),
 
@@ -252,8 +232,8 @@ class _LoginState extends State<Login> {
 
                             // BOTÃO
                             ElevatedButton(
-                              onPressed: () {
-                                autenticacaoUser();
+                              onPressed: () async {
+                                await realizarLogin();
                               },
                               child: Text(
                                 "Imergir",
