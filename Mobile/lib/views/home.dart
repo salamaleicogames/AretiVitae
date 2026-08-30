@@ -2,13 +2,13 @@ import 'package:areti_vitae_mobile/views/ajuda.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:areti_vitae_mobile/views/perfil.dart';
+import 'package:areti_vitae_mobile/views/notas_edicao.dart';
 import 'package:areti_vitae_mobile/repository/user_repository.dart';
+import 'package:areti_vitae_mobile/repository/notas_repository.dart';
 import 'package:areti_vitae_mobile/model/user_model.dart';
+import 'package:areti_vitae_mobile/model/notas_model.dart';
 import 'package:flutter/material.dart';
 
-// ==========================================
-// PRIMEIRA TELA (HOME)
-// ==========================================
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -17,12 +17,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  @override
   String nomeUsuario = "Usuário";
+  NotasModel? ultimaNota;
 
+  @override
   void initState() {
     super.initState();
     carregarUsuario();
+    carregarUltimaNota();
   }
 
   Future<void> carregarUsuario() async {
@@ -31,6 +33,61 @@ class _HomeState extends State<Home> {
     setState(() {
       nomeUsuario = usuario?.usuario ?? "Usuário";
     });
+  }
+
+  Future<void> carregarUltimaNota() async {
+    UserModel? usuario = await UserRepository().carregarUsuario();
+    List<NotasModel> notas = await NotasRepository().listarNotasPorUsuario(
+      usuario!.id,
+    );
+
+    if (notas.isEmpty) {
+      setState(() {
+        ultimaNota = null;
+      });
+      return;
+    }
+
+    notas.sort((a, b) => (a.id as int).compareTo(b.id as int));
+
+    setState(() {
+      ultimaNota = notas.last;
+    });
+  }
+
+  void abrirEdicaoNota(NotasModel nota) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => NotaEdicao(
+          nota: nota,
+          onSalvar: (titulo, texto) async {
+            nota.titulo = titulo;
+            nota.texto = texto;
+            await NotasRepository().atualizarNota(nota);
+            carregarUltimaNota();
+          },
+        ),
+      ),
+    );
+  }
+
+  void editarUltimaNota() {
+    if (ultimaNota == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Nenhuma nota encontrada",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.yellow,
+          duration: Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
+    abrirEdicaoNota(ultimaNota!);
   }
 
   @override
@@ -49,7 +106,6 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: [
                         SizedBox(height: 50),
-                        // BOX DE PERFIL
                         Container(
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
@@ -92,28 +148,22 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // CONFIGURAÇÕES
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context, "/configuracoes");
                               },
                               child: SizedBox(
-                                width: 120, // ajuste conforme necessário
+                                width: 120,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: const Color.fromRGBO(
-                                      208,
-                                      227,
-                                      255,
-                                      0.75,
-                                    ),
+                                    color: Color.fromRGBO(208, 227, 255, 0.75),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(20),
+                                        padding: EdgeInsets.all(20),
                                         child: Image.asset(
                                           "assets/images/saveIcon.png",
                                           width: 75,
@@ -121,10 +171,10 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(
+                                        padding: EdgeInsets.symmetric(
                                           vertical: 2,
                                         ),
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color.fromRGBO(
                                             94,
                                             112,
@@ -137,7 +187,7 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         alignment: Alignment.center,
-                                        child: const Text(
+                                        child: Text(
                                           "Configurações",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -153,28 +203,22 @@ class _HomeState extends State<Home> {
 
                             SizedBox(width: 20),
 
-                            //NOTAS
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context, "/notas");
                               },
                               child: SizedBox(
-                                width: 120, // ajuste conforme necessário
+                                width: 120,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: const Color.fromRGBO(
-                                      208,
-                                      227,
-                                      255,
-                                      0.75,
-                                    ),
+                                    color: Color.fromRGBO(208, 227, 255, 0.75),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(20),
+                                        padding: EdgeInsets.all(20),
                                         child: Image.asset(
                                           "assets/images/noteIcon.png",
                                           width: 75,
@@ -182,10 +226,10 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(
+                                        padding: EdgeInsets.symmetric(
                                           vertical: 2,
                                         ),
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color.fromRGBO(
                                             94,
                                             112,
@@ -198,7 +242,7 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         alignment: Alignment.center,
-                                        child: const Text(
+                                        child: Text(
                                           "Notas",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -214,7 +258,6 @@ class _HomeState extends State<Home> {
 
                             SizedBox(width: 20),
 
-                            //SOBRE
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context, "/ajuda");
@@ -223,19 +266,14 @@ class _HomeState extends State<Home> {
                                 width: 120,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: const Color.fromRGBO(
-                                      208,
-                                      227,
-                                      255,
-                                      0.75,
-                                    ),
+                                    color: Color.fromRGBO(208, 227, 255, 0.75),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(20),
+                                        padding: EdgeInsets.all(20),
                                         child: Image.asset(
                                           "assets/images/galeriaIcon.png",
                                           width: 75,
@@ -243,10 +281,10 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(
+                                        padding: EdgeInsets.symmetric(
                                           vertical: 2,
                                         ),
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           color: Color.fromRGBO(
                                             94,
                                             112,
@@ -259,7 +297,7 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         alignment: Alignment.center,
-                                        child: const Text(
+                                        child: Text(
                                           "Sobre",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -275,15 +313,70 @@ class _HomeState extends State<Home> {
                           ],
                         ),
 
-                        // // BOX DE GALERIA
-                        // Container(
-                        //   padding: EdgeInsets.all(30),
-                        //   decoration: BoxDecoration(
-                        //     color: Color.fromRGBO(148, 191, 255, 0.8),
-                        //     borderRadius: BorderRadius.circular(15),
-                        //   ),
-                        //   child: Column(children: [SizedBox(height: 40)]),
-                        // ),
+                        if (ultimaNota != null) ...[
+                          SizedBox(height: 30),
+                          GestureDetector(
+                            onTap: () => abrirEdicaoNota(ultimaNota!),
+                            child: Container(
+                              width: double.infinity,
+                              padding: EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(101, 123, 191, 0.9),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  if (ultimaNota!.data != "")
+                                    Text(
+                                      ultimaNota!.data,
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: 13,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.7,
+                                        ),
+                                      ),
+                                    ),
+                                  SizedBox(height: 6),
+                                  Text(
+                                    ultimaNota!.titulo,
+                                    style: TextStyle(
+                                      fontFamily: "Montserrat",
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  SizedBox(height: 12),
+                                  Container(
+                                    width: double.infinity,
+                                    padding: EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(145, 205, 255, 0.5),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Text(
+                                      ultimaNota!.texto,
+                                      maxLines: 6,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontFamily: "Josefin Sans",
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        height: 1.4,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+
                         SizedBox(height: 45),
                       ],
                     ),
@@ -293,13 +386,12 @@ class _HomeState extends State<Home> {
             ),
           ),
 
-          // BOTÃO VOLTAR FIXO NO CANTO SUPERIOR ESQUERDO
           Positioned(
             top: 5,
             left: 20,
             child: GestureDetector(
               onTap: () => Navigator.pushNamed(context, "/login"),
-              child: const Text(
+              child: Text(
                 "<",
                 style: TextStyle(
                   fontFamily: "Montserrat",
@@ -312,10 +404,9 @@ class _HomeState extends State<Home> {
         ],
       ),
 
-      // RODAPÉ FIXO
       bottomNavigationBar: Container(
         height: 50,
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: EdgeInsets.symmetric(horizontal: 30),
         decoration: BoxDecoration(
           color: Color.fromRGBO(178, 207, 250, 1),
           boxShadow: [
@@ -329,7 +420,6 @@ class _HomeState extends State<Home> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // BOTÃO "+"
             GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, "/notas");
@@ -343,11 +433,8 @@ class _HomeState extends State<Home> {
 
             SizedBox(width: 100),
 
-            // BOTÃO EDITAR (LÁPIS)
             GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, "/notas");
-              },
+              onTap: editarUltimaNota,
               child: Image.asset("assets/images/editIcon.png"),
             ),
           ],

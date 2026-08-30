@@ -48,4 +48,14 @@ class UserModel {
 
     return null;
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": _id,
+      "username": _usuario,
+      "email": _email,
+      "idade": _idade,
+      "senha": _senha,
+    };
+  }
 }

@@ -19,7 +19,7 @@ class UserRepository {
     await prefs.setInt("id", usuario.id);
     await prefs.setString("username", usuario.usuario);
     await prefs.setString("email", usuario.email);
-    await prefs.setString("idade", usuario.idade.toString());
+    await prefs.setInt("idade", usuario.idade);
   }
 
   Future<UserModel?> carregarUsuario() async {
@@ -31,7 +31,7 @@ class UserRepository {
     int? id = prefs.getInt("id");
     String? username = prefs.getString("username");
     String? email = prefs.getString("email");
-    String? idade = prefs.getString("idade");
+    int? idade = prefs.getInt("idade");
 
     if (id == null || username == null || email == null) {
       return null;
@@ -41,7 +41,7 @@ class UserRepository {
     usuario.id = id;
     usuario.usuario = username;
     usuario.email = email;
-    usuario.idade = int.tryParse(idade ?? "0") ?? 0;
+    usuario.idade = idade ?? 0;
 
     usuarioAtual = usuario;
     return usuarioAtual;

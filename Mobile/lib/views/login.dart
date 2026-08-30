@@ -283,10 +283,10 @@ class _LoginState extends State<Login> {
             child: Center(
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(208, 227, 255, 0.8),
+                  color: Color.fromRGBO(208, 227, 255, 0.8),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
 
                 child: Image.asset("assets/images/alter2.png", width: 200),
               ),
