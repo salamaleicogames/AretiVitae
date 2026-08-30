@@ -72,7 +72,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(94, 112, 185, 1),
+      backgroundColor: Color.fromRGBO(77, 84, 131, 1),
       body: SingleChildScrollView(
         child: Center(
           child: Form(
@@ -82,7 +82,7 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
                 // HEADER
                 Container(
                   width: double.infinity,
-                  color: Color.fromRGBO(182, 214, 255, 1),
+                  color: Color.fromRGBO(101, 123, 191, 1),
                   child: Padding(
                     padding: EdgeInsets.all(15),
                     child: Row(

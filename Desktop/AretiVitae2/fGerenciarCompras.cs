@@ -82,40 +82,37 @@ namespace AretiVitae2
                     DAO_Conexao.con.Open();
                 }
 
-
-                string query = "SELECT * FROM AretiVitae_Compra WHERE 1=1";
+                // Consulta base ajustada (sem ponto e vírgula e com WHERE 1=1 para aceitar os ANDs)
+                string query = "SELECT c.id AS compra_id, u.id AS usuario_id, u.username AS usuario, c.plano, c.dataCompra, c.dayVencimento, c.ativo FROM AretiVitae_Compra c INNER JOIN AretiVitae_Usuario u ON c.id_usuario = u.id WHERE 1=1";
 
                 // Filtro por Plano
                 if (filtroAssinatura > 0)
                 {
-                    query += " AND plano = " + filtroAssinatura;
+                    query += " AND c.plano = " + filtroAssinatura;
                 }
 
                 // Filtro por ID do usuário
                 if (filtroID > 0)
                 {
-                    query += " AND id_usuario = " + filtroID;
+                    query += " AND c.id_usuario = " + filtroID;
                 }
 
-                if(filtroStatus > 0)
+                if (filtroStatus > 0)
                 {
                     if (filtroStatus == 1)
                     {
-                        query += " AND ativo = 0 ";
+                        query += " AND c.ativo = 0 ";
                     }
                     else if (filtroStatus == 2)
                     {
-                        query += " AND ativo = 1 ";
+                        query += " AND c.ativo = 1 ";
                     }
                 }
-               
 
 
 
-
-
-                    // Queries de contagem
-                    string assinantesTotal = "SELECT COUNT(*) FROM AretiVitae_Compra";
+                // Queries de contagem
+                string assinantesTotal = "SELECT COUNT(*) FROM AretiVitae_Compra";
                 string assinantesHecate = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 1";
                 string assinantesArtemis = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 2";
                 string assinantesSelene = "SELECT COUNT(*) FROM AretiVitae_Compra WHERE plano = 3";
@@ -157,10 +154,11 @@ namespace AretiVitae2
 
                 //lblReceitaTotal.Text = $"{receitaTotal:N2}";
 
-
+                // Preenche DataTable
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
+                // Preenche DataGridView
                 dgwCompras.DataSource = dt;
 
                 // Estatísticas
@@ -170,8 +168,8 @@ namespace AretiVitae2
                 lblSelene.Text = selene.ToString();
 
                 // Cabeçalhos
-                dgwCompras.Columns["id"].Visible = false;
-                dgwCompras.Columns["id_usuario"].HeaderText = "ID Usuário";
+                dgwCompras.Columns["compra_id"].HeaderText = "ID Compra";
+                dgwCompras.Columns["usuario"].HeaderText = "Usuário";       
                 dgwCompras.Columns["plano"].HeaderText = "Plano";
                 dgwCompras.Columns["dataCompra"].HeaderText = "Data da Compra";
                 dgwCompras.Columns["dayVencimento"].HeaderText = "Data de Vencimento";
@@ -289,7 +287,7 @@ namespace AretiVitae2
         {
             txtID.Clear();
             cmbAssinatura.SelectedIndex = -1;
-
+            cmbStatus.SelectedIndex = -1;
             carregarUsuarios(0, 0,0);
         }
 

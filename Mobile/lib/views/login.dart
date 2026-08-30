@@ -1,3 +1,4 @@
+import 'package:areti_vitae_mobile/repository/user_repository.dart';
 import 'package:areti_vitae_mobile/views/cadastro.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/esqueciSenha.dart';
@@ -25,14 +26,19 @@ class _LoginState extends State<Login> {
   UserModel usuario = UserModel();
 
   Future<void> realizarLogin() async {
-    UserModel? usuario = await UserModel.login(txtEmail.text, txtSenha.text);
+    final url = Uri.parse("http://localhost:8081/apiAv/Login");
 
-    if (usuario != null) {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt("id", usuario.id);
-      await prefs.setString("username", usuario.usuario);
-      await prefs.setString("email", usuario.email);
-      await prefs.setString("idade", usuario.idade);
+    final response = await http.post(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"email": txtEmail.text, "senha": txtSenha.text}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      usuario = UserModel.fromJson(data);
+
+      await UserRepository().salvarUsuario(usuario);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

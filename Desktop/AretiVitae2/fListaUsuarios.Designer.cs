@@ -46,10 +46,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblUsersInativos = new System.Windows.Forms.Label();
             this.groupFiltrosInativos = new System.Windows.Forms.GroupBox();
+            this.txtIDInativo = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupFiltrosAtivo = new System.Windows.Forms.GroupBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cmbAssinatura = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -63,10 +67,6 @@
             this.dgwInativos = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLegenda = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtIDInativo = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupFiltrosInativos.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabUsuarios.SuspendLayout();
@@ -268,6 +268,25 @@
             this.groupFiltrosInativos.TabStop = false;
             this.groupFiltrosInativos.Text = "Filtros de Busca";
             // 
+            // txtIDInativo
+            // 
+            this.txtIDInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDInativo.Location = new System.Drawing.Point(62, 43);
+            this.txtIDInativo.Multiline = true;
+            this.txtIDInativo.Name = "txtIDInativo";
+            this.txtIDInativo.Size = new System.Drawing.Size(87, 26);
+            this.txtIDInativo.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(27, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 20);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "ID: ";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tabUsuarios);
@@ -326,6 +345,25 @@
             this.groupFiltrosAtivo.Text = "Filtros de Busca";
             this.groupFiltrosAtivo.Enter += new System.EventHandler(this.groupFiltrosAtivo_Enter);
             // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(62, 38);
+            this.txtID.Multiline = true;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(87, 26);
+            this.txtID.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(27, 41);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "ID: ";
+            // 
             // cmbAssinatura
             // 
             this.cmbAssinatura.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,6 +377,7 @@
             this.cmbAssinatura.Name = "cmbAssinatura";
             this.cmbAssinatura.Size = new System.Drawing.Size(121, 28);
             this.cmbAssinatura.TabIndex = 7;
+            this.cmbAssinatura.SelectedIndexChanged += new System.EventHandler(this.cmbAssinatura_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -461,44 +500,6 @@
             this.lblLegenda.Size = new System.Drawing.Size(55, 18);
             this.lblLegenda.TabIndex = 36;
             this.lblLegenda.Text = "Legenda:";
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(62, 38);
-            this.txtID.Multiline = true;
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(87, 26);
-            this.txtID.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(27, 41);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 20);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "ID: ";
-            // 
-            // txtIDInativo
-            // 
-            this.txtIDInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDInativo.Location = new System.Drawing.Point(62, 43);
-            this.txtIDInativo.Multiline = true;
-            this.txtIDInativo.Name = "txtIDInativo";
-            this.txtIDInativo.Size = new System.Drawing.Size(87, 26);
-            this.txtIDInativo.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(27, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 20);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "ID: ";
             // 
             // fListaUsuarios
             // 

@@ -2,6 +2,8 @@ import 'package:areti_vitae_mobile/views/ajuda.dart';
 import 'package:areti_vitae_mobile/views/configuracoes.dart';
 import 'package:areti_vitae_mobile/views/login.dart';
 import 'package:areti_vitae_mobile/views/perfil.dart';
+import 'package:areti_vitae_mobile/repository/user_repository.dart';
+import 'package:areti_vitae_mobile/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 // ==========================================
@@ -16,10 +18,23 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  Widget build(BuildContext context) {
-    final String nomeUsuario =
-        ModalRoute.of(context)!.settings.arguments as String? ?? "Usuário";
+  String nomeUsuario = "Usuário";
 
+  void initState() {
+    super.initState();
+    carregarUsuario();
+  }
+
+  Future<void> carregarUsuario() async {
+    UserModel? usuario = await UserRepository().carregarUsuario();
+
+    setState(() {
+      nomeUsuario = usuario?.usuario ?? "Usuário";
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(77, 84, 131, 1),
 

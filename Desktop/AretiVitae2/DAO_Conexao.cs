@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 
 namespace AretiVitae2
 {
@@ -44,7 +45,7 @@ namespace AretiVitae2
                     "Server=" + local + ";" +
                     "User ID=" + user + ";" +
                     "Database=" + banco + ";" +
-                    "Password=" + senha + ";");                
+                    "Password=" + senha + ";");
                 //con.Open();
                 retorno = true;
             }
@@ -58,7 +59,7 @@ namespace AretiVitae2
 
 
         /// <summary>
-        /// Método responsável por validar o login do usuário administrador.
+        /// Método responsável por validar o login do usuário administrador usando BCrypt.
         /// </summary>
         /// <param name="usuario">Nome de usuário informado no login</param>
         /// <param name="senha">Senha informada no login</param>
@@ -91,30 +92,38 @@ namespace AretiVitae2
                     con.Open();
                 }
 
-                MySqlCommand login = new MySqlCommand(
-                        "SELECT tipo FROM AretiVitae_Admin WHERE usuario = '" + usuario + "' AND senha = '" + senha + "';",
-                        con);
+                // Busca a senha criptografada (hash) e o tipo cadastrados para o usuário
+                string query = "SELECT senha, tipo FROM AretiVitae_Admin WHERE usuario = @usuario";
 
-                    MySqlDataReader resultado = login.ExecuteReader();
+                MySqlCommand login = new MySqlCommand(query, con);
+                login.Parameters.AddWithValue("@usuario", usuario);
 
-                    if (resultado.Read())
+                MySqlDataReader resultado = login.ExecuteReader();
+
+                if (resultado.Read())
+                {
+                    string senhaHashBanco = resultado["senha"].ToString();
+
+                    // Compara a senha digitada em texto puro com o hash gravado no banco
+                    if (BCrypt.Net.BCrypt.Verify(senha, senhaHashBanco))
                     {
                         log = Convert.ToInt32(resultado["tipo"]);
                     }
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao validar login: " + ex.Message);
+            }
+            finally
+            {
+                try
                 {
-                    Console.WriteLine("Erro ao validar login: " + ex.Message);
-                }
-                finally
-                {
-                    try
+                    if (con != null && con.State != System.Data.ConnectionState.Closed)
                     {
-                        if (con != null && con.State != System.Data.ConnectionState.Closed)
-                        {
-                            con.Close();
-                        }
+                        con.Close();
                     }
+                }
                 catch { }
 
             }

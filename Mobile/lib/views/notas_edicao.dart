@@ -72,7 +72,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
           // ── Topo azul claro (igual ao Perfil) ──────────────
           Container(
             height: 120,
-            color: const Color.fromRGBO(143, 197, 255, 1),
+            color: Color.fromRGBO(101, 123, 191, 1),
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top + 10,
               left: 10,
@@ -107,7 +107,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
 
           Expanded(
             child: Container(
-              color: Color.fromRGBO(88, 112, 184, 1),
+              color: Color.fromRGBO(77, 84, 131, 1),
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: Column(

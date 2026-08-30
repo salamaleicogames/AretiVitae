@@ -88,7 +88,7 @@ namespace AretiVitae2
                 }
 
 
-                string query = "SELECT * FROM AretiVitae_Usuario WHERE ativo = " + ativo;
+                string query = "SELECT id, username, idade, email, tipoRegistro, registro, ativo FROM AretiVitae_Usuario WHERE ativo = " + ativo;
 
                 //Filtros de Nome, Registro (CPF/CNPJ) e Assinatura (Usuários Ativos)
 
@@ -140,6 +140,43 @@ namespace AretiVitae2
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
+                dt.Columns.Add("assinatura", typeof(string));
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string idUsuario = row["id"].ToString();
+                    string queryAssinatura = "SELECT plano FROM AretiVitae_Compra WHERE id_usuario = " + idUsuario;
+
+                    MySqlCommand cmdAssinatura = new MySqlCommand(queryAssinatura, DAO_Conexao.con);
+                    object resultado = cmdAssinatura.ExecuteScalar();
+
+                    if (resultado != null && resultado != DBNull.Value)
+                    {
+                        int plano = Convert.ToInt32(resultado);
+
+                        if (plano == 1)
+                        {
+                            row["assinatura"] = "Plano Hécate";
+                        }
+                        else if (plano == 2)
+                        {
+                            row["assinatura"] = "Plano Ártemis";
+                        }
+                        else if (plano == 3)
+                        {
+                            row["assinatura"] = "Plano Selene";
+                        }
+                        else
+                        {
+                            row["assinatura"] = "Plano Free";
+                        }
+                    }
+                    else
+                    {
+                        row["assinatura"] = "Plano Free";
+                    }
+                }
+
                 DataGridView dgwAtual = (ativo == 0) ? dgwAtivos : dgwInativos;
                 dgwAtual.DataSource = dt;
 
@@ -157,12 +194,36 @@ namespace AretiVitae2
                     }
                 }
 
+                // Aplicar cores de acordo com o plano (apenas na célula da assinatura)
+                foreach (DataGridViewRow row in dgwAtual.Rows)
+                {
+                    if (row.Cells["assinatura"].Value != null)
+                    {
+                        string plano = row.Cells["assinatura"].Value.ToString();
+
+                        if (plano == "Plano Hécate")
+                        {
+                            row.Cells["assinatura"].Style.BackColor = Color.LawnGreen;
+                            row.Cells["assinatura"].Style.ForeColor = Color.Black;
+                        }
+                        else if (plano == "Plano Ártemis")
+                        {
+                            row.Cells["assinatura"].Style.BackColor = Color.Yellow;
+                            row.Cells["assinatura"].Style.ForeColor = Color.Black;
+                        }
+                        else if (plano == "Plano Selene")
+                        {
+                            row.Cells["assinatura"].Style.BackColor = Color.DarkBlue;
+                            row.Cells["assinatura"].Style.ForeColor = Color.White;
+                        }
+                    }
+                }
+
                 // Cabeçalhos da tabela
                 dgwAtual.Columns["id"].HeaderText = "ID";
                 dgwAtual.Columns["username"].HeaderText = "Username";
                 dgwAtual.Columns["idade"].HeaderText = "Idade";
                 dgwAtual.Columns["email"].HeaderText = "E-mail";
-                dgwAtual.Columns["senha"].HeaderText = "Senha";
                 dgwAtual.Columns["assinatura"].HeaderText = "Assinatura";
                 dgwAtual.Columns["tipoRegistro"].HeaderText = "Tipo de Registro";
                 dgwAtual.Columns["registro"].HeaderText = "Registro";
@@ -177,7 +238,6 @@ namespace AretiVitae2
                 DAO_Conexao.con.Close();
             }
         }
-
         #endregion
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -198,11 +258,27 @@ namespace AretiVitae2
                     string username = linha.Cells["username"].Value.ToString();
                     int idade = Convert.ToInt32(linha.Cells["idade"].Value);
                     string email = linha.Cells["email"].Value.ToString();
-                    string senha = linha.Cells["senha"].Value.ToString();
-                    int assinatura = Convert.ToInt32(linha.Cells["assinatura"].Value);
+                    int assinatura = 0;
+                    if (linha.Cells["assinatura"].Value == "Plano Hécate")
+                    {
+                        assinatura = 1;
+                    }
+                    else if(linha.Cells["assinatura"].Value == "Plano Ártemis")
+                    {
+                        assinatura = 2;
+                    }
+                    else if(linha.Cells["assinatura"].Value == "Plano Selene")
+                    {
+                        assinatura = 3;
+                    }
+                    else
+                    {
+                        assinatura = 0;
+                    }
 
-                    // Busca os dados extras no banco (registro e tipoRegistro)
-                    Usuario user = new Usuario();
+
+                        // Busca os dados extras no banco (registro e tipoRegistro)
+                        Usuario user = new Usuario();
                     string tRegistro, registro;
                     user.buscarDadosExtras(username, out tRegistro, out registro);
 
@@ -211,7 +287,7 @@ namespace AretiVitae2
                     if (string.IsNullOrEmpty(registro)) registro = "";
 
 
-                    bool sucesso = user.atualizarUsuario(username, idade, email, senha, assinatura, tRegistro, registro, 0);
+                    bool sucesso = user.atualizarUsuarioS(username, idade, email, tRegistro, registro, 0);
 
                     if (sucesso)
                     {
@@ -416,6 +492,11 @@ namespace AretiVitae2
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbAssinatura_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

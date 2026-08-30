@@ -5,7 +5,7 @@ class UserModel {
   int _id = 0;
   String _usuario = "";
   String _email = "";
-  String _idade = "";
+  int _idade = 0;
   String _senha = "";
 
   int get id => _id;
@@ -17,8 +17,8 @@ class UserModel {
   String get email => _email;
   set email(String value) => _email = value;
 
-  String get idade => _idade;
-  set idade(String value) => _idade = value;
+  int get idade => _idade;
+  set idade(int value) => _idade = value;
 
   String get senha => _senha;
   set senha(String value) => _senha = value;

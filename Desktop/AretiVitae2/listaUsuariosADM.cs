@@ -53,7 +53,7 @@ namespace AretiVitae2
                     DAO_Conexao.con.Open();
                 }
 
-                string query = "SELECT * FROM AretiVitae_Admin"; // Query de busca no Banco de Dados
+                string query = "SELECT id, usuario, tipo FROM AretiVitae_Admin"; // Query de busca no Banco de Dados
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, DAO_Conexao.con);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -64,7 +64,6 @@ namespace AretiVitae2
                 //Renomeando títulos das colunas
                 dgwUsuariosADM.Columns["id"].HeaderText = "ID";
                 dgwUsuariosADM.Columns["usuario"].HeaderText = "Usuário";
-                dgwUsuariosADM.Columns["senha"].HeaderText = "Senha";
                 dgwUsuariosADM.Columns["tipo"].HeaderText = "Tipo";
 
                 #region Estilização do DataGridView

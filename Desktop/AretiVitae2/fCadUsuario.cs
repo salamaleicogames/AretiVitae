@@ -60,7 +60,7 @@ namespace AretiVitae2
             lblIdade.ForeColor = Color.White;
             lblAtivo.ForeColor = Color.White;
             chkAtivo.ForeColor = Color.White;
-            lblPlano.ForeColor = Color.White;
+            //lblPlano.ForeColor = Color.White;
             lblTipoConta.ForeColor = Color.White;
             lblRegistro.ForeColor = Color.White;
             lblDescricao.ForeColor = Color.White;
@@ -82,7 +82,7 @@ namespace AretiVitae2
             EstilizarText(txtRegistro);
 
             EstilizarCombo(cmbTipoRegistro);
-            EstilizarCombo(cmbAssinatura);
+            //EstilizarCombo(cmbAssinatura);
 
 
             // Configurações iniciais
@@ -144,25 +144,25 @@ namespace AretiVitae2
         /// <param name="e"></param>
         private void cmbAssinatura_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // 0 = Free - Campos "extras" desaparecem
-            if (cmbAssinatura.SelectedIndex == 0)
-            {
-                txtRegistro.Clear();
-                cmbTipoRegistro.SelectedIndex = -1;
+            //// 0 = Free - Campos "extras" desaparecem
+            //if (cmbAssinatura.SelectedIndex == 0)
+            //{
+            //    txtRegistro.Clear();
+            //    cmbTipoRegistro.SelectedIndex = -1;
 
 
-                lblRegistro.Visible = false;
-                lblTipoConta.Visible = false;
-                txtRegistro.Visible = false;
-                cmbTipoRegistro.Visible = false;
-            }
-            else // Network
-            {
-                lblRegistro.Visible = true;
-                lblTipoConta.Visible = true;
-                txtRegistro.Visible = true;
-                cmbTipoRegistro.Visible = true;
-            }
+            //    lblRegistro.Visible = false;
+            //    lblTipoConta.Visible = false;
+            //    txtRegistro.Visible = false;
+            //    cmbTipoRegistro.Visible = false;
+            //}
+            //else // Network
+            //{
+            //    lblRegistro.Visible = true;
+            //    lblTipoConta.Visible = true;
+            //    txtRegistro.Visible = true;
+            //    cmbTipoRegistro.Visible = true;
+            //}
         }
 
         /// <summary>
@@ -213,31 +213,31 @@ namespace AretiVitae2
             int ativo = 0;
 
 
-            //Verifica a assinatura do Usuário
-            if(cmbAssinatura.SelectedIndex == 0)
-            {
-                assinatura = 0; //Plano Free
-                valor = 0;
-                periodoRenovacao = 0;
-            }
-            else if(cmbAssinatura.SelectedIndex == 1)
-            {
-                assinatura = 1; //Plano Hécate
-                valor = 14.00;
-                periodoRenovacao = 1;
-            }
-            else if(cmbAssinatura.SelectedIndex == 2)
-            {
-                assinatura = 2; //Plano Ártemis
-                valor = 25.00;
-                periodoRenovacao = 3;
-            }
-            else if(cmbAssinatura.SelectedIndex == 3)
-            {
-                assinatura = 3; //Plano Selene
-                valor = 32.00;
-                periodoRenovacao = 6;
-            }
+            ////Verifica a assinatura do Usuário
+            //if(cmbAssinatura.SelectedIndex == 0)
+            //{
+            //    assinatura = 0; //Plano Free
+            //    valor = 0;
+            //    periodoRenovacao = 0;
+            //}
+            //else if(cmbAssinatura.SelectedIndex == 1)
+            //{
+            //    assinatura = 1; //Plano Hécate
+            //    valor = 14.00;
+            //    periodoRenovacao = 1;
+            //}
+            //else if(cmbAssinatura.SelectedIndex == 2)
+            //{
+            //    assinatura = 2; //Plano Ártemis
+            //    valor = 25.00;
+            //    periodoRenovacao = 3;
+            //}
+            //else if(cmbAssinatura.SelectedIndex == 3)
+            //{
+            //    assinatura = 3; //Plano Selene
+            //    valor = 32.00;
+            //    periodoRenovacao = 6;
+            //}
 
             // Verifica o tipo de cadastro efetuado na assinatura (Pessoa Física ou Jurídica)
             if (cmbTipoRegistro.SelectedIndex == 0)
@@ -312,7 +312,7 @@ namespace AretiVitae2
                 try
                 {
                     Usuario usuario = new Usuario();
-                    if (usuario.cadastrarUsuario(username, idade, email, senha, assinatura, valor, tipoRegistro, registro) == true)
+                    if (usuario.cadastrarUsuario(username, idade, email, senha, tipoRegistro, registro) == true)
                     {
                         MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -356,29 +356,28 @@ namespace AretiVitae2
                 // Atribuição dos dados do formulário às variáveis
                 string username = txtUsername.Text.Trim();
                 string email = txtEmail.Text.Trim();
-                string senha = txtSenha.Text.Trim();
                 string tipoRegistro = cmbTipoRegistro.Text.Trim();
                 string registro = txtRegistro.Text.Trim();
-                int assinatura = cmbAssinatura.SelectedIndex;
+               // int assinatura = cmbAssinatura.SelectedIndex;
                 int ativo = chkAtivo.Checked ? 0 : 1;
 
-                //Verifica a assinatura do Usuário
-                if (cmbAssinatura.SelectedIndex == 0)
-                {
-                    assinatura = 0; //Plano Free
-                }
-                else if (cmbAssinatura.SelectedIndex == 1)
-                {
-                    assinatura = 1; //Plano Hécate
-                }
-                else if (cmbAssinatura.SelectedIndex == 2)
-                {
-                    assinatura = 2; //Plano Ártemis
-                }
-                else if (cmbAssinatura.SelectedIndex == 3)
-                {
-                    assinatura = 3; //Plano Selene
-                }
+                ////Verifica a assinatura do Usuário
+                //if (cmbAssinatura.SelectedIndex == 0)
+                //{
+                //    assinatura = 0; //Plano Free
+                //}
+                //else if (cmbAssinatura.SelectedIndex == 1)
+                //{
+                //    assinatura = 1; //Plano Hécate
+                //}
+                //else if (cmbAssinatura.SelectedIndex == 2)
+                //{
+                //    assinatura = 2; //Plano Ártemis
+                //}
+                //else if (cmbAssinatura.SelectedIndex == 3)
+                //{
+                //    assinatura = 3; //Plano Selene
+                //}
 
                 // Verifica o tipo de cadastro efetuado na assinatura (Pessoa Física ou Jurídica)
                 if (cmbTipoRegistro.SelectedIndex == 0)
@@ -392,7 +391,7 @@ namespace AretiVitae2
 
                 // Atualização do usuário
                 Usuario usuario = new Usuario();
-                if (usuario.atualizarUsuario(username, idade, email, senha, assinatura, tipoRegistro, registro, ativo))
+                if (usuario.atualizarUsuarioS(username, idade, email, tipoRegistro, registro, ativo))
                 {
                     MessageBox.Show("Usuário atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -421,7 +420,7 @@ namespace AretiVitae2
             txtIdade.Clear();
             txtEmail.Clear();
             txtSenha.Clear();
-            cmbAssinatura.SelectedIndex = -1;
+            //cmbAssinatura.SelectedIndex = -1;
             cmbTipoRegistro.SelectedIndex = -1;
             chkAtivo.Checked = true;
             txtRegistro.Clear();
@@ -455,13 +454,16 @@ namespace AretiVitae2
                             txtUsername.Text = resultado["username"].ToString();
                             txtIdade.Text = resultado["idade"].ToString();
                             txtEmail.Text = resultado["email"].ToString();
-
                             txtSenha.Clear();
+                            txtSenha.Enabled = false; 
+                          
 
-                            int assinatura = int.Parse(resultado["assinatura"].ToString());
-                            cmbAssinatura.SelectedIndex = assinatura;
+                            //int assinatura = int.Parse(resultado["assinatura"].ToString());
+                            //cmbAssinatura.SelectedIndex = assinatura;
 
                             string tipoRegistro = resultado["tipoRegistro"].ToString();
+                            string registro = resultado["registro"].ToString();
+                            txtRegistro.Text = registro;
 
                             if (tipoRegistro == "Pessoa Física")
                             {
@@ -474,24 +476,24 @@ namespace AretiVitae2
 
 
 
-                            if (assinatura == 0)
-                            {
-                                lblTipoConta.Visible = false;
-                                lblRegistro.Visible = false;
-                                cmbTipoRegistro.Visible = false;
-                                txtRegistro.Visible = false;
+                            //if (assinatura == 0)
+                            //{
+                            //    lblTipoConta.Visible = false;
+                            //    lblRegistro.Visible = false;
+                            //    cmbTipoRegistro.Visible = false;
+                            //    txtRegistro.Visible = false;
 
-                                txtRegistro.Clear();
-                            }
-                            else
-                            {
-                                lblTipoConta.Visible = true;
-                                lblRegistro.Visible = true;
-                                cmbTipoRegistro.Visible = true;
-                                txtRegistro.Visible = true;
+                            //    txtRegistro.Clear();
+                            //}
+                            //else
+                            //{
+                            //    lblTipoConta.Visible = true;
+                            //    lblRegistro.Visible = true;
+                            //    cmbTipoRegistro.Visible = true;
+                            //    txtRegistro.Visible = true;
 
-                                txtRegistro.Text = resultado["registro"].ToString();
-                            }
+                            //    txtRegistro.Text = resultado["registro"].ToString();
+                            //}
 
                            
                             // Define se o usuário está ativo ou inativo

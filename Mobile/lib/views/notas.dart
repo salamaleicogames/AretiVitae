@@ -1,5 +1,7 @@
 import 'package:areti_vitae_mobile/model/notas_model.dart';
 import 'package:areti_vitae_mobile/views/notas_edicao.dart';
+import 'package:areti_vitae_mobile/repository/notas_repository.dart';
+import 'package:areti_vitae_mobile/repository/user_repository.dart';
 import 'package:flutter/material.dart';
 
 class Notas extends StatefulWidget {
@@ -11,61 +13,24 @@ class Notas extends StatefulWidget {
 
 class _NotasState extends State<Notas> {
   // Lista de notas pré cadastradas
-  final List<NotasModel> notas = [
-    NotasModel(
-      "Ideia do jogo mitológico",
-      "15/06/2025",
-      "Um ser mitológico que nasceu nas profundezas de um planeta luta para chegar à superfície...",
-    ),
+  List<NotasModel> notas = [];
+  bool carregando = true;
 
-    NotasModel(
-      "Referências visuais",
-      "11/09/2025",
-      "Hollow Knight – profundidade e isolamento.\nCeleste – platformer emocional.\nOri – beleza atmosférica.",
-    ),
+  @override
+  void initState() {
+    super.initState();
+    carregarNotas();
+  }
 
-    NotasModel(
-      "Mecânicas centrais",
-      "02/03/2026",
-      "Escalada vertical como progressão.\nPoderes que evoluem ao atravessar camadas.",
-    ),
+  Future<void> carregarNotas() async {
+    final usuario = await UserRepository().carregarUsuario();
+    final lista = await NotasRepository().listarNotasPorUsuario(usuario!.id);
 
-    NotasModel(
-      "Plataforma de Mentoria por IA",
-      "08/02/2026",
-      "Criar uma ferramenta que analise o perfil profissional do usuário e sugira mentores, cursos e oportunidades de carreira.",
-    ),
-
-    NotasModel(
-      "App de Networking Local",
-      "17/03/2026",
-      "Conectar estudantes, freelancers e empresas da mesma região para facilitar parcerias e contratações.",
-    ),
-
-    NotasModel(
-      "Analisador de Currículos",
-      "25/03/2026",
-      "Sistema que utiliza IA para avaliar currículos e sugerir melhorias com base na vaga desejada.",
-    ),
-
-    NotasModel(
-      "Banco de Ideias para Startups",
-      "09/04/2026",
-      "Plataforma colaborativa onde usuários publicam problemas reais e empreendedores propõem soluções inovadoras.",
-    ),
-
-    NotasModel(
-      "Simulador de Entrevistas",
-      "22/04/2026",
-      "Assistente virtual que realiza entrevistas simuladas e fornece feedback sobre respostas e comunicação.",
-    ),
-
-    NotasModel(
-      "Mapa de Competências",
-      "06/05/2026",
-      "Ferramenta para identificar lacunas de habilidades e recomendar trilhas de aprendizado personalizadas.",
-    ),
-  ];
+    setState(() {
+      notas = lista;
+      carregando = false;
+    });
+  }
 
   String get _hoje {
     final now = DateTime.now();
@@ -76,21 +41,21 @@ class _NotasState extends State<Notas> {
 
   // Abre o modal para digitar o título da nova nota
   void novaNota() {
-    if (notas.length >= 10) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            "Limite de 10 notas atingido!",
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.yellow,
-          duration: Duration(seconds: 2),
-          behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.all(20),
-        ),
-      );
-      return;
-    }
+    // if (notas.length >= 10) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     SnackBar(
+    //       content: Text(
+    //         "Limite de 10 notas atingido!",
+    //         style: TextStyle(color: Colors.black),
+    //       ),
+    //       backgroundColor: Colors.yellow,
+    //       duration: Duration(seconds: 2),
+    //       behavior: SnackBarBehavior.floating,
+    //       margin: EdgeInsets.all(20),
+    //     ),
+    //   );
+    //   return;
+    // }
 
     final ctrlTitulo = TextEditingController();
 
@@ -101,11 +66,10 @@ class _NotasState extends State<Notas> {
         onCriar: (titulo) {
           if (titulo.trim().isEmpty) return;
 
-          final nova = NotasModel(titulo.trim(), "", _hoje);
-          setState(() => notas.add(nova));
+          final nova = NotasModel(titulo.trim(), "", "");
 
-          Navigator.pop(context); // fecha o modal
-          editarNota(nova); // já abre para editar
+          Navigator.pop(context);
+          editarNota(nova);
         },
         onCancelar: () => Navigator.pop(context),
       ),
@@ -119,11 +83,29 @@ class _NotasState extends State<Notas> {
       MaterialPageRoute(
         builder: (_) => NotaEdicao(
           nota: nota,
-          onSalvar: (titulo, texto) {
-            setState(() {
-              nota.titulo = titulo;
-              nota.texto = texto;
-            });
+          onSalvar: (titulo, texto) async {
+            nota.titulo = titulo;
+            nota.texto = texto;
+
+            if (nota.id == null) {
+              final usuario = await UserRepository().carregarUsuario();
+              nota.userId = usuario!.id;
+
+              final criada = await NotasRepository().criarNota(nota);
+
+              setState(() {
+                notas.add(criada);
+              });
+            } else {
+              final atualizada = await NotasRepository().atualizarNota(nota);
+
+              setState(() {
+                nota.id = atualizada.id;
+                nota.titulo = atualizada.titulo;
+                nota.texto = atualizada.texto;
+                nota.ativo = atualizada.ativo;
+              });
+            }
           },
         ),
       ),
@@ -131,7 +113,11 @@ class _NotasState extends State<Notas> {
   }
 
   // Remove uma nota da lista
-  void excluirNota(NotasModel nota) {
+  void excluirNota(NotasModel nota) async {
+    nota.ativo = 1;
+
+    final atualizada = await NotasRepository().atualizarNota(nota);
+
     setState(() => notas.remove(nota));
   }
 

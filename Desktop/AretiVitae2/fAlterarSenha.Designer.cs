@@ -31,13 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAlterarSenha));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.lblSenhaAtual = new System.Windows.Forms.Label();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.lblConfNSenha = new System.Windows.Forms.Label();
             this.txtConfirmarNSenha = new System.Windows.Forms.TextBox();
             this.lblNovaSenha = new System.Windows.Forms.Label();
             this.txtNovaSenha = new System.Windows.Forms.TextBox();
-            this.lblSenha = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -50,19 +48,17 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnLimpar);
-            this.panel1.Controls.Add(this.lblSenhaAtual);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.lblConfNSenha);
             this.panel1.Controls.Add(this.txtConfirmarNSenha);
             this.panel1.Controls.Add(this.lblNovaSenha);
             this.panel1.Controls.Add(this.txtNovaSenha);
-            this.panel1.Controls.Add(this.lblSenha);
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Controls.Add(this.cmbUsuario);
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Location = new System.Drawing.Point(45, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 267);
+            this.panel1.Size = new System.Drawing.Size(540, 216);
             this.panel1.TabIndex = 27;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -76,15 +72,6 @@
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // lblSenhaAtual
-            // 
-            this.lblSenhaAtual.AutoSize = true;
-            this.lblSenhaAtual.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaAtual.Location = new System.Drawing.Point(119, 93);
-            this.lblSenhaAtual.Name = "lblSenhaAtual";
-            this.lblSenhaAtual.Size = new System.Drawing.Size(0, 20);
-            this.lblSenhaAtual.TabIndex = 23;
             // 
             // btnAlterar
             // 
@@ -101,7 +88,7 @@
             // 
             this.lblConfNSenha.AutoSize = true;
             this.lblConfNSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfNSenha.Location = new System.Drawing.Point(16, 207);
+            this.lblConfNSenha.Location = new System.Drawing.Point(13, 150);
             this.lblConfNSenha.Name = "lblConfNSenha";
             this.lblConfNSenha.Size = new System.Drawing.Size(152, 20);
             this.lblConfNSenha.TabIndex = 21;
@@ -110,7 +97,7 @@
             // txtConfirmarNSenha
             // 
             this.txtConfirmarNSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmarNSenha.Location = new System.Drawing.Point(174, 207);
+            this.txtConfirmarNSenha.Location = new System.Drawing.Point(171, 150);
             this.txtConfirmarNSenha.Multiline = true;
             this.txtConfirmarNSenha.Name = "txtConfirmarNSenha";
             this.txtConfirmarNSenha.Size = new System.Drawing.Size(134, 22);
@@ -120,7 +107,7 @@
             // 
             this.lblNovaSenha.AutoSize = true;
             this.lblNovaSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNovaSenha.Location = new System.Drawing.Point(16, 165);
+            this.lblNovaSenha.Location = new System.Drawing.Point(13, 108);
             this.lblNovaSenha.Name = "lblNovaSenha";
             this.lblNovaSenha.Size = new System.Drawing.Size(88, 20);
             this.lblNovaSenha.TabIndex = 19;
@@ -129,21 +116,11 @@
             // txtNovaSenha
             // 
             this.txtNovaSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNovaSenha.Location = new System.Drawing.Point(110, 165);
+            this.txtNovaSenha.Location = new System.Drawing.Point(107, 108);
             this.txtNovaSenha.Multiline = true;
             this.txtNovaSenha.Name = "txtNovaSenha";
             this.txtNovaSenha.Size = new System.Drawing.Size(134, 22);
             this.txtNovaSenha.TabIndex = 18;
-            // 
-            // lblSenha
-            // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(16, 93);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(84, 20);
-            this.lblSenha.TabIndex = 17;
-            this.lblSenha.Text = "Senha Atual:";
             // 
             // lblUsuario
             // 
@@ -163,7 +140,6 @@
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(134, 28);
             this.cmbUsuario.TabIndex = 15;
-            this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbUsuario_SelectedIndexChanged);
             // 
             // lblTitulo
             // 
@@ -178,7 +154,7 @@
             // btnListar
             // 
             this.btnListar.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.Location = new System.Drawing.Point(435, 337);
+            this.btnListar.Location = new System.Drawing.Point(435, 290);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(150, 26);
             this.btnListar.TabIndex = 30;
@@ -190,7 +166,7 @@
             // 
             this.lblDescricao2.AutoSize = true;
             this.lblDescricao2.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao2.Location = new System.Drawing.Point(216, 325);
+            this.lblDescricao2.Location = new System.Drawing.Point(216, 278);
             this.lblDescricao2.Name = "lblDescricao2";
             this.lblDescricao2.Size = new System.Drawing.Size(171, 54);
             this.lblDescricao2.TabIndex = 29;
@@ -201,7 +177,7 @@
             // 
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Josefin Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(51, 337);
+            this.lblDescricao.Location = new System.Drawing.Point(51, 290);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(150, 18);
             this.lblDescricao.TabIndex = 28;
@@ -212,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 400);
+            this.ClientSize = new System.Drawing.Size(604, 385);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lblDescricao2);
@@ -232,13 +208,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Label lblSenhaAtual;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Label lblConfNSenha;
         private System.Windows.Forms.TextBox txtConfirmarNSenha;
         private System.Windows.Forms.Label lblNovaSenha;
         private System.Windows.Forms.TextBox txtNovaSenha;
-        private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.Label lblTitulo;

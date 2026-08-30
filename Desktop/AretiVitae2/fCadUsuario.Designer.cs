@@ -31,18 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCadUsuario));
             this.btnListarUsuarios = new System.Windows.Forms.Button();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.cmbAssinatura = new System.Windows.Forms.ComboBox();
-            this.cmbTipoRegistro = new System.Windows.Forms.ComboBox();
-            this.lblPlano = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblAtivo = new System.Windows.Forms.Label();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txtRegistro = new System.Windows.Forms.TextBox();
-            this.lblRegistro = new System.Windows.Forms.Label();
-            this.lblTipoConta = new System.Windows.Forms.Label();
-            this.lblTitulo2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -54,6 +47,11 @@
             this.lblDescricao2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblTitulo2 = new System.Windows.Forms.Label();
+            this.lblTipoConta = new System.Windows.Forms.Label();
+            this.cmbTipoRegistro = new System.Windows.Forms.ComboBox();
+            this.lblRegistro = new System.Windows.Forms.Label();
+            this.txtRegistro = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,44 +75,6 @@
             this.lblDescricao.TabIndex = 38;
             this.lblDescricao.Text = "Digite o Username cadastrado\ne pressione ENTER para visualizar\nas informações cor" +
     "respondentes";
-            // 
-            // cmbAssinatura
-            // 
-            this.cmbAssinatura.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAssinatura.FormattingEnabled = true;
-            this.cmbAssinatura.Items.AddRange(new object[] {
-            "Free",
-            "Plano Hécate",
-            "Plano Ártemis",
-            "Plano Selene"});
-            this.cmbAssinatura.Location = new System.Drawing.Point(112, 228);
-            this.cmbAssinatura.Name = "cmbAssinatura";
-            this.cmbAssinatura.Size = new System.Drawing.Size(134, 27);
-            this.cmbAssinatura.TabIndex = 37;
-            this.cmbAssinatura.SelectedIndexChanged += new System.EventHandler(this.cmbAssinatura_SelectedIndexChanged);
-            // 
-            // cmbTipoRegistro
-            // 
-            this.cmbTipoRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoRegistro.FormattingEnabled = true;
-            this.cmbTipoRegistro.Items.AddRange(new object[] {
-            "Pessoa Física",
-            "Pessoa Jurídica"});
-            this.cmbTipoRegistro.Location = new System.Drawing.Point(376, 184);
-            this.cmbTipoRegistro.Name = "cmbTipoRegistro";
-            this.cmbTipoRegistro.Size = new System.Drawing.Size(134, 27);
-            this.cmbTipoRegistro.TabIndex = 36;
-            this.cmbTipoRegistro.SelectedIndexChanged += new System.EventHandler(this.cmbTipoRegistro_SelectedIndexChanged);
-            // 
-            // lblPlano
-            // 
-            this.lblPlano.AutoSize = true;
-            this.lblPlano.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlano.Location = new System.Drawing.Point(48, 228);
-            this.lblPlano.Name = "lblPlano";
-            this.lblPlano.Size = new System.Drawing.Size(42, 19);
-            this.lblPlano.TabIndex = 38;
-            this.lblPlano.Text = "Plano:";
             // 
             // btnLimpar
             // 
@@ -142,7 +102,7 @@
             // 
             this.lblAtivo.AutoSize = true;
             this.lblAtivo.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAtivo.Location = new System.Drawing.Point(38, 186);
+            this.lblAtivo.Location = new System.Drawing.Point(319, 240);
             this.lblAtivo.Name = "lblAtivo";
             this.lblAtivo.Size = new System.Drawing.Size(59, 19);
             this.lblAtivo.TabIndex = 32;
@@ -152,7 +112,7 @@
             // 
             this.chkAtivo.AutoSize = true;
             this.chkAtivo.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAtivo.Location = new System.Drawing.Point(112, 186);
+            this.chkAtivo.Location = new System.Drawing.Point(393, 240);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(56, 23);
             this.chkAtivo.TabIndex = 31;
@@ -170,48 +130,6 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // txtRegistro
-            // 
-            this.txtRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistro.Location = new System.Drawing.Point(376, 224);
-            this.txtRegistro.Multiline = true;
-            this.txtRegistro.Name = "txtRegistro";
-            this.txtRegistro.Size = new System.Drawing.Size(134, 30);
-            this.txtRegistro.TabIndex = 31;
-            this.txtRegistro.Text = "04402828457";
-            // 
-            // lblRegistro
-            // 
-            this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.ForeColor = System.Drawing.Color.Black;
-            this.lblRegistro.Location = new System.Drawing.Point(303, 230);
-            this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(67, 19);
-            this.lblRegistro.TabIndex = 32;
-            this.lblRegistro.Text = "CPF/CNPJ:";
-            // 
-            // lblTipoConta
-            // 
-            this.lblTipoConta.AutoSize = true;
-            this.lblTipoConta.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoConta.ForeColor = System.Drawing.Color.Black;
-            this.lblTipoConta.Location = new System.Drawing.Point(282, 186);
-            this.lblTipoConta.Name = "lblTipoConta";
-            this.lblTipoConta.Size = new System.Drawing.Size(88, 19);
-            this.lblTipoConta.TabIndex = 33;
-            this.lblTipoConta.Text = "Tipo de Conta:";
-            // 
-            // lblTitulo2
-            // 
-            this.lblTitulo2.AutoSize = true;
-            this.lblTitulo2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo2.Location = new System.Drawing.Point(23, 140);
-            this.lblTitulo2.Name = "lblTitulo2";
-            this.lblTitulo2.Size = new System.Drawing.Size(198, 25);
-            this.lblTitulo2.TabIndex = 13;
-            this.lblTitulo2.Text = "Configurações Avançadas";
-            // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,7 +138,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(134, 30);
             this.txtUsername.TabIndex = 9;
-            this.txtUsername.Text = "tania";
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // txtSenha
@@ -232,7 +149,6 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(134, 30);
             this.txtSenha.TabIndex = 12;
-            this.txtSenha.Text = "1234";
             // 
             // txtEmail
             // 
@@ -242,7 +158,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(134, 30);
             this.txtEmail.TabIndex = 11;
-            this.txtEmail.Text = "tania@gmail.com";
             // 
             // lblIdade
             // 
@@ -282,7 +197,6 @@
             this.txtIdade.Name = "txtIdade";
             this.txtIdade.Size = new System.Drawing.Size(134, 30);
             this.txtIdade.TabIndex = 10;
-            this.txtIdade.Text = "25";
             // 
             // lblEmail
             // 
@@ -306,9 +220,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cmbAssinatura);
             this.panel1.Controls.Add(this.cmbTipoRegistro);
-            this.panel1.Controls.Add(this.lblPlano);
             this.panel1.Controls.Add(this.btnLimpar);
             this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Controls.Add(this.lblAtivo);
@@ -343,11 +255,65 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Cadastro/Consulta";
             // 
+            // lblTitulo2
+            // 
+            this.lblTitulo2.AutoSize = true;
+            this.lblTitulo2.Font = new System.Drawing.Font("Josefin Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo2.Location = new System.Drawing.Point(16, 168);
+            this.lblTitulo2.Name = "lblTitulo2";
+            this.lblTitulo2.Size = new System.Drawing.Size(198, 25);
+            this.lblTitulo2.TabIndex = 13;
+            this.lblTitulo2.Text = "Configurações Avançadas";
+            // 
+            // lblTipoConta
+            // 
+            this.lblTipoConta.AutoSize = true;
+            this.lblTipoConta.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoConta.ForeColor = System.Drawing.Color.Black;
+            this.lblTipoConta.Location = new System.Drawing.Point(18, 212);
+            this.lblTipoConta.Name = "lblTipoConta";
+            this.lblTipoConta.Size = new System.Drawing.Size(88, 19);
+            this.lblTipoConta.TabIndex = 33;
+            this.lblTipoConta.Text = "Tipo de Conta:";
+            // 
+            // cmbTipoRegistro
+            // 
+            this.cmbTipoRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoRegistro.FormattingEnabled = true;
+            this.cmbTipoRegistro.Items.AddRange(new object[] {
+            "Pessoa Física",
+            "Pessoa Jurídica"});
+            this.cmbTipoRegistro.Location = new System.Drawing.Point(112, 210);
+            this.cmbTipoRegistro.Name = "cmbTipoRegistro";
+            this.cmbTipoRegistro.Size = new System.Drawing.Size(134, 27);
+            this.cmbTipoRegistro.TabIndex = 36;
+            this.cmbTipoRegistro.SelectedIndexChanged += new System.EventHandler(this.cmbTipoRegistro_SelectedIndexChanged);
+            // 
+            // lblRegistro
+            // 
+            this.lblRegistro.AutoSize = true;
+            this.lblRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.ForeColor = System.Drawing.Color.Black;
+            this.lblRegistro.Location = new System.Drawing.Point(39, 256);
+            this.lblRegistro.Name = "lblRegistro";
+            this.lblRegistro.Size = new System.Drawing.Size(67, 19);
+            this.lblRegistro.TabIndex = 32;
+            this.lblRegistro.Text = "CPF/CNPJ:";
+            // 
+            // txtRegistro
+            // 
+            this.txtRegistro.Font = new System.Drawing.Font("Josefin Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegistro.Location = new System.Drawing.Point(112, 250);
+            this.txtRegistro.Multiline = true;
+            this.txtRegistro.Name = "txtRegistro";
+            this.txtRegistro.Size = new System.Drawing.Size(134, 30);
+            this.txtRegistro.TabIndex = 31;
+            // 
             // fCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 538);
+            this.ClientSize = new System.Drawing.Size(673, 475);
             this.Controls.Add(this.btnListarUsuarios);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblDescricao2);
@@ -366,18 +332,11 @@
 
         private System.Windows.Forms.Button btnListarUsuarios;
         private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.ComboBox cmbAssinatura;
-        private System.Windows.Forms.ComboBox cmbTipoRegistro;
-        private System.Windows.Forms.Label lblPlano;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label lblAtivo;
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.TextBox txtRegistro;
-        private System.Windows.Forms.Label lblRegistro;
-        private System.Windows.Forms.Label lblTipoConta;
-        private System.Windows.Forms.Label lblTitulo2;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtEmail;
@@ -389,5 +348,10 @@
         private System.Windows.Forms.Label lblDescricao2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.ComboBox cmbTipoRegistro;
+        private System.Windows.Forms.TextBox txtRegistro;
+        private System.Windows.Forms.Label lblRegistro;
+        private System.Windows.Forms.Label lblTipoConta;
+        private System.Windows.Forms.Label lblTitulo2;
     }
 }

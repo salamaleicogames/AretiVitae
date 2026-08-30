@@ -118,15 +118,15 @@ namespace AretiVitae2
 
             //Verifica o número de digitos (CPF possui 11 digitos)
             if (cpf.Length != 11)
-            {  
-                return false; 
+            {
+                return false;
             }
-               
+
             if (new string(cpf[0], 11) == cpf)
             {
                 return false;
             }
-     
+
 
             //Vetores com multiplicadores de validação para cada cada digito do documento
             int[] mult1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -140,7 +140,7 @@ namespace AretiVitae2
             {
                 soma += int.Parse(tempCpf[i].ToString()) * mult1[i];
             }
-                
+
             int resto = soma % 11;
             resto = resto < 2 ? 0 : 11 - resto;
 
@@ -187,11 +187,10 @@ namespace AretiVitae2
         /// <param name="idade">Idade</param>
         /// <param name="email">Email</param>
         /// <param name="senha">Senha</param>
-        /// <param name="assinatura">Tipo de Assinatura</param>
         /// <param name="tipoRegistro">Tipo de Registro</param>
         /// <param name="registro">Registro</param>
         /// <returns>True se cadastrar com sucesso</returns>
-        public bool cadastrarUsuario(string username, int idade, string email, string senha, int assinatura, double valorPlano, string tipoRegistro, string registro)
+        public bool cadastrarUsuario(string username, int idade, string email, string senha, string tipoRegistro, string registro)
         {
             bool cad = false;
 
@@ -216,8 +215,7 @@ namespace AretiVitae2
             {
                 DAO_Conexao.con.Open();
 
-                MySqlCommand inserir = new MySqlCommand("INSERT INTO AretiVitae_Usuario (username, idade, email, senha, assinatura, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senhaHash + "', " + assinatura + ", '" + tipoRegistro + "', '" + registro + "', 0);", DAO_Conexao.con);
-
+                MySqlCommand inserir = new MySqlCommand("INSERT INTO AretiVitae_Usuario (username, idade, email, senha, tipoRegistro, registro, ativo) VALUES ('" + username + "', " + idade + ", '" + email + "', '" + senhaHash + "', '" + tipoRegistro + "', '" + registro + "', 0);", DAO_Conexao.con);
                 int linhasAfetadas = inserir.ExecuteNonQuery();
 
                 if (linhasAfetadas > 0)
@@ -231,14 +229,15 @@ namespace AretiVitae2
                         DateTime dataCompra = DateTime.Today;
                         DateTime dataVencimento = dataCompra.AddMonths(1);
 
-                        MySqlCommand inserirCompra = new MySqlCommand("INSERT INTO AretiVitae_Compra (id_usuario, plano, dataCompra, dayVencimento, ativo) VALUES (@idUsuario, @plano, @dataCompra, @dayVencimento, @ativo);", DAO_Conexao.con);
+                        MySqlCommand inserirCompra = new MySqlCommand("INSERT INTO AretiVitae_Compra (id_usuario, id_plano, dataCompra, dataVencimento, ativo, criado_em, valor_pago) VALUES (@idUsuario, @idPlano, @dataCompra, @dataVencimento, @ativo, @criadoEm, @valorPago);", DAO_Conexao.con);
 
                         inserirCompra.Parameters.AddWithValue("@idUsuario", idUsuario);
-                        inserirCompra.Parameters.AddWithValue("@plano", assinatura);
+                        inserirCompra.Parameters.AddWithValue("@idPlano", assinatura);
                         inserirCompra.Parameters.AddWithValue("@dataCompra", dataCompra);
-                        inserirCompra.Parameters.AddWithValue("@dayVencimento", dataVencimento);
-                        inserirCompra.Parameters.AddWithValue("@valor", valorPlano);
+                        inserirCompra.Parameters.AddWithValue("@dataVencimento", dataVencimento);
                         inserirCompra.Parameters.AddWithValue("@ativo", 0);
+                        inserirCompra.Parameters.AddWithValue("@criadoEm", DateTime.Now);
+                        inserirCompra.Parameters.AddWithValue("@valorPago", 0.00);
 
                         inserirCompra.ExecuteNonQuery();
                     }
@@ -291,12 +290,11 @@ namespace AretiVitae2
         /// <param name="idade">Idade</param>
         /// <param name="email">Email</param>
         /// <param name="senha">Senha</param>
-        /// <param name="assinatura">Tipo da assinatura</param>
         /// <param name="tipoRegistro">Tipo de Registro</param>
         /// <param name="registro">Registro</param>
         /// <param name="ativo">Código de Ativação do usuário</param>
         /// <returns>True se a atualização for bem sucedida</returns>
-        public bool atualizarUsuario(string username, int idade, string email, string senha, int assinatura, string tipoRegistro, string registro, int ativo)
+        public bool atualizarUsuario(string username, int idade, string email, string senha, string tipoRegistro, string registro, int ativo)
         {
             bool resultado = false;
 
@@ -318,51 +316,42 @@ namespace AretiVitae2
             {
                 DAO_Conexao.con.Open();
 
-                // Busca os dados atuais do usuário
-                int assinaturaAtual = 0;
-                int idUsuario = 0;
+                //// Busca os dados atuais do usuário
+                //int assinaturaAtual = 0;
+                //int idUsuario = 0;
 
-                string sqlBusca = @"SELECT id, assinatura
-                            FROM AretiVitae_Usuario
-                            WHERE username = @username";
+                //string sqlBusca = @"SELECT id, assinatura
+                //            FROM AretiVitae_Usuario
+                //            WHERE username = @username";
 
-                MySqlCommand cmdBusca = new MySqlCommand(sqlBusca, DAO_Conexao.con);
-                cmdBusca.Parameters.AddWithValue("@username", username);
+                //MySqlCommand cmdBusca = new MySqlCommand(sqlBusca, DAO_Conexao.con);
+                //cmdBusca.Parameters.AddWithValue("@username", username);
 
-                MySqlDataReader dr = cmdBusca.ExecuteReader();
+                //MySqlDataReader dr = cmdBusca.ExecuteReader();
 
-                if (dr.Read())
-                {
-                    idUsuario = Convert.ToInt32(dr["id"]);
-                    assinaturaAtual = Convert.ToInt32(dr["assinatura"]);
-                }
+                //if (dr.Read())
+                //{
+                //    idUsuario = Convert.ToInt32(dr["id"]);
+                //    assinaturaAtual = Convert.ToInt32(dr["assinatura"]);
+                //}
 
-                dr.Close();
+                //dr.Close();
 
                 // Atualiza os dados do usuário
-                string sqlUpdate = @"UPDATE AretiVitae_Usuario
-                             SET idade = @idade,
-                                 email = @email,
-                                 senha = @senha,
-                                 assinatura = @assinatura,
-                                 tipoRegistro = @tipoRegistro,
-                                 registro = @registro,
-                                 ativo = @ativo
-                             WHERE username = @username";
+                string sqlUpdate = @"UPDATE AretiVitae_Usuario SET idade = @idade, email = @email, senha = @senha, tipoRegistro = @tipoRegistro, registro = @registro WHERE username = @username";
 
                 MySqlCommand atualizar = new MySqlCommand(sqlUpdate, DAO_Conexao.con);
 
                 atualizar.Parameters.AddWithValue("@idade", idade);
                 atualizar.Parameters.AddWithValue("@email", email);
-                
+
                 string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
 
                 atualizar.Parameters.AddWithValue("@senha", senhaHash);
 
-                atualizar.Parameters.AddWithValue("@assinatura", assinatura);
                 atualizar.Parameters.AddWithValue("@tipoRegistro", tipoRegistro);
                 atualizar.Parameters.AddWithValue("@registro", registro);
-                atualizar.Parameters.AddWithValue("@ativo", ativo);
+                //atualizar.Parameters.AddWithValue("@ativo", ativo);
                 atualizar.Parameters.AddWithValue("@username", username);
 
                 int linhasAfetadas = atualizar.ExecuteNonQuery();
@@ -371,112 +360,203 @@ namespace AretiVitae2
                 {
                     resultado = true;
 
-                    // FREE -> PLANO PAGO
-                    if (assinaturaAtual == 0 && assinatura > 0)
-                    {
-                        DateTime dataCompra = DateTime.Today;
-                        DateTime dataVencimento = dataCompra.AddMonths(1);
+                    //// FREE -> PLANO PAGO
+                    //if (assinaturaAtual == 0 && assinatura > 0)
+                    //{
+                    //    DateTime dataCompra = DateTime.Today;
+                    //    DateTime dataVencimento = dataCompra.AddMonths(1);
 
-                        // Verifica se já existe alguma compra para o usuário
-                        string sqlVerificarCompra = @"
-        SELECT id
-        FROM AretiVitae_Compra
-        WHERE id_usuario = @idUsuario
-        ORDER BY id DESC
-        LIMIT 1";
+                    //    // Verifica se já existe alguma compra para o usuário
+                    //    string sqlVerificarCompra = @"
+                    //    SELECT id
+                    //    FROM AretiVitae_Compra
+                    //    WHERE id_usuario = @idUsuario
+                    //    ORDER BY id DESC
+                    //    LIMIT 1";
 
-                        MySqlCommand cmdVerificar = new MySqlCommand(sqlVerificarCompra, DAO_Conexao.con);
-                        cmdVerificar.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    //    MySqlCommand cmdVerificar = new MySqlCommand(sqlVerificarCompra, DAO_Conexao.con);
+                    //    cmdVerificar.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                        object resultadoCompra = cmdVerificar.ExecuteScalar();
+                    //    object resultadoCompra = cmdVerificar.ExecuteScalar();
 
-                        // Já existe compra -> reativa e atualiza
-                        if (resultadoCompra != null)
-                        {
-                            int idCompra = Convert.ToInt32(resultadoCompra);
+                    //    // Já existe compra -> reativa e atualiza
+                    //    if (resultadoCompra != null)
+                    //    {
+                    //        int idCompra = Convert.ToInt32(resultadoCompra);
 
-                            string sqlReativarCompra = @"
-                            UPDATE AretiVitae_Compra
-                            SET plano = @plano,
-                                dataCompra = @dataCompra,
-                                dayVencimento = @dataVencimento,
-                                ativo = 0
-                            WHERE id = @idCompra";
+                    //        string sqlReativarCompra = @"
+                    //        UPDATE AretiVitae_Compra
+                    //        SET plano = @plano,
+                    //            dataCompra = @dataCompra,
+                    //            dayVencimento = @dataVencimento,
+                    //            ativo = 0
+                    //        WHERE id = @idCompra";
 
-                            MySqlCommand cmdReativar = new MySqlCommand(sqlReativarCompra, DAO_Conexao.con);
+                    //        MySqlCommand cmdReativar = new MySqlCommand(sqlReativarCompra, DAO_Conexao.con);
 
-                            cmdReativar.Parameters.AddWithValue("@plano", assinatura);
-                            cmdReativar.Parameters.AddWithValue("@dataCompra", dataCompra);
-                            cmdReativar.Parameters.AddWithValue("@dataVencimento", dataVencimento);
-                            cmdReativar.Parameters.AddWithValue("@idCompra", idCompra);
+                    //        cmdReativar.Parameters.AddWithValue("@plano", assinatura);
+                    //        cmdReativar.Parameters.AddWithValue("@dataCompra", dataCompra);
+                    //        cmdReativar.Parameters.AddWithValue("@dataVencimento", dataVencimento);
+                    //        cmdReativar.Parameters.AddWithValue("@idCompra", idCompra);
 
-                            cmdReativar.ExecuteNonQuery();
-                        }
-                        // Não existe compra -> cria uma nova
-                        else
-                        {
-                            string sqlCompra = @"
-                            INSERT INTO AretiVitae_Compra
-                            (id_usuario, plano, dataCompra, dayVencimento, ativo)
-                            VALUES
-                            (@idUsuario, @plano, @dataCompra, @dataVencimento, 0)";
+                    //        cmdReativar.ExecuteNonQuery();
+                    //    }
+                    //    // Não existe compra -> cria uma nova
+                    //    else
+                    //    {
+                    //        string sqlCompra = @"
+                    //        INSERT INTO AretiVitae_Compra
+                    //        (id_usuario, dataCompra, dayVencimento, ativo)
+                    //        VALUES
+                    //        (@idUsuario, @dataCompra, @dataVencimento, 0)";
 
-                            MySqlCommand cmdCompra = new MySqlCommand(sqlCompra, DAO_Conexao.con);
+                    //        MySqlCommand cmdCompra = new MySqlCommand(sqlCompra, DAO_Conexao.con);
 
-                            cmdCompra.Parameters.AddWithValue("@idUsuario", idUsuario);
-                            cmdCompra.Parameters.AddWithValue("@plano", assinatura);
-                            cmdCompra.Parameters.AddWithValue("@dataCompra", dataCompra);
-                            cmdCompra.Parameters.AddWithValue("@dataVencimento", dataVencimento);
+                    //        cmdCompra.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    //        cmdCompra.Parameters.AddWithValue("@dataCompra", dataCompra);
+                    //        cmdCompra.Parameters.AddWithValue("@dataVencimento", dataVencimento);
 
-                            cmdCompra.ExecuteNonQuery();
-                        }
-                    }
+                    //        cmdCompra.ExecuteNonQuery();
+                    //    }
+                    //}
 
-                    // PLANO PAGO -> FREE
-                    else if (assinaturaAtual > 0 && assinatura == 0)
-                    {
-                        string sqlDesativar = @"UPDATE AretiVitae_Compra
-                                        SET ativo = 1
-                                        WHERE id_usuario = @idUsuario
-                                        AND ativo = 0";
+                    //// PLANO PAGO -> FREE
+                    //else if (assinaturaAtual > 0 && assinatura == 0)
+                    //{
+                    //    string sqlDesativar = @"UPDATE AretiVitae_Compra
+                    //                    SET ativo = 1
+                    //                    WHERE id_usuario = @idUsuario
+                    //                    AND ativo = 0";
 
-                        MySqlCommand cmdDesativar = new MySqlCommand(sqlDesativar, DAO_Conexao.con);
+                    //    MySqlCommand cmdDesativar = new MySqlCommand(sqlDesativar, DAO_Conexao.con);
 
-                        cmdDesativar.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    //    cmdDesativar.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                        cmdDesativar.ExecuteNonQuery();
-                    }
+                    //    cmdDesativar.ExecuteNonQuery();
+                    //}
 
-                    // TROCA ENTRE PLANOS PAGOS
-                    else if (assinaturaAtual > 0 &&
-                             assinatura > 0 &&
-                             assinaturaAtual != assinatura)
-                    {
-                        string sqlAtualizarPlano = @"UPDATE AretiVitae_Compra
-                                             SET plano = @plano
-                                             WHERE id_usuario = @idUsuario
-                                             AND ativo = 0";
+                    //// TROCA ENTRE PLANOS PAGOS
+                    //else if (assinaturaAtual > 0 &&
+                    //         assinatura > 0 &&
+                    //         assinaturaAtual != assinatura)
+                    //{
+                    //    string sqlAtualizarPlano = @"UPDATE AretiVitae_Compra
+                    //                         SET plano = @plano
+                    //                         WHERE id_usuario = @idUsuario
+                    //                         AND ativo = 0";
 
-                        MySqlCommand cmdPlano = new MySqlCommand(sqlAtualizarPlano, DAO_Conexao.con);
+                    //    MySqlCommand cmdPlano = new MySqlCommand(sqlAtualizarPlano, DAO_Conexao.con);
 
-                        cmdPlano.Parameters.AddWithValue("@plano", assinatura);
-                        cmdPlano.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    //    cmdPlano.Parameters.AddWithValue("@plano", assinatura);
+                    //    cmdPlano.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                        cmdPlano.ExecuteNonQuery();
-                    }
+                    //    cmdPlano.ExecuteNonQuery();
+                    //}
 
-                    // Caso o usuário esteja inativo, desativa a compra também
-                    if (ativo == 1)
-                    {
-                        string sqlInativarCompra = @"UPDATE AretiVitae_Compra
-                                             SET ativo = 1
-                                             WHERE id_usuario = @idUsuario";
+                    //// Caso o usuário esteja inativo, desativa a compra também
+                    //if (ativo == 1)
+                    //{
+                    //    string sqlInativarCompra = @"UPDATE AretiVitae_Compra
+                    //                         SET ativo = 1
+                    //                         WHERE id_usuario = @idUsuario";
 
-                        MySqlCommand cmdInativar = new MySqlCommand(sqlInativarCompra, DAO_Conexao.con);
-                        cmdInativar.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    //    MySqlCommand cmdInativar = new MySqlCommand(sqlInativarCompra, DAO_Conexao.con);
+                    //    cmdInativar.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                        cmdInativar.ExecuteNonQuery();
-                    }
+                    //    cmdInativar.ExecuteNonQuery();
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao atualizar usuário: " + ex.Message,
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                resultado = false;
+            }
+            finally
+            {
+                if (DAO_Conexao.con.State == System.Data.ConnectionState.Open)
+                    DAO_Conexao.con.Close();
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Método responsável por atualizar os dados de um usuário
+        /// </summary>
+        /// <param name="username">Nome do Usuário</param>
+        /// <param name="idade">Idade</param>
+        /// <param name="email">Email</param>
+        /// <param name="senha">Senha</param>
+        /// <param name="tipoRegistro">Tipo de Registro</param>
+        /// <param name="registro">Registro</param>
+        /// <param name="ativo">Código de Ativação do usuário</param>
+        /// <returns>True se a atualização for bem sucedida</returns>
+        public bool atualizarUsuarioS(string username, int idade, string email, string tipoRegistro, string registro, int ativo)
+        {
+            bool resultado = false;
+
+            // Validação do CPF
+            if (tipoRegistro == "Pessoa Física" && !validarCPF(registro))
+            {
+                MessageBox.Show("CPF Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validação do Email
+            if (!validarEmail(email))
+            {
+                MessageBox.Show("Email Inválido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            try
+            {
+                DAO_Conexao.con.Open();
+
+                //// Busca os dados atuais do usuário
+                //int assinaturaAtual = 0;
+                //int idUsuario = 0;
+
+                //string sqlBusca = @"SELECT id, assinatura
+                //            FROM AretiVitae_Usuario
+                //            WHERE username = @username";
+
+                //MySqlCommand cmdBusca = new MySqlCommand(sqlBusca, DAO_Conexao.con);
+                //cmdBusca.Parameters.AddWithValue("@username", username);
+
+                //MySqlDataReader dr = cmdBusca.ExecuteReader();
+
+                //if (dr.Read())
+                //{
+                //    idUsuario = Convert.ToInt32(dr["id"]);
+                //    assinaturaAtual = Convert.ToInt32(dr["assinatura"]);
+                //}
+
+                //dr.Close();
+
+                // Atualiza os dados do usuário
+                string sqlUpdate = @"UPDATE AretiVitae_Usuario SET idade = @idade, email = @email, tipoRegistro = @tipoRegistro, registro = @registro WHERE username = @username";
+
+                MySqlCommand atualizar = new MySqlCommand(sqlUpdate, DAO_Conexao.con);
+
+                atualizar.Parameters.AddWithValue("@idade", idade);
+                atualizar.Parameters.AddWithValue("@email", email);
+                atualizar.Parameters.AddWithValue("@tipoRegistro", tipoRegistro);
+                atualizar.Parameters.AddWithValue("@registro", registro);
+                //atualizar.Parameters.AddWithValue("@ativo", ativo);
+                atualizar.Parameters.AddWithValue("@username", username);
+
+                int linhasAfetadas = atualizar.ExecuteNonQuery();
+
+                if (linhasAfetadas > 0)
+                {
+                    resultado = true;
                 }
             }
             catch (Exception ex)
@@ -543,10 +623,7 @@ namespace AretiVitae2
                 DAO_Conexao.con.Open();
 
                 // Desativa o usuário
-                string query = @"UPDATE AretiVitae_Usuario
-                         SET ativo = 1
-                         WHERE username = @username
-                         AND email = @email";
+                string query = @"UPDATE AretiVitae_Usuario SET ativo = 1 WHERE username = @username AND email = @email";
 
                 MySqlCommand atualizar = new MySqlCommand(query, DAO_Conexao.con);
 
@@ -558,41 +635,41 @@ namespace AretiVitae2
 
                 if (linhasAfetadas == 0)
                 {
-                    MessageBox.Show( "Usuário não encontrado ou dados inválidos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Usuário não encontrado ou dados inválidos.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
                 resultado = true;
 
                 // Obtém o ID do usuário
-                string queryId = @"SELECT id
-                           FROM AretiVitae_Usuario
-                           WHERE username = @username";
-
-                string queryAssinatura = @"SELECT assinatura FROM AretiVitae_Usuario WHERE username = @username";
-
+                string queryId = @"SELECT id FROM AretiVitae_Usuario WHERE username = @username";
 
                 MySqlCommand cmdId = new MySqlCommand(queryId, DAO_Conexao.con);
                 cmdId.Parameters.AddWithValue("@username", username);
 
-                MySqlCommand cmdAssinatura = new MySqlCommand(queryAssinatura, DAO_Conexao.con);
-                cmdAssinatura.Parameters.AddWithValue("@username", username);
-
-
                 object result = cmdId.ExecuteScalar();
-                object resultPlano = cmdAssinatura.ExecuteScalar();
 
                 if (result != null)
                 {
                     int idUsuario = Convert.ToInt32(result);
-                    assinatura = Convert.ToInt32(resultPlano);
 
-                    if(assinatura != 0)
+                    string queryAssinatura = @"SELECT plano FROM AretiVitae_Compra WHERE id_usuario = @id_usuario";
+                    MySqlCommand cmdAssinatura = new MySqlCommand(queryAssinatura, DAO_Conexao.con);
+                    cmdAssinatura.Parameters.AddWithValue("@id_usuario", idUsuario);
+
+                    object resultPlano = cmdAssinatura.ExecuteScalar();
+
+                    if (resultPlano != null && resultPlano != DBNull.Value)
+                    {
+                        assinatura = Convert.ToInt32(resultPlano);
+                    }
+
+                    if (assinatura != 0)
                     {
                         string queryDesativarCompra = @"UPDATE AretiVitae_Compra
-                         SET ativo = 1
-                         WHERE id_usuario = @id_usuario
-                         AND plano = @plano";
+                 SET ativo = 1
+                 WHERE id_usuario = @id_usuario
+                 AND plano = @plano";
 
                         MySqlCommand cmdDesativarCompra = new MySqlCommand(queryDesativarCompra, DAO_Conexao.con);
                         cmdDesativarCompra.Parameters.AddWithValue("@id_usuario", idUsuario);
@@ -600,7 +677,7 @@ namespace AretiVitae2
 
                         cmdDesativarCompra.ExecuteNonQuery();
                     }
-                    
+
                 }
                 else
                 {
@@ -634,7 +711,6 @@ namespace AretiVitae2
             return resultado;
         }
 
-
         /// <summary>
         /// Retorna todos os administradores cadastrados
         /// </summary>
@@ -664,7 +740,7 @@ namespace AretiVitae2
         /// <returns>True se a atualização for bem sucedida</returns>
         public bool atualizarUsuarioADM(string usuario, string senha)
         {
-           // string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
+            // string senhaHash = BCrypt.Net.BCrypt.HashPassword(senha);
 
             bool resultado = false;
             try

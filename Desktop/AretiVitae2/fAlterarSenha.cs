@@ -49,8 +49,8 @@ namespace AretiVitae2
             // Estilização dos textos
             lblTitulo.ForeColor = Color.White;
             lblUsuario.ForeColor = Color.White;
-            lblSenha.ForeColor = Color.White;
-            lblSenhaAtual.ForeColor = Color.White;
+           // lblSenha.ForeColor = Color.White;
+            //lblSenhaAtual.ForeColor = Color.White;
             lblNovaSenha.ForeColor = Color.White;
             lblConfNSenha.ForeColor = Color.White;
             lblDescricao.ForeColor = Color.White;
@@ -169,17 +169,17 @@ namespace AretiVitae2
         }
 
 
-        /// <summary>
-        /// Atualiza a senha atual exibida conforme usuário selecionado.
-        /// </summary>
-        private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbUsuario.SelectedItem != null)
-            {
-                Usuario user = new Usuario();
-                lblSenhaAtual.Text = user.consultarSenhaADM(cmbUsuario.SelectedItem.ToString());
-            }
-        }
+        ///// <summary>
+        ///// Atualiza a senha atual exibida conforme usuário selecionado.
+        ///// </summary>
+        //private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbUsuario.SelectedItem != null)
+        //    {
+        //        Usuario user = new Usuario();
+        //        lblSenhaAtual.Text = user.consultarSenhaADM(cmbUsuario.SelectedItem.ToString());
+        //    }
+        //}
 
         /// <summary>
         /// Limpa os campos do formulário.
@@ -189,7 +189,7 @@ namespace AretiVitae2
             cmbUsuario.SelectedIndex = -1;
             txtNovaSenha.Clear();
             txtConfirmarNSenha.Clear();
-            lblSenhaAtual.Text = string.Empty;
+            //lblSenhaAtual.Text = string.Empty;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
