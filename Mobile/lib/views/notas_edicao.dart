@@ -30,7 +30,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
     super.dispose();
   }
 
-  // Salva e volta para a lista
+  // Salva a nota e retorna para a lista
   void _salvar() {
     final titulo = txtTitulo.text.trim();
     final texto = txtTexto.text.trim();
@@ -69,7 +69,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
     return Scaffold(
       body: Column(
         children: [
-          // ── Topo azul claro (igual ao Perfil) ──────────────
+          //Cabeçalho
           Container(
             height: 120,
             color: Color.fromRGBO(101, 123, 191, 1),
@@ -92,7 +92,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
                 ),
                 const Spacer(),
 
-                // Data da nota (exibida no topo)
+                // Data da nota
                 Text(
                   widget.nota.data,
                   style: TextStyle(
@@ -105,6 +105,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
             ),
           ),
 
+          //Card de Edição
           Expanded(
             child: Container(
               color: Color.fromRGBO(77, 84, 131, 1),
@@ -138,6 +139,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
                       ),
                     ),
 
+                    //Título
                     SizedBox(height: 8),
                     Text(
                       "Mudar título",
@@ -150,7 +152,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
 
                     SizedBox(height: 25),
 
-                    // Campo: Texto (várias linhas)
+                    //Conteúdo da Nota
                     TextField(
                       controller: txtTexto,
                       maxLines: 10,
@@ -187,7 +189,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
 
                     SizedBox(height: 30),
 
-                    // Botão Salvar (igual ao Perfil)
+                    // Botão Salvar
                     Center(
                       child: ElevatedButton(
                         onPressed: _salvar,

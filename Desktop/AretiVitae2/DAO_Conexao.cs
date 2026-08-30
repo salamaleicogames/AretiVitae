@@ -10,12 +10,12 @@ using BCrypt.Net;
 namespace AretiVitae2
 {
     /// <summary>
-    /// Classe responsável por gerenciar a conexão com o banco de dados MySQL
-    /// e realizar operações básicas de autenticação de login.
+    /// DAO_Conexao:
+    /// - Gerencia a conexão com o banco de dados MySQL
+    /// - Realiza operações de autenticação e login no sistema
     /// </summary>
 
-    ///<author>João Mantz de OLiveira e Maurício Fernandes Ferreira</author>
-
+ 
 
     internal class DAO_Conexao
     {
@@ -26,58 +26,52 @@ namespace AretiVitae2
         public static MySqlConnection con;
 
         /// <summary>
-        /// Método responsável por configurar a conexão com o banco de dados.
+        /// GetConexao - Configura a conexão com o banco de dados.
         /// </summary>
         /// <param name="local">Endereço do servidor (ex: localhost)</param>
         /// <param name="banco">Nome do banco de dados</param>
         /// <param name="user">Usuário do banco</param>
         /// <param name="senha">Senha do banco</param>
         /// <returns>
-        /// Retorna true se a string de conexão for criada com sucesso,
-        /// caso contrário retorna false.
+        /// Retorna true se a string de conexão for criada com sucesso, caso contrário retorna false
         /// </returns>
-        public static Boolean getConexao(String local, String banco, String user, String senha)
+        public static Boolean GetConexao(String local, String banco, String user, String senha)
         {
-            Boolean retorno = false;
+            Boolean conexao = false;
             try
             {
-                con = new MySqlConnection(
-                    "Server=" + local + ";" +
-                    "User ID=" + user + ";" +
-                    "Database=" + banco + ";" +
-                    "Password=" + senha + ";");
-                //con.Open();
-                retorno = true;
+                con = new MySqlConnection("Server=" + local + ";" + "User ID=" + user + ";" + "Database=" + banco + ";" + "Password=" + senha + ";");
+                conexao = true;
             }
-            //Exibe erro no console
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            return retorno;
+            return conexao;
         }
 
 
         /// <summary>
-        /// Método responsável por validar o login do usuário administrador usando BCrypt.
+        /// ValidaLogin - Valida o login do usuário administrador
         /// </summary>
-        /// <param name="usuario">Nome de usuário informado no login</param>
-        /// <param name="senha">Senha informada no login</param>
+        /// <param name="usuario">Nome de usuário</param>
+        /// <param name="senha">Senha</param>
         /// <returns>
         /// Retorna um número inteiro representando o tipo de acesso:
         /// 0 = Login inválido
-        /// 1 = Administrador comum
-        /// 2 = Administrador Master
+        /// 1 = Administrador tipo ADM
+        /// 2 = Administrador tipo BUILDER
         /// </returns>
-        public static int validaLogin(string usuario, string senha)
+        public static int ValidaLogin(string usuario, string senha)
         {
             int log = 0;
 
             try
             {
+                //Cria e verifica a conexão com o B.D.
                 if (con == null)
                 {
-                    bool ok = getConexao("143.106.241.4", "cl204177", "cl204177", "cl*04062009");
+                    bool ok = GetConexao("143.106.241.4", "cl204177", "cl204177", "cl*04062009");
 
                     if (!ok || con == null)
                     {
@@ -92,7 +86,8 @@ namespace AretiVitae2
                     con.Open();
                 }
 
-                // Busca a senha criptografada (hash) e o tipo cadastrados para o usuário
+
+                // Busca o HASH da senha cadastrada e o tipo cadastrados para o usuário.
                 string query = "SELECT senha, tipo FROM AretiVitae_Admin WHERE usuario = @usuario";
 
                 MySqlCommand login = new MySqlCommand(query, con);
@@ -104,7 +99,7 @@ namespace AretiVitae2
                 {
                     string senhaHashBanco = resultado["senha"].ToString();
 
-                    // Compara a senha digitada em texto puro com o hash gravado no banco
+                    // Compara a senha digitada em texto com o hash gravado no B.D.
                     if (BCrypt.Net.BCrypt.Verify(senha, senhaHashBanco))
                     {
                         log = Convert.ToInt32(resultado["tipo"]);
@@ -117,6 +112,7 @@ namespace AretiVitae2
             }
             finally
             {
+                //Após o login, fecha a conexao com o Banco de Dados.
                 try
                 {
                     if (con != null && con.State != System.Data.ConnectionState.Closed)

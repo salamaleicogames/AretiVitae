@@ -57,7 +57,6 @@ namespace AretiVitae2
 
         private void fListaUsuarios_Load(object sender, EventArgs e)
         {
-
             int.TryParse(txtID.Text, out filtroId);
 
             int.TryParse(txtIDInativo.Text, out filtroIdInativo);
@@ -277,17 +276,17 @@ namespace AretiVitae2
                     }
 
 
-                        // Busca os dados extras no banco (registro e tipoRegistro)
-                        Usuario user = new Usuario();
+                    // Busca os dados extras no banco (registro e tipoRegistro)
+                    Usuario user = new Usuario();
                     string tRegistro, registro;
-                    user.buscarDadosExtras(username, out tRegistro, out registro);
+                    user.BuscarRegistroUsuario(username, out tRegistro, out registro);
 
                     //Tratamento das variáveis caso o usuário ter o plano free
                     if (string.IsNullOrEmpty(tRegistro)) tRegistro = "";
                     if (string.IsNullOrEmpty(registro)) registro = "";
 
 
-                    bool sucesso = user.atualizarUsuarioS(username, idade, email, tRegistro, registro, 0);
+                    bool sucesso = user.AtualizarUsuarioS(username, idade, email, tRegistro, registro, 0);
 
                     if (sucesso)
                     {

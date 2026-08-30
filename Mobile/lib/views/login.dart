@@ -17,6 +17,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
+//Tela de Login do usuário
 class _LoginState extends State<Login> {
   final GlobalKey<FormState> loginKey = GlobalKey<FormState>();
 

@@ -312,7 +312,7 @@ namespace AretiVitae2
                 try
                 {
                     Usuario usuario = new Usuario();
-                    if (usuario.cadastrarUsuario(username, idade, email, senha, tipoRegistro, registro) == true)
+                    if (usuario.CadastrarUsuario(username, idade, email, senha, tipoRegistro, registro) == true)
                     {
                         MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -391,7 +391,7 @@ namespace AretiVitae2
 
                 // Atualização do usuário
                 Usuario usuario = new Usuario();
-                if (usuario.atualizarUsuarioS(username, idade, email, tipoRegistro, registro, ativo))
+                if (usuario.AtualizarUsuarioS(username, idade, email, tipoRegistro, registro, ativo))
                 {
                     MessageBox.Show("Usuário atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -3,8 +3,10 @@ import 'package:http/http.dart' as http;
 import 'package:areti_vitae_mobile/model/notas_model.dart';
 
 class NotasRepository {
+  //Endpoint base para as requisições das Notas
   final String baseUrl = "http://localhost:8081/apiAvNotes";
 
+  //Lista as Notas criadas pelo usuário
   Future<List<NotasModel>> listarNotasPorUsuario(int userId) async {
     final url = Uri.parse("$baseUrl/User/$userId");
     final response = await http.get(url);
@@ -17,6 +19,7 @@ class NotasRepository {
     }
   }
 
+  //Cria uma nova Nota
   Future<NotasModel> criarNota(NotasModel nota) async {
     final url = Uri.parse("$baseUrl/Register");
     final response = await http.post(
@@ -32,6 +35,7 @@ class NotasRepository {
     }
   }
 
+  //Atualiza os dados de uma nota
   Future<NotasModel> atualizarNota(NotasModel nota) async {
     final url = Uri.parse("$baseUrl/Update/${nota.id}");
     final response = await http.put(

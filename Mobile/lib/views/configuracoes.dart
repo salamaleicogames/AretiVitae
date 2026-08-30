@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'notas.dart';
 
 class Configuracoes extends StatefulWidget {
   const Configuracoes({super.key});
@@ -21,48 +22,45 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
   bool _carregando = true;
 
+  void salvar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Configurações salvas!"),
+        backgroundColor: Colors.green,
+      ),
+    );
+
+    print("Configurações Salvas com sucesso!");
+
+    if (_aceitarNotificacoes == true)
+      print("Notificações: Habilitado\n");
+    else
+      print("Notificações: Desabilitado\n");
+
+    if (_loginAutomatico == true)
+      print("Login Automático: Habilitado\n");
+    else
+      print("Login Automático: Desabilitado\n");
+
+    if (_criNotas == true)
+      print("Criação de Notas: Habilitado\n");
+    else
+      print("Criação de Notas: Desabilitado\n");
+
+    if (_edicaoNotas == true)
+      print("Edição de Notas: Habilitado\n");
+    else
+      print("Edição de Notas: Desabilitado\n");
+
+    if (_excNotas == true)
+      print("Exclusão de Notas: Habilitado\n");
+    else
+      print("Exclusão de Notas: Desabilitado\n");
+  }
+
   @override
   void initState() {
     super.initState();
-    buscarConfiguracoes();
-  }
-
-  // Busca as configurações do usuário na API
-  Future<void> buscarConfiguracoes() async {
-    setState(() {
-      _carregando = true;
-    });
-
-    try {
-      // Busca o id do usuário logado, que foi salvo na tela de Login
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      int idUsuario = prefs.getInt("idUsuario") ?? 0;
-
-      final url = Uri.parse("http://localhost:8081/configuracoes/$idUsuario");
-
-      final resposta = await http.get(url);
-
-      if (resposta.statusCode == 200) {
-        final dados = jsonDecode(resposta.body);
-
-        setState(() {
-          _aceitarNotificacoes = dados["notificacoes"] == 1;
-          _loginAutomatico = dados["loginAuto"] == 1;
-          _edicaoNotas = dados["editNotes"] == 1;
-          _excNotas = dados["excNotes"] == 1;
-          _criNotas = dados["creNotes"] == 1;
-          _carregando = false;
-        });
-      } else {
-        setState(() {
-          _carregando = false;
-        });
-      }
-    } catch (erro) {
-      setState(() {
-        _carregando = false;
-      });
-    }
   }
 
   @override
@@ -315,7 +313,11 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
                 // Botão Salvar
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    salvar();
+
+                    setState(() {});
+                  },
                   child: Text(
                     "Salvar",
                     style: TextStyle(

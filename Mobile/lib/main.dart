@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: Login(),
 
+      //Rotas utilizadas no app
       routes: {
         "/home": (context) => Home(),
         "/login": (context) => Login(),

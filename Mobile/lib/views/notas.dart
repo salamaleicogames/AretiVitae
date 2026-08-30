@@ -12,7 +12,7 @@ class Notas extends StatefulWidget {
 }
 
 class _NotasState extends State<Notas> {
-  // Lista de notas pré cadastradas
+  // Array de notas
   List<NotasModel> notas = [];
   bool carregando = true;
 
@@ -22,6 +22,7 @@ class _NotasState extends State<Notas> {
     carregarNotas();
   }
 
+  //Lista as notas criadas pelo usuário
   Future<void> carregarNotas() async {
     final usuario = await UserRepository().carregarUsuario();
     final lista = await NotasRepository().listarNotasPorUsuario(usuario!.id);
@@ -41,22 +42,6 @@ class _NotasState extends State<Notas> {
 
   // Abre o modal para digitar o título da nova nota
   void novaNota() {
-    // if (notas.length >= 10) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: Text(
-    //         "Limite de 10 notas atingido!",
-    //         style: TextStyle(color: Colors.black),
-    //       ),
-    //       backgroundColor: Colors.yellow,
-    //       duration: Duration(seconds: 2),
-    //       behavior: SnackBarBehavior.floating,
-    //       margin: EdgeInsets.all(20),
-    //     ),
-    //   );
-    //   return;
-    // }
-
     final ctrlTitulo = TextEditingController();
 
     showDialog(
@@ -137,7 +122,7 @@ class _NotasState extends State<Notas> {
             ),
             child: Row(
               children: [
-                const Text(
+                Text(
                   "Notas",
                   style: TextStyle(
                     fontFamily: "Montserrat",
@@ -174,7 +159,7 @@ class _NotasState extends State<Notas> {
             ),
           ),
 
-          // ── Corpo azul escuro com a lista ───────────────
+          //Estilização do card de notas
           Expanded(
             child: Container(
               color: Color.fromRGBO(77, 84, 131, 1),

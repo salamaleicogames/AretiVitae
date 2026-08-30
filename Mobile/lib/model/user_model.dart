@@ -24,6 +24,7 @@ class UserModel {
   set senha(String value) => _senha = value;
 
   UserModel();
+  UserModel.user(this._usuario, this._email, this._idade, this._senha);
 
   UserModel.fromJson(Map<String, dynamic> json) {
     _id = json["id"] ?? 0;

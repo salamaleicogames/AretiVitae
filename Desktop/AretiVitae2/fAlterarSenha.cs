@@ -63,7 +63,7 @@ namespace AretiVitae2
 
             // Carregamento dos usuários ADM
             Usuario user = new Usuario();
-            MySqlDataReader r = user.consultarUsuarioADM();
+            MySqlDataReader r = user.ConsultarUsuarioADM();
 
             while (r.Read())
                 cmbUsuario.Items.Add(r["usuario"].ToString());
@@ -147,7 +147,7 @@ namespace AretiVitae2
                 {
                     Usuario user = new Usuario();
 
-                    if (user.atualizarUsuarioADM(usuario, senha))
+                    if (user.AtualizarUsuarioADM(usuario, senha))
                         MessageBox.Show("Senha alterada com sucesso!");
                     else
                         MessageBox.Show("Não foi possível alterar a senha!");

@@ -35,8 +35,8 @@ class _CadastroState extends State<Cadastro> {
   // Apenas exibe os usuários no console
   void exibir() {
     for (UserModel u in user) {
-      log("USUÁRIO CADASTRADO!");
-      log("${u.usuario} - ${u.email} - ${u.senha} - ${u.idade}");
+      print("USUÁRIO CADASTRADO!");
+      print("${u.usuario} - ${u.email} - ${u.senha} - ${u.idade}");
     }
   }
 
@@ -355,7 +355,22 @@ class _CadastroState extends State<Cadastro> {
 
                         // Botão cadastrar
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (cadastroKey.currentState!.validate()) {
+                              UserModel novoUsuario = UserModel.user(
+                                txtNome.text,
+                                txtEmail.text,
+                                int.parse(txtData.text),
+                                txtSenha.text,
+                              );
+
+                              user.add(novoUsuario);
+
+                              exibir();
+
+                              setState(() {});
+                            }
+                          },
                           child: Text(
                             "Cadastrar",
                             style: TextStyle(
@@ -363,13 +378,6 @@ class _CadastroState extends State<Cadastro> {
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.white,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                            minimumSize: Size(280, 48),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                         ),

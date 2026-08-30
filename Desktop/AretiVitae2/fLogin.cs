@@ -13,26 +13,23 @@ namespace AretiVitae2
 
     /// <summary>
     /// Formulário responsável pelo login de Administradores no sistema.
-    /// Realiza validação de credenciais e direciona o usuário conforme seu nível de acesso.
+    /// Realiza validação de credenciais e direciona o usuário conforme seu nível de acesso. (ADM ou Builder)
     /// </summary>
     public partial class fLogin : Form
     {
-        /// Construtor do formulário de login.
-        /// Inicializa os componentes, testa a conexão com o banco de dados e aplica estilizações visuais iniciais.
-        /// </summary>
         public fLogin()
         {
             InitializeComponent();
 
+            #region Teste de conexão com B.D
             //Teste de conexão com Banco de Dados
-            if (DAO_Conexao.getConexao("143.106.241.4", "cl204177", "cl204177", "cl*04062009"))
+            if (DAO_Conexao.GetConexao("143.106.241.4", "cl204177", "cl204177", "cl*04062009"))
                 Console.WriteLine("Conectado");
             else
                 Console.WriteLine("Erro de conexão");
+            #endregion
 
-
-            //Estilização de elementos visuais
-            
+            #region Estilização de elementos visuais
             btnEntrar.FlatStyle = FlatStyle.Flat;
             btnEntrar.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
 
@@ -41,22 +38,19 @@ namespace AretiVitae2
             pictureBox2.BackColor = System.Drawing.Color.FromArgb(12, 27, 60);
             imgLogo.BackColor = System.Drawing.Color.FromArgb(12, 27, 60);
 
+            #endregion
+
             //Define foco inicial no campo usuário
             txtUsuario.Focus();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
 
         /// <summary>
         /// Evento do clique no botão Entrar.
-        /// Realiza a validação dos campos, autenticação do usuário e redirecionamento conforme o tipo de administrador.
+        /// Realiza o login do administrador no sistema
         /// </summary>
-        /// <param name="sender">Objeto que disparou o evento</param>
-        /// <param name="e">Argumentos do evento</param>
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void BtnEntrar_Click(object sender, EventArgs e)
         {
             //Verificação de campos vazios
             if (string.IsNullOrEmpty(txtUsuario.Text) || string.IsNullOrEmpty(mtxtSenha.Text))
@@ -66,20 +60,21 @@ namespace AretiVitae2
             }
 
 
+            // Validação de Usuário e Senha - (retorna tipo de acesso)
+            int tipo = DAO_Conexao.ValidaLogin(txtUsuario.Text, mtxtSenha.Text);
 
-            //// Validação de Usuário e Senha - (retorna tipo de acesso)
-            int tipo = DAO_Conexao.validaLogin(txtUsuario.Text, mtxtSenha.Text);
 
-            if (tipo == 0)
+            if (tipo == 0) //Login inválido
             {
                 MessageBox.Show("Usuário/Senha inválidos!");
             }
-            else if (tipo == 1)
+            else if (tipo == 1) //Administrador tipo ADM
             {
 
                 MessageBox.Show("Usuário ADM", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 string nomeUsuario = txtUsuario.Text;
+
                 //Abre o formulário inicial e fecha o login
                 fIndex index = new fIndex(tipo, nomeUsuario);
                 index.Show();
@@ -87,7 +82,7 @@ namespace AretiVitae2
 
                 DAO_Conexao.con.Close();
             }
-            else if (tipo == 2)
+            else if (tipo == 2) //Administrador tipo BUILDER
             {
                 MessageBox.Show("Usuário Builder", "Bem-vindo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -122,7 +117,7 @@ namespace AretiVitae2
 
 
                 // Validação de Usuário e Senha
-                int tipo = DAO_Conexao.validaLogin(txtUsuario.Text, mtxtSenha.Text);
+                int tipo = DAO_Conexao.ValidaLogin(txtUsuario.Text, mtxtSenha.Text);
 
                 if (tipo == 0)
                 {
@@ -139,8 +134,6 @@ namespace AretiVitae2
                     fIndex index = new fIndex(tipo, nomeUsuario);
                     index.Show();
                     this.Hide();
-
-
 
                     DAO_Conexao.con.Close();
                 }

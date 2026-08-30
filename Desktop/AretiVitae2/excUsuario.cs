@@ -106,7 +106,7 @@ namespace AretiVitae2
                 try
                 {
                     Usuario usuario = new Usuario();
-                    MySqlDataReader resultado = usuario.consultarUsuario(txtUsername.Text.Trim());
+                    MySqlDataReader resultado = usuario.ConsultarUsuario(txtUsername.Text.Trim());
 
                     if (resultado.Read())
                     {
@@ -176,7 +176,7 @@ namespace AretiVitae2
             {
                 Usuario usuario = new Usuario();
 
-                if (usuario.excluirUsuario(username, email))
+                if (usuario.DesativacaoUsuario(username, email))
                 {
                     MessageBox.Show(
                         "Usuário desativado com sucesso!",
