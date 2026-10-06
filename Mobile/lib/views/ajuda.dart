@@ -106,13 +106,13 @@ class _AjudaState extends State<Ajuda> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             _buildDeveloperCard(
-                              image: "assets/images/João Mantz.jpeg",
+                              image: "assets/images/joao mantz.jpg",
                               name: "João Mantz de Oliveira",
                               role: "Líder do Projeto\nDesenvolvedor Web",
                             ),
 
                             _buildDeveloperCard(
-                              image: "assets/images/Maurício.jpeg",
+                              image: "assets/images/mauricio.png",
                               name: "Maurício F. Ferreira",
                               role: "Desenvolvedor Mobile\n e Desktop",
                             ),

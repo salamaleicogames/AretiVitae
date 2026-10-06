@@ -22,15 +22,53 @@ class _ConfiguracoesState extends State<Configuracoes> {
 
   bool _carregando = true;
 
-  void salvar() {
+  Future<void> carregarConfiguracoes() async {
+    //Uso de SharedPreferences p/ salvar os dados das Configurações entre as telas do app
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      _aceitarNotificacoes = prefs.getBool("aceitarNotificacoes") ?? false;
+      _loginAutomatico = prefs.getBool("loginAutomatico") ?? false;
+      _criNotas = prefs.getBool("criNotas") ?? false;
+      _edicaoNotas = prefs.getBool("edicaoNotas") ?? false;
+      _excNotas = prefs.getBool("excNotas") ?? false;
+      _carregando = false;
+    });
+  }
+
+  Future<void> salvar() async {
+    //Uso de SharedPreferences p/ salvar os dados de Cadastro entre as telas do app
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    await prefs.setBool("aceitarNotificacoes", _aceitarNotificacoes);
+    await prefs.setBool("loginAutomatico", _loginAutomatico);
+    await prefs.setBool("criNotas", _criNotas);
+    await prefs.setBool("edicaoNotas", _edicaoNotas);
+    await prefs.setBool("excNotas", _excNotas);
+
+    if (!mounted) return;
+
+    //Mensagem de sucesso
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Configurações salvas!"),
-        backgroundColor: Colors.green,
+        content: Text(
+          "Configurações salvas!",
+          style: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 78, 190, 82),
       ),
     );
 
+    //Exibição das Configurações no console
     print("Configurações Salvas com sucesso!");
+
+    if (_aceitarNotificacoes == true)
+      print("Notificações: Habilitado\n");
+    else
+      print("Notificações: Desabilitado\n");
 
     if (_aceitarNotificacoes == true)
       print("Notificações: Habilitado\n");
@@ -61,6 +99,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
   @override
   void initState() {
     super.initState();
+    carregarConfiguracoes();
   }
 
   @override
@@ -81,7 +120,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
               children: [
                 SizedBox(height: 50),
 
-                // BOX DE PERFIL (centralizado)
+                // BOX DE PERFIL
                 Center(
                   child: Container(
                     padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
@@ -99,7 +138,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
                           },
                           child: Image.asset(
                             "assets/images/alter.png",
-                            width: 48,
+                            width: 60,
                           ),
                         ),
 
@@ -110,7 +149,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
                           style: TextStyle(
                             fontFamily: "Montserrat",
                             fontWeight: FontWeight.bold,
-                            fontSize: 22,
+                            fontSize: 27,
                             color: Color.fromRGBO(255, 255, 255, 0.9),
                           ),
                         ),
@@ -323,13 +362,13 @@ class _ConfiguracoesState extends State<Configuracoes> {
                     style: TextStyle(
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                    minimumSize: Size(260, 44),
+                    minimumSize: Size(280, 48),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -344,19 +383,21 @@ class _ConfiguracoesState extends State<Configuracoes> {
                     Navigator.pushNamed(context, "/home");
                   },
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/home");
+                    },
                     child: Text(
-                      "Cancelare",
+                      "Cancelar",
                       style: TextStyle(
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 20,
                         color: Colors.white,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromRGBO(216, 237, 255, 0.8),
-                      minimumSize: Size(260, 44),
+                      minimumSize: Size(280, 48),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -368,7 +409,7 @@ class _ConfiguracoesState extends State<Configuracoes> {
               ],
             ),
 
-            //Botão Voltar
+            //Botão Voltar (topo da tela)
             Positioned(
               top: 5,
               left: 20,

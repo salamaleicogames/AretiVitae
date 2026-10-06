@@ -64,11 +64,11 @@ namespace AretiVitae2
             int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
             if (status == 0)
             {
-                carregarUsuarios(status,filtroId , txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                carregarUsuarios(status,filtroId , txtNome.Text, txtRegistro.Text);
             }
             else
             {
-                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text);
             }
         }
 
@@ -77,7 +77,7 @@ namespace AretiVitae2
         /// <summary>
         /// Método de abertura da listagem dos Usuários cadastrados (DatagGridView) e exibição de estatísticas de cadastro de usuários
         /// </summary>
-        private void carregarUsuarios(int ativo, int filtroId, string filtroNome, string filtroCPF, int filtroAssinatura)
+        private void carregarUsuarios(int ativo, int filtroId, string filtroNome, string filtroCPF)
         {
             try
             {
@@ -104,11 +104,6 @@ namespace AretiVitae2
                 if (!string.IsNullOrEmpty(filtroCPF))
                 {
                     query += " AND registro LIKE '%" + filtroCPF + "%'";
-                }
-
-                if (filtroAssinatura >= 0)
-                {
-                    query += " AND assinatura = " + filtroAssinatura;
                 }
 
 
@@ -296,11 +291,11 @@ namespace AretiVitae2
                         int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
                         if (status == 0)
                         {
-                            carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                            carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text);
                         }
                         else
                         {
-                            carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                            carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text);
                         }
                     }
                 }
@@ -312,11 +307,11 @@ namespace AretiVitae2
             int status = (tabUsuarios.SelectedIndex == 0) ? 0 : 1;
             if (status == 0)
             {
-                carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+                carregarUsuarios(status, filtroId, txtNome.Text, txtRegistro.Text);
             }
             else
             {
-                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+                carregarUsuarios(status, filtroIdInativo, txtNome.Text, txtRegistroInativo.Text);
             }
         }
 
@@ -446,7 +441,7 @@ namespace AretiVitae2
                 filtroIdInativo = 0;
             }
 
-            carregarUsuarios(1, filtroIdInativo, txtNomeInativo.Text, txtRegistroInativo.Text, cmbAssinaturaInativo.SelectedIndex);
+            carregarUsuarios(1, filtroIdInativo, txtNomeInativo.Text, txtRegistroInativo.Text);
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -460,29 +455,27 @@ namespace AretiVitae2
                 filtroId = 0;
             }
 
-            carregarUsuarios(0, filtroId, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            carregarUsuarios(0, filtroId, txtNome.Text, txtRegistro.Text);
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtNome.Clear();
             txtRegistro.Clear();
-            cmbAssinatura.SelectedIndex = -1;
 
             txtID.Clear();
 
-            carregarUsuarios(0, 0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            carregarUsuarios(0, 0, txtNome.Text, txtRegistro.Text);
         }
 
         private void btnLimparInativo_Click(object sender, EventArgs e)
         {
             txtNomeInativo.Clear();
             txtRegistroInativo.Clear();
-            cmbAssinaturaInativo.SelectedIndex = -1;
 
             txtIDInativo.Clear();
 
-            carregarUsuarios(1, 0, txtNome.Text, txtRegistro.Text, cmbAssinatura.SelectedIndex);
+            carregarUsuarios(1, 0, txtNome.Text, txtRegistro.Text);
         }
 
         private void groupFiltrosAtivo_Enter(object sender, EventArgs e)

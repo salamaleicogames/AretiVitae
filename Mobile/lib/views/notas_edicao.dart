@@ -52,12 +52,15 @@ class _NotaEdicaoState extends State<NotaEdicao> {
     widget.onSalvar(titulo, texto);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Nota salva com sucesso!"),
-        backgroundColor: Colors.green,
-        duration: Duration(seconds: 2),
-        behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.all(20),
+      SnackBar(
+        content: Text(
+          "Nota salva com sucesso!",
+          style: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 78, 190, 82),
       ),
     );
 

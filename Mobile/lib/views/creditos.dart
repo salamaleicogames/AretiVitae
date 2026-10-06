@@ -75,6 +75,7 @@ class _CreditosState extends State<Creditos> {
             SizedBox(height: 30),
 
             // Desenvolvedores
+            //Uso de componentização para encurtar o código (Houve ajude da IA nesse processo)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -121,6 +122,7 @@ class _CreditosState extends State<Creditos> {
     );
   }
 
+  //Componente para o card dos desenvolvedores do projeto (Houve ajuda da IA)
   Widget _buildDeveloperCard({
     required String image,
     required String name,

@@ -19,13 +19,9 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
   bool mostrarCodigo = false;
   bool mostrarSenha = false;
 
-  int codigo = 101010;
+  int codigo = 101010; //Código de confirmação pré-definido
 
-  // List<UserModel> usuario = [
-  //   UserModel.email("mauricio@gmail.com"),
-  //   UserModel.email("joao@gmail.com"),
-  // ];
-
+  //Função de validação de email
   void enviarEmail() {
     if (esqueciSenhaKey.currentState!.validate()) {
       setState(() {
@@ -34,13 +30,20 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Código enviado ao email!"),
-          backgroundColor: Colors.blue,
+          content: Text(
+            "Código enviado ao email!",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color.fromRGBO(154, 205, 255, 1),
         ),
       );
     }
   }
 
+  //Função de validação do código de confirmação
   void validarCodigo() {
     if (esqueciSenhaKey.currentState!.validate()) {
       setState(() {
@@ -49,19 +52,32 @@ class _EsqueciSenhaState extends State<EsqueciSenha> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Código validado!"),
-          backgroundColor: Colors.blue,
+          content: Text(
+            "Código validado!",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color.fromRGBO(154, 205, 255, 1),
         ),
       );
     }
   }
 
+  //Função para redefinir a senha
   void redefinirSenha() {
     if (esqueciSenhaKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Senha redefinida com sucesso!"),
-          backgroundColor: Colors.green,
+          content: Text(
+            "Senha redefinida com sucesso!",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color.fromRGBO(154, 205, 255, 1),
         ),
       );
 

@@ -104,6 +104,19 @@ class _NotasState extends State<Notas> {
     final atualizada = await NotasRepository().atualizarNota(nota);
 
     setState(() => notas.remove(nota));
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Nota Excluída!",
+          style: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Color.fromRGBO(235, 103, 129, 1),
+      ),
+    );
   }
 
   @override
@@ -128,7 +141,7 @@ class _NotasState extends State<Notas> {
                     fontFamily: "Montserrat",
                     fontWeight: FontWeight.w700,
                     fontSize: 22,
-                    color: Color.fromARGB(255, 255, 255, 198),
+                    color: Color.fromARGB(255, 250, 250, 243),
                   ),
                 ),
 

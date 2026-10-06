@@ -36,8 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.lblTitulo2 = new System.Windows.Forms.Label();
-            this.cmbAssinaturaInativo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnLimparInativo = new System.Windows.Forms.Button();
             this.btnPesquisarInativo = new System.Windows.Forms.Button();
             this.txtRegistroInativo = new System.Windows.Forms.TextBox();
@@ -54,8 +52,6 @@
             this.groupFiltrosAtivo = new System.Windows.Forms.GroupBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cmbAssinatura = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtRegistro = new System.Windows.Forms.TextBox();
@@ -153,30 +149,6 @@
             this.lblTitulo2.TabIndex = 3;
             this.lblTitulo2.Text = "Lista de Usuários";
             // 
-            // cmbAssinaturaInativo
-            // 
-            this.cmbAssinaturaInativo.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAssinaturaInativo.FormattingEnabled = true;
-            this.cmbAssinaturaInativo.Items.AddRange(new object[] {
-            "Free",
-            "Plano Hécate",
-            "Plano Artemis",
-            "Plano Selene"});
-            this.cmbAssinaturaInativo.Location = new System.Drawing.Point(338, 93);
-            this.cmbAssinaturaInativo.Name = "cmbAssinaturaInativo";
-            this.cmbAssinaturaInativo.Size = new System.Drawing.Size(121, 28);
-            this.cmbAssinaturaInativo.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(250, 96);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Assinatura: ";
-            // 
             // btnLimparInativo
             // 
             this.btnLimparInativo.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,8 +224,6 @@
             // 
             this.groupFiltrosInativos.Controls.Add(this.txtIDInativo);
             this.groupFiltrosInativos.Controls.Add(this.label11);
-            this.groupFiltrosInativos.Controls.Add(this.cmbAssinaturaInativo);
-            this.groupFiltrosInativos.Controls.Add(this.label7);
             this.groupFiltrosInativos.Controls.Add(this.btnLimparInativo);
             this.groupFiltrosInativos.Controls.Add(this.btnPesquisarInativo);
             this.groupFiltrosInativos.Controls.Add(this.txtRegistroInativo);
@@ -328,8 +298,6 @@
             // 
             this.groupFiltrosAtivo.Controls.Add(this.txtID);
             this.groupFiltrosAtivo.Controls.Add(this.label10);
-            this.groupFiltrosAtivo.Controls.Add(this.cmbAssinatura);
-            this.groupFiltrosAtivo.Controls.Add(this.label6);
             this.groupFiltrosAtivo.Controls.Add(this.btnLimpar);
             this.groupFiltrosAtivo.Controls.Add(this.btnPesquisar);
             this.groupFiltrosAtivo.Controls.Add(this.txtRegistro);
@@ -363,31 +331,6 @@
             this.label10.Size = new System.Drawing.Size(29, 20);
             this.label10.TabIndex = 8;
             this.label10.Text = "ID: ";
-            // 
-            // cmbAssinatura
-            // 
-            this.cmbAssinatura.Font = new System.Drawing.Font("Josefin Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAssinatura.FormattingEnabled = true;
-            this.cmbAssinatura.Items.AddRange(new object[] {
-            "Free",
-            "Plano Hécate",
-            "Plano Artemis",
-            "Plano Selene"});
-            this.cmbAssinatura.Location = new System.Drawing.Point(338, 78);
-            this.cmbAssinatura.Name = "cmbAssinatura";
-            this.cmbAssinatura.Size = new System.Drawing.Size(121, 28);
-            this.cmbAssinatura.TabIndex = 7;
-            this.cmbAssinatura.SelectedIndexChanged += new System.EventHandler(this.cmbAssinatura_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Josefin Sans Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(250, 81);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Assinatura: ";
             // 
             // btnLimpar
             // 
@@ -545,8 +488,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblTitulo2;
-        private System.Windows.Forms.ComboBox cmbAssinaturaInativo;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLimparInativo;
         private System.Windows.Forms.Button btnPesquisarInativo;
         private System.Windows.Forms.TextBox txtRegistroInativo;
@@ -559,8 +500,6 @@
         private System.Windows.Forms.TabControl tabUsuarios;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupFiltrosAtivo;
-        private System.Windows.Forms.ComboBox cmbAssinatura;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtRegistro;

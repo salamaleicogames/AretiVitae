@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\flistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:flistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:flogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\flistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:flistausuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,47 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DAO_Conexao.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
-              "RelativeDocumentMoniker": "DAO_Conexao.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
-              "RelativeToolTip": "DAO_Conexao.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAgwAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-30T03:19:57.193Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fLogin.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fLogin.cs",
-              "RelativeDocumentMoniker": "fLogin.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fLogin.cs",
-              "RelativeToolTip": "fLogin.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwDQAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-30T17:57:00.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fLogin.cs",
-              "RelativeDocumentMoniker": "fLogin.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fLogin.cs [Design]",
-              "RelativeToolTip": "fLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-30T17:56:59.377Z",
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
@@ -98,6 +59,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DAO_Conexao.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
+              "RelativeDocumentMoniker": "DAO_Conexao.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
+              "RelativeToolTip": "DAO_Conexao.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAgwAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-30T03:19:57.193Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
               "RelativeDocumentMoniker": "Usuario.cs",
@@ -106,7 +80,31 @@
               "ViewState": "AgIAALMBAAAAAAAAAAAwwLoBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-30T16:47:17.18Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fListaUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fListaUsuarios.cs",
+              "RelativeDocumentMoniker": "fListaUsuarios.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fListaUsuarios.cs",
+              "RelativeToolTip": "fListaUsuarios.cs",
+              "ViewState": "AgIAAJsBAAAAAAAAAAAYwKUBAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-31T01:37:47.691Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fListaUsuarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fListaUsuarios.cs",
+              "RelativeDocumentMoniker": "fListaUsuarios.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fListaUsuarios.cs [Design]",
+              "RelativeToolTip": "fListaUsuarios.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-30T18:02:49.053Z"
             }
           ]
         }

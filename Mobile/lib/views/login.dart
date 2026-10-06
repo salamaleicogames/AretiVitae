@@ -43,8 +43,14 @@ class _LoginState extends State<Login> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Login realizado com sucesso!"),
-          backgroundColor: Colors.green,
+          content: Text(
+            "Login realizado com sucesso!",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color.fromARGB(255, 78, 190, 82),
         ),
       );
 
@@ -58,8 +64,14 @@ class _LoginState extends State<Login> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Usuário ou Senha incorretos"),
-          backgroundColor: Colors.red,
+          content: Text(
+            "Usuário ou Senha incorretos",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          backgroundColor: Color.fromRGBO(235, 103, 129, 1),
         ),
       );
     }

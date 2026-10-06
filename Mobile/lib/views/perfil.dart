@@ -43,10 +43,12 @@ class _PerfilState extends State<Perfil> {
     super.dispose();
   }
 
+  //Função de atualização da senha do usuário
   Future<void> salvarPerfil() async {
     String novaSenha = txtSenha.text;
     String confirmacao = txtConfirmarSenha.text;
 
+    //Comparação da senha e confirmação da senha
     if (novaSenha.isNotEmpty) {
       if (novaSenha != confirmacao) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -65,6 +67,7 @@ class _PerfilState extends State<Perfil> {
       usuario!.senha = novaSenha;
     }
 
+    //Atualização dos dados do usuário via API
     final url = Uri.parse("http://localhost:8081/apiAv/Update/${usuario!.id}");
     final response = await http.put(
       url,
@@ -145,6 +148,7 @@ class _PerfilState extends State<Perfil> {
                           ),
                         ),
 
+                        //Nome de Usuário
                         SizedBox(height: 10),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 40),
@@ -163,6 +167,7 @@ class _PerfilState extends State<Perfil> {
 
                         SizedBox(height: 25),
 
+                        //Email
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           child: SizedBox(
@@ -209,6 +214,7 @@ class _PerfilState extends State<Perfil> {
 
                         SizedBox(height: 25),
 
+                        //Nova Senha
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           child: SizedBox(
@@ -255,6 +261,7 @@ class _PerfilState extends State<Perfil> {
 
                         SizedBox(height: 25),
 
+                        //Confirmar Nova Senha
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30),
                           child: SizedBox(
@@ -301,6 +308,7 @@ class _PerfilState extends State<Perfil> {
 
                         SizedBox(height: 25),
 
+                        //Botão Salvar
                         ElevatedButton(
                           onPressed: () async {
                             await salvarPerfil();

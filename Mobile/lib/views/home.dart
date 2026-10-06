@@ -153,7 +153,7 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            //Opções do usuário (Configirações, Sobre, Notas)
+                            //Opções do usuário (Configurações, Sobre, Notas)
                             GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(context, "/configuracoes");

@@ -67,7 +67,7 @@ class _CadastroState extends State<Cadastro> {
                       Container(
                         height: lightHeight,
                         width: double.infinity,
-                        color: Color.fromRGBO(143, 197, 255, 1),
+                        color: Color.fromRGBO(129, 162, 221, 1),
                       ),
 
                       Container(
@@ -365,18 +365,23 @@ class _CadastroState extends State<Cadastro> {
                               );
 
                               user.add(novoUsuario);
-
                               exibir();
-
                               setState(() {});
                             }
                           },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                            minimumSize: Size(280, 48),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
                           child: Text(
                             "Cadastrar",
                             style: TextStyle(
                               fontFamily: "Montserrat",
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                              fontSize: 20,
                               color: Colors.white,
                             ),
                           ),
