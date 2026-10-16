@@ -248,6 +248,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoIco.ico" />
+    <None Include="Resources\mauricio.png" />
+    <None Include="Resources\joao mantz.jpg" />
     <None Include="Resources\Maurício.ico" />
     <None Include="Resources\Maurício1.jpeg" />
     <None Include="Resources\Maurício.jpeg" />

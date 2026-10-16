@@ -458,8 +458,7 @@ namespace AretiVitae2
                             txtSenha.Enabled = false; 
                           
 
-                            //int assinatura = int.Parse(resultado["assinatura"].ToString());
-                            //cmbAssinatura.SelectedIndex = assinatura;
+                            int assinatura = int.Parse(resultado["assinatura"].ToString());
 
                             string tipoRegistro = resultado["tipoRegistro"].ToString();
                             string registro = resultado["registro"].ToString();

@@ -63,6 +63,16 @@ namespace AretiVitae2.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap joao_mantz {
+            get {
+                object obj = ResourceManager.GetObject("joao mantz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap João_Mantz_serio_jpg {
             get {
                 object obj = ResourceManager.GetObject("João-Mantz-serio.jpg", resourceCulture);
@@ -86,6 +96,16 @@ namespace AretiVitae2.Properties {
         internal static System.Drawing.Bitmap logo_text {
             get {
                 object obj = ResourceManager.GetObject("logo_text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mauricio {
+            get {
+                object obj = ResourceManager.GetObject("mauricio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

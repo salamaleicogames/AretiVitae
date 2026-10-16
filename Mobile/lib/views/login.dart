@@ -79,84 +79,91 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(88, 112, 184, 1),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                // PARTE DE CIMA
-                Container(
-                  height: 180,
-                  width: double.infinity,
-                  color: Color.fromRGBO(74, 84, 131, 1),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: Text(
-                          "<",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontSize: 30,
-                            color: Colors.white,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final bool isMobile = constraints.maxWidth < 600;
+
+        //Medidas dinâmicas para responsividade
+        final double tamanhoImagem = isMobile ? 160 : 220;
+        final double alturaTopo = isMobile ? 150 : 180;
+        final double larguraFormulario = isMobile
+            ? constraints.maxWidth - 60
+            : 500;
+
+        return Scaffold(
+          backgroundColor: Color.fromRGBO(88, 112, 184, 1),
+          body: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // PARTE SUPERIOR
+                    Container(
+                      height: alturaTopo,
+                      width: double.infinity,
+                      color: Color.fromRGBO(74, 84, 131, 1),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ),
 
-                // PARTE DE BAIXO
-                Container(
-                  width: double.infinity,
-                  color: Color.fromRGBO(88, 112, 184, 1),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 150),
+                    // PARTE DE BAIXO
+                    Container(
+                      width: double.infinity,
+                      color: Color.fromRGBO(88, 112, 184, 1),
+                      child: Column(
+                        children: [
+                          SizedBox(height: isMobile ? 160 : 200),
 
-                      Form(
-                        key: loginKey,
-                        child: Column(
-                          children: [
-                            // INPUT USERNAME
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 30),
-                              child: TextFormField(
-                                controller: txtEmail,
-                                style: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 12,
+                          Form(
+                            key: loginKey,
+                            child: Column(
+                              children: [
+                                // INPUT USERNAME
+                                SizedBox(height: 50),
+                                SizedBox(
+                                  width: larguraFormulario,
+                                  child: TextFormField(
+                                    controller: txtEmail,
+                                    style: TextStyle(
+                                      fontFamily: "Josefin",
+                                      fontSize: 15,
+                                    ),
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 12,
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                      hintText: "Email",
+                                      filled: true,
+                                      fillColor: Color.fromRGBO(
+                                        255,
+                                        255,
+                                        255,
+                                        0.9,
+                                      ),
+                                      prefixIcon: Icon(Icons.mail),
+                                    ),
                                   ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  hintText: "Email",
-                                  filled: true,
-                                  fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                                  prefixIcon: Icon(Icons.mail),
                                 ),
-                              ),
-                            ),
 
-                            SizedBox(height: 45),
+                                SizedBox(height: 45),
 
-                            // INPUT SENHA
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 30),
-                              child: Column(
-                                children: [
-                                  TextFormField(
+                                // INPUT SENHA
+                                SizedBox(
+                                  width: larguraFormulario,
+                                  child: TextFormField(
                                     controller: txtSenha,
                                     obscureText: true,
                                     style: TextStyle(
@@ -195,118 +202,164 @@ class _LoginState extends State<Login> {
                                       return null;
                                     },
                                   ),
-                                ],
-                              ),
-                            ),
+                                ),
 
-                            SizedBox(height: 15),
+                                SizedBox(height: 15),
 
-                            // LINKS
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 30),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.pushNamed(
-                                          context,
-                                          "/esqueciSenha",
-                                        );
-                                      },
-                                      child: Text(
-                                        "Esqueceu sua senha?",
-                                        style: TextStyle(
-                                          fontFamily: "Josefin",
-                                          fontSize: 15,
-                                          color: Colors.white,
+                                // LINKS
+                                SizedBox(
+                                  width: larguraFormulario,
+                                  child: isMobile
+                                      ? Column(
+                                          children: [
+                                            SizedBox(height: 10),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pushNamed(
+                                                  context,
+                                                  "/esqueciSenha",
+                                                );
+                                              },
+                                              child: Text(
+                                                "Esqueceu sua senha?",
+                                                style: TextStyle(
+                                                  fontFamily: "Josefin",
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+
+                                            SizedBox(height: 5),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pushNamed(
+                                                  context,
+                                                  "/cadastro",
+                                                );
+                                              },
+                                              child: Text(
+                                                "Ainda não tem uma conta?",
+                                                style: TextStyle(
+                                                  fontFamily: "Josefin",
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                    context,
+                                                    "/esqueciSenha",
+                                                  );
+                                                },
+                                                child: Text(
+                                                  "Esqueceu sua senha?",
+                                                  style: TextStyle(
+                                                    fontFamily: "Josefin",
+                                                    fontSize: 15,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+
+                                            SizedBox(width: 30),
+
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pushNamed(
+                                                  context,
+                                                  "/cadastro",
+                                                );
+                                              },
+                                              child: Text(
+                                                "Ainda não tem uma conta?",
+                                                style: TextStyle(
+                                                  fontFamily: "Josefin",
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
+                                ),
+
+                                SizedBox(height: 20),
+
+                                // BOTÃO
+                                ElevatedButton(
+                                  onPressed: () async {
+                                    await realizarLogin();
+                                  },
+                                  child: Text(
+                                    "Imergir",
+                                    style: TextStyle(
+                                      fontFamily: "Montserrat",
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Colors.white,
                                     ),
                                   ),
-
-                                  SizedBox(width: 30),
-
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/cadastro");
-                                    },
-                                    child: Text(
-                                      "Ainda não tem uma conta?",
-                                      style: TextStyle(
-                                        fontFamily: "Josefin",
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color.fromRGBO(
+                                      145,
+                                      205,
+                                      255,
+                                      1,
+                                    ),
+                                    minimumSize: Size(280, 48),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
+                          ),
 
-                            SizedBox(height: 20),
-
-                            // BOTÃO
-                            ElevatedButton(
-                              onPressed: () async {
-                                await realizarLogin();
-                              },
-                              child: Text(
-                                "Imergir",
-                                style: TextStyle(
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color.fromRGBO(
-                                  145,
-                                  205,
-                                  255,
-                                  1,
-                                ),
-                                minimumSize: Size(280, 48),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          SizedBox(height: 50),
+                        ],
                       ),
+                    ),
+                  ],
+                ),
+              ),
 
-                      SizedBox(height: 50),
-                    ],
+              // IMAGEM SOBREPOSTA
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.15,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(208, 227, 255, 0.8),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: EdgeInsets.all(10),
+
+                    child: Image.asset(
+                      "assets/images/alter2.png",
+                      width: tamanhoImagem,
+                    ),
                   ),
                 ),
-              ],
-            ),
-          ),
-
-          // IMAGEM SOBREPOSTA
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.15,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(208, 227, 255, 0.8),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: EdgeInsets.all(10),
-
-                child: Image.asset("assets/images/alter2.png", width: 200),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

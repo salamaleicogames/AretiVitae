@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fExtras));
             this.btnInformacoes = new System.Windows.Forms.Button();
             this.lblDescicao = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -69,26 +69,6 @@
             this.lblDescicao.Size = new System.Drawing.Size(102, 30);
             this.lblDescicao.TabIndex = 31;
             this.lblDescicao.Text = "Sobre Nós";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::AretiVitae2.Properties.Resources.Maurício2;
-            this.pictureBox3.Location = new System.Drawing.Point(529, 244);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(67, 98);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AretiVitae2.Properties.Resources.João_Mantz_serio_jpg;
-            this.pictureBox1.Location = new System.Drawing.Point(341, 244);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -149,6 +129,26 @@
             this.label1.Size = new System.Drawing.Size(283, 30);
             this.label1.TabIndex = 23;
             this.label1.Text = "Areti Vitae: Ilustrador de Ideias";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::AretiVitae2.Properties.Resources.mauricio;
+            this.pictureBox3.Location = new System.Drawing.Point(524, 244);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(95, 98);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AretiVitae2.Properties.Resources.joao_mantz;
+            this.pictureBox1.Location = new System.Drawing.Point(341, 244);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // imgLogo
             // 

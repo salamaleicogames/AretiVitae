@@ -64,6 +64,8 @@ class _PerfilState extends State<Perfil> {
         return;
       }
 
+      Navigator.pushNamed(context, "/login");
+
       usuario!.senha = novaSenha;
     }
 
@@ -105,274 +107,311 @@ class _PerfilState extends State<Perfil> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Column(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final bool isMobile = constraints.maxWidth < 600;
+        final double tamanhoImagem = isMobile ? 120 : 150;
+        final double alturaCabecalho = isMobile ? 120 : 150;
+        final double espacoSuperior = isMobile ? 80 : 100;
+        final double paddingHorizontal = isMobile ? 20 : 40;
+        final double espacoCampos = isMobile ? 18 : 25;
+
+        return Scaffold(
+          body: Stack(
             children: [
-              Container(height: 150, color: Color.fromRGBO(77, 84, 131, 1)),
-
-              Expanded(
-                child: Container(
-                  color: Color.fromRGBO(101, 123, 191, 1),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 100),
-
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: SizedBox(
-                            height: 40,
-                            child: TextField(
-                              controller: txtUser,
-                              enabled: false,
-                              style: TextStyle(
-                                fontFamily: "Josefin",
-                                fontSize: 15,
+              Column(
+                children: [
+                  Container(
+                    height: alturaCabecalho,
+                    color: Color.fromRGBO(77, 84, 131, 1),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Color.fromRGBO(101, 123, 191, 1),
+                      child: SingleChildScrollView(
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(maxWidth: 650),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: paddingHorizontal,
                               ),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide.none,
-                                ),
-                                hintText: "Areti Vitae",
-                                hintStyle: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromRGBO(255, 255, 255, 0.6),
+                              child: Column(
+                                children: [
+                                  SizedBox(height: espacoSuperior),
+                                  SizedBox(
+                                    height: 40,
+                                    child: TextField(
+                                      controller: txtUser,
+                                      enabled: false,
+                                      style: TextStyle(
+                                        fontFamily: "Josefin",
+                                        fontSize: isMobile ? 14 : 15,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            15,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        hintText: "Areti Vitae",
+                                        hintStyle: TextStyle(
+                                          fontFamily: "Josefin",
+                                          fontSize: isMobile ? 14 : 15,
+                                        ),
+                                        filled: true,
+                                        fillColor: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.6,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Nome de usuário",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: isMobile ? 14 : 15,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: espacoCampos),
+                                  SizedBox(
+                                    height: 40,
+                                    child: TextField(
+                                      controller: txtEmail,
+                                      enabled: false,
+                                      style: TextStyle(
+                                        fontFamily: "Josefin",
+                                        fontSize: isMobile ? 14 : 15,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            15,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        hintText: "aretivitae@gmail.com",
+                                        hintStyle: TextStyle(
+                                          fontFamily: "Josefin",
+                                          fontSize: isMobile ? 14 : 15,
+                                        ),
+                                        filled: true,
+                                        fillColor: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.6,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Email cadastrado",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: isMobile ? 14 : 15,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: espacoCampos),
+                                  SizedBox(
+                                    height: 40,
+                                    child: TextField(
+                                      controller: txtSenha,
+                                      obscureText: true,
+                                      style: TextStyle(
+                                        fontFamily: "Josefin",
+                                        fontSize: isMobile ? 14 : 15,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            15,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        hintText: "Nova senha",
+                                        hintStyle: TextStyle(
+                                          fontFamily: "Josefin",
+                                          fontSize: isMobile ? 14 : 15,
+                                        ),
+                                        filled: true,
+                                        fillColor: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Nova senha",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: isMobile ? 14 : 15,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: espacoCampos),
+                                  SizedBox(
+                                    height: 40,
+                                    child: TextField(
+                                      controller: txtConfirmarSenha,
+                                      obscureText: true,
+                                      style: TextStyle(
+                                        fontFamily: "Josefin",
+                                        fontSize: isMobile ? 14 : 15,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            15,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        hintText: "Confirme a nova senha",
+                                        hintStyle: TextStyle(
+                                          fontFamily: "Josefin",
+                                          fontSize: isMobile ? 14 : 15,
+                                        ),
+                                        filled: true,
+                                        fillColor: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Confirmar nova senha",
+                                      style: TextStyle(
+                                        fontFamily: "Montserrat",
+                                        fontSize: isMobile ? 14 : 15,
+                                        color: Color.fromRGBO(
+                                          255,
+                                          255,
+                                          255,
+                                          0.9,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: isMobile ? 20 : 25),
+                                  SizedBox(
+                                    width: isMobile ? double.infinity : 280,
+                                    height: 48,
+                                    child: ElevatedButton(
+                                      onPressed: () async {
+                                        await salvarPerfil();
+                                        setState(() {});
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color.fromRGBO(
+                                          145,
+                                          205,
+                                          255,
+                                          1,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          fontFamily: "Montserrat",
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: isMobile ? 16 : 18,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 30),
+                                ],
                               ),
                             ),
                           ),
                         ),
-
-                        //Nome de Usuário
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Nome de usuário",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                fontSize: 15,
-                                color: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                top: isMobile ? 65 : 80,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Container(
+                    width: tamanhoImagem,
+                    height: tamanhoImagem,
+                    padding: EdgeInsets.all(isMobile ? 8 : 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(isMobile ? 20 : 25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 10,
+                          offset: Offset(0, 4),
                         ),
-
-                        SizedBox(height: 25),
-
-                        //Email
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: SizedBox(
-                            height: 40,
-                            child: TextField(
-                              controller: txtEmail,
-                              enabled: false,
-                              style: TextStyle(
-                                fontFamily: "Josefin",
-                                fontSize: 15,
-                              ),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide.none,
-                                ),
-                                hintText: "aretivitae@gmail.com",
-                                hintStyle: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromRGBO(255, 255, 255, 0.6),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Email cadastrado",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                fontSize: 15,
-                                color: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 25),
-
-                        //Nova Senha
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: SizedBox(
-                            height: 40,
-                            child: TextField(
-                              controller: txtSenha,
-                              obscureText: true,
-                              style: TextStyle(
-                                fontFamily: "Josefin",
-                                fontSize: 15,
-                              ),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide.none,
-                                ),
-                                hintText: "Nova senha",
-                                hintStyle: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Nova senha",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                fontSize: 15,
-                                color: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 25),
-
-                        //Confirmar Nova Senha
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
-                          child: SizedBox(
-                            height: 40,
-                            child: TextField(
-                              controller: txtConfirmarSenha,
-                              obscureText: true,
-                              style: TextStyle(
-                                fontFamily: "Josefin",
-                                fontSize: 15,
-                              ),
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  borderSide: BorderSide.none,
-                                ),
-                                hintText: "Confirme a nova senha",
-                                hintStyle: TextStyle(
-                                  fontFamily: "Josefin",
-                                  fontSize: 15,
-                                ),
-                                filled: true,
-                                fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 10),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Confirmar nova senha",
-                              style: TextStyle(
-                                fontFamily: "Montserrat",
-                                fontSize: 15,
-                                color: Color.fromRGBO(255, 255, 255, 0.9),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 25),
-
-                        //Botão Salvar
-                        ElevatedButton(
-                          onPressed: () async {
-                            await salvarPerfil();
-                            setState(() {});
-                          },
-                          child: Text(
-                            "Salvar",
-                            style: TextStyle(
-                              fontFamily: "Montserrat",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.white,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                            minimumSize: Size(280, 48),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 40),
                       ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(isMobile ? 16 : 20),
+                      child: Image.asset(
+                        "assets/images/alter2.png",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-
-          Positioned(
-            top: 80,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Container(
-                width: 150,
-                height: 150,
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    "assets/images/alter2.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

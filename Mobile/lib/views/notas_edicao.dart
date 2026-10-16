@@ -37,7 +37,7 @@ class _NotaEdicaoState extends State<NotaEdicao> {
 
     if (titulo.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text(
             "O título não pode ficar vazio!",
             style: TextStyle(color: Colors.black),
@@ -69,158 +69,180 @@ class _NotaEdicaoState extends State<NotaEdicao> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          //Cabeçalho
-          Container(
-            height: 120,
-            color: Color.fromRGBO(101, 123, 191, 1),
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + 10,
-              left: 10,
-              right: 20,
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // Botão voltar
-                IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                const Spacer(),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final bool isMobile = constraints.maxWidth < 600;
+        final double paddingHorizontal = isMobile ? 16 : 32;
+        final double paddingVertical = isMobile ? 20 : 30;
+        final double tamanhoData = isMobile ? 17 : 22;
+        final double alturaCabecalho = isMobile ? 100 : 120;
+        final double larguraBotao = isMobile ? constraints.maxWidth - 48 : 280;
+        final double tamanhoTexto = isMobile ? 14 : 15;
 
-                // Data da nota
-                Text(
-                  widget.nota.data,
-                  style: TextStyle(
-                    fontFamily: "Josefin Sans",
-                    fontSize: 22,
-                    color: Colors.white,
-                  ),
+        return Scaffold(
+          backgroundColor: Color.fromRGBO(77, 84, 131, 1),
+          body: Column(
+            children: [
+              // Cabeçalho
+              Container(
+                height: alturaCabecalho + MediaQuery.of(context).padding.top,
+                color: Color.fromRGBO(101, 123, 191, 1),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top + 4,
+                  left: isMobile ? 6 : 16,
+                  right: isMobile ? 12 : 24,
                 ),
-              ],
-            ),
-          ),
-
-          //Card de Edição
-          Expanded(
-            child: Container(
-              color: Color.fromRGBO(77, 84, 131, 1),
-              child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    // Campo: Título
-                    SizedBox(
-                      height: 48,
-                      child: TextField(
-                        controller: txtTitulo,
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        size: isMobile ? 18 : 20,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    Spacer(),
+                    Flexible(
+                      child: Text(
+                        widget.nota.data,
+                        textAlign: TextAlign.end,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontFamily: "Josefin Sans",
-                          fontSize: 15,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "Título da nota",
-                          hintStyle: TextStyle(
-                            fontFamily: "Josefin Sans",
-                            fontSize: 15,
-                          ),
-                          filled: true,
-                          fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    //Título
-                    SizedBox(height: 8),
-                    Text(
-                      "Mudar título",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontSize: 13,
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
-                      ),
-                    ),
-
-                    SizedBox(height: 25),
-
-                    //Conteúdo da Nota
-                    TextField(
-                      controller: txtTexto,
-                      maxLines: 10,
-                      style: const TextStyle(
-                        fontFamily: "Josefin Sans",
-                        fontSize: 15,
-                        height: 1.6,
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "Escreva sua nota aqui...",
-                        hintStyle: TextStyle(
-                          fontFamily: "Josefin Sans",
-                          fontSize: 15,
-                        ),
-                        filled: true,
-                        fillColor: Color.fromRGBO(255, 255, 255, 0.9),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: EdgeInsets.all(16),
-                      ),
-                    ),
-
-                    SizedBox(height: 8),
-                    Text(
-                      "Conteúdo da nota",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontSize: 13,
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
-                      ),
-                    ),
-
-                    SizedBox(height: 30),
-
-                    // Botão Salvar
-                    Center(
-                      child: ElevatedButton(
-                        onPressed: _salvar,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(145, 205, 255, 1),
-                          minimumSize: Size(280, 48),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: Text(
-                          "Salvar",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
+                          fontSize: tamanhoData,
+                          color: Colors.white,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
+
+              // Card de edição
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: paddingHorizontal,
+                    vertical: paddingVertical,
+                  ),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 750),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 48,
+                            child: TextField(
+                              controller: txtTitulo,
+                              style: TextStyle(
+                                fontFamily: "Josefin Sans",
+                                fontSize: tamanhoTexto,
+                              ),
+                              decoration: InputDecoration(
+                                hintText: "Título da nota",
+                                hintStyle: TextStyle(
+                                  fontFamily: "Josefin Sans",
+                                  fontSize: tamanhoTexto,
+                                ),
+                                filled: true,
+                                fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: BorderSide.none,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            "Mudar título",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontSize: isMobile ? 12 : 13,
+                              color: Color.fromRGBO(255, 255, 255, 0.9),
+                            ),
+                          ),
+                          SizedBox(height: isMobile ? 20 : 25),
+                          TextField(
+                            controller: txtTexto,
+                            minLines: isMobile ? 8 : 10,
+                            maxLines: isMobile ? 12 : 16,
+                            style: TextStyle(
+                              fontFamily: "Josefin Sans",
+                              fontSize: tamanhoTexto,
+                              height: 1.6,
+                            ),
+                            decoration: InputDecoration(
+                              hintText: "Escreva sua nota aqui...",
+                              hintStyle: TextStyle(
+                                fontFamily: "Josefin Sans",
+                                fontSize: tamanhoTexto,
+                              ),
+                              filled: true,
+                              fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding: EdgeInsets.all(
+                                isMobile ? 12 : 16,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            "Conteúdo da nota",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontSize: isMobile ? 12 : 13,
+                              color: Color.fromRGBO(255, 255, 255, 0.9),
+                            ),
+                          ),
+                          SizedBox(height: isMobile ? 24 : 30),
+                          Center(
+                            child: SizedBox(
+                              width: larguraBotao.clamp(0.0, 320.0),
+                              child: ElevatedButton(
+                                onPressed: _salvar,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color.fromRGBO(
+                                    145,
+                                    205,
+                                    255,
+                                    1,
+                                  ),
+                                  minimumSize: Size(
+                                    double.infinity,
+                                    isMobile ? 46 : 48,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                child: Text(
+                                  "Salvar",
+                                  style: TextStyle(
+                                    fontFamily: "Montserrat",
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: isMobile ? 16 : 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

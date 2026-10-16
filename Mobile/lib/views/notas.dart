@@ -12,7 +12,6 @@ class Notas extends StatefulWidget {
 }
 
 class _NotasState extends State<Notas> {
-  // Array de notas
   List<NotasModel> notas = [];
   bool carregando = true;
 
@@ -22,7 +21,6 @@ class _NotasState extends State<Notas> {
     carregarNotas();
   }
 
-  //Lista as notas criadas pelo usuário
   Future<void> carregarNotas() async {
     final usuario = await UserRepository().carregarUsuario();
     final lista = await NotasRepository().listarNotasPorUsuario(usuario!.id);
@@ -40,7 +38,6 @@ class _NotasState extends State<Notas> {
         "${now.year}";
   }
 
-  // Abre o modal para digitar o título da nova nota
   void novaNota() {
     final ctrlTitulo = TextEditingController();
 
@@ -61,7 +58,6 @@ class _NotasState extends State<Notas> {
     );
   }
 
-  // Navega para a tela de edição
   void editarNota(NotasModel nota) {
     Navigator.push(
       context,
@@ -97,11 +93,10 @@ class _NotasState extends State<Notas> {
     );
   }
 
-  // Remove uma nota da lista
   void excluirNota(NotasModel nota) async {
     nota.ativo = 1;
 
-    final atualizada = await NotasRepository().atualizarNota(nota);
+    await NotasRepository().atualizarNota(nota);
 
     setState(() => notas.remove(nota));
 
@@ -115,132 +110,166 @@ class _NotasState extends State<Notas> {
           ),
         ),
         backgroundColor: Color.fromRGBO(235, 103, 129, 1),
+        duration: Duration(seconds: 2),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          //CABEÇALHO (Data da Nota)
-          Container(
-            color: Color.fromRGBO(101, 123, 191, 1),
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + 10,
-              left: 20,
-              right: 20,
-              bottom: 16,
-            ),
-            child: Row(
-              children: [
-                Text(
-                  "Notas",
-                  style: TextStyle(
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 22,
-                    color: Color.fromARGB(255, 250, 250, 243),
-                  ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final bool isMobile = constraints.maxWidth < 600;
+        final double paddingHorizontal = isMobile ? 16 : 28;
+        final double tamanhoTitulo = isMobile ? 20 : 24;
+        final double paddingCard = isMobile ? 12 : 16;
+        final double tamanhoTextoCard = isMobile ? 14 : 16;
+        final double espacamentoLista = isMobile ? 10 : 14;
+
+        return Scaffold(
+          body: Column(
+            children: [
+              Container(
+                color: Color.fromRGBO(101, 123, 191, 1),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top + 10,
+                  left: paddingHorizontal,
+                  right: paddingHorizontal,
+                  bottom: isMobile ? 12 : 16,
                 ),
-
-                SizedBox(width: 20),
-
-                //NOVA NOTA
-                ElevatedButton(
-                  onPressed: novaNota,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(208, 227, 255, 1),
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                child: Row(
+                  children: [
+                    Text(
+                      "Notas",
+                      style: TextStyle(
+                        fontFamily: "Montserrat",
+                        fontWeight: FontWeight.w700,
+                        fontSize: tamanhoTitulo,
+                        color: Color.fromARGB(255, 250, 250, 243),
+                      ),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    "+ Nova nota",
-                    style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w700,
-                      fontSize: 13,
+                    SizedBox(width: isMobile ? 12 : 20),
+                    ElevatedButton(
+                      onPressed: novaNota,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(208, 227, 255, 1),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isMobile ? 12 : 16,
+                          vertical: 8,
+                        ),
+                        elevation: 0,
+                      ),
+                      child: Text(
+                        "+ Nova nota",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w700,
+                          fontSize: isMobile ? 12 : 13,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-
-          //Estilização do card de notas
-          Expanded(
-            child: Container(
-              color: Color.fromRGBO(77, 84, 131, 1),
-              child: Column(
-                children: [
-                  // Subtítulo: quantidade de notas
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                    child: Row(
-                      children: [
-                        Text(
-                          "${notas.length} nota${notas.length != 1 ? 's' : ''}",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13,
-                            color: Colors.white70,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Container(width: 1, height: 14, color: Colors.white30),
-                        SizedBox(width: 10),
-                        Text(
-                          "limite de 1 000 caracteres por nota",
-                          style: TextStyle(
-                            fontFamily: "Montserrat",
-                            fontSize: 12,
-                            color: Colors.white54,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Lista de cards ou tela vazia
-                  Expanded(
-                    child: notas.isEmpty
-                        ? _TelaVazia(onNova: novaNota)
-                        : ListView.builder(
-                            padding: EdgeInsets.fromLTRB(20, 4, 20, 20),
-                            itemCount: notas.length,
-                            itemBuilder: (_, i) => _CardNota(
-                              nota: notas[i],
-                              onEditar: () => editarNota(notas[i]),
-                              onExcluir: () => excluirNota(notas[i]),
-                            ),
-                          ),
-                  ),
-                ],
               ),
-            ),
+              Expanded(
+                child: Container(
+                  color: Color.fromRGBO(77, 84, 131, 1),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: paddingHorizontal,
+                          vertical: isMobile ? 10 : 12,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "${notas.length} nota${notas.length != 1 ? 's' : ''}",
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13,
+                                color: Colors.white70,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Container(
+                              width: 1,
+                              height: 14,
+                              color: Colors.white30,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "Limite de 1 000 caracteres por nota",
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontSize: 12,
+                                color: Colors.white54,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: notas.isEmpty
+                            ? _TelaVazia(onNova: novaNota)
+                            : Center(
+                                child: ConstrainedBox(
+                                  constraints: BoxConstraints(maxWidth: 850),
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.fromLTRB(
+                                      paddingHorizontal,
+                                      4,
+                                      paddingHorizontal,
+                                      20,
+                                    ),
+                                    itemCount: notas.length,
+                                    itemBuilder: (_, i) => _CardNota(
+                                      nota: notas[i],
+                                      isMobile: isMobile,
+                                      paddingCard: paddingCard,
+                                      tamanhoTexto: tamanhoTextoCard,
+                                      espacamentoLista: espacamentoLista,
+                                      onEditar: () => editarNota(notas[i]),
+                                      onExcluir: () => excluirNota(notas[i]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
 
-//TEMPLATE - CARD DA NOTA
 class _CardNota extends StatelessWidget {
   final NotasModel nota;
   final VoidCallback onEditar;
   final VoidCallback onExcluir;
+  final bool isMobile;
+  final double paddingCard;
+  final double tamanhoTexto;
+  final double espacamentoLista;
 
   const _CardNota({
     required this.nota,
     required this.onEditar,
     required this.onExcluir,
+    required this.isMobile,
+    required this.paddingCard,
+    required this.tamanhoTexto,
+    required this.espacamentoLista,
   });
 
   @override
@@ -248,8 +277,8 @@ class _CardNota extends StatelessWidget {
     return GestureDetector(
       onTap: onEditar,
       child: Container(
-        margin: EdgeInsets.only(bottom: 14),
-        padding: EdgeInsets.all(16),
+        margin: EdgeInsets.only(bottom: espacamentoLista),
+        padding: EdgeInsets.all(paddingCard),
         decoration: BoxDecoration(
           color: Color.fromRGBO(255, 255, 255, 0.12),
           borderRadius: BorderRadius.circular(15),
@@ -257,7 +286,6 @@ class _CardNota extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Linha do título + botões
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -267,62 +295,55 @@ class _CardNota extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700,
-                      fontSize: 15,
+                      fontSize: tamanhoTexto,
                       color: Colors.white,
                     ),
                   ),
                 ),
-
-                // Botão editar
                 IconButton(
                   icon: Icon(
                     Icons.edit_outlined,
                     color: Color.fromRGBO(145, 205, 255, 1),
-                    size: 20,
+                    size: isMobile ? 19 : 21,
                   ),
                   onPressed: onEditar,
                   padding: EdgeInsets.zero,
                   constraints: BoxConstraints(),
+                  visualDensity: VisualDensity.compact,
                 ),
-
-                const SizedBox(width: 8),
-
-                // Botão excluir
+                SizedBox(width: 8),
                 IconButton(
                   icon: Icon(
                     Icons.delete_outline,
                     color: Color(0xFFFF6B6B),
-                    size: 20,
+                    size: isMobile ? 19 : 21,
                   ),
                   onPressed: onExcluir,
                   padding: EdgeInsets.zero,
                   constraints: BoxConstraints(),
+                  visualDensity: VisualDensity.compact,
                 ),
               ],
             ),
-
-            // Data
             Text(
               nota.data,
               style: TextStyle(
                 fontFamily: "Josefin Sans",
-                fontSize: 12,
+                fontSize: isMobile ? 11 : 12,
                 color: Colors.white60,
               ),
             ),
-
-            // Preview do texto (se tiver)
             if (nota.texto.isNotEmpty) ...[
-              SizedBox(height: 8),
+              SizedBox(height: 6),
               Text(
                 nota.texto,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: "Josefin Sans",
-                  fontSize: 13,
+                  fontSize: isMobile ? 12 : 13,
                   color: Colors.white70,
-                  height: 1.5,
+                  height: 1.4,
                 ),
               ),
             ],
@@ -333,9 +354,9 @@ class _CardNota extends StatelessWidget {
   }
 }
 
-// TELA VAZIA
 class _TelaVazia extends StatelessWidget {
   final VoidCallback onNova;
+
   const _TelaVazia({required this.onNova});
 
   @override
@@ -344,9 +365,9 @@ class _TelaVazia extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.note_add_outlined, size: 60, color: Colors.white24),
-          const SizedBox(height: 16),
-          const Text(
+          Icon(Icons.note_add_outlined, size: 55, color: Colors.white24),
+          SizedBox(height: 12),
+          Text(
             "Nenhuma nota ainda",
             style: TextStyle(
               fontFamily: "Montserrat",
@@ -355,10 +376,10 @@ class _TelaVazia extends StatelessWidget {
               color: Colors.white38,
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 8),
           TextButton(
             onPressed: onNova,
-            child: const Text(
+            child: Text(
               "Criar primeira nota →",
               style: TextStyle(
                 fontFamily: "Montserrat",
@@ -373,9 +394,6 @@ class _TelaVazia extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────
-//  MODAL: NOVA NOTA
-// ─────────────────────────────────────────────
 class _ModalNovaNota extends StatelessWidget {
   final TextEditingController controller;
   final void Function(String titulo) onCriar;
@@ -389,132 +407,121 @@ class _ModalNovaNota extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = MediaQuery.of(context).size.width < 600;
+
     return Dialog(
-      backgroundColor: const Color.fromRGBO(88, 112, 184, 1),
+      backgroundColor: Color.fromRGBO(88, 112, 184, 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Cabeçalho
-            Row(
-              children: [
-                const Spacer(),
-                const Text(
-                  "NOVA NOTA",
-                  style: TextStyle(
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                    color: Colors.white,
-                    letterSpacing: 1.5,
+        padding: EdgeInsets.all(isMobile ? 18 : 24),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 440),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Spacer(),
+                  Text(
+                    "NOVA NOTA",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: onCancelar,
-                  child: const Icon(
-                    Icons.close,
-                    color: Colors.white70,
-                    size: 20,
+                  Spacer(),
+                  GestureDetector(
+                    onTap: onCancelar,
+                    child: Icon(Icons.close, color: Colors.white70, size: 20),
                   ),
-                ),
-              ],
-            ),
-
-            const Divider(color: Colors.white24, height: 24),
-
-            const Text(
-              "Escolha um título para a sua nota",
-              style: TextStyle(
-                fontFamily: "Montserrat",
-                fontSize: 13,
-                color: Colors.white70,
+                ],
               ),
-            ),
-
-            const SizedBox(height: 14),
-
-            // Campo título
-            SizedBox(
-              height: 48,
-              child: TextField(
-                controller: controller,
-                autofocus: true,
-                style: const TextStyle(
-                  fontFamily: "Josefin Sans",
-                  fontSize: 15,
+              Divider(color: Colors.white24, height: 24),
+              Text(
+                "Escolha um título para a sua nota",
+                style: TextStyle(
+                  fontFamily: "Montserrat",
+                  fontSize: 13,
+                  color: Colors.white70,
                 ),
-                decoration: InputDecoration(
-                  hintText: "Título da nota...",
-                  hintStyle: const TextStyle(
-                    fontFamily: "Josefin Sans",
-                    fontSize: 15,
-                  ),
-                  filled: true,
-                  fillColor: const Color.fromRGBO(255, 255, 255, 0.9),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                onSubmitted: onCriar,
               ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Botões
-            Row(
-              children: [
-                Expanded(
-                  child: OutlinedButton(
-                    onPressed: onCancelar,
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      side: const BorderSide(color: Colors.white38),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 13),
+              SizedBox(height: isMobile ? 10 : 14),
+              SizedBox(
+                height: 48,
+                child: TextField(
+                  controller: controller,
+                  autofocus: true,
+                  style: TextStyle(fontFamily: "Josefin Sans", fontSize: 15),
+                  decoration: InputDecoration(
+                    hintText: "Título da nota...",
+                    hintStyle: TextStyle(
+                      fontFamily: "Josefin Sans",
+                      fontSize: 15,
                     ),
-                    child: const Text(
-                      "Cancelar",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                    filled: true,
+                    fillColor: Color.fromRGBO(255, 255, 255, 0.9),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  onSubmitted: onCriar,
+                ),
+              ),
+              SizedBox(height: isMobile ? 16 : 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: onCancelar,
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        side: BorderSide(color: Colors.white38),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: Text(
+                        "Cancelar",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () => onCriar(controller.text),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(145, 205, 255, 1),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => onCriar(controller.text),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(145, 205, 255, 1),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        elevation: 0,
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 13),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      "Criar nota",
-                      style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
+                      child: Text(
+                        "Criar nota",
+                        style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

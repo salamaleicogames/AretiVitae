@@ -118,7 +118,7 @@
             this.Controls.Add(this.lblDescricao2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "listaUsuariosADM";
-            this.Text = "listaUsuariosADM";
+            this.Text = "Lista de Usuários - ADM";
             this.Load += new System.EventHandler(this.listaUsuariosADM_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
