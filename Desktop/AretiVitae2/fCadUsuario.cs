@@ -420,6 +420,7 @@ namespace AretiVitae2
             txtIdade.Clear();
             txtEmail.Clear();
             txtSenha.Clear();
+            txtSenha.Enabled = true;
             //cmbAssinatura.SelectedIndex = -1;
             cmbTipoRegistro.SelectedIndex = -1;
             chkAtivo.Checked = true;
@@ -456,9 +457,7 @@ namespace AretiVitae2
                             txtEmail.Text = resultado["email"].ToString();
                             txtSenha.Clear();
                             txtSenha.Enabled = false; 
-                          
-
-                            int assinatura = int.Parse(resultado["assinatura"].ToString());
+                         
 
                             string tipoRegistro = resultado["tipoRegistro"].ToString();
                             string registro = resultado["registro"].ToString();
@@ -473,28 +472,6 @@ namespace AretiVitae2
                                 cmbTipoRegistro.SelectedIndex = 1;
                             }
 
-
-
-                            //if (assinatura == 0)
-                            //{
-                            //    lblTipoConta.Visible = false;
-                            //    lblRegistro.Visible = false;
-                            //    cmbTipoRegistro.Visible = false;
-                            //    txtRegistro.Visible = false;
-
-                            //    txtRegistro.Clear();
-                            //}
-                            //else
-                            //{
-                            //    lblTipoConta.Visible = true;
-                            //    lblRegistro.Visible = true;
-                            //    cmbTipoRegistro.Visible = true;
-                            //    txtRegistro.Visible = true;
-
-                            //    txtRegistro.Text = resultado["registro"].ToString();
-                            //}
-
-                           
                             // Define se o usuário está ativo ou inativo
                             int ativo = int.Parse(resultado["ativo"].ToString());
                             if (ativo == 0)
@@ -512,31 +489,6 @@ namespace AretiVitae2
 
                             txtUsername.Enabled = false;
                             btnAtualizar.Focus();
-
-                            //// Se o plano for Free, esconde os campos extras
-                            //if (cmbTipoRegistro.SelectedIndex == 0)
-                            //{
-                            //    lblTipoConta.Visible = false;
-                            //    lblRegistro.Visible = false;
-                            //    cmbTipoRegistro.Visible = false;
-                            //    txtRegistro.Visible = false;
-                            //}
-                            //else // Se for Premium, mostra e preenche
-                            //{
-                            //    tipoRegistro = resultado["tipoRegistro"].ToString();
-
-                            //    if (tipoRegistro == "Pessoa Física")
-                            //    {
-                            //        cmbTipoRegistro.SelectedIndex = 0;
-                            //    }
-                            //    else if (tipoRegistro == "Pessoa Jurídica")
-                            //    {
-                            //        cmbTipoRegistro.SelectedIndex = 1;
-                            //    }
-
-                            //    string registro = resultado["registro"].ToString();
-                            //    txtRegistro.Text = registro;
-                            //}
                         }
                         else
                         {

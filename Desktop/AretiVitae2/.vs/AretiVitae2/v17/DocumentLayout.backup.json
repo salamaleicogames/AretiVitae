@@ -11,19 +11,7 @@
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fextras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fextras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fajuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fajuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:dao_conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,60 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DAO_Conexao.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
-              "RelativeDocumentMoniker": "DAO_Conexao.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\DAO_Conexao.cs",
-              "RelativeToolTip": "DAO_Conexao.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAgwAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-30T03:19:57.193Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
-              "RelativeDocumentMoniker": "Usuario.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
-              "RelativeToolTip": "Usuario.cs",
-              "ViewState": "AgIAALMBAAAAAAAAAAAwwLoBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-30T16:47:17.18Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fCadUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
-              "RelativeDocumentMoniker": "fCadUsuario.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
-              "RelativeToolTip": "fCadUsuario.cs",
-              "ViewState": "AgIAAOMBAAAAAAAAAADwv/kBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-16T00:02:37.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fCadUsuario.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
-              "RelativeDocumentMoniker": "fCadUsuario.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs [Design]",
-              "RelativeToolTip": "fCadUsuario.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-16T00:01:10.592Z",
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
@@ -119,25 +55,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "fExtras.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fExtras.cs",
-              "RelativeDocumentMoniker": "fExtras.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fExtras.cs [Design]",
-              "RelativeToolTip": "fExtras.cs [Design]",
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
+              "RelativeDocumentMoniker": "Usuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
+              "RelativeToolTip": "Usuario.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAwwCABAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-15T23:27:43.393Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-08-30T16:47:17.18Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "fAjuda.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fAjuda.cs",
-              "RelativeDocumentMoniker": "fAjuda.cs",
-              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fAjuda.cs [Design]",
-              "RelativeToolTip": "fAjuda.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "fCadUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeToolTip": "fCadUsuario.cs",
+              "ViewState": "AgIAAJoBAAAAAAAAAADgv6YBAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-15T23:27:39.739Z",
+              "WhenOpened": "2026-10-27T01:37:37.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fCadUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs [Design]",
+              "RelativeToolTip": "fCadUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T01:37:24.363Z",
               "EditorCaption": " [Design]"
             }
           ]

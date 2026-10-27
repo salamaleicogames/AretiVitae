@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:fcadusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|c:\\users\\maufe\\onedrive\\desktop\\aretivitae\\desktop\\aretivitae2\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1EE273E-D39C-4FDE-A42A-E576F33CB024}|AretiVitae2.csproj|solutionrelative:usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
               "RelativeDocumentMoniker": "Usuario.cs",
               "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\Usuario.cs",
               "RelativeToolTip": "Usuario.cs",
-              "ViewState": "AgIAAJgBAAAAAAAAAAAiwLoBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAwwCABAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-30T16:47:17.18Z",
               "IsPinned": true,
@@ -57,6 +65,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fCadUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeToolTip": "fCadUsuario.cs",
+              "ViewState": "AgIAAJoBAAAAAAAAAADgv6YBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T01:37:37.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fCadUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs",
+              "RelativeDocumentMoniker": "fCadUsuario.cs",
+              "ToolTip": "C:\\Users\\maufe\\OneDrive\\Desktop\\AretiVitae\\Desktop\\AretiVitae2\\fCadUsuario.cs [Design]",
+              "RelativeToolTip": "fCadUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T01:37:24.363Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
